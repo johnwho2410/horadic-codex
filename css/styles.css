@@ -19,9 +19,11 @@
     a { color:inherit; }
     button { font:inherit; }
     .topbar { position:sticky; top:0; z-index:20; border-bottom:1px solid var(--line); background:rgba(9,8,7,.91); backdrop-filter:blur(14px); }
-    .nav { max-width:1200px; margin:auto; min-height:85px; padding:0 24px; display:flex; align-items:center; gap:28px; }
+    .nav { max-width:1200px; margin:auto; min-height:132px; padding:0 24px; display:flex; align-items:center; gap:28px; transition:min-height .3s ease; }
     .brand { display:flex; align-items:center; margin-right:auto; text-decoration:none; }
-    .brand-logo { display:block; height:50px; width:auto; }
+    .brand-logo { display:block; height:76px; width:auto; transition:height .3s ease; }
+    .topbar.is-scrolled .nav { min-height:85px; }
+    .topbar.is-scrolled .brand-logo { height:50px; }
     .nav-links { display:flex; gap:20px; }
     .nav-links a { color:var(--muted); text-decoration:none; font:600 .78rem/1.2 system-ui,sans-serif; letter-spacing:.09em; text-transform:uppercase; }
     .nav-links a:hover,.nav-links a:focus-visible { color:var(--bone); }
@@ -352,10 +354,13 @@
       .archive-grid { grid-template-columns:repeat(2,1fr); }
     }
     @media (max-width:680px) {
-      .nav { min-height:77px; padding:0 18px; }
-      .brand-logo { height:38px; }
+      .nav { min-height:92px; padding:0 18px; }
+      .brand-logo { height:46px; }
+      .topbar.is-scrolled .nav { min-height:77px; }
+      .topbar.is-scrolled .brand-logo { height:38px; }
+      .topbar.is-scrolled .nav-links { top:62px; }
       .menu-btn { display:block; }
-      .nav-links { display:none; position:absolute; top:62px; left:0; right:0; padding:18px 24px 24px; flex-direction:column; background:#0d0b0a; border-bottom:1px solid var(--line); }
+      .nav-links { display:none; position:absolute; top:77px; left:0; right:0; padding:18px 24px 24px; flex-direction:column; background:#0d0b0a; border-bottom:1px solid var(--line); transition:top .3s ease; }
       .nav-links.open { display:flex; }
       .hero,.section { padding-left:18px; padding-right:18px; }
       .section { padding-top:76px; padding-bottom:76px; }

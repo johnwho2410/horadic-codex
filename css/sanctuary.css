@@ -18,9 +18,12 @@ a { color:inherit; }
 button { font:inherit; }
 
 .topbar { border-bottom:1px solid var(--line); background:rgba(9,8,7,.94); position:sticky; top:0; z-index:20; }
-.nav { max-width:1200px; margin:auto; min-height:85px; padding:0 24px; display:flex; align-items:center; gap:24px; }
+.nav { max-width:1200px; margin:auto; min-height:132px; padding:0 24px; display:flex; transition:min-height .3s ease; align-items:center; gap:24px; }
 .brand { display:flex; align-items:center; margin-right:auto; text-decoration:none; }
-.brand-logo { display:block; height:50px; width:auto; }
+.brand-logo { display:block; height:76px; width:auto; transition:height .3s ease; }
+
+.topbar.is-scrolled .nav { min-height:85px; }
+.topbar.is-scrolled .brand-logo { height:50px; }
 .nav a:not(.brand) { color:var(--muted); text-decoration:none; font:650 .78rem/1 system-ui,sans-serif; letter-spacing:.08em; text-transform:uppercase; }
 .nav a:not(.brand):hover { color:var(--bone); }
 
@@ -118,8 +121,10 @@ h1 { max-width:820px; margin:16px 0 20px; font-size:clamp(2.6rem,6vw,4.6rem); }
   .relation-node.origin { grid-column:auto; }
 }
 @media (max-width:680px) {
-  .nav { padding:0 18px; min-height:75px; gap:16px; }
-  .brand-logo { height:38px; }
+  .nav { padding:0 18px; min-height:92px; gap:16px; }
+  .brand-logo { height:46px; }
+  .topbar.is-scrolled .nav { min-height:75px; }
+  .topbar.is-scrolled .brand-logo { height:38px; }
   .intro,.block { padding-left:18px; padding-right:18px; }
   .lore-lead,.region-strip,.people-grid,.archive-grid,.relation-tier { grid-template-columns:1fr; }
   .lore-chapter { padding:20px 18px; }
