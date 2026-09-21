@@ -27,19 +27,31 @@ button { font:inherit; }
 h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; line-height:1.05; text-transform:uppercase; letter-spacing:.02em; filter:url('../img/grunge-filter.svg#grunge'); }
 
 /* ─── Region-Hero ──────────────────────────────────────────── */
-.region-hero { position:relative; min-height:min(720px,88vh); display:flex; align-items:flex-end; overflow:hidden; }
-.region-hero-bg { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 34%; filter:saturate(.82) contrast(1.08) brightness(.72); }
-.region-hero::after { content:""; position:absolute; inset:0; background:linear-gradient(0deg,rgba(5,5,5,.55) 0%,rgba(5,5,5,.42) 30%,rgba(5,5,5,.14) 62%,transparent 100%),linear-gradient(90deg,rgba(7,5,4,.6),transparent 55%); }
-/* Eigenständiger Fade-Layer wie beim Startseiten-Hero (.hero::after dort): eine
-   einzelne, in sich geschlossene weiche Blende am unteren Rand. Wichtig: statt
-   einer reinen Flächenfarbe trägt die Blende dieselbe Fels-Textur wie der
-   Seitenhintergrund und wird per mask-image eingeblendet — eine Flächenfarbe
-   allein erzeugt am Übergang zur echten Textur darunter einen sichtbaren Bruch
-   (flächig vs. texturiert), selbst bei exakt gleicher Grundfarbe. */
-.region-hero::before { content:""; position:absolute; bottom:0; left:0; right:0; height:260px; z-index:1; pointer-events:none;
-  background:linear-gradient(rgba(4,4,4,.78),rgba(4,4,4,.78)),url('../img/section-rock-seamless.webp') top center/1400px repeat;
-  -webkit-mask-image:linear-gradient(to bottom,transparent 0%,black 100%);
-  mask-image:linear-gradient(to bottom,transparent 0%,black 100%); }
+/* Bild als background-image (per Inline-style pro Seite) statt <img> mit
+   position:absolute + filter — letzteres erzeugte in manchen Browsern eine
+   sichtbare Artefakt-Kante am Übergang der Alpha-Fade. Farbkorrektur
+   (saturate/contrast/brightness) ist direkt in den region-*-fade.webp
+   gebacken. background-position:center bottom hält den unteren, vollständig
+   transparenten Bildrand bei jeder Viewport-Breite exakt an der Hero-
+   Unterkante — bei background-size:cover wird sonst je nach Breite
+   unterschiedlich viel vom Rand weggeschnitten, was bei "center 34%" bei
+   breiten Fenstern genau die untere Fade-Zone gekappt hat. */
+/* Höhe wächst auf breiten Viewports mit (50vw), statt starr bei 720px zu
+   bleiben: bei fixer Höhe wird der Container bei breiten Fenstern immer viel
+   breiter als die 16:9-Fotos, wodurch background-size:cover immer mehr vom
+   oberen Bildinhalt wegschneiden muss (bottom-Position hält zwar die
+   Fade-Zone sichtbar, aber dann verschwindet zu viel vom eigentlichen Motiv
+   darüber). 88vh deckelt die Höhe weiterhin auf kurzen/breiten Viewports. */
+.region-hero { position:relative; min-height:min(max(720px,50vw),88vh); display:flex; align-items:flex-end; overflow:hidden;
+  background-position:center bottom; background-size:cover; background-repeat:no-repeat; }
+/* Nur noch horizontale Linksverdunklung für Textlesbarkeit — kein vertikaler
+   Verlauf mehr: der würde sich mit der bild-eigenen Alpha-Fade-Kurve am
+   unteren Rand überlagern und dort eine sichtbare Ringkante erzeugen (siehe
+   himmel-v2.css). Der frühere ::before-Textur-Fade-Layer (eigene gekachelte
+   Kopie der Fels-Textur) ist komplett entfallen: die Transparenz kommt jetzt
+   aus dem Bild selbst, es scheint exakt dieselbe body-Textur-Instanz durch,
+   keine zweite, unabhängig phasenverschobene Kachelung mehr möglich. */
+.region-hero::after { content:""; position:absolute; inset:0; background:linear-gradient(90deg,rgba(7,5,4,.6),transparent 55%); }
 .region-hero-content { position:relative; z-index:1; max-width:1200px; margin:0 auto; padding:64px 24px 56px; width:100%; }
 .eyebrow { color:var(--gold); font:700 .72rem/1 system-ui,sans-serif; text-transform:uppercase; letter-spacing:.16em; }
 .region-hero h1 { max-width:820px; margin:16px 0 20px; font-size:clamp(2.6rem,6vw,4.4rem); text-shadow:0 3px 25px #000; }

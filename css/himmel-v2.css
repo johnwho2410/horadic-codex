@@ -27,12 +27,19 @@ button { font:inherit; }
 h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; line-height:1.05; text-transform:uppercase; letter-spacing:.02em; filter:url('../img/grunge-filter.svg#grunge'); }
 
 /* ─── Hero (identische Sprache wie die Regionsseiten) ─────────── */
-.region-hero { position:relative; min-height:min(720px,88vh); display:flex; align-items:flex-end; overflow:hidden; }
-.region-hero-bg { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 38%; filter:saturate(.85) contrast(1.06) brightness(.78); }
-/* 0% (unterste Kante) endet transparent statt bei .55 Alpha — sonst bliebe dort
-   ein Zusatz-Tint stehen, der exakt an der Hero-Grenze abrupt verschwindet und
-   eine sichtbare Kante zum body-Hintergrund darunter erzeugt. */
-.region-hero::after { content:""; position:absolute; inset:0; background:linear-gradient(0deg,transparent 0%,rgba(5,5,5,.55) 8%,rgba(5,5,5,.42) 30%,rgba(5,5,5,.14) 62%,transparent 100%),linear-gradient(90deg,rgba(7,5,4,.6),transparent 55%); }
+/* Bild als background-image statt <img> mit position:absolute + filter:
+   letzteres erzeugte in manchen Browsern eine sichtbare Artefakt-Kante am
+   Übergang der Alpha-Fade (Compositing-Layer der gefilterten, teiltransparenten
+   Ebene). Farbkorrektur (saturate/contrast/brightness) ist stattdessen direkt
+   in heaven-header-final.webp gebacken. */
+/* background-position-y:bottom statt 38% — bei breiten Viewports wird die
+   Bildbreite zum bindenden Faktor für background-size:cover, wodurch das Bild
+   stärker in der Höhe skaliert und mehr vom Rand abgeschnitten wird. Bei
+   "38%" verschwand dabei ein großer Teil der unteren Alpha-Fade-Zone; mit
+   "bottom" bleibt der untere Bildrand (= vollständig transparent) immer
+   sichtbar, es wird stattdessen oben (Himmel/Wolken) mehr abgeschnitten. */
+.region-hero { position:relative; min-height:min(720px,88vh); display:flex; align-items:flex-end; overflow:hidden;
+  background:url('../img/heaven-header-final.webp') center bottom/cover no-repeat; }
 /* Kein separater Fade-Layer mehr nötig: heaven-header.webp blendet im Bild
    selbst (Alphakanal) am unteren Rand nach transparent aus. Dadurch scheint
    exakt dieselbe Body-Textur-Instanz durch statt einer zweiten, unabhängig
@@ -71,17 +78,17 @@ main { overflow:hidden; }
 /* ─── Site-weiter Zier-Divider ─────────────────────────────────── */
 .section-divider { display:block; position:relative; z-index:4; width:min(1680px,calc(100vw - 40px)); max-width:none; height:0; margin:0 auto; pointer-events:none; overflow:visible; }
 .section-divider img {
-  content:url('../img/section-divider-ornament-small.png');
+  content:url('../img/divider-heaven-ornament.png');
   position:absolute; top:0; left:50%;
   width:min(1680px,calc(100vw - 40px)); height:auto; display:block; z-index:1;
-  transform:translate(-50%,-47.8%);
-  filter:drop-shadow(0 4px 12px rgba(0,0,0,.7)) drop-shadow(0 0 6px rgba(80,10,5,.4));
+  transform:translate(-50%,-49.7%);
+  filter:drop-shadow(0 4px 12px rgba(0,0,0,.7)) drop-shadow(0 0 6px rgba(120,160,220,.35));
   opacity:.96;
 }
 .section-divider::after {
   content:""; position:absolute; z-index:2; top:0; left:50%; width:64px; height:64px;
   transform:translate(-50%,-50%);
-  background:radial-gradient(circle,rgba(235,100,38,.72) 0%,rgba(190,60,22,.38) 40%,transparent 72%);
+  background:radial-gradient(circle,rgba(160,205,255,.72) 0%,rgba(196,154,80,.38) 40%,transparent 72%);
   mix-blend-mode:screen; pointer-events:none;
   animation:divider-glow-pulse 8s ease-in-out infinite;
 }
@@ -90,8 +97,8 @@ main { overflow:hidden; }
 .section-divider::before {
   content:""; position:absolute; top:0; left:50%; width:100vw; height:14px;
   transform:translate(-50%,-50%);
-  background:url('../img/section-divider-line.png') center/107.6% 70px no-repeat;
-  filter:drop-shadow(0 0 4px rgba(157,42,20,.3));
+  background:url('../img/divider-heaven-line.png') center/107.6% 70px no-repeat;
+  filter:drop-shadow(0 0 4px rgba(140,175,220,.3));
 }
 @media (max-width:680px) { .section-divider { width:calc(100vw - 28px); } }
 
