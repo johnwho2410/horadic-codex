@@ -1,0 +1,122 @@
+# OS / Editor
+.DS_Store
+Thumbs.db
+.idea/
+.claude/
+
+# Backups / temp
+index.html.bak
+
+# Unbenutzte Rohbilder (Quelldateien, Wallpaper-Sammlung etc.) — nicht Teil der Seite,
+# nur lokales Material. Tatsaechlich verwendete Bilder liegen direkt referenziert vor.
+img/D4_Wallpaper_1.png
+img/D4_Wallpaper_11.png
+img/Hell_Gate_Opened.jpg
+img/OnlineWebFonts_COM_c7e548c96691959fe803b27600fd2e4f.zip
+img/azmodan.webp
+img/baal.webp
+img/backup/class-card-frame-subtle.png
+img/backup/class-card-frame.png
+img/belial.webp
+img/boss-archive.jpg
+img/diablo-lilith.jpg
+img/divider-sutle.png
+img/duriel.webp
+img/evil-andariel.webp
+img/evil-azmodan.webp
+img/evil-belial.webp
+img/evil-duriel.webp
+img/hoelle.png
+img/lesser-evils-header.webp
+img/lesser-evils-quadrants.webp
+img/lesser-evils.webp
+img/logo.png
+img/map.png
+img/map_new.png
+img/mapmarker.png
+img/mephisto.webp
+img/official images/D4_LilithWallpaper_3440x1440.png
+img/official images/D4_Misc_Social_Assets_Lilith_Wallpaper_3840x2160.png
+img/official images/DiabloIV/Diablo IV Wallpapers/1080x1920Kehjistan_01.png
+img/official images/DiabloIV/Diablo IV Wallpapers/1080x1920_DrySteppes_.png
+img/official images/DiabloIV/Diablo IV Wallpapers/1080x1920_FracturedPe.png
+img/official images/DiabloIV/Diablo IV Wallpapers/1080x1920_Gulraan.png
+img/official images/DiabloIV/Diablo IV Wallpapers/1080x1920_Kehjistan.png
+img/official images/DiabloIV/Diablo IV Wallpapers/1080x1920_glacier.png
+img/official images/DiabloIV/Diablo IV Wallpapers/1080x1920_hawezar.png
+img/official images/DiabloIV/Diablo IV Wallpapers/1080x1920_hopes.png
+img/official images/DiabloIV/Diablo IV Wallpapers/1080x1920_kyovashad.png
+img/official images/DiabloIV/Diablo IV Wallpapers/1080x1920_tirmair.png
+img/official images/DiabloIV/Diablo IV Wallpapers/1080x1920_undead.png
+img/official images/DiabloIV/Diablo IV Wallpapers/1920x1080Kehjistan_01.png
+img/official images/DiabloIV/Diablo IV Wallpapers/1920x1080_DrySteppes_.png
+img/official images/DiabloIV/Diablo IV Wallpapers/1920x1080_FracturedPe.png
+img/official images/DiabloIV/Diablo IV Wallpapers/1920x1080_Gulraan.png
+img/official images/DiabloIV/Diablo IV Wallpapers/1920x1080_Kehjistan.png
+img/official images/DiabloIV/Diablo IV Wallpapers/1920x1080_glacier.png
+img/official images/DiabloIV/Diablo IV Wallpapers/1920x1080_hawezar.png
+img/official images/DiabloIV/Diablo IV Wallpapers/1920x1080_hopes.png
+img/official images/DiabloIV/Diablo IV Wallpapers/1920x1080_kyovashad.png
+img/official images/DiabloIV/Diablo IV Wallpapers/1920x1080_tirmair.png
+img/official images/DiabloIV/Diablo IV Wallpapers/1920x1080_undead.png
+img/official images/DiabloIV/Diablo IV Wallpapers/2048x1440Kehjistan_01.png
+img/official images/DiabloIV/Diablo IV Wallpapers/2048x1440_DrySteppes_.png
+img/official images/DiabloIV/Diablo IV Wallpapers/2048x1440_FracturedPe.png
+img/official images/DiabloIV/Diablo IV Wallpapers/2048x1440_Gulraan.png
+img/official images/DiabloIV/Diablo IV Wallpapers/2048x1440_Kehjistan.png
+img/official images/DiabloIV/Diablo IV Wallpapers/2048x1440_glacier.png
+img/official images/DiabloIV/Diablo IV Wallpapers/2048x1440_hawezar.png
+img/official images/DiabloIV/Diablo IV Wallpapers/2048x1440_hopes.png
+img/official images/DiabloIV/Diablo IV Wallpapers/2048x1440_kyovashad.png
+img/official images/DiabloIV/Diablo IV Wallpapers/2048x1440_tirmair.png
+img/official images/DiabloIV/Diablo IV Wallpapers/2048x1440_undead.png
+img/official images/DiabloIV/Diablo IV Wallpapers/2048x2048Kehjistan_01.png
+img/official images/DiabloIV/Diablo IV Wallpapers/2048x2048_DrySteppes_.png
+img/official images/DiabloIV/Diablo IV Wallpapers/2048x2048_FracturedPe.png
+img/official images/DiabloIV/Diablo IV Wallpapers/2048x2048_Gulraan.png
+img/official images/DiabloIV/Diablo IV Wallpapers/2048x2048_Kehjistan.png
+img/official images/DiabloIV/Diablo IV Wallpapers/2048x2048_glacier.png
+img/official images/DiabloIV/Diablo IV Wallpapers/2048x2048_hawezar.png
+img/official images/DiabloIV/Diablo IV Wallpapers/2048x2048_hopes.png
+img/official images/DiabloIV/Diablo IV Wallpapers/2048x2048_kyovashad.png
+img/official images/DiabloIV/Diablo IV Wallpapers/2048x2048_tirmair.png
+img/official images/DiabloIV/Diablo IV Wallpapers/2048x2048_undead.png
+img/official images/DiabloIV/Diablo IV Wallpapers/2560x1440Kehjistan_01.png
+img/official images/DiabloIV/Diablo IV Wallpapers/2560x1440_DrySteppes_.png
+img/official images/DiabloIV/Diablo IV Wallpapers/2560x1440_FracturedPe.png
+img/official images/DiabloIV/Diablo IV Wallpapers/2560x1440_Gulraan.png
+img/official images/DiabloIV/Diablo IV Wallpapers/2560x1440_Kehjistan.png
+img/official images/DiabloIV/Diablo IV Wallpapers/2560x1440_glacier.png
+img/official images/DiabloIV/Diablo IV Wallpapers/2560x1440_hawezar.png
+img/official images/DiabloIV/Diablo IV Wallpapers/2560x1440_hopes.png
+img/official images/DiabloIV/Diablo IV Wallpapers/2560x1440_kyovashad.png
+img/official images/DiabloIV/Diablo IV Wallpapers/2560x1440_tirmair.png
+img/official images/DiabloIV/Diablo IV Wallpapers/2560x1440_undead.png
+img/official images/DiabloIV/Diablo IV Wallpapers/960x540Kehjistan_01.png
+img/official images/DiabloIV/Diablo IV Wallpapers/960x540_DrySteppes_.png
+img/official images/DiabloIV/Diablo IV Wallpapers/960x540_FracturedPe.png
+img/official images/DiabloIV/Diablo IV Wallpapers/960x540_Gulraan.png
+img/official images/DiabloIV/Diablo IV Wallpapers/960x540_Kehjistan.png
+img/official images/DiabloIV/Diablo IV Wallpapers/960x540_glacier.png
+img/official images/DiabloIV/Diablo IV Wallpapers/960x540_hawezar.png
+img/official images/DiabloIV/Diablo IV Wallpapers/960x540_hopes.png
+img/official images/DiabloIV/Diablo IV Wallpapers/960x540_kyovashad.png
+img/official images/DiabloIV/Diablo IV Wallpapers/960x540_tirmair.png
+img/official images/DiabloIV/Diablo IV Wallpapers/960x540_undead.png
+img/official images/MK668_comp_match_8khda_rgba_regular.jpg
+img/prime-evils-concept.webp
+img/prime-evils-header.webp
+img/prime-evils-portrait.webp
+img/region/Hawezar.png
+img/region/Kehjistan.png
+img/region/Scosglen.png
+img/region/Skovos.png
+img/region/gipfel.png
+img/region/nahantu.png
+img/region/steppen.png
+img/rsz_hell_gate_opened.png
+img/sanctuary-lore.jpg
+img/section-divider-ornament-straight-ends.png
+img/section-divider-ornament.png
+img/seven-evils.jpg
+img/site-header.jpg
