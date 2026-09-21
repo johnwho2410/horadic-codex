@@ -23,7 +23,7 @@
       <a class="brand" href="#top"><img src="img/logo-crop.webp" alt="The Horadric Codex" class="brand-logo"></a>
       <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav-links">Menü</button>
       <div class="nav-links" id="nav-links">
-        <a href="#sanctuary">Sanktuario</a><a href="#hoelle">Die Hölle</a><a href="klassen.html">Helden</a><a href="gameplay.html">Gameplay</a><a href="#wissen">Wissen</a><a href="#links">Links</a>
+        <a href="#sanctuary">Sanktuario</a><a href="#himmel">Die Hohen Himmel</a><a href="#hoelle">Die Hölle</a><a href="#persoenlichkeiten">Persönlichkeiten</a><a href="#wissen">Wissen</a><a href="#links">Links</a>
       </div>
       <button class="search-toggle" type="button" aria-haspopup="dialog">⌕ Suche</button>
     </nav>
@@ -99,45 +99,39 @@
       </div>
     </div>
 
-    <section class="section sanctuary-teaser hoelle-teaser" id="hoelle">
-      <div class="eyebrow">Archiv der Horadrim · Die Hölle</div>
-      <h2>Die Brennenden Höllen</h2>
-      <p class="sanctuary-lead">Geboren aus dem Leib des Urwesens Tathamet sind die Brennenden Höllen die Heimat aller Dämonen und der ewige Gegenpol zu den Hohen Himmeln.</p>
-      <p class="sanctuary-lead">Seit Anbeginn der Schöpfung führen beide Reiche den Ewigen Konflikt. Doch mit der Entstehung Sanktuarios erschien plötzlich eine dritte Macht auf dem Spielfeld – die Menschheit.</p>
-      <p class="sanctuary-lead">Seitdem reicht der Krieg von Himmel und Hölle weit über ihre eigenen Grenzen hinaus.</p>
-      <a class="download-file" href="hoelle.html">Die sieben Übel entdecken →</a>
+    <section class="heaven-hell-block">
+      <div class="hh-col hh-heaven" id="himmel">
+        <div class="eyebrow">Archiv der Horadrim · Die Hohen Himmel</div>
+        <h2>Die Hohen Himmel</h2>
+        <p class="hh-lead">Ein Reich aus Licht, Ordnung und unvorstellbarer Macht. Seit Äonen führen die Engel der Hohen Himmel ihren Krieg gegen die Brennenden Höllen – einen Konflikt, der weit älter ist als die Menschheit selbst.</p>
+        <p class="hh-lead">Doch selbst im Himmel sind sich nicht alle über Sanktuarios Schicksal einig. Zwischen Pflicht, Mitgefühl und unerbittlicher Ordnung wurde die Welt der Menschen mehr als einmal zum Mittelpunkt eines göttlichen Streits.</p>
+        <a class="download-file" href="himmel.html">Die Hohen Himmel entdecken →</a>
+      </div>
+      <div class="hh-line" aria-hidden="true"></div>
+      <div class="hh-divider" aria-hidden="true"><img src="img/heaven-hell-divider.webp" alt=""></div>
+      <div class="hh-col hh-hell" id="hoelle">
+        <div class="eyebrow">Archiv der Horadrim · Die Hölle</div>
+        <h2>Die Brennenden Höllen</h2>
+        <p class="hh-lead">Geboren aus dem Leib des Urwesens Tathamet sind die Brennenden Höllen die Heimat aller Dämonen und der ewige Gegenpol zu den Hohen Himmeln.</p>
+        <p class="hh-lead">Seit Anbeginn der Schöpfung führen beide Reiche den Ewigen Konflikt. Doch mit der Entstehung Sanktuarios erschien plötzlich eine dritte Macht auf dem Spielfeld – die Menschheit. Seitdem reicht der Krieg weit über ihre eigenen Grenzen hinaus.</p>
+        <a class="download-file" href="hoelle.html">Die sieben Übel entdecken →</a>
+      </div>
     </section>
       <div class="section-divider" aria-hidden="true">
         <img src="img/d4-original-divider.png" alt="" width="2172" height="342">
       </div>
 
-    <section class="section" id="klassen">
-      <header class="section-head"><div><h2>Klassen</h2><p class="section-intro">Jede Klasse besitzt ein eigenes Kampftempo, eine Kernressource und Mechaniken, die ihren Spielstil grundlegend prägen. Die Balken zeigen Tendenzen, keine festen Wertungen. Eine Karte öffnet die ausführliche Klassenansicht.</p></div></header>
-      <div class="filters" role="group" aria-label="Klassen filtern">
-        <button class="filter active" data-filter="all">Alle</button><button class="filter" data-filter="base">Grundspiel</button><button class="filter" data-filter="voh">Vessel of Hatred</button><button class="filter" data-filter="loathe">Lord of Hatred</button>
-      </div>
-      <div class="class-grid">
-        <article class="card class-card" data-class="barbarian" data-expansion="base" data-glyph="B"><span class="class-art"><img class="class-art-img" src="img/class-barbarian.webp" alt="" width="1199" height="675" loading="lazy" aria-hidden="true"></span><span class="tag">Grundspiel · Nahkampf</span><h3>Barbar</h3><p>Rohe Wucht, Waffenwechsel und aggressive Sprünge mitten ins Getümmel.</p><div class="stats"><div class="stat">Zähigkeit <span class="pips" data-value="5"></span></div><div class="stat">Mobilität <span class="pips" data-value="4"></span></div><div class="stat">Kontrolle <span class="pips" data-value="3"></span></div></div><div class="resource"><span>Ressource</span> Wut · Arsenal-System</div></article>
-        <article class="card class-card" data-class="druid" data-expansion="base" data-glyph="D"><span class="class-art"><img class="class-art-img" src="img/class-druid.webp" alt="" width="1199" height="675" loading="lazy" aria-hidden="true"></span><span class="tag">Grundspiel · Gestaltwandel</span><h3>Druide</h3><p>Wechselt zwischen Mensch, Werwolf und Werbär; ruft Naturgewalten und Gefährten.</p><div class="stats"><div class="stat">Zähigkeit <span class="pips" data-value="4"></span></div><div class="stat">Mobilität <span class="pips" data-value="3"></span></div><div class="stat">Kontrolle <span class="pips" data-value="4"></span></div></div><div class="resource"><span>Ressource</span> Geisteskraft · Geistersegen</div></article>
-        <article class="card class-card" data-class="necromancer" data-expansion="base" data-glyph="N"><span class="class-art"><img class="class-art-img" src="img/class-necromancer.webp" alt="" width="1199" height="675" loading="lazy" aria-hidden="true"></span><span class="tag">Grundspiel · Beschwörung</span><h3>Totenbeschwörer</h3><p>Lenkt Untote, Knochen, Blut und Schatten — mit Armee oder als einsamer Schnitter.</p><div class="stats"><div class="stat">Zähigkeit <span class="pips" data-value="3"></span></div><div class="stat">Mobilität <span class="pips" data-value="2"></span></div><div class="stat">Kontrolle <span class="pips" data-value="5"></span></div></div><div class="resource"><span>Ressource</span> Essenz &amp; Leichen · Totenbuch</div></article>
-        <article class="card class-card" data-class="rogue" data-expansion="base" data-glyph="J"><span class="class-art"><img class="class-art-img" src="img/class-rogue.webp" alt="" width="1199" height="675" loading="lazy" aria-hidden="true"></span><span class="tag">Grundspiel · Präzision</span><h3>Jäger</h3><p>Flinker Hybrid aus Nah- und Fernkampf, Fallen, Giften und gezielten Kombos.</p><div class="stats"><div class="stat">Zähigkeit <span class="pips" data-value="2"></span></div><div class="stat">Mobilität <span class="pips" data-value="5"></span></div><div class="stat">Kontrolle <span class="pips" data-value="4"></span></div></div><div class="resource"><span>Ressource</span> Energie · Spezialisierungen</div></article>
-        <article class="card class-card" data-class="sorcerer" data-expansion="base" data-glyph="Z"><span class="class-art"><img class="class-art-img" src="img/class-sorcerer.webp" alt="" width="1199" height="675" loading="lazy" aria-hidden="true"></span><span class="tag">Grundspiel · Elementarmagie</span><h3>Zauberer</h3><p>Wirkt Feuer, Frost und Blitz auf Distanz — explosiv, kontrollierend und fragil.</p><div class="stats"><div class="stat">Zähigkeit <span class="pips" data-value="2"></span></div><div class="stat">Mobilität <span class="pips" data-value="4"></span></div><div class="stat">Kontrolle <span class="pips" data-value="5"></span></div></div><div class="resource"><span>Ressource</span> Mana · Verzauberungen</div></article>
-        <article class="card class-card" data-class="spiritborn" data-expansion="voh" data-glyph="G"><span class="class-art"><img class="class-art-img" src="img/class-spiritborn.webp" alt="" width="1199" height="675" loading="lazy" aria-hidden="true"></span><span class="tag">Vessel of Hatred · Kampfkunst</span><h3>Geistgeborener</h3><p>Kanalisiert Jaguar, Adler, Gorilla und Tausendfüßer für schnelle Kombinationsangriffe.</p><div class="stats"><div class="stat">Zähigkeit <span class="pips" data-value="4"></span></div><div class="stat">Mobilität <span class="pips" data-value="5"></span></div><div class="stat">Kontrolle <span class="pips" data-value="3"></span></div></div><div class="resource"><span>Ressource</span> Vitalität · Geisterhalle</div></article>
-        <article class="card class-card" data-class="paladin" data-expansion="loathe" data-glyph="P"><span class="class-art"><img class="class-art-img" src="img/class-paladin.webp" alt="" width="1199" height="675" loading="lazy" aria-hidden="true"></span><span class="tag">Lord of Hatred · Heilig</span><h3>Paladin</h3><p>Schild, geweihte Waffen und Auren verbinden standhaften Nahkampf mit Gruppenschutz.</p><div class="stats"><div class="stat">Zähigkeit <span class="pips" data-value="5"></span></div><div class="stat">Mobilität <span class="pips" data-value="3"></span></div><div class="stat">Kontrolle <span class="pips" data-value="4"></span></div></div><div class="resource"><span>Schwerpunkt</span> Schwüre, Auren &amp; heiliger Schaden</div></article>
-        <article class="card class-card" data-class="warlock" data-expansion="loathe" data-glyph="W"><span class="class-art"><img class="class-art-img" src="img/class-warlock.webp" alt="" width="1199" height="675" loading="lazy" aria-hidden="true"></span><span class="tag">Lord of Hatred · Dämonologie</span><h3>Hexenmeister</h3><p>Entfesselt chaotische Magie, bindet Dämonen und formt seine Kräfte durch Seelensplitter.</p><div class="stats"><div class="stat">Zähigkeit <span class="pips" data-value="3"></span></div><div class="stat">Mobilität <span class="pips" data-value="3"></span></div><div class="stat">Kontrolle <span class="pips" data-value="5"></span></div></div><div class="resource"><span>Ressource</span> Zorn &amp; Dominanz · Seelensplitter</div></article>
-      </div>
-    </section>
-
-    <section class="section" id="gameplay">
-      <header class="section-head"><div><h2>Gameplay</h2><p class="section-intro">Charakterentwicklung, Ausrüstung, Aktivitäten, Endgame, Farmwege und bekannte Bosse — kompakt zusammengefasst, mit direktem Sprung zu den Details.</p></div></header>
-      <div class="link-grid">
-        <a class="link-card" href="gameplay/systeme.html"><small>Charakteraufbau</small><h3>Charakterentwicklung &amp; Ausrüstung</h3><p>Aspekte, Kodex der Macht, Paragon, Härtung und Vollendung.</p></a>
-        <a class="link-card" href="gameplay/systeme.html#endgame"><small>Spätspiel</small><h3>Aktivitäten &amp; Endgame</h3><p>Runenwörter, Schwierigkeitsstufen, Endgame-Aktivitäten und Saison.</p></a>
-        <a class="link-card" href="gameplay/farmen.html"><small>Beute &amp; Materialien</small><h3>Farmen</h3><p>Wo du Ausrüstung, Materialien, Fortschritt und Währungen am gezieltesten farmst.</p></a>
-        <a class="link-card" href="gameplay/glossar.html"><small>Nachschlagen</small><h3>Glossar</h3><p>Kampf- und Ausrüstungsbegriffe knapp erklärt, mit Suchfeld.</p></a>
-        <a class="link-card" href="gameplay/bosse.html"><small>Gegner</small><h3>Bekannte Bosse</h3><p>Story-, Welt- und Endgame-Bosse — inklusive Spoiler-Schutz.</p></a>
-        <a class="link-card" href="gameplay.html"><small>Übersicht</small><h3>Zum Gameplay-Hub</h3><p>Alle Bereiche auf einer eigenen Seite.</p></a>
-      </div>
+    <section class="section sanctuary-teaser persons-teaser" id="persoenlichkeiten">
+      <div class="eyebrow">Archiv der Horadrim · Persönlichkeiten</div>
+      <h2>Persönlichkeiten</h2>
+      <p class="sanctuary-lead">Helden, Nephalem, Horadrim und Sterbliche haben das Schicksal Sanktuarios geprägt. Manche wurden zu Legenden, andere veränderten die Welt im Verborgenen.</p>
+      <ul class="chapter-markers">
+        <li>Helden</li>
+        <li>Nephalem</li>
+        <li>Horadrim</li>
+        <li>Weitere Persönlichkeiten</li>
+      </ul>
+      <a class="download-file" href="persoenlichkeiten.html">Persönlichkeiten entdecken →</a>
     </section>
       <div class="section-divider" aria-hidden="true">
         <img src="img/d4-original-divider.png" alt="" width="2172" height="342">

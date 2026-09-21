@@ -12,8 +12,8 @@
 * { box-sizing:border-box; }
 html { scroll-behavior:smooth; }
 body { margin:0; color:var(--bone); font:400 1rem/1.65 'Spectral',Georgia,'Times New Roman',serif;
-  background:#080503 url('../img/section-leather-seamless.webp') top center/1400px repeat; }
-body::before { content:""; position:fixed; inset:0; z-index:-1; background:rgba(8,5,3,.68); }
+  background:#050403 url('../img/section-lava-seamless.webp') top center/1400px repeat; }
+body::before { content:""; position:fixed; inset:0; z-index:-1; background:rgba(5,4,3,.6); }
 a { color:inherit; }
 button { font:inherit; }
 
