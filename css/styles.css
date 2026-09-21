@@ -594,13 +594,13 @@
     /* ─── Abschnittsweise Hintergründe ────────────────────────── */
     .section { position:relative; isolation:isolate; }
     .section::before { content:""; position:absolute; z-index:-1; top:0; bottom:0; left:50%; width:100vw; transform:translateX(-50%); pointer-events:none; }
-    #sanctuary::before {
+    #sanctuary::before,#persoenlichkeiten::before {
       background:
         linear-gradient(90deg,#070707 0%,rgba(7,7,7,.18) 13%,rgba(7,7,7,.18) 87%,#070707 100%),
         linear-gradient(rgba(7,7,7,.76),rgba(7,7,7,.76)),
         url('../img/section-rock-seamless.webp') top center/2508px 2508px repeat;
     }
-    #persoenlichkeiten::before,#wissen::before {
+    #wissen::before {
       background:
         linear-gradient(90deg,#080503 0%,rgba(8,5,3,.12) 13%,rgba(8,5,3,.12) 87%,#080503 100%),
         linear-gradient(rgba(8,5,3,.64),rgba(8,5,3,.64)),
