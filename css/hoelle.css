@@ -23,6 +23,8 @@ button { font:inherit; }
 .brand-logo { display:block; height:50px; width:auto; }
 .nav a:not(.brand) { color:var(--muted); text-decoration:none; font:650 .78rem/1 system-ui,sans-serif; letter-spacing:.08em; text-transform:uppercase; }
 .nav a:not(.brand):hover { color:var(--bone); }
+.nav-links { display:flex; gap:20px; }
+.menu-btn { display:none; color:var(--bone); background:none; border:1px solid var(--line); padding:7px 10px; }
 
 .intro { max-width:1200px; margin:auto; padding:70px 24px 30px; }
 .eyebrow { display:flex; align-items:center; gap:8px; color:var(--gold); font:700 .72rem/1 system-ui,sans-serif; text-transform:uppercase; letter-spacing:.16em; }
@@ -235,6 +237,9 @@ footer { margin-top:60px; border-top:1px solid var(--line); background:#080706; 
 
 @media (max-width:760px) {
   .nav { gap:13px; min-height:75px; }
+  .menu-btn { display:block; }
+  .nav-links { display:none; position:absolute; top:75px; left:0; right:0; padding:18px 24px 24px; flex-direction:column; gap:14px; background:#0d0b0a; border-bottom:1px solid var(--line); }
+  .nav-links.open { display:flex; }
 
   .brand-logo { height:40px; }
   h1 { font-size:clamp(2.4rem,10vw,3.4rem); }
