@@ -9,6 +9,9 @@ index.html.bak
 
 # Unbenutzte Rohbilder (Quelldateien, Wallpaper-Sammlung etc.) — nicht Teil der Seite,
 # nur lokales Material. Tatsaechlich verwendete Bilder liegen direkt referenziert vor.
+# diablo-ui-assets: kompletter Icon/Button-Rohsatz, nur die tatsaechlich genutzten
+# Icons liegen zugeschnitten unter img/icons/.
+img/diablo-ui-assets/
 img/D4_Wallpaper_1.png
 img/D4_Wallpaper_11.png
 img/heaven_bg.png

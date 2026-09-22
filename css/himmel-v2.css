@@ -55,7 +55,8 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
    exakt dieselbe Body-Textur-Instanz durch statt einer zweiten, unabhängig
    gekachelten Kopie — es kann also gar keine Phasenkante mehr entstehen. */
 .region-hero-content { position:relative; z-index:1; max-width:1200px; margin:0 auto; padding:64px 24px 56px; width:100%; }
-.eyebrow { color:var(--gold); font:700 .72rem/1 system-ui,sans-serif; text-transform:uppercase; letter-spacing:.16em; }
+.eyebrow { display:flex; align-items:center; gap:8px; color:var(--gold); font:700 .72rem/1 system-ui,sans-serif; text-transform:uppercase; letter-spacing:.16em; }
+.eyebrow-icon { width:26px; height:26px; object-fit:contain; opacity:.92; filter:drop-shadow(0 1px 3px rgba(0,0,0,.6)); }
 .region-hero h1 { max-width:820px; margin:16px 0 20px; font-size:clamp(2.6rem,6vw,4.4rem); text-shadow:0 3px 25px #000; }
 .region-hero .lead { max-width:640px; margin:0; color:#d4c8bb; font-size:1.1rem; line-height:1.7; text-shadow:0 2px 12px #000; }
 .region-facts { display:flex; flex-wrap:wrap; gap:22px 34px; margin:26px 0 0; }
@@ -69,6 +70,11 @@ main { overflow:hidden; }
 .block + .block { border-top:1px solid var(--line); }
 .block-head { margin-bottom:30px; }
 .block-head h2 { font-size:clamp(1.9rem,3.6vw,2.7rem); }
+/* Icon liegt als Geschwister vor dem h2, nicht darin — h2 trägt den
+   grunge-filter (SVG-Filter für die raue Text-Textur), der ein eingebettetes
+   Icon-Bild mitverzerren würde. */
+.block-head-title { display:flex; align-items:center; gap:12px; }
+.block-head-icon { width:32px; height:32px; object-fit:contain; opacity:.9; filter:drop-shadow(0 2px 5px rgba(0,0,0,.6)); flex:none; }
 .block-head p { max-width:700px; margin:14px 0 0; color:var(--muted); }
 .block > p { max-width:780px; color:#c2b6a6; font-size:1.05rem; }
 .block > p + p { margin-top:16px; }
