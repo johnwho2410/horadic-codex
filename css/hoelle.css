@@ -45,9 +45,14 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
    identisches Verhalten wie auf den Regionsseiten. */
 .region-hero { position:relative; min-height:min(max(825px,41.7vw),88vh); display:flex; align-items:flex-end; overflow:hidden;
   background:url('../img/hell-header-final.webp') center bottom/cover no-repeat; }
-.region-hero::after { content:""; position:absolute; inset:0; background:linear-gradient(90deg,rgba(7,5,4,.6),transparent 55%); }
+/* Maske blendet die Verdunklung linear in der bild-eigenen Alpha-Fade-Zone
+   (62%–100% der Höhe) aus, statt hart abzuschneiden — ein harter Schnitt
+   erzeugt selbst eine sichtbare Kante. Deckungsgleich mit der im Bild
+   gebackenen Fade-Kurve, sodass beide zusammen weich gegen null auslaufen. */
+.region-hero::after { content:""; position:absolute; inset:0; background:linear-gradient(90deg,rgba(7,5,4,.6),transparent 55%);
+  -webkit-mask-image:linear-gradient(to bottom,#000 62%,transparent 100%); mask-image:linear-gradient(to bottom,#000 62%,transparent 100%); }
 .region-hero-content { position:relative; z-index:1; max-width:1200px; margin:0 auto; padding:64px 24px 56px; width:100%; }
-.region-hero h1 { max-width:820px; margin:16px 0 20px; font-size:clamp(2.6rem,6vw,4.4rem); text-shadow:0 3px 25px #000; }
+.region-hero h1 { max-width:920px; margin:16px 0 20px; font-size:clamp(2.6rem,6vw,4.4rem); text-shadow:0 3px 25px #000; }
 .region-hero .lead { max-width:640px; margin:0; color:#d4c8bb; font-size:1.1rem; line-height:1.7; text-shadow:0 2px 12px #000; }
 
 .region-facts { display:flex; flex-wrap:wrap; gap:22px 34px; margin:26px 0 0; }
