@@ -11,9 +11,14 @@
 }
 * { box-sizing:border-box; }
 html { scroll-behavior:smooth; }
-body { margin:0; color:var(--bone); font:400 1rem/1.65 'Spectral',Georgia,'Times New Roman',serif;
+/* min-height:100vh + flex-column: hält den Footer am unteren Viewport-Rand
+   auf kurzen Seiten (z.B. nach dem Kürzen von Inhalten), statt direkt unter
+   dem letzten Abschnitt zu schweben. main:flex:1 nimmt den restlichen
+   Platz ein. */
+body { margin:0; min-height:100vh; display:flex; flex-direction:column; color:var(--bone); font:400 1rem/1.65 'Spectral',Georgia,'Times New Roman',serif;
   background:#050403 url('../img/section-lava-seamless.webp') top center/1400px repeat; }
 body::before { content:""; position:fixed; inset:0; z-index:-1; background:rgba(5,4,3,.6); }
+main { flex:1 0 auto; }
 a { color:inherit; }
 button { font:inherit; }
 
@@ -66,15 +71,12 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
 .region-facts dt { color:#c3a47f; font:700 .62rem/1 system-ui,sans-serif; letter-spacing:.13em; text-transform:uppercase; }
 .region-facts dd { margin:0; color:#eee4d8; font-size:.96rem; }
 
-.block { max-width:1200px; margin:auto; padding:20px 24px 100px; }
+.block { max-width:1200px; margin:auto; padding:92px 24px; }
 .block-head { margin-bottom:30px; }
 .block-head h2 { font-size:clamp(1.9rem,3.6vw,2.7rem); }
 .block-head p { max-width:700px; margin:14px 0 0; color:var(--muted); }
 /* Drei Großen Übel: Intro-Absatz nutzt die volle Content-Breite statt der
-   700px-Vorgabe von .block-head p, zusätzlicher Abstand vor dem Slider.
-   Deutlich mehr Luft oben/unten als der generische .block-Wert, da die
-   Sektion jetzt von der Leder-Textur (.hell-bg-alt) freigestellt wird. */
-#grosse-uebel { padding-top:88px; padding-bottom:88px; }
+   700px-Vorgabe von .block-head p. */
 #grosse-uebel .block-head p { max-width:none; line-height:1.8; }
 .uebel-overview-facts { padding-top:24px; margin-top:32px !important; border-top:1px solid var(--line); }
 
@@ -230,6 +232,43 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
 
 .lilith-note { margin-top:80px; padding:19px 22px; border:1px solid #4e2923; background:rgba(99,26,20,.13); color:#cfc2b2; }
 .lilith-note strong { color:#d45a46; }
+
+/* ─── Geschichte der Hölle / Wichtige Orte / Weiterführend: fließender
+   Buchsatz statt Website-Bausteinen, identisches Muster wie die
+   entsprechenden Abschnitte auf himmel-v2.css. */
+.codex-text { max-width:680px; }
+.codex-text p { margin:20px 0 0; color:#c2b6a6; font-size:1.03rem; line-height:1.85; }
+.codex-text p:first-child { margin-top:0; }
+.codex-text p.drop-cap::first-letter { float:left; margin:4px 10px 0 0; color:var(--gold); font:400 3.1rem/.78 'Marcellus',Georgia,serif; }
+.codex-marginalia { position:relative; padding-left:190px; }
+.codex-marginalia .era { position:absolute; left:0; top:.15em; width:160px; color:var(--gold); font:italic 400 .95rem/1.4 'Spectral',Georgia,serif; }
+@media (max-width:760px) {
+  .codex-marginalia { padding-left:0; }
+  .codex-marginalia .era { position:static; display:block; margin-bottom:4px; }
+}
+/* Großes, dezentes Kompassrosen-Ornament rechts neben dem Fließtext,
+   identisches Muster wie auf himmel.html ("Der Fall der Hohen Himmel"). */
+.codex-section-deco { position:relative; }
+.codex-section-deco .codex-text { position:relative; z-index:1; }
+.codex-deco-img { position:absolute; top:-10px; right:-30px; z-index:0; width:min(30vw,440px); height:auto; opacity:.16; filter:grayscale(.4); pointer-events:none; }
+@media (max-width:1000px) { .codex-deco-img { display:none; } }
+/* Hervorgehobener Zitat-Hinweis, analog .heaven-note auf himmel.html, aber
+   in Blutrot statt Gold — passend zum infernalischen statt himmlischen Ton. */
+.hell-note { position:relative; margin-top:32px; padding:22px 26px 22px 66px; max-width:680px; border-left:3px solid var(--blood); background:rgba(165,38,28,.08); color:var(--bone); font:italic 400 1.1rem/1.6 'Spectral',Georgia,serif; }
+.hell-note::before { content:""; position:absolute; left:22px; top:22px; width:24px; height:41px; background:url('../img/decoration/quote-mark.webp') center/contain no-repeat; opacity:.8; filter:sepia(1) saturate(4) hue-rotate(-40deg) brightness(.8); }
+.codex-register { max-width:680px; margin:0; padding:0; }
+.codex-register div { padding:14px 0; border-top:1px solid var(--line); }
+.codex-register div:first-child { border-top:0; padding-top:0; }
+.codex-register dt { display:inline-flex; align-items:center; gap:8px; color:var(--gold); font:italic 600 1.05rem/1 'Spectral',Georgia,serif; }
+.codex-register dt::before { content:""; width:12px; height:12px; flex:none; background:url('../img/decoration/star-bullet.webp') center/contain no-repeat; opacity:.85; }
+.codex-register dt::after { content:" — "; color:var(--line); }
+.codex-register dd { display:inline; margin:0; color:var(--muted); font-size:.98rem; line-height:1.7; }
+.codex-seealso { max-width:680px; margin:18px 0 0; color:var(--muted); font-size:.98rem; line-height:1.8; }
+.codex-seealso:first-child { margin-top:0; }
+.codex-seealso strong { color:var(--bone); font-weight:600; }
+.codex-seealso a { color:#c2b6a6; text-decoration:none; border-bottom:1px solid rgba(196,154,80,.3); }
+.codex-seealso a:hover,.codex-seealso a:focus-visible { color:var(--gold); border-color:var(--gold); }
+
 /* ─── Footer (site-weit einheitlich) ───────────────────────────── */
 footer { margin-top:60px; border-top:1px solid var(--line); background:#080706; }
 .footer-inner { max-width:1200px; margin:auto; padding:35px 24px; display:flex; flex-wrap:wrap; justify-content:space-between; align-items:flex-end; gap:24px; color:#776d61; font:500 .74rem/1.5 system-ui,sans-serif; }
