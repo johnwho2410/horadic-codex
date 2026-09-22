@@ -191,29 +191,26 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
 .uebel-entry { position:relative; }
 /* Mittige Ausrichtung über feste Höhe + negativen margin-top statt
    top:50%/transform:translateY() — transform erzwingt (wie z-index+position
-   oder mask-image) einen eigenen Stacking-Context. Läge er auf dem
-   gemeinsamen Wrapper, würde der mix-blend-mode der Zeichnung nur noch
-   gegen das (fast unsichtbare) Farbbild im selben isolierten Context
-   blenden statt gegen die echte Leder-Textur dahinter — genau das ließ den
-   Blend-Effekt vorher kaum wirken. Die Maske sitzt außerdem auf den
-   einzelnen <img>, nicht auf .uebel-entry-art. Alle vier Renders teilen
-   dasselbe Seitenverhältnis (1536x1024), eine feste Höhe funktioniert daher
+   oder mask-image) einen eigenen Stacking-Context, was frühere Blend-Mode-
+   Versuche unwirksam machte. Alle vier Renders teilen dasselbe
+   Seitenverhältnis (1536x1024), eine feste Höhe funktioniert daher
    einheitlich für alle Einträge. */
 .uebel-entry-art { position:absolute; top:50%; height:clamp(260px,30vw,380px); margin-top:calc(clamp(260px,30vw,380px) / -2); width:auto; pointer-events:none; }
 .uebel-entry--left .uebel-entry-art { right:-40px; }
 .uebel-entry--right .uebel-entry-art { left:-40px; }
-.uebel-entry-img {
-  display:block; height:100%; width:auto;
-  -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, #000 50%, transparent 100%);
-  mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, #000 50%, transparent 100%);
+.uebel-entry-img { display:block; height:100%; width:auto; }
+/* Die Zeichnungen sind freigestellt (Charakter mit transparentem/weich
+   ausglühendem Rand statt Rechteck) — kein Blend-Mode/Maske mehr nötig,
+   der Alphakanal übernimmt das Ausfaden bereits selbst. Die Farbversion
+   ist weiterhin ein volles Rechteck-Renderbild; ihr eigener Maskenverlauf
+   gleicht die Silhouette beim Hover-Crossfade an die freigestellte
+   Zeichnung an, statt hart als Rechteck aufzupoppen. */
+.uebel-entry-img.sketch { opacity:.96; transition:opacity .6s ease; }
+.uebel-entry-img.color {
+  position:absolute; inset:0; opacity:0; filter:saturate(.95) contrast(1.05) brightness(.96); transition:opacity .6s ease;
+  -webkit-mask-image: radial-gradient(ellipse 62% 62% at 50% 50%, #000 40%, transparent 100%);
+  mask-image: radial-gradient(ellipse 62% 62% at 50% 50%, #000 40%, transparent 100%);
 }
-/* mix-blend-mode:multiply statt reinem Deckbild — der helle Pergamentgrund
-   der Zeichnung verschwindet dadurch in die dunkle Leder-Textur, übrig
-   bleibt nur die Tuschelinie, als wäre sie direkt auf die Buchseite
-   gezeichnet. Die Farbversion bleibt ohne Blend-Mode, damit sie beim Hover
-   als klarer, lebendiger Kontrast "einschlägt". */
-.uebel-entry-img.sketch { opacity:.94; mix-blend-mode:multiply; filter:contrast(1.12); transition:opacity .6s ease; }
-.uebel-entry-img.color { position:absolute; inset:0; opacity:0; filter:saturate(.95) contrast(1.05) brightness(.96); transition:opacity .6s ease; }
 .uebel-entry:hover .uebel-entry-img.sketch,.uebel-entry:focus-within .uebel-entry-img.sketch { opacity:0; }
 .uebel-entry:hover .uebel-entry-img.color,.uebel-entry:focus-within .uebel-entry-img.color { opacity:1; }
 .uebel-entry-text { position:relative; z-index:1; max-width:620px; }
