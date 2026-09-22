@@ -343,8 +343,20 @@ main { overflow:hidden; }
 .journey-all::before,.journey-all::after { content:none; }
 .journey-all:hover,.journey-all:focus-visible { color:var(--bone); filter:brightness(1.25); }
 
+/* ─── Footer (site-weit einheitlich) ───────────────────────────── */
+footer { margin-top:60px; border-top:1px solid var(--line); background:#080706; }
+.footer-inner { max-width:1200px; margin:auto; padding:35px 24px; display:flex; flex-wrap:wrap; justify-content:space-between; align-items:flex-end; gap:24px; color:#776d61; font:500 .74rem/1.5 system-ui,sans-serif; }
+.footer-notice { display:flex; flex-direction:column; gap:6px; max-width:640px; }
+.footer-inner a { color:#ae9d89; }
+.footer-meta { display:flex; flex-direction:column; align-items:flex-end; gap:10px; }
+.footer-links { display:flex; gap:16px; }
+.footer-links a { text-transform:uppercase; letter-spacing:.08em; font-weight:700; }
+.backtop { text-transform:uppercase; letter-spacing:.08em; text-decoration:none; }
+
 @media (max-width:680px) {
   .journey-nav { grid-template-columns:1fr; padding-left:18px; padding-right:18px; text-align:left; }
   .journey-link.next { text-align:left; align-items:flex-start; }
   .journey-all { justify-self:start; }
+  .footer-inner { flex-direction:column; align-items:flex-start; }
+  .footer-meta { align-items:flex-start; }
 }
