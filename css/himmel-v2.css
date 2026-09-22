@@ -14,6 +14,16 @@ html { scroll-behavior:smooth; }
 body { margin:0; color:var(--bone); font:400 1rem/1.65 'Spectral',Georgia,'Times New Roman',serif;
   background:#0a0c10 url('../img/section-heaven-seamless.webp') top center/1400px repeat; }
 body::before { content:""; position:fixed; inset:0; z-index:-1; background:rgba(10,12,16,.7); }
+/* Zweiter Hintergrund ab "Der Angiris-Rat": eigenes, deckendes background
+   auf dem Wrapper statt body-weit, damit der Wechsel exakt an der Sektion
+   beginnt. Die Abdunkelung wird hier als Gradient-Layer im selben
+   background-Stack repliziert (statt sich auf body::before zu verlassen),
+   weil ein normal positioniertes Element sonst vor dem fixed z-index:-1
+   Overlay liegt und es komplett verdecken würde.
+   TODO: section-leather-seamless.webp ist nur ein Platzhalter, bis eine
+   passende Heaven-Textur feststeht. */
+.heaven-bg-alt { background:linear-gradient(rgba(10,12,16,.55),rgba(10,12,16,.55)),
+  url('../img/section-leather-seamless.webp') top center/1400px repeat; }
 a { color:inherit; }
 button { font:inherit; }
 
