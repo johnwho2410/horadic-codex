@@ -112,26 +112,58 @@ main { overflow:hidden; }
 }
 @media (max-width:680px) { .section-divider { width:calc(100vw - 28px); } }
 
-/* ─── Angiris-Rat: Karten-Roster (wiederverwendet die bislang
-   ungenutzte .location-card-Sprache der Regionsseiten) ─────────── */
-.location-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:42px; }
-.location-card { position:relative; padding:24px; border:1px solid var(--line); background:linear-gradient(145deg,#171310,#100e0c); }
-.location-card::before {
-  content:""; position:absolute; inset:-16px -11px; pointer-events:none; opacity:.6;
-  border-style:solid; border-width:30px 20px;
-  border-image-source:url('../img/class-card-frame-subtle.png');
-  border-image-slice:150 140 150 140;
-  border-image-repeat:stretch;
+/* Angiris-Rat: Intro-Absatz nutzt die volle Content-Breite statt der
+   700px-Vorgabe von .block-head p (mehr Text als bei den anderen
+   Abschnitten), zusätzlicher Abstand vor dem Slider-Breakout. */
+#rat .block-head { margin-bottom:100px; }
+#rat .block-head h2 { margin-bottom:6px; }
+#rat .block-head p { max-width:none; line-height:1.8; }
+#rat .block-head p + p { margin-top:22px; }
+
+/* ─── Angiris-Rat: vollflächiger Portrait-Slider, 1:1 Sprache des
+   Regions-Sliders .world auf der Startseite. Die Querformat-Renders sind
+   bereits so komponiert wie die Weltkarten-Hintergründe (Figur links,
+   Architektur/Himmel rechts), daher passt der linksbündige Text-Gradient
+   von .world hier direkt. ─────────────────────────────────────────── */
+.council-wrap { position:relative; }
+/* Höhe wächst mit der Breite mit (analog zum Regions-Hero-Fix): bei fixer
+   Höhe wird die Box bei breiten Screens sehr viel breiter als die 16:9-
+   Bilder, wodurch object-fit:cover immer mehr vom Bild vertikal wegschneiden
+   muss — inklusive der Köpfe, die nahe am oberen Bildrand sitzen. */
+.council-slider { position:relative; left:50%; width:100vw; min-height:min(max(820px,46vw),90vh); margin-bottom:6px; transform:translateX(-50%); overflow:hidden; isolation:isolate; border-block:1px solid var(--line); background:#090807; }
+.council-slide { position:absolute; inset:0; opacity:0; visibility:hidden; transition:opacity .75s ease,visibility .75s; }
+.council-slide.active { opacity:1; visibility:visible; z-index:1; }
+.council-portrait { position:absolute; inset:-2%; width:104%; height:104%; object-fit:cover; object-position:22% 8%; transform:scale(1.035); transition:transform 7s ease; filter:saturate(.92) contrast(1.05); }
+.council-slide.active .council-portrait { transform:scale(1); }
+.council-slide::after { content:""; position:absolute; inset:0; background:linear-gradient(90deg,rgba(9,8,7,.96) 0%,rgba(9,8,7,.79) 28%,rgba(9,8,7,.28) 58%,rgba(9,8,7,.5) 100%),linear-gradient(0deg,rgba(9,8,7,.98) 0%,rgba(9,8,7,.18) 42%,rgba(9,8,7,.52) 100%); }
+.council-info { position:absolute; z-index:3; left:max(32px,calc((100vw - 1200px)/2)); bottom:clamp(150px,20vh,220px); width:min(560px,calc(100vw - 64px)); }
+.council-info .type { color:var(--gold); font:700 .72rem/1 system-ui,sans-serif; letter-spacing:.16em; text-transform:uppercase; }
+.council-info h3 { margin:13px 0 0; font-size:clamp(2.2rem,4.6vw,3.2rem); line-height:.95; text-shadow:0 3px 25px #000; }
+.council-info p { max-width:540px; margin:18px 0 0; color:#d4c8bb; font-size:clamp(.96rem,1.3vw,1.04rem); line-height:1.68; text-shadow:0 2px 12px #000; }
+.council-facts { display:flex; flex-wrap:wrap; gap:18px 30px; margin:22px 0 0; }
+.council-facts div { display:grid; gap:6px; }
+.council-facts dt { color:#987d68; font:700 .62rem/1 system-ui,sans-serif; letter-spacing:.13em; text-transform:uppercase; }
+.council-facts dd { margin:0; color:#eee4d8; font-size:.9rem; }
+.council-controls { position:absolute; z-index:5; left:50%; bottom:32px; width:min(1200px,calc(100vw - 64px)); transform:translateX(-50%); display:grid; grid-template-columns:48px minmax(0,1fr) 48px; align-items:center; gap:16px; }
+.council-arrow { width:48px; height:48px; display:grid; place-items:center; border:1px solid rgba(207,183,158,.32); color:#dfd2c2; background:rgba(8,7,6,.66); cursor:pointer; font-size:1.3rem; transition:border-color .2s ease,background .2s ease; }
+.council-arrow:hover,.council-arrow:focus-visible { border-color:#a96549; background:#26140f; }
+.council-tabs { display:flex; overflow-x:auto; scrollbar-width:none; border-top:1px solid rgba(207,183,158,.23); }
+.council-tabs::-webkit-scrollbar { display:none; }
+.council-tab { position:relative; flex:1 0 auto; min-width:120px; padding:16px 12px 0; border:0; color:#8f8276; background:transparent; font:700 .74rem/1.2 system-ui,sans-serif; letter-spacing:.05em; text-transform:uppercase; cursor:pointer; text-align:center; }
+.council-tab::after { content:""; position:absolute; top:-1px; left:0; right:0; height:2px; background:transparent; transition:background .2s ease; }
+.council-tab:hover { color:#c9bba8; }
+.council-tab.active { color:var(--gold); }
+.council-tab.active::after { background:var(--gold); }
+@media (max-width:760px) {
+  .council-slider { min-height:820px; }
+  .council-slide::after { background:linear-gradient(0deg,rgba(9,8,7,.98) 0%,rgba(9,8,7,.74) 52%,rgba(9,8,7,.36) 100%); }
+  .council-info { left:22px; bottom:130px; width:calc(100vw - 44px); }
+  .council-facts { gap:14px 22px; }
+  .council-controls { bottom:60px; width:calc(100vw - 30px); grid-template-columns:40px minmax(0,1fr) 40px; gap:7px; }
+  .council-arrow { width:40px; height:40px; font-size:1.1rem; }
+  .council-tab { min-width:96px; font-size:.68rem; padding:14px 8px 0; }
 }
-.location-card .type { color:var(--gold); font:700 .66rem/1 system-ui,sans-serif; letter-spacing:.12em; text-transform:uppercase; }
-.location-card h3 { margin-top:14px; font-size:1.35rem; }
-.location-card p { margin:12px 0 0; color:var(--muted); font-size:.95rem; }
-@media (max-width:900px) {
-  .location-grid { grid-template-columns:repeat(2,1fr); }
-}
-@media (max-width:680px) {
-  .location-grid { grid-template-columns:1fr; }
-}
+@media (prefers-reduced-motion:reduce) { .council-slide,.council-portrait { transition:none; } }
 
 /* ─── Himmel & Sanktuario: zwei Gruppen nebeneinander ─────────── */
 .inhabitants-grid { display:grid; grid-template-columns:1fr 1fr; gap:0; border-top:1px solid var(--line); margin-top:34px; }
