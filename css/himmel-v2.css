@@ -184,6 +184,14 @@ main { overflow:hidden; }
 .codex-text p.drop-cap::first-letter { float:left; margin:4px 10px 0 0; color:var(--gold); font:400 3.1rem/.78 'Marcellus',Georgia,serif; }
 .codex-lede { color:var(--gold); font-style:italic; font-weight:600; }
 
+/* Zweispaltiger Buchsatz für den längsten reinen Fließtext-Abschnitt — nutzt
+   den Platz rechts, der bei der schmalen einspaltigen codex-text-Spalte
+   sonst leer bliebe, und liest sich durch die Mittellinie wie eine
+   aufgeschlagene Buchseite. */
+.codex-columns { max-width:980px; column-count:2; column-gap:56px; column-rule:1px solid var(--line); }
+.codex-columns p { break-inside:avoid; }
+@media (max-width:900px) { .codex-columns { column-count:1; } }
+
 /* Der Fall der Hohen Himmel: Era-Name als Marginalie links neben dem
    Absatz statt als eigenständiges Timeline-UI mit Punkten/Linie. */
 .codex-marginalia { position:relative; padding-left:190px; }
@@ -193,16 +201,28 @@ main { overflow:hidden; }
   .codex-marginalia .era { position:static; display:block; margin-bottom:4px; }
 }
 
+/* Großes, dezentes Kompassrosen-Ornament rechts neben dem Fließtext — nutzt
+   den sonst leeren Raum rechts der schmalen Textspalte, läuft bewusst leicht
+   unter den rechten Textrand statt hart daneben zu stehen. Text bleibt via
+   z-index über der Deko lesbar. */
+.codex-section-deco { position:relative; }
+.codex-section-deco .codex-text { position:relative; z-index:1; }
+.codex-deco-img { position:absolute; top:-10px; right:-30px; z-index:0; width:min(30vw,440px); height:auto; opacity:.16; filter:grayscale(.4); pointer-events:none; }
+@media (max-width:1000px) { .codex-deco-img { display:none; } }
+
 /* Optisch hervorgehobener Hinweis auf die Abwesenheit des Himmels in Diablo IV —
    gleiches Prinzip wie die Lilith-Notiz bei den Übeln, aber in kühlerem Gold/Bone
-   statt Blutrot, damit es zum himmlischen statt infernalischen Ton passt. */
-.heaven-note { margin-top:32px; padding:22px 26px; max-width:680px; border-left:3px solid var(--gold); background:rgba(196,154,80,.07); color:var(--bone); font:italic 400 1.1rem/1.6 'Spectral',Georgia,serif; }
+   statt Blutrot, damit es zum himmlischen statt infernalischen Ton passt.
+   Quote-Mark-Ornament oben links wie eine illuminierte Initiale. */
+.heaven-note { position:relative; margin-top:32px; padding:22px 26px 22px 66px; max-width:680px; border-left:3px solid var(--gold); background:rgba(196,154,80,.07); color:var(--bone); font:italic 400 1.1rem/1.6 'Spectral',Georgia,serif; }
+.heaven-note::before { content:""; position:absolute; left:22px; top:22px; width:24px; height:41px; background:url('../img/decoration/quote-mark.webp') center/contain no-repeat; opacity:.8; }
 
 /* ─── Wichtige Orte: Register wie im Anhang eines Buches ───────── */
 .codex-register { max-width:680px; margin:0; padding:0; }
 .codex-register div { padding:14px 0; border-top:1px solid var(--line); }
 .codex-register div:first-child { border-top:0; padding-top:0; }
-.codex-register dt { display:inline; color:var(--gold); font:italic 600 1.05rem/1 'Spectral',Georgia,serif; }
+.codex-register dt { display:inline-flex; align-items:center; gap:8px; color:var(--gold); font:italic 600 1.05rem/1 'Spectral',Georgia,serif; }
+.codex-register dt::before { content:""; width:12px; height:12px; flex:none; background:url('../img/decoration/star-bullet.webp') center/contain no-repeat; opacity:.85; }
 .codex-register dt::after { content:" — "; color:var(--line); }
 .codex-register dd { display:inline; margin:0; color:var(--muted); font-size:.98rem; line-height:1.7; }
 
