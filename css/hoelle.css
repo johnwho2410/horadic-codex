@@ -180,17 +180,23 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
   letter-spacing: .28em; text-transform: uppercase; white-space: nowrap; }
 
 /* Geringe Übel: fließender Lesetext statt Bild+Text-Zeile — das Portrait
-   liegt als große, stark abgedunkelte Illustration hinter/neben dem Text,
-   bleedet an die gegenüberliegende Seite (kein eigener Bild-Container mit
-   Rahmen/Fade mehr). Gleiches Prinzip wie .codex-section-deco/.codex-deco-img
-   bei "Der Fall der Hohen Himmel" auf himmel.html — wirkt wie eine
-   Randzeichnung im Buch statt wie eine Website-Bildkarte. Seiten wechseln
-   pro Eintrag (--left/--right) für den Buchseiten-Effekt. */
-.uebel-lesser-wrap { max-width:1120px; margin:0 auto; display:grid; gap:88px; }
+   liegt großformatig hinter/neben dem Text und darf ruhig bis in die
+   Textspalte hineinragen (Text bleibt via z-index davor lesbar). Statt der
+   Website-typischen Bildkarte zwei Fassungen pro Übel: eine gezeichnete
+   Sepia-Version (Standard) und die Farbversion, die bei Hover über den
+   ganzen Abschnitt per Opacity-Crossfade einblendet — wie eine
+   illuminierte Buchseite, die beim genaueren Hinsehen "zum Leben erwacht".
+   Seiten wechseln pro Eintrag (--left/--right) für den Buchseiten-Effekt. */
+.uebel-lesser-wrap { max-width:1160px; margin:0 auto; display:grid; gap:96px; }
 .uebel-entry { position:relative; }
-.uebel-entry-img { position:absolute; top:-30px; z-index:0; width:min(34vw,440px); height:auto; opacity:.28; filter:grayscale(.25) contrast(1.15) brightness(1.1); pointer-events:none; }
-.uebel-entry--left .uebel-entry-img { right:0; }
-.uebel-entry--right .uebel-entry-img { left:0; }
+.uebel-entry-art { position:absolute; top:-40px; z-index:0; width:min(46vw,600px); pointer-events:none; }
+.uebel-entry--left .uebel-entry-art { right:-40px; }
+.uebel-entry--right .uebel-entry-art { left:-40px; }
+.uebel-entry-img { display:block; width:100%; height:auto; }
+.uebel-entry-img.sketch { opacity:.9; filter:sepia(.15) contrast(1.05); transition:opacity .6s ease; }
+.uebel-entry-img.color { position:absolute; inset:0; opacity:0; filter:saturate(.95) contrast(1.05) brightness(.96); transition:opacity .6s ease; }
+.uebel-entry:hover .uebel-entry-img.sketch,.uebel-entry:focus-within .uebel-entry-img.sketch { opacity:0; }
+.uebel-entry:hover .uebel-entry-img.color,.uebel-entry:focus-within .uebel-entry-img.color { opacity:1; }
 .uebel-entry-text { position:relative; z-index:1; max-width:620px; }
 .uebel-entry--right .uebel-entry-text { margin-left:auto; }
 .uebel-entry-text .type { color:var(--gold); font:700 .7rem/1 system-ui,sans-serif; letter-spacing:.15em; text-transform:uppercase; }
@@ -202,7 +208,7 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
 .uebel-row-facts dt { color:#987d68; font:700 .6rem/1 system-ui,sans-serif; letter-spacing:.12em; text-transform:uppercase; }
 .uebel-row-facts dd { margin:0; color:#eee4d8; font-size:.88rem; }
 @media (max-width:1000px) {
-  .uebel-entry-img { display:none; }
+  .uebel-entry-art { display:none; }
   .uebel-entry-text,.uebel-entry--right .uebel-entry-text { margin-left:0; max-width:none; }
 }
 
