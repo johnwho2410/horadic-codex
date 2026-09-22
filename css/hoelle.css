@@ -189,19 +189,24 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
    Seiten wechseln pro Eintrag (--left/--right) für den Buchseiten-Effekt. */
 .uebel-lesser-wrap { max-width:1160px; margin:0 auto; display:grid; gap:96px; }
 .uebel-entry { position:relative; }
-/* top:50%/translateY(-50%) statt top:-40px — die Kunst soll mittig zum
-   Textblock sitzen, nicht an dessen Oberkante. Radialer Maskenverlauf lässt
-   Bild (Zeichnung wie Farbversion) an allen Rändern in die Leder-Textur
-   ausfaden statt hart abzuschneiden. */
-.uebel-entry-art {
-  position:absolute; top:50%; z-index:0; width:min(46vw,600px); pointer-events:none;
-  transform:translateY(-50%);
+/* Mittige Ausrichtung über feste Höhe + negativen margin-top statt
+   top:50%/transform:translateY() — transform erzwingt (wie z-index+position
+   oder mask-image) einen eigenen Stacking-Context. Läge er auf dem
+   gemeinsamen Wrapper, würde der mix-blend-mode der Zeichnung nur noch
+   gegen das (fast unsichtbare) Farbbild im selben isolierten Context
+   blenden statt gegen die echte Leder-Textur dahinter — genau das ließ den
+   Blend-Effekt vorher kaum wirken. Die Maske sitzt außerdem auf den
+   einzelnen <img>, nicht auf .uebel-entry-art. Alle vier Renders teilen
+   dasselbe Seitenverhältnis (1536x1024), eine feste Höhe funktioniert daher
+   einheitlich für alle Einträge. */
+.uebel-entry-art { position:absolute; top:50%; height:clamp(260px,30vw,380px); margin-top:calc(clamp(260px,30vw,380px) / -2); width:auto; pointer-events:none; }
+.uebel-entry--left .uebel-entry-art { right:-40px; }
+.uebel-entry--right .uebel-entry-art { left:-40px; }
+.uebel-entry-img {
+  display:block; height:100%; width:auto;
   -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, #000 50%, transparent 100%);
   mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, #000 50%, transparent 100%);
 }
-.uebel-entry--left .uebel-entry-art { right:-40px; }
-.uebel-entry--right .uebel-entry-art { left:-40px; }
-.uebel-entry-img { display:block; width:100%; height:auto; }
 /* mix-blend-mode:multiply statt reinem Deckbild — der helle Pergamentgrund
    der Zeichnung verschwindet dadurch in die dunkle Leder-Textur, übrig
    bleibt nur die Tuschelinie, als wäre sie direkt auf die Buchseite
