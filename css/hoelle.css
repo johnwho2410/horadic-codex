@@ -27,7 +27,6 @@ button { font:inherit; }
 .menu-btn { display:none; color:var(--bone); background:none; border:1px solid var(--line); padding:7px 10px; }
 
 .eyebrow { display:flex; align-items:center; gap:8px; color:var(--gold); font:700 .72rem/1 system-ui,sans-serif; text-transform:uppercase; letter-spacing:.16em; }
-.eyebrow-icon { width:26px; height:26px; object-fit:contain; opacity:.92; filter:drop-shadow(0 1px 3px rgba(0,0,0,.6)); }
 h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; line-height:1.05; text-transform:uppercase; letter-spacing:.02em; filter:url('../img/grunge-filter.svg#grunge'); }
 
 /* ─── Hero (identische Sprache wie die Hohen Himmel) ──────────── */
@@ -70,8 +69,6 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
 .block { max-width:1200px; margin:auto; padding:20px 24px 100px; }
 .block-head { margin-bottom:30px; }
 .block-head h2 { font-size:clamp(1.9rem,3.6vw,2.7rem); }
-.block-head-title { display:flex; align-items:center; gap:12px; }
-.block-head-icon { width:32px; height:32px; object-fit:contain; opacity:.9; filter:drop-shadow(0 2px 5px rgba(0,0,0,.6)); flex:none; }
 .block-head p { max-width:700px; margin:14px 0 0; color:var(--muted); }
 /* Drei Großen Übel: Intro-Absatz nutzt die volle Content-Breite statt der
    700px-Vorgabe von .block-head p, zusätzlicher Abstand vor dem Slider.
