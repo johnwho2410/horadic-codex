@@ -35,17 +35,17 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
    von hell-header-final.webp gebacken — siehe himmel-v2.css für die
    ausführliche Begründung (Artefakt-Kante bei <img>+position:absolute+filter,
    background-position:bottom statt eines %-Werts wegen cover-Zuschnitt).
-   Abstände/Aufbau 1:1 wie himmel-v2.css: die Box selbst bleibt starr bei
-   min(720px,88vh), Content-Padding starr bei 64/24/56px. Das Bild darf
+   Abstände/Aufbau wie himmel-v2.css, nur die Basis-Höhe bewusst höher
+   (825px statt 720px). Content-Padding starr bei 64/24/56px. Das Bild darf
    diese Werte nicht mehr verschieben — Layout-Höhe und Bild-Crop-Fix sind
    deshalb entkoppelt: das Hintergrundbild sitzt auf einem eigenen ::before,
    das unabhängig von der Box-Höhe wachsen kann (s.u.), statt direkt als
    background auf .region-hero, dessen Höhe sonst den Content mitschieben
    würde. */
-.region-hero { position:relative; min-height:min(720px,88vh); display:flex; align-items:flex-end; }
+.region-hero { position:relative; min-height:min(825px,88vh); display:flex; align-items:flex-end; }
 /* Bild-Layer statt background auf .region-hero direkt: unten an der Box
    verankert (bottom:0), aber mit eigener, unabhängig wachsender Höhe — bei
-   Breiten ab 1728px reicht sie über die 720px-Box nach oben hinaus. Ohne
+   sehr breiten Viewports reicht sie über die 825px-Box nach oben hinaus. Ohne
    overflow:hidden auf .region-hero wird dieser Überstand nicht abgeschnitten,
    sondern verschwindet hinter der Sticky-Nav (z-index:20 vs. hier 0), die
    ihn deckend überlagert — der obere Bildrand wird dadurch nie sichtbar
@@ -55,7 +55,7 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
    bis zum 88vh-Deckel. */
 .region-hero::before {
   content:""; position:absolute; z-index:0; left:0; right:0; bottom:0;
-  height:min(max(720px,41.7vw),88vh);
+  height:min(max(825px,41.7vw),88vh);
   background:url('../img/hell-header-final.webp') center bottom/cover no-repeat;
 }
 .region-hero-content { position:relative; z-index:1; max-width:1200px; margin:0 auto; padding:64px 24px 56px; width:100%; }
