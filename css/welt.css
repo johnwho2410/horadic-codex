@@ -325,14 +325,23 @@ main { overflow:hidden; }
 
 /* ─── 6. Weiterreisen-Navigation (Seitenende) ─────────────────── */
 .journey-nav { max-width:1200px; margin:0 auto; padding:76px 24px 96px; display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:20px; }
-.journey-link { display:flex; flex-direction:column; gap:6px; padding:18px 22px; border:1px solid var(--line); text-decoration:none; color:var(--muted); transition:border-color .2s ease,background .2s ease; }
-.journey-link:hover,.journey-link:focus-visible { border-color:#8b5540; background:rgba(139,85,64,.08); }
+.journey-link {
+  display:flex; flex-direction:column; gap:6px; padding:18px 22px; text-decoration:none; color:var(--muted);
+  border:8px solid transparent; border-image-source:url('../img/buttons/back.webp'); border-image-slice:16 fill; border-image-width:8px; border-image-repeat:stretch;
+  transition:filter .2s ease;
+}
+.journey-link:hover,.journey-link:focus-visible { filter:brightness(1.25); }
 .journey-link .journey-label { color:#8f8276; font:700 .62rem/1 system-ui,sans-serif; letter-spacing:.12em; text-transform:uppercase; }
 .journey-link strong { color:var(--bone); font-family:'Marcellus',Georgia,serif; font-weight:400; letter-spacing:.02em; text-transform:uppercase; font-size:1.05rem; }
-.journey-link.next { text-align:right; align-items:flex-end; }
-.journey-all { justify-self:center; display:inline-flex; align-items:center; gap:10px; padding:12px 20px; color:#8f8276; text-decoration:none; font:700 .7rem/1 system-ui,sans-serif; letter-spacing:.1em; text-transform:uppercase; white-space:nowrap; }
-.journey-all::before,.journey-all::after { content:""; width:26px; height:1px; background:var(--line); }
-.journey-all:hover,.journey-all:focus-visible { color:var(--bone); }
+.journey-link.next { text-align:right; align-items:flex-end; border-image-source:url('../img/buttons/next.webp'); }
+.journey-all {
+  justify-self:center; display:inline-flex; align-items:center; gap:10px; padding:12px 20px; color:#8f8276; text-decoration:none;
+  font:700 .7rem/1 system-ui,sans-serif; letter-spacing:.1em; text-transform:uppercase; white-space:nowrap;
+  border:7px solid transparent; border-image-source:url('../img/buttons/overview.webp'); border-image-slice:15 fill; border-image-width:7px; border-image-repeat:stretch;
+  transition:filter .2s ease;
+}
+.journey-all::before,.journey-all::after { content:none; }
+.journey-all:hover,.journey-all:focus-visible { color:var(--bone); filter:brightness(1.25); }
 
 @media (max-width:680px) {
   .journey-nav { grid-template-columns:1fr; padding-left:18px; padding-right:18px; text-align:left; }
