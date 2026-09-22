@@ -60,7 +60,30 @@
     <div class="heaven-bg-alt">
     <!-- 2. Der Angiris-Rat -->
     <section class="block" id="rat">
-      <div class="block-head"><h2>Der Angiris-Rat</h2><p>Über lange Zeit wurde die Ordnung der Hohen Himmel durch den Angiris-Rat geprägt. Ursprünglich bestand er aus fünf Erzengeln, die jeweils einen grundlegenden Aspekt der Schöpfung verkörperten: Tapferkeit, Gerechtigkeit, Hoffnung, Schicksal und Weisheit. Seinen Sitz hat der Rat unmittelbar an der Silbernen Spitze, nahe dem Kristallbogen, aus dem die Engel selbst hervorgehen – ein Ausdruck davon, wie eng seine Autorität mit dem Ursprung des Himmels verwoben ist.</p><p>Nach außen trat der Rat über Äonen als geeinte Front im Ewigen Konflikt gegen die Brennenden Höllen auf. Nach innen jedoch war er nie so einmütig, wie es scheinen mochte: Die Frage, wie mit Sanktuario und seinen sterblichen Bewohnern umzugehen sei, spaltete die fünf Erzengel zunehmend – bis hin zum Rückzug Tyraels und dem Fall Malthaels, die den Rat für immer veränderten.</p></div>
+      <div class="block-head"><h2>Der Angiris-Rat</h2><p>Über lange Zeit wurde die Ordnung der Hohen Himmel durch den Angiris-Rat geprägt. Ursprünglich bestand er aus fünf Erzengeln, die jeweils einen grundlegenden Aspekt der Schöpfung verkörperten: Tapferkeit, Gerechtigkeit, Hoffnung, Schicksal und Weisheit. Seinen Sitz hat der Rat unmittelbar an der Silbernen Spitze, nahe dem Kristallbogen, aus dem die Engel selbst hervorgehen – ein Ausdruck davon, wie eng seine Autorität mit dem Ursprung des Himmels verwoben ist.</p><p>Nach außen trat der Rat über Äonen als geeinte Front im Ewigen Konflikt gegen die Brennenden Höllen auf. Nach innen jedoch war er nie so einmütig, wie es scheinen mochte: Die Frage, wie mit Sanktuario und seinen sterblichen Bewohnern umzugehen sei, spaltete die fünf Erzengel zunehmend – bis hin zum Rückzug Tyraels und dem Fall Malthaels, die den Rat für immer veränderten.</p>
+        <dl class="region-facts council-overview-facts">
+          <div><dt>Ursprüngliche Mitglieder</dt><dd>5 Erzengel</dd></div>
+          <div><dt>Sitz</dt><dd>Silberne Spitze</dd></div>
+          <div><dt>Aktuell aktiv</dt><dd>Imperius, Auriel, Itherael</dd></div>
+          <div><dt>Ausgeschieden</dt><dd>Tyrael, Malthael</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <div class="section-divider" aria-hidden="true">
+      <img src="img/divider-heaven-ornament.png" alt="" width="2172" height="342">
+    </div>
+
+    <!-- world-controls-Muster der Startseite: .council-controls liegt als
+         Geschwister von .council-slider in .council-wrap statt als Kind
+         darin — .council-slider hat durch transform:translateX(-50%) einen
+         eigenen Stacking-Context, in dem ein Kind nie über ein Geschwister
+         wie .section-divider gestapelt werden könnte, egal welcher z-index.
+         Aus demselben Grund lebt der schließende Divider hier ebenfalls als
+         Geschwister, mit dem normalen margin:0 auto (keine Zusatzabstände) —
+         so liegt er exakt an der unteren Kante des Sliders, wie beim
+         Regions-Slider auf der Startseite. -->
+    <div class="council-wrap">
       <div class="council-slider">
         <div class="council-track">
           <article class="council-slide active" data-council="0" aria-hidden="false">
@@ -139,15 +162,18 @@
             </div>
           </article>
         </div>
-        <div class="council-controls">
-          <button class="council-arrow council-prev" type="button" aria-label="Vorheriger Erzengel">←</button>
-          <div class="council-tabs" role="tablist" aria-label="Erzengel auswählen">
-            <button class="council-tab active" type="button" role="tab" aria-selected="true" data-council-tab="0">Imperius</button><button class="council-tab" type="button" role="tab" aria-selected="false" data-council-tab="1">Tyrael</button><button class="council-tab" type="button" role="tab" aria-selected="false" data-council-tab="2">Auriel</button><button class="council-tab" type="button" role="tab" aria-selected="false" data-council-tab="3">Itherael</button><button class="council-tab" type="button" role="tab" aria-selected="false" data-council-tab="4">Malthael</button>
-          </div>
-          <button class="council-arrow council-next" type="button" aria-label="Nächster Erzengel">→</button>
-        </div>
       </div>
-    </section>
+      <div class="council-controls">
+        <button class="council-arrow council-prev" type="button" aria-label="Vorheriger Erzengel">←</button>
+        <div class="council-tabs" role="tablist" aria-label="Erzengel auswählen">
+          <button class="council-tab active" type="button" role="tab" aria-selected="true" data-council-tab="0">Imperius</button><button class="council-tab" type="button" role="tab" aria-selected="false" data-council-tab="1">Tyrael</button><button class="council-tab" type="button" role="tab" aria-selected="false" data-council-tab="2">Auriel</button><button class="council-tab" type="button" role="tab" aria-selected="false" data-council-tab="3">Itherael</button><button class="council-tab" type="button" role="tab" aria-selected="false" data-council-tab="4">Malthael</button>
+        </div>
+        <button class="council-arrow council-next" type="button" aria-label="Nächster Erzengel">→</button>
+      </div>
+      <div class="section-divider" aria-hidden="true">
+        <img src="img/divider-heaven-ornament.png" alt="" width="2172" height="342">
+      </div>
+    </div>
 
     <!-- 3. Himmel & Sanktuario -->
     <section class="block" id="sanktuario">
