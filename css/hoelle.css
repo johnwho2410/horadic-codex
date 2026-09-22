@@ -35,9 +35,15 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
    von hell-header-final.webp gebacken — siehe himmel-v2.css für die
    ausführliche Begründung (Artefakt-Kante bei <img>+position:absolute+filter,
    background-position:bottom statt eines %-Werts wegen cover-Zuschnitt).
-   Abstände/Aufbau 1:1 wie himmel-v2.css — keine Sonderlösung für diese
-   Seite, sondern dasselbe Prinzip. */
-.region-hero { position:relative; min-height:min(720px,88vh); display:flex; align-items:flex-end; overflow:hidden;
+   Abstände/Aufbau ansonsten 1:1 wie himmel-v2.css. Einzige Abweichung: die
+   min-height wächst ab 1728px Breite mit 41.7vw statt starr bei 720px zu
+   bleiben — 41.7vw = 100vw / 2.4, exakt das Seitenverhältnis von
+   hell-header-final.webp. Darunter bleibt die Box exakt bei 720px wie bei
+   der Himmel-Seite; erst wenn eine breitere Box bei fixer Höhe den oberen
+   Bildrand kappen würde, wächst sie genau so viel mit, wie nötig ist, um
+   das komplett zu vermeiden (bei diesem Seitenverhältnis rechnerisch ohne
+   jeglichen vertikalen Zuschnitt, an keiner Viewport-Breite). */
+.region-hero { position:relative; min-height:min(max(720px,41.7vw),88vh); display:flex; align-items:flex-end; overflow:hidden;
   background:url('../img/hell-header-final.webp') center bottom/cover no-repeat; }
 .region-hero-content { position:relative; z-index:1; max-width:1200px; margin:0 auto; padding:64px 24px 56px; width:100%; }
 .region-hero h1 { max-width:820px; margin:16px 0 20px; font-size:clamp(2.6rem,6vw,4.4rem); text-shadow:0 3px 25px #000; }
