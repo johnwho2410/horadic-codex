@@ -189,11 +189,25 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
    Seiten wechseln pro Eintrag (--left/--right) für den Buchseiten-Effekt. */
 .uebel-lesser-wrap { max-width:1160px; margin:0 auto; display:grid; gap:96px; }
 .uebel-entry { position:relative; }
-.uebel-entry-art { position:absolute; top:-40px; z-index:0; width:min(46vw,600px); pointer-events:none; }
+/* top:50%/translateY(-50%) statt top:-40px — die Kunst soll mittig zum
+   Textblock sitzen, nicht an dessen Oberkante. Radialer Maskenverlauf lässt
+   Bild (Zeichnung wie Farbversion) an allen Rändern in die Leder-Textur
+   ausfaden statt hart abzuschneiden. */
+.uebel-entry-art {
+  position:absolute; top:50%; z-index:0; width:min(46vw,600px); pointer-events:none;
+  transform:translateY(-50%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, #000 50%, transparent 100%);
+  mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, #000 50%, transparent 100%);
+}
 .uebel-entry--left .uebel-entry-art { right:-40px; }
 .uebel-entry--right .uebel-entry-art { left:-40px; }
 .uebel-entry-img { display:block; width:100%; height:auto; }
-.uebel-entry-img.sketch { opacity:.9; filter:sepia(.15) contrast(1.05); transition:opacity .6s ease; }
+/* mix-blend-mode:multiply statt reinem Deckbild — der helle Pergamentgrund
+   der Zeichnung verschwindet dadurch in die dunkle Leder-Textur, übrig
+   bleibt nur die Tuschelinie, als wäre sie direkt auf die Buchseite
+   gezeichnet. Die Farbversion bleibt ohne Blend-Mode, damit sie beim Hover
+   als klarer, lebendiger Kontrast "einschlägt". */
+.uebel-entry-img.sketch { opacity:.94; mix-blend-mode:multiply; filter:contrast(1.12); transition:opacity .6s ease; }
 .uebel-entry-img.color { position:absolute; inset:0; opacity:0; filter:saturate(.95) contrast(1.05) brightness(.96); transition:opacity .6s ease; }
 .uebel-entry:hover .uebel-entry-img.sketch,.uebel-entry:focus-within .uebel-entry-img.sketch { opacity:0; }
 .uebel-entry:hover .uebel-entry-img.color,.uebel-entry:focus-within .uebel-entry-img.color { opacity:1; }
