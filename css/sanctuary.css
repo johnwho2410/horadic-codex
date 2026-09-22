@@ -29,19 +29,15 @@ button { font:inherit; }
 .eyebrow { display:flex; align-items:center; gap:8px; color:var(--gold); font:700 .72rem/1 system-ui,sans-serif; text-transform:uppercase; letter-spacing:.16em; }
 h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; line-height:1.05; text-transform:uppercase; letter-spacing:.02em; filter:url('../img/grunge-filter.svg#grunge'); }
 
-/* ─── Hero (identische Sprache wie die Hohen Himmel/Hölle) ──────── */
-/* Bild als background-image auf einem eigenen ::before statt direkt auf
-   .region-hero: Layout-Höhe der Box (starr, wie bei Himmel/Hölle) und
-   Bild-Crop-Vermeidung sind dadurch entkoppelt — das Bild darf bei breiten
-   Viewports unabhängig wachsen, ohne Content/Folgeabstand zu verschieben
-   (siehe hoelle.css für die ausführliche Herleitung). 42.85vw = 100vw/2.3337,
-   exakt das Seitenverhältnis von sanctuary-header-final.webp. */
-.region-hero { position:relative; min-height:min(720px,88vh); display:flex; align-items:flex-end; }
-.region-hero::before {
-  content:""; position:absolute; z-index:0; left:0; right:0; bottom:0;
-  height:min(max(720px,42.85vw),88vh);
-  background:url('../img/sanctuary-header-final.webp') center bottom/cover no-repeat;
-}
+/* ─── Hero (identischer Aufbau wie die Regionsseiten/welt.css) ──── */
+/* Bild als background-image direkt auf .region-hero, Fade im Alphakanal
+   von sanctuary-header-final.webp gebacken. Höhe wächst auf breiten
+   Viewports mit (42.85vw = 100vw/2.3337, dem Seitenverhältnis des Bilds)
+   — Content wandert dabei bewusst mit nach unten, identisches Verhalten
+   wie auf den Regionsseiten. */
+.region-hero { position:relative; min-height:min(max(720px,42.85vw),88vh); display:flex; align-items:flex-end; overflow:hidden;
+  background:url('../img/sanctuary-header-final.webp') center bottom/cover no-repeat; }
+.region-hero::after { content:""; position:absolute; inset:0; background:linear-gradient(90deg,rgba(7,5,4,.6),transparent 55%); }
 .region-hero-content { position:relative; z-index:1; max-width:1200px; margin:0 auto; padding:64px 24px 56px; width:100%; }
 .region-hero h1 { max-width:820px; margin:16px 0 20px; font-size:clamp(2.6rem,6vw,4.6rem); text-shadow:0 3px 25px #000; }
 .region-hero .lead { max-width:700px; margin:0; color:#d4c2b6; font-size:1.08rem; line-height:1.7; text-shadow:0 2px 12px #000; }
