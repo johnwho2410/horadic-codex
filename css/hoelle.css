@@ -179,41 +179,35 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
 .bsl-text { color: #7a5c3e; font: 400 .76rem/1 'Spectral',Georgia,serif;
   letter-spacing: .28em; text-transform: uppercase; white-space: nowrap; }
 
-.uebel-lesser-wrap { max-width:1120px; margin:0 auto; display:grid; gap:100px; }
-.uebel-row { display:grid; grid-template-columns: minmax(240px,1fr) minmax(280px,1.2fr); gap:56px; align-items:center; }
-/* aspect-ratio:1/1 statt 4:5 — bei den breiten 16:9-artigen Quellbildern
-   zeigt cover bei einer schmaleren Box einen immer kleineren horizontalen
-   Ausschnitt (Formel: sichtbarer Anteil = Box-Seitenverhältnis /
-   Bild-Seitenverhältnis); 1:1 zeigt spürbar mehr vom Bild und schneidet
-   dadurch nicht mehr Kopf/Motiv einzelner Renders an (z.B. Duriel). Radialer
-   Maskenverlauf statt hartem Rahmen lässt das Bild weich in die
-   Leder-Textur ausfaden, statt wie ein Foto in einer Box zu sitzen. */
-.uebel-row-figure { position:relative; aspect-ratio:1/1; }
-.uebel-row-figure img {
-  width:100%; height:100%; display:block; object-fit:cover; object-position:center 20%;
-  filter:saturate(.9) contrast(1.06) brightness(.92);
-  -webkit-mask-image: radial-gradient(ellipse 76% 76% at 50% 46%, #000 52%, transparent 100%);
-  mask-image: radial-gradient(ellipse 76% 76% at 50% 46%, #000 52%, transparent 100%);
-}
-.uebel-row-body .type { color:var(--gold); font:700 .7rem/1 system-ui,sans-serif; letter-spacing:.15em; text-transform:uppercase; }
-.uebel-row-body h3 { margin:12px 0 0; font-size:clamp(1.9rem,3.4vw,2.6rem); }
-.uebel-row-body p { max-width:560px; margin:16px 0 0; color:#c2b6a6; font-size:1rem; line-height:1.75; }
-.uebel-row-facts { display:flex; flex-wrap:wrap; gap:16px 28px; margin:20px 0 0; }
+/* Geringe Übel: fließender Lesetext statt Bild+Text-Zeile — das Portrait
+   liegt als große, stark abgedunkelte Illustration hinter/neben dem Text,
+   bleedet an die gegenüberliegende Seite (kein eigener Bild-Container mit
+   Rahmen/Fade mehr). Gleiches Prinzip wie .codex-section-deco/.codex-deco-img
+   bei "Der Fall der Hohen Himmel" auf himmel.html — wirkt wie eine
+   Randzeichnung im Buch statt wie eine Website-Bildkarte. Seiten wechseln
+   pro Eintrag (--left/--right) für den Buchseiten-Effekt. */
+.uebel-lesser-wrap { max-width:1120px; margin:0 auto; display:grid; gap:88px; }
+.uebel-entry { position:relative; }
+.uebel-entry-img { position:absolute; top:-30px; z-index:0; width:min(34vw,440px); height:auto; opacity:.28; filter:grayscale(.25) contrast(1.15) brightness(1.1); pointer-events:none; }
+.uebel-entry--left .uebel-entry-img { right:0; }
+.uebel-entry--right .uebel-entry-img { left:0; }
+.uebel-entry-text { position:relative; z-index:1; max-width:620px; }
+.uebel-entry--right .uebel-entry-text { margin-left:auto; }
+.uebel-entry-text .type { color:var(--gold); font:700 .7rem/1 system-ui,sans-serif; letter-spacing:.15em; text-transform:uppercase; }
+.uebel-entry-text h3 { margin:12px 0 0; font-size:clamp(1.9rem,3.4vw,2.6rem); }
+.uebel-entry-text p { margin:18px 0 0; color:#c2b6a6; font-size:1.02rem; line-height:1.82; }
+.uebel-entry-text p:first-of-type::first-letter { float:left; margin:4px 8px 0 0; color:var(--gold); font:400 2.7rem/.78 'Marcellus',Georgia,serif; }
+.uebel-row-facts { display:flex; flex-wrap:wrap; gap:16px 28px; margin:22px 0 0; }
 .uebel-row-facts div { display:grid; gap:5px; }
 .uebel-row-facts dt { color:#987d68; font:700 .6rem/1 system-ui,sans-serif; letter-spacing:.12em; text-transform:uppercase; }
 .uebel-row-facts dd { margin:0; color:#eee4d8; font-size:.88rem; }
-@media (max-width:800px) {
-  .uebel-row { grid-template-columns:1fr; gap:22px; }
-  .uebel-row-figure { order:-1; aspect-ratio:16/10; }
+@media (max-width:1000px) {
+  .uebel-entry-img { display:none; }
+  .uebel-entry-text,.uebel-entry--right .uebel-entry-text { margin-left:0; max-width:none; }
 }
 
 .lilith-note { margin-top:80px; padding:19px 22px; border:1px solid #4e2923; background:rgba(99,26,20,.13); color:#cfc2b2; }
 .lilith-note strong { color:#d45a46; }
-
-@media (max-width: 660px) {
-  .book-grid--lesser { grid-template-columns: 1fr; }
-  .book-page { transform: none !important; }
-}
 /* ─── Footer (site-weit einheitlich) ───────────────────────────── */
 footer { margin-top:60px; border-top:1px solid var(--line); background:#080706; }
 .footer-inner { max-width:1200px; margin:auto; padding:35px 24px; display:flex; flex-wrap:wrap; justify-content:space-between; align-items:flex-end; gap:24px; color:#776d61; font:500 .74rem/1.5 system-ui,sans-serif; }
