@@ -235,6 +235,33 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
 
 .lilith-note { margin-top:80px; padding:19px 22px; border:1px solid #4e2923; background:rgba(99,26,20,.13); color:#cfc2b2; }
 .lilith-note strong { color:#d45a46; }
+
+/* ─── Geschichte der Hölle / Wichtige Orte / Weiterführend: fließender
+   Buchsatz statt Website-Bausteinen, identisches Muster wie die
+   entsprechenden Abschnitte auf himmel-v2.css. */
+.codex-text { max-width:680px; }
+.codex-text p { margin:20px 0 0; color:#c2b6a6; font-size:1.03rem; line-height:1.85; }
+.codex-text p:first-child { margin-top:0; }
+.codex-text p.drop-cap::first-letter { float:left; margin:4px 10px 0 0; color:var(--gold); font:400 3.1rem/.78 'Marcellus',Georgia,serif; }
+.codex-marginalia { position:relative; padding-left:190px; }
+.codex-marginalia .era { position:absolute; left:0; top:.15em; width:160px; color:var(--gold); font:italic 400 .95rem/1.4 'Spectral',Georgia,serif; }
+@media (max-width:760px) {
+  .codex-marginalia { padding-left:0; }
+  .codex-marginalia .era { position:static; display:block; margin-bottom:4px; }
+}
+.codex-register { max-width:680px; margin:0; padding:0; }
+.codex-register div { padding:14px 0; border-top:1px solid var(--line); }
+.codex-register div:first-child { border-top:0; padding-top:0; }
+.codex-register dt { display:inline-flex; align-items:center; gap:8px; color:var(--gold); font:italic 600 1.05rem/1 'Spectral',Georgia,serif; }
+.codex-register dt::before { content:""; width:12px; height:12px; flex:none; background:url('../img/decoration/star-bullet.webp') center/contain no-repeat; opacity:.85; }
+.codex-register dt::after { content:" — "; color:var(--line); }
+.codex-register dd { display:inline; margin:0; color:var(--muted); font-size:.98rem; line-height:1.7; }
+.codex-seealso { max-width:680px; margin:18px 0 0; color:var(--muted); font-size:.98rem; line-height:1.8; }
+.codex-seealso:first-child { margin-top:0; }
+.codex-seealso strong { color:var(--bone); font-weight:600; }
+.codex-seealso a { color:#c2b6a6; text-decoration:none; border-bottom:1px solid rgba(196,154,80,.3); }
+.codex-seealso a:hover,.codex-seealso a:focus-visible { color:var(--gold); border-color:var(--gold); }
+
 /* ─── Footer (site-weit einheitlich) ───────────────────────────── */
 footer { margin-top:60px; border-top:1px solid var(--line); background:#080706; }
 .footer-inner { max-width:1200px; margin:auto; padding:35px 24px; display:flex; flex-wrap:wrap; justify-content:space-between; align-items:flex-end; gap:24px; color:#776d61; font:500 .74rem/1.5 system-ui,sans-serif; }
