@@ -116,12 +116,3 @@ document.querySelectorAll('.pips').forEach(el => {
       const distance = event.changedTouches[0].clientX - worldTouchStart;
       if (Math.abs(distance) > 55) showRegion(activeRegion + (distance < 0 ? 1 : -1));
     }, { passive:true });
-    const menuButton = document.querySelector('.menu-btn');
-    const navLinks = document.querySelector('.nav-links');
-    menuButton.addEventListener('click', () => {
-      const open = navLinks.classList.toggle('open');
-      menuButton.setAttribute('aria-expanded', String(open));
-    });
-    navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
-      navLinks.classList.remove('open'); menuButton.setAttribute('aria-expanded', 'false');
-    }));
