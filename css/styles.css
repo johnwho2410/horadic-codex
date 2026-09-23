@@ -412,7 +412,7 @@
     /* Winziges, kaum sichtbares Easter Egg: fast unsichtbar in der Footer-Ecke,
        Farbe nahe am Footer-Hintergrund, hellt erst bei Hover/Fokus sichtbar
        auf. Führt zur versteckten Kuh-Ebene-Seite. */
-    .footer-rune { position:absolute; right:12px; bottom:4px; width:52px; height:52px; opacity:.4; filter:grayscale(70%) brightness(.75); transition:opacity .35s ease,filter .35s ease; }
+    .footer-rune { position:absolute; right:10px; bottom:2px; width:68px; height:68px; opacity:.28; filter:grayscale(70%) brightness(.75); transition:opacity .35s ease,filter .35s ease; }
     .footer-rune img { display:block; width:100%; height:100%; object-fit:contain; }
     .footer-rune:hover,.footer-rune:focus-visible { opacity:1; filter:none; }
     .footer-inner { max-width:1200px; margin:auto; padding:35px 24px; display:flex; flex-wrap:wrap; justify-content:space-between; align-items:flex-end; gap:24px; color:#776d61; font:500 .74rem/1.5 system-ui,sans-serif; }
