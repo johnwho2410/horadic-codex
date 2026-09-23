@@ -141,8 +141,8 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
 .uebel-slide.active { opacity:1; visibility:visible; z-index:1; }
 .uebel-portrait { position:absolute; inset:-2%; width:104%; height:104%; object-fit:cover; object-position:25% 10%; transform:scale(1.035); transition:transform 7s ease; filter:saturate(.92) contrast(1.05); }
 .uebel-slide.active .uebel-portrait { transform:scale(1); }
-.uebel-slide::after { content:""; position:absolute; inset:0; background:linear-gradient(90deg,rgba(9,8,7,.82) 0%,rgba(9,8,7,.67) 28%,rgba(9,8,7,.24) 58%,rgba(9,8,7,.42) 100%),linear-gradient(0deg,rgba(9,8,7,.83) 0%,rgba(9,8,7,.15) 42%,rgba(9,8,7,.44) 100%); }
-.uebel-info { position:absolute; z-index:3; left:max(32px,calc((100vw - 1200px)/2)); bottom:clamp(150px,20vh,220px); width:min(560px,calc(100vw - 64px)); }
+.uebel-slide::after { content:""; position:absolute; inset:0; background:linear-gradient(90deg,rgba(9,8,7,.42) 0%,rgba(9,8,7,.24) 42%,rgba(9,8,7,.67) 72%,rgba(9,8,7,.82) 100%),linear-gradient(0deg,rgba(9,8,7,.83) 0%,rgba(9,8,7,.15) 42%,rgba(9,8,7,.44) 100%); }
+.uebel-info { position:absolute; z-index:3; right:max(32px,calc((100vw - 1200px)/2)); bottom:clamp(150px,20vh,220px); width:min(560px,calc(100vw - 64px)); }
 .uebel-info .type { color:var(--gold); font:700 .72rem/1 system-ui,sans-serif; letter-spacing:.16em; text-transform:uppercase; }
 .uebel-info h3 { margin:13px 0 0; font-size:clamp(2.2rem,4.6vw,3.2rem); line-height:.95; text-shadow:0 3px 25px #000; }
 .uebel-info p { max-width:540px; margin:18px 0 0; color:#d4c8bb; font-size:clamp(.96rem,1.3vw,1.04rem); line-height:1.68; text-shadow:0 2px 12px #000; }
@@ -166,7 +166,7 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
 @media (max-width:760px) {
   .uebel-slider { min-height:760px; }
   .uebel-slide::after { background:linear-gradient(0deg,rgba(9,8,7,.83) 0%,rgba(9,8,7,.63) 52%,rgba(9,8,7,.31) 100%); }
-  .uebel-info { left:22px; bottom:130px; width:calc(100vw - 44px); }
+  .uebel-info { right:22px; bottom:130px; width:calc(100vw - 44px); }
   .uebel-facts { gap:14px 22px; }
   .uebel-controls { bottom:88px; width:calc(100vw - 30px); grid-template-columns:40px minmax(0,1fr) 40px; gap:7px; }
   .uebel-arrow { width:40px; height:40px; font-size:1.1rem; }
