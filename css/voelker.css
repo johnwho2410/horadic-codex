@@ -87,13 +87,19 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
 /* ─── Zier-Divider: der "normale" site-weite Divider von index.html
    (section-divider-ornament-small.png + section-divider-line.png aus
    img/gemeinsam/), direkt unter der Einleitung platziert. Ab hier beginnt
-   die Ledertextur (.voelker-bg-leather, siehe HTML). */
-.section-divider { display:block; position:relative; z-index:4; width:min(1680px,calc(100vw - 40px)); max-width:none; height:0; margin:20px auto 90px; pointer-events:none; overflow:visible; }
+   die Ledertextur (.voelker-bg-leather, siehe HTML). margin:0 (wie in
+   styles.css) statt eigener Abstände — die Box muss exakt auf dem
+   Texturübergang sitzen, den Abstand liefert das Padding der
+   umgebenden .block-Elemente. transform:-47.8% ist der für DIESES Bild
+   kalibrierte Wert aus styles.css (nicht der -49.7%/-50%-Wert der
+   anderen, größeren Divider-Bilder — jedes Ornament-PNG hat seinen
+   eigenen vertikalen Versatz zwischen Bildmitte und sichtbarer Linie). */
+.section-divider { display:block; position:relative; z-index:4; width:min(1680px,calc(100vw - 40px)); max-width:none; height:0; margin:0 auto; pointer-events:none; overflow:visible; }
 .section-divider img {
   content:url('../img/gemeinsam/section-divider-ornament-small.png');
   position:absolute; top:0; left:50%;
   width:min(1680px,calc(100vw - 40px)); height:auto; display:block; z-index:1;
-  transform:translate(-50%,-49.7%);
+  transform:translate(-50%,-47.8%);
   filter:drop-shadow(0 4px 12px rgba(0,0,0,.7)) drop-shadow(0 0 6px rgba(196,154,80,.4));
   opacity:.96;
 }
@@ -109,7 +115,7 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
 .section-divider::before {
   content:""; position:absolute; top:0; left:50%; width:100vw; height:14px;
   transform:translate(-50%,-50%);
-  background:url('../img/gemeinsam/section-divider-line.png') center/109% 70px no-repeat;
+  background:url('../img/gemeinsam/section-divider-line.png') center/107.6% 70px no-repeat;
   filter:drop-shadow(0 0 4px rgba(196,154,80,.35));
 }
 @media (max-width:680px) { .section-divider { width:calc(100vw - 28px); } }
