@@ -79,6 +79,24 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
 .block-head h2 { font-size:clamp(1.9rem,3.6vw,2.7rem); }
 .block-head p { max-width:700px; margin:14px 0 0; color:var(--muted); }
 
+/* ─── Teaser-Abschnitt (identisch zu .sanctuary-teaser auf index.html):
+   reiner Text-Teaser mit CTA statt Card-Grid, für Bereiche, deren
+   vollständiger Inhalt auf eine eigene Unterseite ausgelagert wurde
+   (siehe #voelker → voelker.html). */
+.sanctuary-teaser { max-width:720px; padding-top:88px; padding-bottom:88px; margin:0 auto; text-align:center; }
+.sanctuary-teaser .eyebrow { justify-content:center; }
+.sanctuary-teaser h2 { margin-top:14px; }
+.sanctuary-teaser h2::after { content:"◆"; display:block; width:max-content; margin:16px auto 0; color:#7f2b20; font:400 .72rem/1 'Spectral',Georgia,serif; text-shadow:16px 0 #4d2d24,-16px 0 #4d2d24; }
+.sanctuary-lead { max-width:600px; margin:22px auto 0; color:var(--muted); font-size:1.1rem; line-height:1.75; }
+.sanctuary-teaser .download-file { margin-top:34px; }
+.download-file {
+  display:inline-flex; align-items:center; gap:9px; margin-top:26px; padding:11px 14px; color:#ddcdb9; background:#1c110d; text-decoration:none;
+  font:700 .72rem/1 system-ui,sans-serif; letter-spacing:.09em; text-transform:uppercase;
+  border:9px solid transparent; border-image-source:url('../img/buttons/more-info-standard.webp'); border-image-slice:16 fill; border-image-width:9px; border-image-repeat:stretch;
+  transition:filter .2s ease;
+}
+.download-file:hover,.download-file:focus-visible { filter:brightness(1.2); background:#2a1711; }
+
 /* Einleitung als echter Chronik-Prolog: fließender Lesetext in einer Spalte
    statt Website-Absatz-Grid, mit Initiale auf dem ersten Buchstaben für den
    Manuskript-Charakter. */
