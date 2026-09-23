@@ -14,11 +14,16 @@ html { scroll-behavior:smooth; }
 body { margin:0; padding-bottom:47px; color:var(--bone); font:400 1rem/1.65 'Spectral',Georgia,'Times New Roman',serif;
   background:#090807 url('../img/texturen/section-rock-seamless.webp') top center/1400px repeat; }
 body::before { content:""; position:fixed; inset:0; z-index:-1; background:rgba(4,4,4,.78); }
-/* Zweiter Hintergrund ab "Kulte & Verdorbene": dunklere Lederstruktur statt
-   der neutralen Steintextur, identisches Muster wie .sanctuary-bg-leather
-   auf sanctuary.html — der Abschnitt soll laut Vorgabe "stilistisch etwas
-   dunkler werden". */
-.voelker-bg-dark { background:linear-gradient(rgba(6,5,4,.68),rgba(6,5,4,.68)),
+/* Zweiter Hintergrund ab dem Divider unter der Einleitung: gealtertes Leder
+   statt der neutralen Steintextur, identisches Muster wie .sanctuary-bg-leather
+   auf sanctuary.html/.hell-bg-alt auf hoelle.html — der Texturwechsel beginnt
+   exakt am Divider statt body-weit zu gelten. */
+.voelker-bg-leather { background:linear-gradient(rgba(9,8,7,.4),rgba(9,8,7,.4)),
+  url('../img/texturen/section-leather-seamless.webp') top center/1400px repeat; }
+/* Zusätzliche Abdunklung nur für "Kulte & Verdorbene", oben auf dem Leder
+   der .voelker-bg-leather, damit dieser Abschnitt wie gefordert "stilistisch
+   etwas dunkler" wirkt als der Rest der Seite. */
+.voelker-bg-dark { background:linear-gradient(rgba(4,3,2,.55),rgba(4,3,2,.55)),
   url('../img/texturen/section-leather-seamless.webp') top center/1400px repeat; }
 a { color:inherit; }
 button { font:inherit; }
@@ -32,9 +37,18 @@ button { font:inherit; }
 .nav-links { display:flex; gap:20px; }
 .menu-btn { display:none; color:var(--bone); background:none; border:1px solid var(--line); padding:7px 10px; }
 
-/* Sprungziele der Register-Navigation dürfen nicht unter Topbar + sticky
-   Register-Leiste verschwinden. */
-[id] { scroll-margin-top:165px; }
+/* ─── Sub-Navigation (Sprungmarken): site-weit einheitliches Muster, fest
+   am unteren Bildschirmrand statt sticky/scrollend (siehe hoelle.css/
+   sanctuary.css/himmel-v2.css/welt.css für dieselbe Begründung). */
+.subnav { position:fixed; left:0; right:0; bottom:0; z-index:19; background:rgba(9,8,7,.96); border-top:1px solid var(--line); }
+.subnav-inner { max-width:1200px; margin:auto; padding:0 24px; display:flex; justify-content:flex-end; gap:30px; overflow-x:auto; scrollbar-width:none; }
+.subnav-inner::-webkit-scrollbar { display:none; }
+.subnav a { flex:none; display:flex; align-items:center; height:46px; color:var(--muted); text-decoration:none;
+  font:650 .72rem/1 system-ui,sans-serif; letter-spacing:.08em; text-transform:uppercase; white-space:nowrap;
+  border-bottom:2px solid transparent; transition:color .2s,border-color .2s; }
+.subnav a:hover { color:var(--bone); }
+.subnav a.active { color:var(--gold); border-bottom-color:var(--gold); }
+[id] { scroll-margin-top:100px; }
 
 .eyebrow { display:flex; align-items:center; gap:8px; color:var(--gold); font:700 .72rem/1 system-ui,sans-serif; text-transform:uppercase; letter-spacing:.16em; }
 h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; line-height:1.05; text-transform:uppercase; letter-spacing:.02em; filter:url('../img/gemeinsam/grunge-filter.svg#grunge'); }
@@ -70,22 +84,35 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
   font-family:'Marcellus',Georgia,serif; font-size:3.4em; line-height:.82;
 }
 
-/* ─── Register-Navigation: Kapitelmarker statt Buttons/Tabs. Sticky sobald
-   sie den oberen Rand erreicht (im Gegensatz zur site-weiten .subnav, die
-   unten fixiert ist) — bewusst ein eigenes, kleineres Muster, da diese
-   Navigation nur innerhalb der Seite zwischen Kapiteln springt, statt wie
-   die Subnav die ganze Seitenstruktur abzubilden. Wiederverwendet die
-   Rauten-Trenner-Optik von .chapter-markers (styles.css/index.html). */
-.voelker-register { position:sticky; top:85px; z-index:15; background:rgba(9,8,7,.92); backdrop-filter:blur(6px); border-block:1px solid var(--line); }
-.voelker-register-inner { max-width:1200px; margin:auto; padding:16px 24px; display:flex; flex-wrap:wrap; align-items:center; justify-content:center; row-gap:10px; column-gap:0; }
-.voelker-register a { color:#a08d78; text-decoration:none; font:650 .72rem/1 system-ui,sans-serif; letter-spacing:.13em; text-transform:uppercase; transition:color .2s ease; }
-.voelker-register a:hover,.voelker-register a:focus-visible,.voelker-register a.active { color:var(--gold); }
-.voelker-register a + a::before { content:"◆"; display:inline-block; margin:0 18px; color:#5a4432; font-size:.5rem; vertical-align:middle; }
-@media (max-width:760px) {
-  .voelker-register-inner { justify-content:flex-start; overflow-x:auto; flex-wrap:nowrap; scrollbar-width:none; }
-  .voelker-register-inner::-webkit-scrollbar { display:none; }
-  .voelker-register a { flex:none; white-space:nowrap; }
+/* ─── Zier-Divider: der "normale" site-weite Divider von index.html
+   (section-divider-ornament-small.png + section-divider-line.png aus
+   img/gemeinsam/), direkt unter der Einleitung platziert. Ab hier beginnt
+   die Ledertextur (.voelker-bg-leather, siehe HTML). */
+.section-divider { display:block; position:relative; z-index:4; width:min(1680px,calc(100vw - 40px)); max-width:none; height:0; margin:20px auto 90px; pointer-events:none; overflow:visible; }
+.section-divider img {
+  content:url('../img/gemeinsam/section-divider-ornament-small.png');
+  position:absolute; top:0; left:50%;
+  width:min(1680px,calc(100vw - 40px)); height:auto; display:block; z-index:1;
+  transform:translate(-50%,-49.7%);
+  filter:drop-shadow(0 4px 12px rgba(0,0,0,.7)) drop-shadow(0 0 6px rgba(196,154,80,.4));
+  opacity:.96;
 }
+.section-divider::after {
+  content:""; position:absolute; z-index:2; top:0; left:50%; width:64px; height:64px;
+  transform:translate(-50%,-50%);
+  background:radial-gradient(circle,rgba(228,196,140,.75) 0%,rgba(196,154,80,.4) 40%,transparent 72%);
+  mix-blend-mode:screen; pointer-events:none;
+  animation:divider-glow-pulse 8s ease-in-out infinite;
+}
+@keyframes divider-glow-pulse { 0%,100% { opacity:.42; } 50% { opacity:1; } }
+@media (prefers-reduced-motion:reduce) { .section-divider::after { animation:none; } }
+.section-divider::before {
+  content:""; position:absolute; top:0; left:50%; width:100vw; height:14px;
+  transform:translate(-50%,-50%);
+  background:url('../img/gemeinsam/section-divider-line.png') center/109% 70px no-repeat;
+  filter:drop-shadow(0 0 4px rgba(196,154,80,.35));
+}
+@media (max-width:680px) { .section-divider { width:calc(100vw - 28px); } }
 
 /* ─── Kategorie-Trenner zwischen den großen Gruppen: identische Divider-
    Bilder wie sanctuary.html (Sanktuario-Thema passt thematisch, keine

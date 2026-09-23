@@ -24,6 +24,16 @@
     </div>
   </header>
 
+  <nav class="subnav" aria-label="Abschnitte dieser Seite">
+    <div class="subnav-inner">
+      <a href="#menschen">Menschen &amp; Nephalem</a>
+      <a href="#voelker-sanktuarios">Völker</a>
+      <a href="#bestien-verfluchte">Bestien &amp; Verfluchte</a>
+      <a href="#geister-untote">Geister &amp; Untote</a>
+      <a href="#kulte-verdorbene">Kulte &amp; Verdorbene</a>
+    </div>
+  </nav>
+
   <main>
     <section class="block" id="einleitung">
       <div class="lore-lead">
@@ -32,17 +42,11 @@
       </div>
     </section>
 
-    <nav class="voelker-register" aria-label="Kategorien dieser Seite">
-      <div class="voelker-register-inner">
-        <a href="#einleitung">Alle</a>
-        <a href="#menschen">Menschen &amp; Nephalem</a>
-        <a href="#voelker-sanktuarios">Völker</a>
-        <a href="#bestien-verfluchte">Bestien &amp; Verfluchte</a>
-        <a href="#geister-untote">Geister &amp; Untote</a>
-        <a href="#kulte-verdorbene">Kulte &amp; Verdorbene</a>
-      </div>
-    </nav>
+    <div class="section-divider" aria-hidden="true">
+      <img src="img/gemeinsam/section-divider-ornament-small.png" alt="" width="2170" height="725">
+    </div>
 
+    <div class="voelker-bg-leather">
     <!-- 1. Menschen & Nephalem -->
     <section class="block" id="menschen">
       <article class="bestiary-entry">
@@ -293,6 +297,7 @@
         </a>
       </div>
     </section>
+    </div>
   </main>
 
   <footer><div class="footer-inner">
@@ -306,26 +311,7 @@
     </div>
   </div></footer>
 
-  <script>
-    // Register-Navigation: markiert das Kapitel, das gerade im Blick ist —
-    // gleiche IntersectionObserver-Logik wie js/subnav.js, aber auf die
-    // eigene .voelker-register-Leiste statt der site-weiten Subnav bezogen,
-    // da diese hier oben sticky statt unten fixiert ist.
-    const register = document.querySelector('.voelker-register');
-    if (register) {
-      const links = [...register.querySelectorAll('a[href^="#"]')];
-      const sections = links.map(link => document.querySelector(link.getAttribute('href'))).filter(Boolean);
-      const setActive = link => links.forEach(l => l.classList.toggle('active', l === link));
-      const observer = new IntersectionObserver(entries => {
-        const visible = entries.find(entry => entry.isIntersecting);
-        if (!visible) return;
-        const id = visible.target.getAttribute('id');
-        const link = links.find(l => l.getAttribute('href') === `#${id}`);
-        if (link) setActive(link);
-      }, { rootMargin: '-140px 0px -65% 0px', threshold: 0 });
-      sections.forEach(section => observer.observe(section));
-    }
-  </script>
 <script src="js/nav.js" defer></script>
+<script src="js/subnav.js" defer></script>
 </body>
 </html>
