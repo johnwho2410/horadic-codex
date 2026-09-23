@@ -1,6 +1,6 @@
 @font-face {
   font-family:'Diablo';
-  src:url('../img/diablo-heavy.ttf') format('truetype');
+  src:url('../img/gemeinsam/diablo-heavy.ttf') format('truetype');
   font-style:normal;
   font-weight:400;
   font-display:swap;
@@ -16,7 +16,7 @@ html { scroll-behavior:smooth; }
    dem letzten Abschnitt zu schweben. main:flex:1 nimmt den restlichen
    Platz ein. */
 body { margin:0; min-height:100vh; padding-bottom:47px; display:flex; flex-direction:column; color:var(--bone); font:400 1rem/1.65 'Spectral',Georgia,'Times New Roman',serif;
-  background:#050403 url('../img/section-lava-seamless.webp') top center/1400px repeat; }
+  background:#050403 url('../img/texturen/section-lava-seamless.webp') top center/1400px repeat; }
 body::before { content:""; position:fixed; inset:0; z-index:-1; background:rgba(5,4,3,.6); }
 main { flex:1 0 auto; }
 a { color:inherit; }
@@ -48,7 +48,7 @@ button { font:inherit; }
 section[id] { scroll-margin-top:100px; }
 
 .eyebrow { display:flex; align-items:center; gap:8px; color:var(--gold); font:700 .72rem/1 system-ui,sans-serif; text-transform:uppercase; letter-spacing:.16em; }
-h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; line-height:1.05; text-transform:uppercase; letter-spacing:.02em; filter:url('../img/grunge-filter.svg#grunge'); }
+h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; line-height:1.05; text-transform:uppercase; letter-spacing:.02em; filter:url('../img/gemeinsam/grunge-filter.svg#grunge'); }
 
 /* ─── Hero (identischer Aufbau wie die Regionsseiten/welt.css) ──── */
 /* Bild als background-image statt <img> + filter, Fade direkt im Alphakanal
@@ -60,7 +60,7 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
    hell-header-final.webp) — Content wandert dabei bewusst mit nach unten,
    identisches Verhalten wie auf den Regionsseiten. */
 .region-hero { position:relative; min-height:min(max(825px,41.7vw),88vh); display:flex; align-items:flex-end; overflow:hidden;
-  background:url('../img/hell-header-final.webp') center bottom/cover no-repeat; }
+  background:url('../img/evil/hell-header-final.webp') center bottom/cover no-repeat; }
 /* Maske blendet die Verdunklung linear in der bild-eigenen Alpha-Fade-Zone
    (62%–100% der Höhe) aus, statt hart abzuschneiden — ein harter Schnitt
    erzeugt selbst eine sichtbare Kante. Deckungsgleich mit der im Bild
@@ -90,7 +90,7 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
    exakt an der Sektion beginnt (identisches Muster wie .heaven-bg-alt auf
    himmel.html, nur mit dunkelrotem statt bläulichem Tönungs-Overlay). */
 .hell-bg-alt { background:linear-gradient(rgba(5,4,3,.55),rgba(5,4,3,.55)),
-  url('../img/section-leather-seamless.webp') top center/1400px repeat; }
+  url('../img/texturen/section-leather-seamless.webp') top center/1400px repeat; }
 
 /* ─── Wesen der Brennenden Höllen: Fließtext + Merkmalsliste ──────── */
 .overview-grid { display:grid; grid-template-columns:1.4fr 1fr; gap:56px; align-items:start; }
@@ -107,7 +107,7 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
 /* ─── Site-weiter Zier-Divider (Hölle-Thema) ───────────────────── */
 .section-divider { display:block; position:relative; z-index:4; width:min(1680px,calc(100vw - 40px)); max-width:none; height:0; margin:0 auto; pointer-events:none; overflow:visible; }
 .section-divider img {
-  content:url('../img/divider-hell-ornament.png');
+  content:url('../img/evil/divider-hell-ornament.png');
   position:absolute; top:0; left:50%;
   width:min(1680px,calc(100vw - 40px)); height:auto; display:block; z-index:1;
   transform:translate(-50%,-48.8%);
@@ -126,7 +126,7 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
 .section-divider::before {
   content:""; position:absolute; top:0; left:50%; width:100vw; height:14px;
   transform:translate(-50%,-50%);
-  background:url('../img/divider-hell-line.png') center/107.6% 70px no-repeat;
+  background:url('../img/evil/divider-hell-line.png') center/107.6% 70px no-repeat;
   filter:drop-shadow(0 0 4px rgba(220,90,50,.35));
 }
 @media (max-width:680px) { .section-divider { width:calc(100vw - 28px); } }

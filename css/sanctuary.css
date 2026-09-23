@@ -1,6 +1,6 @@
 @font-face {
   font-family:'Diablo';
-  src:url('../img/diablo-heavy.ttf') format('truetype');
+  src:url('../img/gemeinsam/diablo-heavy.ttf') format('truetype');
   font-style:normal;
   font-weight:400;
   font-display:swap;
@@ -12,13 +12,13 @@
 * { box-sizing:border-box; }
 html { scroll-behavior:smooth; }
 body { margin:0; padding-bottom:47px; color:var(--bone); font:400 1rem/1.65 'Spectral',Georgia,'Times New Roman',serif;
-  background:#090807 url('../img/section-rock-seamless.webp') top center/1400px repeat; }
+  background:#090807 url('../img/texturen/section-rock-seamless.webp') top center/1400px repeat; }
 body::before { content:""; position:fixed; inset:0; z-index:-1; background:rgba(4,4,4,.78); }
 /* Zweiter Hintergrund ab dem Chronik-Divider: eigenes, deckendes background
    auf dem Wrapper statt body-weit, damit der Texturwechsel exakt am Divider
    beginnt (identisches Muster wie .heaven-bg-alt/.hell-bg-alt). */
 .sanctuary-bg-leather { background:linear-gradient(rgba(9,8,7,.55),rgba(9,8,7,.55)),
-  url('../img/section-leather-seamless.webp') top center/1400px repeat; }
+  url('../img/texturen/section-leather-seamless.webp') top center/1400px repeat; }
 a { color:inherit; }
 button { font:inherit; }
 
@@ -48,7 +48,7 @@ button { font:inherit; }
 section[id] { scroll-margin-top:100px; }
 
 .eyebrow { display:flex; align-items:center; gap:8px; color:var(--gold); font:700 .72rem/1 system-ui,sans-serif; text-transform:uppercase; letter-spacing:.16em; }
-h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; line-height:1.05; text-transform:uppercase; letter-spacing:.02em; filter:url('../img/grunge-filter.svg#grunge'); }
+h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; line-height:1.05; text-transform:uppercase; letter-spacing:.02em; filter:url('../img/gemeinsam/grunge-filter.svg#grunge'); }
 
 /* ─── Hero (identischer Aufbau wie die Regionsseiten/welt.css) ──── */
 /* Bild als background-image direkt auf .region-hero, Fade im Alphakanal
@@ -57,7 +57,7 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
    — Content wandert dabei bewusst mit nach unten, identisches Verhalten
    wie auf den Regionsseiten. */
 .region-hero { position:relative; min-height:min(max(720px,42.85vw),88vh); display:flex; align-items:flex-end; overflow:hidden;
-  background:url('../img/sanctuary-header-final.webp') center bottom/cover no-repeat; }
+  background:url('../img/sanctuary/sanctuary-header-final.webp') center bottom/cover no-repeat; }
 /* Maske blendet die Verdunklung linear in der bild-eigenen Alpha-Fade-Zone
    (62%–100% der Höhe) aus, statt hart abzuschneiden — ein harter Schnitt
    erzeugt selbst eine sichtbare Kante. Deckungsgleich mit der im Bild
@@ -98,7 +98,7 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
    damit sie sich wie die übrigen Divider freistehend über die Textur legen. */
 .section-divider { display:block; position:relative; z-index:4; width:min(1680px,calc(100vw - 40px)); max-width:none; height:0; margin:110px auto 150px; pointer-events:none; overflow:visible; }
 .section-divider img {
-  content:url('../img/divider-sanctuary-ornament.png');
+  content:url('../img/sanctuary/divider-sanctuary-ornament.png');
   position:absolute; top:0; left:50%;
   width:min(1680px,calc(100vw - 40px)); height:auto; display:block; z-index:1;
   transform:translate(-50%,-49.7%);
@@ -117,7 +117,7 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
 .section-divider::before {
   content:""; position:absolute; top:0; left:50%; width:100vw; height:14px;
   transform:translate(-50%,-50%);
-  background:url('../img/divider-sanctuary-line.png') center/109% 70px no-repeat;
+  background:url('../img/sanctuary/divider-sanctuary-line.png') center/109% 70px no-repeat;
   filter:drop-shadow(0 0 4px rgba(196,154,80,.35));
 }
 
@@ -219,7 +219,7 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
 .people::before {
   content:""; position:absolute; inset:-16px -11px; pointer-events:none; opacity:.6;
   border-style:solid; border-width:30px 20px;
-  border-image-source:url('../img/class-card-frame-subtle.png');
+  border-image-source:url('../img/klassen/class-card-frame-subtle.png');
   border-image-slice:150 140 150 140;
   border-image-repeat:stretch;
 }
@@ -237,7 +237,7 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
 .archive-card::before {
   content:""; position:absolute; inset:-16px -11px; pointer-events:none; opacity:.6;
   border-style:solid; border-width:30px 20px;
-  border-image-source:url('../img/class-card-frame-subtle.png');
+  border-image-source:url('../img/klassen/class-card-frame-subtle.png');
   border-image-slice:150 140 150 140;
   border-image-repeat:stretch;
 }
@@ -257,7 +257,7 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
 .relation-node::before {
   content:""; position:absolute; inset:-11px -8px; pointer-events:none; opacity:.6;
   border-style:solid; border-width:22px 15px;
-  border-image-source:url('../img/class-card-frame-subtle.png');
+  border-image-source:url('../img/klassen/class-card-frame-subtle.png');
   border-image-slice:150 140 150 140;
   border-image-repeat:stretch;
 }

@@ -1,6 +1,6 @@
 @font-face {
   font-family:'Diablo';
-  src:url('../img/diablo-heavy.ttf') format('truetype');
+  src:url('../img/gemeinsam/diablo-heavy.ttf') format('truetype');
   font-style:normal;
   font-weight:400;
   font-display:swap;
@@ -12,7 +12,7 @@
 * { box-sizing:border-box; }
 html { scroll-behavior:smooth; }
 body { margin:0; padding-bottom:47px; color:var(--bone); font:400 1rem/1.65 'Spectral',Georgia,'Times New Roman',serif;
-  background:#090807 url('../img/section-rock-seamless.webp') top center/1400px repeat; }
+  background:#090807 url('../img/texturen/section-rock-seamless.webp') top center/1400px repeat; }
 body::before { content:""; position:fixed; inset:0; z-index:-1; background:rgba(4,4,4,.78); }
 a { color:inherit; }
 button { font:inherit; }
@@ -42,7 +42,7 @@ button { font:inherit; }
 .subnav a.active { color:var(--gold); border-bottom-color:var(--gold); }
 section[id] { scroll-margin-top:100px; }
 
-h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; line-height:1.05; text-transform:uppercase; letter-spacing:.02em; filter:url('../img/grunge-filter.svg#grunge'); }
+h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; line-height:1.05; text-transform:uppercase; letter-spacing:.02em; filter:url('../img/gemeinsam/grunge-filter.svg#grunge'); }
 
 /* ─── Region-Hero ──────────────────────────────────────────── */
 /* Bild als background-image (per Inline-style pro Seite) statt <img> mit
@@ -98,7 +98,7 @@ main { overflow:hidden; }
   background:
     linear-gradient(90deg,#090807 0%,rgba(9,8,7,.15) 13%,rgba(9,8,7,.15) 87%,#090807 100%),
     linear-gradient(rgba(9,8,7,.68),rgba(9,8,7,.68)),
-    url('../img/section-leather-seamless.webp') top center/1400px repeat;
+    url('../img/texturen/section-leather-seamless.webp') top center/1400px repeat;
 }
 .block-head { margin-bottom:30px; }
 .block-head h2 { font-size:clamp(1.9rem,3.6vw,2.7rem); }
@@ -111,7 +111,7 @@ main { overflow:hidden; }
 .location-card::before {
   content:""; position:absolute; inset:-16px -11px; pointer-events:none; opacity:.6;
   border-style:solid; border-width:30px 20px;
-  border-image-source:url('../img/class-card-frame-subtle.png');
+  border-image-source:url('../img/klassen/class-card-frame-subtle.png');
   border-image-slice:150 140 150 140;
   border-image-repeat:stretch;
 }
@@ -202,7 +202,7 @@ main { overflow:hidden; }
 .region-map-marker { position:absolute; width:92px; height:92px; transform:translate(-50.04%,-34.2%); pointer-events:none; z-index:1; }
 .region-map-marker::before {
   content:""; position:absolute; inset:0;
-  background:url('../img/mapmarker.webp') center/contain no-repeat;
+  background:url('../img/gemeinsam/mapmarker.webp') center/contain no-repeat;
   filter:drop-shadow(0 0 10px rgba(190,55,22,.5));
 }
 .region-map-marker::after {
@@ -248,7 +248,7 @@ main { overflow:hidden; }
 .atmosphere-visual::after { content:""; position:absolute; inset:0; background:linear-gradient(0deg,rgba(9,8,7,.55) 0%,rgba(9,8,7,.15) 40%,rgba(9,8,7,.4) 100%),linear-gradient(90deg,rgba(9,8,7,.35),transparent 30%,transparent 70%,rgba(9,8,7,.35)); pointer-events:none; }
 .atmosphere-visual-tag { position:absolute; left:50%; bottom:20px; transform:translateX(-50%); color:#6b5e4f; font:650 .68rem/1 system-ui,sans-serif; letter-spacing:.1em; text-transform:uppercase; }
 .atmosphere-words { position:absolute; z-index:1; inset:0; display:flex; align-items:center; justify-content:center; gap:clamp(14px,3vw,34px); flex-wrap:wrap; padding:24px; text-align:center; }
-.atmosphere-words span { color:var(--bone); font-family:'Marcellus',Georgia,serif; font-weight:400; letter-spacing:.1em; text-transform:uppercase; font-size:clamp(1.3rem,3.6vw,2.5rem); filter:url('../img/grunge-filter.svg#grunge'); opacity:.95; text-shadow:0 3px 18px rgba(0,0,0,.85); }
+.atmosphere-words span { color:var(--bone); font-family:'Marcellus',Georgia,serif; font-weight:400; letter-spacing:.1em; text-transform:uppercase; font-size:clamp(1.3rem,3.6vw,2.5rem); filter:url('../img/gemeinsam/grunge-filter.svg#grunge'); opacity:.95; text-shadow:0 3px 18px rgba(0,0,0,.85); }
 .atmosphere-words span + span::before { content:"—"; display:inline-block; margin-right:clamp(14px,3vw,34px); color:#5c4530; }
 @media (max-width:680px) {
   .atmosphere-visual { aspect-ratio:4/3; min-height:340px; max-height:none; }
@@ -259,7 +259,7 @@ main { overflow:hidden; }
    anstelle der schlichten Rahmenlinien vor/nach dem Atmosphäre-Bild. */
 .section-divider { display:block; position:relative; z-index:4; width:min(1680px,calc(100vw - 40px)); max-width:none; height:0; margin:0 auto; pointer-events:none; overflow:visible; }
 .section-divider img {
-  content:url('../img/section-divider-ornament-small.png');
+  content:url('../img/gemeinsam/section-divider-ornament-small.png');
   position:absolute; top:0; left:50%;
   width:min(1680px,calc(100vw - 40px)); height:auto; display:block; z-index:1;
   transform:translate(-50%,-47.8%);
@@ -279,7 +279,7 @@ main { overflow:hidden; }
 .section-divider::before {
   content:""; position:absolute; top:0; left:50%; width:100vw; height:14px;
   transform:translate(-50%,-50%);
-  background:url('../img/section-divider-line.png') center/107.6% 70px no-repeat;
+  background:url('../img/gemeinsam/section-divider-line.png') center/107.6% 70px no-repeat;
   filter:drop-shadow(0 0 4px rgba(157,42,20,.3));
   animation:divider-glow-line 8s ease-in-out infinite; animation-delay:-2s;
 }
@@ -306,7 +306,7 @@ main { overflow:hidden; }
 .showcase-card .image-placeholder::before {
   content:""; position:absolute; inset:-16px -11px; pointer-events:none; opacity:.7;
   border-style:solid; border-width:30px 20px;
-  border-image-source:url('../img/class-card-frame-subtle.png');
+  border-image-source:url('../img/klassen/class-card-frame-subtle.png');
   border-image-slice:150 140 150 140;
   border-image-repeat:stretch;
 }
