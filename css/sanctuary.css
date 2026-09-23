@@ -14,6 +14,11 @@ html { scroll-behavior:smooth; }
 body { margin:0; color:var(--bone); font:400 1rem/1.65 'Spectral',Georgia,'Times New Roman',serif;
   background:#090807 url('../img/section-rock-seamless.webp') top center/1400px repeat; }
 body::before { content:""; position:fixed; inset:0; z-index:-1; background:rgba(4,4,4,.78); }
+/* Zweiter Hintergrund ab dem Chronik-Divider: eigenes, deckendes background
+   auf dem Wrapper statt body-weit, damit der Texturwechsel exakt am Divider
+   beginnt (identisches Muster wie .heaven-bg-alt/.hell-bg-alt). */
+.sanctuary-bg-leather { background:linear-gradient(rgba(9,8,7,.55),rgba(9,8,7,.55)),
+  url('../img/section-leather-seamless.webp') top center/1400px repeat; }
 a { color:inherit; }
 button { font:inherit; }
 
@@ -58,24 +63,63 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
 .block-head h2 { font-size:clamp(1.9rem,3.6vw,2.7rem); }
 .block-head p { max-width:700px; margin:14px 0 0; color:var(--muted); }
 
-.lore-lead { margin:0 0 34px; display:grid; grid-template-columns:1fr 1fr; gap:30px; }
-.lore-lead p { margin:0; color:#c2b6a6; font-size:1.05rem; }
-.lore-chapters { display:grid; gap:42px; }
-.lore-chapter { position:relative; padding:26px 28px; border:1px solid var(--line); background:linear-gradient(145deg,#171310,#100e0c); }
-.lore-chapter::before {
-  content:""; position:absolute; inset:-16px -11px; pointer-events:none; opacity:.6;
-  border-style:solid; border-width:30px 20px;
-  border-image-source:url('../img/class-card-frame-subtle.png');
-  border-image-slice:150 140 150 140;
-  border-image-repeat:stretch;
+/* Einleitung als echter Chronik-Prolog: fließender Lesetext in einer Spalte
+   statt Website-Absatz-Grid, mit Initiale auf dem ersten Buchstaben für den
+   Manuskript-Charakter. */
+.lore-lead { margin:0 auto 8px; max-width:760px; }
+.lore-lead p { margin:0 0 20px; color:#c2b6a6; font-size:1.08rem; line-height:1.8; }
+.lore-lead p:last-child { margin-bottom:0; }
+.lore-lead p:first-of-type::first-letter {
+  float:left; margin:.03em .1em 0 0; color:var(--gold);
+  font-family:'Marcellus',Georgia,serif; font-size:3.4em; line-height:.82;
 }
-.lore-chapter header { display:grid; grid-template-columns:60px 1fr; gap:16px; align-items:start; }
-.chapter-num { color:#7f2b20; font:500 1.7rem/1 'Spectral',Georgia,serif; }
-.lore-chapter h3 { font-size:1.5rem; }
-.lore-chapter .period { display:block; margin-top:6px; color:#8e7c69; font:650 .68rem/1.3 system-ui,sans-serif; text-transform:uppercase; letter-spacing:.11em; }
-.chapter-copy { margin-top:14px; color:var(--muted); }
-.chapter-copy p { margin:0 0 10px; }
-.chapter-copy p:last-child { margin-bottom:0; }
+
+/* ─── Zier-Divider (Sanktuario-Thema) ────────────────────────────
+   Gleicher Aufbau wie bei Himmel/Hölle: Ornament + dünne Glutlinie,
+   goldener Glow statt blau/rot. Bilder aus dem sanktuario-Ordner sind
+   auf reinem Schwarz gerendert, keine echte Alpha-Transparenz — daher
+   per Skript in RGBA (Alpha = Helligkeit, unpremultiplied) umgewandelt,
+   damit sie sich wie die übrigen Divider freistehend über die Textur legen. */
+.section-divider { display:block; position:relative; z-index:4; width:min(1680px,calc(100vw - 40px)); max-width:none; height:0; margin:110px auto 150px; pointer-events:none; overflow:visible; }
+.section-divider img {
+  content:url('../img/divider-sanctuary-ornament.png');
+  position:absolute; top:0; left:50%;
+  width:min(1680px,calc(100vw - 40px)); height:auto; display:block; z-index:1;
+  transform:translate(-50%,-49.7%);
+  filter:drop-shadow(0 4px 12px rgba(0,0,0,.7)) drop-shadow(0 0 6px rgba(196,154,80,.4));
+  opacity:.96;
+}
+.section-divider::after {
+  content:""; position:absolute; z-index:2; top:0; left:50%; width:64px; height:64px;
+  transform:translate(-50%,-50%);
+  background:radial-gradient(circle,rgba(228,196,140,.75) 0%,rgba(196,154,80,.4) 40%,transparent 72%);
+  mix-blend-mode:screen; pointer-events:none;
+  animation:divider-glow-pulse 8s ease-in-out infinite;
+}
+@keyframes divider-glow-pulse { 0%,100% { opacity:.42; } 50% { opacity:1; } }
+@media (prefers-reduced-motion:reduce) { .section-divider::after { animation:none; } }
+.section-divider::before {
+  content:""; position:absolute; top:0; left:50%; width:100vw; height:14px;
+  transform:translate(-50%,-50%);
+  background:url('../img/divider-sanctuary-line.png') center/109% 70px no-repeat;
+  filter:drop-shadow(0 0 4px rgba(196,154,80,.35));
+}
+
+/* ─── Chronik-Einträge ────────────────────────────────────────────
+   Keine Kästen, keine Kapitelnummern mehr — jeder Eintrag liest sich
+   wie ein Datensatz in der Chronik: Bild, Datum, Titel, Untertitel,
+   Text. Bildspalte deutlich breiter als zuvor (rahmenlose 16:9-Bilder,
+   440px statt 210px). */
+.lore-entries { display:grid; gap:0; }
+.lore-entry { display:grid; grid-template-columns:440px 1fr; gap:40px; padding:88px 0; align-items:start; }
+.lore-entry + .lore-entry { border-top:1px solid var(--line); }
+.entry-media img { display:block; width:100%; height:auto; border-radius:2px; filter:drop-shadow(0 14px 32px rgba(0,0,0,.55)); }
+.entry-date { display:block; margin-bottom:8px; color:var(--gold); font:italic 600 .84rem/1 'Spectral',Georgia,serif; letter-spacing:.03em; }
+.entry-body h3 { font-size:1.7rem; }
+.entry-sub { margin:8px 0 0; color:#8e7c69; font:650 .68rem/1.3 system-ui,sans-serif; text-transform:uppercase; letter-spacing:.11em; }
+.entry-copy { margin-top:16px; color:var(--muted); }
+.entry-copy p { margin:0 0 10px; }
+.entry-copy p:last-child { margin-bottom:0; }
 
 .region-strip { margin-top:26px; display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
 .region { padding:16px 18px; border:1px solid var(--line); background:#100e0c; }
@@ -138,6 +182,9 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
 @media (max-width:900px) {
   .region-strip,.people-grid,.archive-grid,.relation-tier { grid-template-columns:repeat(2,1fr); }
   .relation-node.origin { grid-column:auto; }
+  .lore-entry { grid-template-columns:1fr; }
+  .entry-media { grid-column:1; grid-row:auto; max-width:360px; margin:0 auto 18px; }
+  .entry-body { grid-column:1; }
 }
 /* ─── Footer (site-weit einheitlich) ───────────────────────────── */
 footer { margin-top:60px; border-top:1px solid var(--line); background:#080706; }
