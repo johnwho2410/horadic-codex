@@ -15,7 +15,7 @@ html { scroll-behavior:smooth; }
    auf kurzen Seiten (z.B. nach dem Kürzen von Inhalten), statt direkt unter
    dem letzten Abschnitt zu schweben. main:flex:1 nimmt den restlichen
    Platz ein. */
-body { margin:0; min-height:100vh; display:flex; flex-direction:column; color:var(--bone); font:400 1rem/1.65 'Spectral',Georgia,'Times New Roman',serif;
+body { margin:0; min-height:100vh; padding-bottom:47px; display:flex; flex-direction:column; color:var(--bone); font:400 1rem/1.65 'Spectral',Georgia,'Times New Roman',serif;
   background:#050403 url('../img/section-lava-seamless.webp') top center/1400px repeat; }
 body::before { content:""; position:fixed; inset:0; z-index:-1; background:rgba(5,4,3,.6); }
 main { flex:1 0 auto; }
@@ -30,6 +30,22 @@ button { font:inherit; }
 .nav a:not(.brand):hover { color:var(--bone); }
 .nav-links { display:flex; gap:20px; }
 .menu-btn { display:none; color:var(--bone); background:none; border:1px solid var(--line); padding:7px 10px; }
+
+/* ─── Sub-Navigation (Sprungmarken) ────────────────────────────────
+   Fest am unteren Bildschirmrand (position:fixed, nicht sticky/scrollend),
+   Links rechtsbündig (site-weit einheitliches Muster, siehe auch
+   sanctuary.css/himmel-v2.css/welt.css). body padding-bottom hält die
+   Leiste vom Footer fern; scroll-margin-top berücksichtigt nur noch die
+   Topbar, da die Subnav nicht mehr oben mitklebt. */
+.subnav { position:fixed; left:0; right:0; bottom:0; z-index:19; background:rgba(9,8,7,.96); border-top:1px solid var(--line); }
+.subnav-inner { max-width:1200px; margin:auto; padding:0 24px; display:flex; justify-content:flex-end; gap:30px; overflow-x:auto; scrollbar-width:none; }
+.subnav-inner::-webkit-scrollbar { display:none; }
+.subnav a { flex:none; display:flex; align-items:center; height:46px; color:var(--muted); text-decoration:none;
+  font:650 .72rem/1 system-ui,sans-serif; letter-spacing:.08em; text-transform:uppercase; white-space:nowrap;
+  border-bottom:2px solid transparent; transition:color .2s,border-color .2s; }
+.subnav a:hover { color:var(--bone); }
+.subnav a.active { color:var(--gold); border-bottom-color:var(--gold); }
+section[id] { scroll-margin-top:100px; }
 
 .eyebrow { display:flex; align-items:center; gap:8px; color:var(--gold); font:700 .72rem/1 system-ui,sans-serif; text-transform:uppercase; letter-spacing:.16em; }
 h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; line-height:1.05; text-transform:uppercase; letter-spacing:.02em; filter:url('../img/grunge-filter.svg#grunge'); }
@@ -270,6 +286,7 @@ footer { margin-top:60px; border-top:1px solid var(--line); background:#080706; 
 
 @media (max-width:760px) {
   .nav { gap:13px; min-height:75px; }
+  .subnav-inner { padding:0 18px; gap:22px; }
   .menu-btn { display:block; }
   .nav-links { display:none; position:absolute; top:75px; left:0; right:0; padding:18px 24px 24px; flex-direction:column; gap:14px; background:#0d0b0a; border-bottom:1px solid var(--line); }
   .nav-links.open { display:flex; }

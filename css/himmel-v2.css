@@ -11,7 +11,7 @@
 }
 * { box-sizing:border-box; }
 html { scroll-behavior:smooth; }
-body { margin:0; color:var(--bone); font:400 1rem/1.65 'Spectral',Georgia,'Times New Roman',serif;
+body { margin:0; padding-bottom:47px; color:var(--bone); font:400 1rem/1.65 'Spectral',Georgia,'Times New Roman',serif;
   background:#0a0c10 url('../img/section-heaven-seamless.webp') top center/1400px repeat; }
 body::before { content:""; position:fixed; inset:0; z-index:-1; background:rgba(10,12,16,.7); }
 /* Zweiter Hintergrund ab "Der Angiris-Rat": eigenes, deckendes background
@@ -35,6 +35,22 @@ button { font:inherit; }
 .nav a:not(.brand):hover { color:var(--bone); }
 .nav-links { display:flex; gap:20px; }
 .menu-btn { display:none; color:var(--bone); background:none; border:1px solid var(--line); padding:7px 10px; }
+
+/* ─── Sub-Navigation (Sprungmarken) ────────────────────────────────
+   Fest am unteren Bildschirmrand (position:fixed, nicht sticky/scrollend),
+   Links rechtsbündig (site-weit einheitliches Muster, siehe auch
+   sanctuary.css/hoelle.css/welt.css). body padding-bottom hält die Leiste
+   vom Footer fern; scroll-margin-top berücksichtigt nur noch die Topbar,
+   da die Subnav nicht mehr oben mitklebt. */
+.subnav { position:fixed; left:0; right:0; bottom:0; z-index:19; background:rgba(9,8,7,.96); border-top:1px solid var(--line); }
+.subnav-inner { max-width:1200px; margin:auto; padding:0 24px; display:flex; justify-content:flex-end; gap:30px; overflow-x:auto; scrollbar-width:none; }
+.subnav-inner::-webkit-scrollbar { display:none; }
+.subnav a { flex:none; display:flex; align-items:center; height:46px; color:var(--muted); text-decoration:none;
+  font:650 .72rem/1 system-ui,sans-serif; letter-spacing:.08em; text-transform:uppercase; white-space:nowrap;
+  border-bottom:2px solid transparent; transition:color .2s,border-color .2s; }
+.subnav a:hover { color:var(--bone); }
+.subnav a.active { color:var(--gold); border-bottom-color:var(--gold); }
+section[id] { scroll-margin-top:100px; }
 
 h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; line-height:1.05; text-transform:uppercase; letter-spacing:.02em; filter:url('../img/grunge-filter.svg#grunge'); }
 
@@ -267,6 +283,7 @@ footer { margin-top:0; border-top:1px solid var(--line); background:#080706; }
 
 @media (max-width:680px) {
   .nav { padding:0 18px; min-height:75px; gap:16px; }
+  .subnav-inner { padding:0 18px; gap:22px; }
 
   .brand-logo { height:38px; }
   .menu-btn { display:block; }
