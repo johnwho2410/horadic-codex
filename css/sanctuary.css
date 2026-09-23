@@ -150,13 +150,15 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
   box-shadow:0 0 7px rgba(196,154,80,.3);
 }
 
-/* aspect-ratio exakt wie die Quellbilder (900×600 = 3:2), nicht 16:9 —
-   die Illustrationen haben einen gemalten Zierrahmen bis an den Bildrand;
-   ein 16:9-Crop via object-fit:cover hätte oben/unten Teile davon
-   abgeschnitten. */
-.chronicle-media { position:relative; z-index:1; aspect-ratio:3/2; overflow:hidden; border-radius:3px; }
+/* Kein fest erzwungenes aspect-ratio mehr auf dem Container — die Chronik
+   mischt inzwischen 3:2- und 16:9-Illustrationen (je nachdem wann sie
+   erzeugt wurden). Die Box übernimmt einfach die eigene Bildbreite/-höhe
+   (per width/height-Attribut reserviert), damit nie beschnitten oder
+   mit Leerraum aufgefüllt werden muss und der gemalte Zierrahmen immer
+   vollständig sichtbar bleibt. */
+.chronicle-media { position:relative; z-index:1; overflow:hidden; border-radius:3px; }
 .chronicle-media img {
-  display:block; width:100%; height:100%; object-fit:contain;
+  display:block; width:100%; height:auto;
   filter:drop-shadow(0 14px 32px rgba(0,0,0,.55));
   transition:transform .6s ease;
 }
