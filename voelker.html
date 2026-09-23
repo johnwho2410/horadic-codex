@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#090807">
-  <meta name="description" content="Völker & Wesen Sanktuarios: Menschen und Nephalem, Umbaru, Lacuni und Khazra, Bestien und Verfluchte, Geister und Untote, Kulte und Verdorbene.">
-  <title>Völker &amp; Wesen – Sanktuario · Diablo IV Kompendium</title>
+  <meta name="description" content="Bestiarium Sanktuarios: Gegnerfamilien, Kreaturenstudien, Feldnotizen und typische Varianten aus Diablo IV.">
+  <title>Bestiarium – Sanktuario · Diablo IV Kompendium</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marcellus&family=Spectral:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
@@ -18,9 +18,14 @@
 
   <header class="region-hero" role="img" aria-label="Ein aufgeschlagener horadrischer Bestiarium-Folio mit Studien von Menschen, Umbaru, Lacuni, einem Geist und einer verfluchten Kreatur">
     <div class="region-hero-content">
-      <div class="eyebrow">Sanktuario</div>
-      <h1>Völker &amp; Wesen</h1>
-      <p class="lead">Die Bewohner einer Welt zwischen Menschlichkeit, Fluch und Verderbnis.</p>
+      <div class="eyebrow">Archiv der Horadrim · Sanktuario</div>
+      <h1>Bestiarium</h1>
+      <p class="lead">Ein Archiv der Kreaturen, Gegnerfamilien und Gefahren, die auf den Wegen Sanktuarios lauern. Die Studien verbinden Beobachtungen zu Verhalten und Lebensraum mit den Spuren, die jede Familie in der Welt hinterlässt.</p>
+      <dl class="region-facts">
+        <div><dt>Umfang</dt><dd>14 Gegnerfamilien</dd></div>
+        <div><dt>Archivform</dt><dd>Hauptstudie &amp; Feldnotiz</dd></div>
+        <div><dt>Fokus</dt><dd>Verhalten, Lebensraum &amp; Varianten</dd></div>
+      </dl>
     </div>
   </header>
 
@@ -49,7 +54,7 @@
           <div>
             <span class="eyebrow">Horadrisches Archiv</span>
             <h2 id="monster-title">Monster &amp; Gegner</h2>
-            <p>Eine wachsende Sammlung von Gegnerfamilien. Wählt einen Eintrag, um die zugehörige Kreaturenstudie zu öffnen.</p>
+            <p>Wählt eine Gegnerfamilie im Register, um die zugehörige Kreaturenstudie aufzuschlagen.</p>
           </div>
         </div>
 
@@ -57,8 +62,7 @@
           <aside class="monster-register" aria-label="Monsterregister">
             <span class="monster-register-title">Register der Familien</span>
             <div class="monster-search-wrap">
-              <label for="monster-search">Monster durchsuchen</label>
-              <input id="monster-search" type="search" placeholder="Monster durchsuchen …" autocomplete="off">
+              <input id="monster-search" type="search" placeholder="Monster durchsuchen …" autocomplete="off" aria-label="Monster durchsuchen">
             </div>
             <div class="monster-index-frame">
               <div class="monster-index" id="monster-index" aria-label="Monsterfamilien"></div>
