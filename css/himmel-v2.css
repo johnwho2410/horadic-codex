@@ -1,6 +1,6 @@
 @font-face {
   font-family:'Diablo';
-  src:url('../img/diablo-heavy.ttf') format('truetype');
+  src:url('../img/gemeinsam/diablo-heavy.ttf') format('truetype');
   font-style:normal;
   font-weight:400;
   font-display:swap;
@@ -12,7 +12,7 @@
 * { box-sizing:border-box; }
 html { scroll-behavior:smooth; }
 body { margin:0; padding-bottom:47px; color:var(--bone); font:400 1rem/1.65 'Spectral',Georgia,'Times New Roman',serif;
-  background:#0a0c10 url('../img/section-heaven-seamless.webp') top center/1400px repeat; }
+  background:#0a0c10 url('../img/texturen/section-heaven-seamless.webp') top center/1400px repeat; }
 body::before { content:""; position:fixed; inset:0; z-index:-1; background:rgba(10,12,16,.7); }
 /* Zweiter Hintergrund ab "Der Angiris-Rat": eigenes, deckendes background
    auf dem Wrapper statt body-weit, damit der Wechsel exakt an der Sektion
@@ -23,7 +23,7 @@ body::before { content:""; position:fixed; inset:0; z-index:-1; background:rgba(
    TODO: section-leather-seamless.webp ist nur ein Platzhalter, bis eine
    passende Heaven-Textur feststeht. */
 .heaven-bg-alt { background:linear-gradient(rgba(10,12,16,.55),rgba(10,12,16,.55)),
-  url('../img/section-leather-seamless.webp') top center/1400px repeat; }
+  url('../img/texturen/section-leather-seamless.webp') top center/1400px repeat; }
 a { color:inherit; }
 button { font:inherit; }
 
@@ -52,7 +52,7 @@ button { font:inherit; }
 .subnav a.active { color:var(--gold); border-bottom-color:var(--gold); }
 section[id] { scroll-margin-top:100px; }
 
-h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; line-height:1.05; text-transform:uppercase; letter-spacing:.02em; filter:url('../img/grunge-filter.svg#grunge'); }
+h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; line-height:1.05; text-transform:uppercase; letter-spacing:.02em; filter:url('../img/gemeinsam/grunge-filter.svg#grunge'); }
 
 /* ─── Hero (identischer Aufbau wie die Regionsseiten/welt.css) ──── */
 /* Bild als background-image statt <img> mit position:absolute + filter:
@@ -71,7 +71,7 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
    Viewports mit nach unten — identisches, bewusstes Verhalten wie auf den
    Regionsseiten. */
 .region-hero { position:relative; min-height:min(max(720px,42.85vw),88vh); display:flex; align-items:flex-end; overflow:hidden;
-  background:url('../img/heaven-header-final.webp') center bottom/cover no-repeat; }
+  background:url('../img/heaven/heaven-header-final.webp') center bottom/cover no-repeat; }
 /* Nur horizontale Linksverdunklung für Textlesbarkeit. Ein harter Schnitt
    (z.B. bottom:38%) erzeugt selbst eine sichtbare Kante, weil die
    Verdunklung dort abrupt endet statt auszulaufen. Stattdessen blendet eine
@@ -114,7 +114,7 @@ main { overflow:hidden; }
 /* ─── Site-weiter Zier-Divider ─────────────────────────────────── */
 .section-divider { display:block; position:relative; z-index:4; width:min(1680px,calc(100vw - 40px)); max-width:none; height:0; margin:0 auto; pointer-events:none; overflow:visible; }
 .section-divider img {
-  content:url('../img/divider-heaven-ornament.png');
+  content:url('../img/heaven/divider-heaven-ornament.png');
   position:absolute; top:0; left:50%;
   width:min(1680px,calc(100vw - 40px)); height:auto; display:block; z-index:1;
   transform:translate(-50%,-49.7%);
@@ -133,7 +133,7 @@ main { overflow:hidden; }
 .section-divider::before {
   content:""; position:absolute; top:0; left:50%; width:100vw; height:14px;
   transform:translate(-50%,-50%);
-  background:url('../img/divider-heaven-line.png') center/107.6% 70px no-repeat;
+  background:url('../img/heaven/divider-heaven-line.png') center/107.6% 70px no-repeat;
   filter:drop-shadow(0 0 4px rgba(140,175,220,.3));
 }
 @media (max-width:680px) { .section-divider { width:calc(100vw - 28px); } }

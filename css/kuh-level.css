@@ -1,6 +1,6 @@
 @font-face {
   font-family:'Diablo';
-  src:url('../img/diablo-heavy.ttf') format('truetype');
+  src:url('../img/gemeinsam/diablo-heavy.ttf') format('truetype');
   font-style:normal;
   font-weight:400;
   font-display:swap;
@@ -13,7 +13,7 @@
 html { scroll-behavior:smooth; }
 body { margin:0; min-height:100vh; display:flex; flex-direction:column; color:var(--bone);
   font:400 1rem/1.65 'Spectral',Georgia,'Times New Roman',serif;
-  background:#090807 url('../img/section-rock-seamless.webp') top center/1400px repeat; }
+  background:#090807 url('../img/texturen/section-rock-seamless.webp') top center/1400px repeat; }
 body::before { content:""; position:fixed; inset:0; z-index:-1; background:rgba(5,4,3,.6); }
 main { flex:1 0 auto; }
 a { color:inherit; }
@@ -27,7 +27,7 @@ button { font:inherit; }
 .nav a:not(.brand):hover { color:var(--bone); }
 
 .eyebrow { display:flex; align-items:center; gap:8px; color:var(--gold); font:700 .72rem/1 system-ui,sans-serif; text-transform:uppercase; letter-spacing:.16em; }
-h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; line-height:1.05; text-transform:uppercase; letter-spacing:.02em; filter:url('../img/grunge-filter.svg#grunge'); }
+h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; line-height:1.05; text-transform:uppercase; letter-spacing:.02em; filter:url('../img/gemeinsam/grunge-filter.svg#grunge'); }
 
 /* ─── Hero: gleicher Aufbau wie region-hero auf hoelle.html/himmel.html,
    nur mit dem neuen Kuh-Level-Header aus img/muh/. Seitenverhältnis von
