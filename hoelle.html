@@ -29,6 +29,16 @@
     </div>
   </header>
 
+  <nav class="subnav" aria-label="Abschnitte dieser Seite">
+    <div class="subnav-inner">
+      <a href="#wesen">Wesen</a>
+      <a href="#grosse-uebel">Die Drei Großen Übel</a>
+      <a href="#geringe-uebel">Die Vier Geringen Übel</a>
+      <a href="#geschichte">Geschichte der Hölle</a>
+      <a href="#orte">Wichtige Orte</a>
+    </div>
+  </nav>
+
   <main>
     <!-- 1. Wesen der Brennenden Höllen -->
     <section class="block" id="wesen">
@@ -297,5 +307,6 @@
     document.querySelector('.uebel-prev').addEventListener('click', () => showUebel(activeUebel - 1));
     document.querySelector('.uebel-next').addEventListener('click', () => showUebel(activeUebel + 1));
   </script>
-<script src="js/nav.js" defer></script></body>
+<script src="js/nav.js" defer></script>
+<script src="js/subnav.js" defer></script></body>
 </html>

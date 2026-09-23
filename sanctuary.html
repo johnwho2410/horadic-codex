@@ -29,6 +29,15 @@
     </div>
   </header>
 
+  <nav class="subnav" aria-label="Abschnitte dieser Seite">
+    <div class="subnav-inner">
+      <a href="#chronik">Chronik</a>
+      <a href="#voelker">Völker &amp; Wesen</a>
+      <a href="#archiv">Fraktionen &amp; Persönlichkeiten</a>
+      <a href="#beziehungen">Beziehungen</a>
+    </div>
+  </nav>
+
   <main>
     <section class="block" id="chronik">
       <div class="block-head"><h2>Chronik</h2></div>
@@ -135,5 +144,6 @@
       document.querySelectorAll('.archive-panel').forEach(panel => { panel.hidden = panel.id !== `panel-${tab.dataset.archive}`; });
     }));
   </script>
-<script src="js/nav.js" defer></script></body>
+<script src="js/nav.js" defer></script>
+<script src="js/subnav.js" defer></script></body>
 </html>
