@@ -153,6 +153,7 @@
           <div class="uebel-entry-art">
             <img class="uebel-entry-img sketch" src="img/evil/andariel-sketch.webp" alt="Andariel, Zeichnung" loading="lazy">
             <img class="uebel-entry-img color" src="img/evil/andariel.webp" alt="" loading="lazy">
+            <video class="uebel-entry-img anim" muted playsinline preload="none" aria-hidden="true"><source src="img/evil/andarial-animation.mp4" type="video/mp4"></video>
           </div>
           <div class="uebel-entry-text">
             <span class="type">Geringes Übel · Zwillingschwester Duriels</span>
@@ -171,6 +172,7 @@
           <div class="uebel-entry-art">
             <img class="uebel-entry-img sketch" src="img/evil/duriel-sketch.webp" alt="Duriel, Zeichnung" loading="lazy">
             <img class="uebel-entry-img color" src="img/evil/duriel2.webp" alt="" loading="lazy">
+            <video class="uebel-entry-img anim" muted playsinline preload="none" aria-hidden="true"><source src="img/evil/duriel-animation.mp4" type="video/mp4"></video>
           </div>
           <div class="uebel-entry-text">
             <span class="type">Geringes Übel · Zwillingsbruder Andariels</span>
@@ -189,6 +191,7 @@
           <div class="uebel-entry-art">
             <img class="uebel-entry-img sketch" src="img/evil/belial-sketch.webp" alt="Belial, Zeichnung" loading="lazy">
             <img class="uebel-entry-img color" src="img/evil/belial.webp" alt="" loading="lazy">
+            <video class="uebel-entry-img anim" muted playsinline preload="none" aria-hidden="true"><source src="img/evil/belial-animation.mp4" type="video/mp4"></video>
           </div>
           <div class="uebel-entry-text">
             <span class="type">Geringes Übel · Meister der Täuschung</span>
@@ -207,6 +210,7 @@
           <div class="uebel-entry-art">
             <img class="uebel-entry-img sketch" src="img/evil/azmodan-sketch.webp" alt="Azmodan, Zeichnung" loading="lazy">
             <img class="uebel-entry-img color" src="img/evil/azmodan.webp" alt="" loading="lazy">
+            <video class="uebel-entry-img anim" muted playsinline preload="none" aria-hidden="true"><source src="img/evil/azmodan-animation.mp4" type="video/mp4"></video>
           </div>
           <div class="uebel-entry-text">
             <span class="type">Geringes Übel · Oberster Feldherr der Hölle</span>
@@ -306,6 +310,21 @@
     uebelTabs.forEach(tab => tab.addEventListener('click', () => showUebel(Number(tab.dataset.uebelTab))));
     document.querySelector('.uebel-prev').addEventListener('click', () => showUebel(activeUebel - 1));
     document.querySelector('.uebel-next').addEventListener('click', () => showUebel(activeUebel + 1));
+
+    // Geringe Übel: Video spielt einmal beim Hover/Fokus ab und blendet sich
+    // danach wieder aus — das bereits sichtbare Farbbild bleibt stehen, statt
+    // dass das Video loopt oder ein zweites Mal von selbst startet.
+    document.querySelectorAll('.uebel-entry').forEach(entry => {
+      const video = entry.querySelector('.uebel-entry-img.anim');
+      if (!video) return;
+      const play = () => { video.currentTime = 0; video.classList.add('playing'); video.play().catch(() => {}); };
+      const stop = () => { video.pause(); video.classList.remove('playing'); };
+      entry.addEventListener('mouseenter', play);
+      entry.addEventListener('focusin', play);
+      entry.addEventListener('mouseleave', stop);
+      entry.addEventListener('focusout', stop);
+      video.addEventListener('ended', () => video.classList.remove('playing'));
+    });
   </script>
 <script src="js/nav.js" defer></script>
 <script src="js/subnav.js" defer></script></body>
