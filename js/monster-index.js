@@ -6,7 +6,8 @@
   const monsters = [
     'Banditen', 'Kannibalen', 'Kultisten', 'Dämonen', 'Ertrunkene', 'Gefallene',
     'Geister', 'Ziegenmenschen', 'Skelette', 'Schlangen', 'Spinnen', 'Vampire',
-    'Werwölfe', 'Zombies'
+    'Werwölfe', 'Zombies', 'Ritter der Buße', 'Maden & Brut', 'Fliegen & Schwärme',
+    'Wildnisbestien'
   ].map((name) => ({
     id: name.toLocaleLowerCase('de-DE').replace(/ä/g, 'ae').replace(/ö/g, 'oe').replace(/ü/g, 'ue').replace(/ß/g, 'ss').replace(/[^a-z0-9]+/g, '-'),
     name,
@@ -357,6 +358,102 @@
         image: 'img/bestiarium/zombies/zombies-fundstueckstudie-pergament-freigestellt.png',
         alt: 'Pergamentstudie mit Grabschaufel, zerbrochener Laterne, Grabtuch, Schlüssel und Kette',
         caption: 'Zurückgelassene Grabbeigaben'
+      }
+    ]
+  });
+
+  Object.assign(monsters[14], {
+    category: 'Menschliche Gegnerfamilie',
+    subtitle: 'Die Buße in Eisen',
+    region: 'Fractured Peaks, Kehjistan und alte Pilgerwege',
+    habitat: 'Verfallene Kapellen, befestigte Übergänge, Gruften und Klosteranlagen',
+    behavior: 'Schildträger binden den Kampf, während Armbrüste und Stangenwaffen aus der zweiten Reihe Druck aufbauen.',
+    traits: 'Beschädigte Plattenrüstungen, Kiteschilde, Streitkolben, Hellebarden, Armbrüste und Bußketten',
+    variants: 'Schildträger, Hellebardier, Armbrustschütze, Büßer und schwerer Wächter',
+    description: [
+      'Die Ritter der Buße tragen noch immer die Formen alter Ordnung: Wappen, Rüstungen und die Sprache des Schutzes. Doch an vielen verlassenen Wegen Sanktuarios sind diese Zeichen nur noch Hüllen. Ihre Helme sind stumpf, ihre Schilde geflickt, und die Gelübde, die sie einst banden, haben sich in eine stumme Härte verwandelt.',
+      'Im Gefecht bewegen sie sich nicht wie eine zufällige Wache. Schildträger halten einen Durchgang, Hellebardiere erreichen über die erste Reihe hinweg ihr Ziel, und Armbrustschützen bestrafen jeden, der sich zu weit aus der Deckung löst. Ihre Disziplin bleibt erhalten, auch wenn ihre Sache längst verloren scheint.',
+      'Feldnotiz: Nicht den Schild als einzelne Mauer behandeln. Der Ritter davor hält nur die Linie, damit die Waffe dahinter ihren Winkel findet. Seitlich ausweichen, die Formation öffnen und erst dann den schweren Träger stellen.'
+    ],
+    image: 'img/bestiarium/ritter/ritter-hauptstudie-pergament-freigestellt.png',
+    imageAlt: 'Pergamentstudie dreier Ritter der Buße auf einem verwitterten Pilgerweg',
+    studies: [
+      {
+        image: 'img/bestiarium/ritter/ritter-kriegsgeraet-pergament-freigestellt.png',
+        alt: 'Pergamentstudie mit Schild, Streitkolben, Hellebarde, Armbrustbolzen und Bußkette',
+        caption: 'Kriegsgerät der Buße'
+      }
+    ]
+  });
+
+  Object.assign(monsters[15], {
+    category: 'Bestialische Gegnerfamilie',
+    subtitle: 'Brut unter brüchigem Stein',
+    region: 'Trockensteppe, Kehjistan, Hawezar und tiefe Höhlen',
+    habitat: 'Erdspalten, Brutkammern, trockene Tunnel und verlassene Minenschächte',
+    behavior: 'Larven brechen aus dem Boden, während größere Brutformen Wege verengen und mit Säure oder Masse Druck erzeugen.',
+    traits: 'Segmentpanzer, Schleimspuren, zangenartige Mäuler, Eigelege und ätzende Sekrete',
+    variants: 'Madenlarve, Säurewurm, Grabmaggot, Brutmutter und Schlundkriecher',
+    description: [
+      'Maden und Würmer kündigen sich selten durch Lärm an. Eine aufgerissene Erdkruste, feuchter Schleim an trockenem Stein oder das leise Arbeiten unter den Füßen genügen. Wo ihre Gänge dicht beieinander liegen, wird selbst ein sicher wirkender Durchgang zu einem brüchigen Dach über einer lebenden Brut.',
+      'Die kleineren Larven sind vor allem dort gefährlich, wo sie in Masse ausbrechen. Größere Formen öffnen dagegen Wege, versperren Fluchten oder spritzen ätzende Sekrete in enge Räume. Eine Brutmutter muss nicht schnell sein: Sie macht aus dem eigenen Nest eine Waffe und zwingt jeden Eindringling, auf unsicherem Boden zu bleiben.',
+      'Feldnotiz: Nicht dem ersten Aufbrechen folgen. Der sichtbare Wurm ist oft nur der Köder für die Stelle, an der der Boden gleich nachgibt. Freien Stein suchen, Säureflächen meiden und die Brutkammer niemals ohne Rückweg betreten.'
+    ],
+    image: 'img/bestiarium/maden/maden-hauptstudie-pergament-freigestellt.png',
+    imageAlt: 'Pergamentstudie einer Madenbrut mit Brutmutter in einer Erdspalte',
+    studies: [
+      {
+        image: 'img/bestiarium/maden/maden-brutstudie-pergament-freigestellt.png',
+        alt: 'Pergamentstudie mit Larvenpanzer, Zange, Eigelege, Säureprobe und Bruchstück eines Baus',
+        caption: 'Zeichen der Brutkammer'
+      }
+    ]
+  });
+
+  Object.assign(monsters[16], {
+    category: 'Dämonische Gegnerfamilie',
+    subtitle: 'Schwärme des Verfalls',
+    region: 'Hawezar, verfaulte Keller, Sümpfe und verseuchte Ruinen',
+    habitat: 'Morast, Aasplätze, sumpfige Gewölbe und Orte stehenden Wassers',
+    behavior: 'Sie überlagern Sicht und Bewegung, während größere Brutformen aus dem Schwarm heraus stechen oder Gift verspritzen.',
+    traits: 'Zerfranste Flügel, schwarze Stachel, geschwollene Leiber, Eigelege und fauliger Dunst',
+    variants: 'Leichenfliege, Stechfliege, Schwarmbrut, Giftfliege und geflügelte Brutmutter',
+    description: [
+      'Ein einzelnes Summen ist in den Sümpfen kaum bemerkenswert. Ein Schwarm, der sich gegen den Wind bewegt und in den Schatten einer Ruine sammelt, ist es. Fliegen dieser Art folgen nicht allein dem Aas: Sie umkreisen verdorbene Orte, dringen durch kleinste Öffnungen und machen aus jedem unbewegten Ziel eine leichte Beute.',
+      'Ihre Stärke liegt nicht im einzelnen Stich, sondern in der Unruhe, die sie erzeugen. Kleine Körper brechen Sichtlinien auf und treiben ihre Beute aus der Deckung. Dann stoßen größere, gifttragende Formen vor oder eine Brutmutter nutzt den Schwarm als lebendigen Schleier. Wer blind schlägt, schafft dem nächsten Angriff nur mehr Raum.',
+      'Feldnotiz: Gegen einen Schwarm nicht stehen bleiben und nicht in enge Ecken fliehen. Bewegung, freie Luft und ein klarer Blick auf die größere Brut sind mehr wert als jeder Treffer in das Summen.'
+    ],
+    image: 'img/bestiarium/fliegen/fliegen-hauptstudie-pergament-freigestellt.png',
+    imageAlt: 'Pergamentstudie eines bösartigen Fliegenschwarms über einem Sumpf',
+    studies: [
+      {
+        image: 'img/bestiarium/fliegen/fliegen-spurenstudie-pergament-freigestellt.png',
+        alt: 'Pergamentstudie mit Flügel, Stachel, Eigelege, Saugrüssel und Giftprobe',
+        caption: 'Anatomie des Schwarms'
+      }
+    ]
+  });
+
+  Object.assign(monsters[17], {
+    category: 'Bestialische Gegnerfamilie',
+    subtitle: 'Zähne der ungezähmten Wege',
+    region: 'Scosglen, Fractured Peaks, Trockensteppe und bewaldete Randlande',
+    habitat: 'Forste, Felsnischen, Jagdpfade, Höhlen und abgelegene Wasserstellen',
+    behavior: 'Warge, Bären und Keiler nutzen ihren jeweiligen Raum: Hetze, Masse oder plötzliche Stöße zwingen die Beute aus der Stellung.',
+    traits: 'Fell, Klauen, Hauer, tiefe Spuren, Reviermarkierungen und eingerissene Jagdgeschosse',
+    variants: 'Warg, Alphawarg, Schwarzbär, Wildschwein, Dornbestie und Rudeljäger',
+    description: [
+      'Nicht jede Bestie Sanktuarios ist verdorben, doch selbst die natürlichen Tiere der Wildnis dulden selten Eindringlinge in ihrem Revier. Ein Warg folgt der Spur, bis die Flucht zur Hetze wird. Ein Bär verteidigt Raum und Nachwuchs mit schierer Masse. Keiler wiederum brauchen nur einen schmalen Pfad, um einen Wanderer aus dem Gleichgewicht zu bringen.',
+      'Gefährlich werden sie, wenn das Gelände ihre Art des Angriffs begünstigt. Unter Bäumen und zwischen Felsen kann ein Rudel den Blick teilen; in engeren Passagen gibt es kaum Platz, einem Stoß auszuweichen. Die Tiere kämpfen nicht nach einer gemeinsamen Ordnung, aber jede Art macht aus ihrem Lebensraum einen Vorteil.',
+      'Feldnotiz: Revierspuren ernst nehmen. Frische Krallen am Stamm, aufgewühlte Erde oder ein gebrochener Pfeil bedeuten, dass etwas Großes in der Nähe war – und vielleicht noch immer den kürzesten Weg zum Eindringling kennt.'
+    ],
+    image: 'img/bestiarium/wildtiere/wildtiere-hauptstudie-pergament-freigestellt.png',
+    imageAlt: 'Pergamentstudie von Warg, Schwarzbär und Wildschwein in einer kalten Waldlichtung',
+    studies: [
+      {
+        image: 'img/bestiarium/wildtiere/wildtiere-spurenstudie-pergament-freigestellt.png',
+        alt: 'Pergamentstudie mit Wargspur, Bärenkralle, Hauer, Fell, Jagdpfeil und Wegstein',
+        caption: 'Spuren der Wildnis'
       }
     ]
   });
