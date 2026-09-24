@@ -8,11 +8,11 @@
 :root {
   --ink:#090807; --bone:#eee6d8; --muted:#a99b89; --blood:#a5261c;
   --gold:#c49a50; --line:#463328; --shadow:rgba(0,0,0,.58);
-  --type-body:17px; --type-lead:19px; --type-meta:16px; --type-small:14px; --type-label:12px;
+  --type-body:17px; --type-note:18px; --type-small:14px; --type-label:12px; --type-leading:1.7;
 }
 * { box-sizing:border-box; }
 html { scroll-behavior:smooth; }
-body { margin:0; padding-bottom:47px; color:var(--bone); font:400 var(--type-body)/1.65 'Spectral',Georgia,'Times New Roman',serif;
+body { margin:0; padding-bottom:47px; color:var(--bone); font:400 var(--type-body)/var(--type-leading) 'Spectral',Georgia,'Times New Roman',serif;
   background:#0a0c10 url('../img/texturen/section-heaven-seamless.webp') top center/1400px repeat; }
 body::before { content:""; position:fixed; inset:0; z-index:-1; background:rgba(10,12,16,.7); }
 /* Zweiter Hintergrund ab "Der Angiris-Rat": eigenes, deckendes background
@@ -84,11 +84,11 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
 .region-hero-content { position:relative; z-index:1; max-width:1200px; margin:0 auto; padding:64px 24px 56px; width:100%; }
 .eyebrow { display:flex; align-items:center; gap:8px; color:var(--gold); font:700 calc(.72rem + 1px)/1 system-ui,sans-serif; text-transform:uppercase; letter-spacing:.16em; }
 .region-hero h1 { max-width:820px; margin:16px 0 20px; font-size:clamp(2.6rem,6vw,4.4rem); text-shadow:0 3px 25px #000; }
-.region-hero .lead { max-width:640px; margin:0; color:#d4c8bb; font-size:var(--type-lead); line-height:1.7; text-shadow:0 2px 12px #000; }
+.region-hero .lead { max-width:640px; margin:0; color:#d4c8bb; font-size:var(--type-body); line-height:var(--type-leading); text-shadow:0 2px 12px #000; }
 .region-facts { display:flex; flex-wrap:wrap; gap:22px 34px; margin:26px 0 0; }
 .region-facts div { display:grid; gap:6px; }
 .region-facts dt { color:#c3a47f; font:700 12px/1 system-ui,sans-serif; letter-spacing:.13em; text-transform:uppercase; }
-.region-facts dd { margin:0; color:#eee4d8; font-size:var(--type-meta); }
+.region-facts dd { margin:0; color:#eee4d8; font-size:var(--type-body); }
 
 /* ─── Content Blocks ───────────────────────────────────────── */
 main { overflow:hidden; }
@@ -102,7 +102,7 @@ main { overflow:hidden; }
 
 /* ─── Wesen der Hohen Himmel: Fließtext + Merkmalsliste ───────── */
 .overview-grid { display:grid; grid-template-columns:1.4fr 1fr; gap:56px; align-items:start; }
-.overview-intro > p { margin:0 0 22px; color:#c2b6a6; font-size:var(--type-body); line-height:1.75; }
+.overview-intro > p { margin:0 0 22px; color:#c2b6a6; font-size:var(--type-body); line-height:var(--type-leading); }
 .overview-intro > p:last-child { margin-bottom:0; }
 .meta-blocks { display:grid; gap:2px; }
 .meta-block { padding:14px 0 14px 18px; border-left:2px solid var(--line); }
@@ -143,7 +143,7 @@ main { overflow:hidden; }
    700px-Vorgabe von .block-head p (mehr Text als bei den anderen
    Abschnitten), zusätzlicher Abstand vor dem Slider-Breakout. */
 #rat .block-head h2 { margin-bottom:6px; }
-#rat .block-head p { max-width:none; line-height:1.8; }
+#rat .block-head p { max-width:none; line-height:var(--type-leading); }
 #rat .block-head p + p { margin-top:22px; }
 .council-overview-facts { padding-top:24px; margin-top:32px !important; border-top:1px solid var(--line); }
 
@@ -166,11 +166,11 @@ main { overflow:hidden; }
 .council-info { position:absolute; z-index:3; right:max(32px,calc((100vw - 1200px)/2)); bottom:clamp(150px,20vh,220px); width:min(560px,calc(100vw - 64px)); }
 .council-info .type { color:var(--gold); font:700 calc(.72rem + 1px)/1 system-ui,sans-serif; letter-spacing:.16em; text-transform:uppercase; }
 .council-info h3 { margin:13px 0 0; font-size:clamp(2.2rem,4.6vw,3.2rem); line-height:.95; text-shadow:0 3px 25px #000; }
-.council-info p { max-width:540px; margin:18px 0 0; color:#d4c8bb; font-size:var(--type-body); line-height:1.68; text-shadow:0 2px 12px #000; }
+.council-info p { max-width:540px; margin:18px 0 0; color:#d4c8bb; font-size:var(--type-body); line-height:var(--type-leading); text-shadow:0 2px 12px #000; }
 .council-facts { display:flex; flex-wrap:wrap; gap:18px 30px; margin:22px 0 0; }
 .council-facts div { display:grid; gap:6px; }
 .council-facts dt { color:#987d68; font:700 12px/1 system-ui,sans-serif; letter-spacing:.13em; text-transform:uppercase; }
-.council-facts dd { margin:0; color:#eee4d8; font-size:var(--type-meta); }
+.council-facts dd { margin:0; color:#eee4d8; font-size:var(--type-body); }
 .council-controls { position:absolute; z-index:5; left:50%; bottom:64px; width:min(1200px,calc(100vw - 64px)); transform:translateX(-50%); display:grid; grid-template-columns:48px minmax(0,1fr) 48px; align-items:center; gap:16px; }
 .council-arrow { width:48px; height:48px; display:grid; place-items:center; border:1px solid rgba(207,183,158,.32); color:#dfd2c2; background:rgba(8,7,6,.66); cursor:pointer; font-size:calc(1.3rem + 1px); transition:border-color .2s ease,background .2s ease; }
 .council-arrow:hover,.council-arrow:focus-visible { border-color:#a96549; background:#26140f; }
@@ -198,7 +198,7 @@ main { overflow:hidden; }
    Sammlung von UI-Karten/Grids — eine ruhige Textspalte, Drop-Cap am
    Kapitelanfang, Marginalien statt Timeline-Widget. */
 .codex-text { max-width:680px; }
-.codex-text p { margin:20px 0 0; color:#c2b6a6; font-size:var(--type-body); line-height:1.85; }
+.codex-text p { margin:20px 0 0; color:#c2b6a6; font-size:var(--type-body); line-height:var(--type-leading); }
 .codex-text p:first-child { margin-top:0; }
 .codex-text p.drop-cap::first-letter { float:left; margin:4px 10px 0 0; color:var(--gold); font:400 calc(3.1rem + 1px)/.78 'Marcellus',Georgia,serif; }
 .codex-lede { color:var(--gold); font-style:italic; font-weight:600; }
@@ -233,7 +233,7 @@ main { overflow:hidden; }
    gleiches Prinzip wie die Lilith-Notiz bei den Übeln, aber in kühlerem Gold/Bone
    statt Blutrot, damit es zum himmlischen statt infernalischen Ton passt.
    Quote-Mark-Ornament oben links wie eine illuminierte Initiale. */
-.heaven-note { position:relative; margin-top:32px; padding:22px 26px 22px 66px; max-width:680px; border-left:3px solid var(--gold); background:rgba(196,154,80,.07); color:var(--bone); font:italic 400 var(--type-lead)/1.6 'Spectral',Georgia,serif; }
+.heaven-note { position:relative; margin-top:32px; padding:22px 26px 22px 66px; max-width:680px; border-left:3px solid var(--gold); background:rgba(196,154,80,.07); color:var(--bone); font:italic 400 var(--type-body)/var(--type-leading) 'Spectral',Georgia,serif; }
 .heaven-note::before { content:""; position:absolute; left:22px; top:22px; width:24px; height:41px; background:url('../img/decoration/quote-mark.webp') center/contain no-repeat; opacity:.8; }
 
 /* ─── Wichtige Orte: Register wie im Anhang eines Buches ───────── */
@@ -243,10 +243,10 @@ main { overflow:hidden; }
 .codex-register dt { display:inline-flex; align-items:center; gap:8px; color:var(--gold); font:italic 600 calc(1.05rem + 1px)/1 'Spectral',Georgia,serif; }
 .codex-register dt::before { content:""; width:12px; height:12px; flex:none; background:url('../img/decoration/star-bullet.webp') center/contain no-repeat; opacity:.85; }
 .codex-register dt::after { content:" — "; color:var(--line); }
-.codex-register dd { display:inline; margin:0; color:var(--muted); font-size:var(--type-meta); line-height:1.7; }
+.codex-register dd { display:inline; margin:0; color:var(--muted); font-size:var(--type-body); line-height:var(--type-leading); }
 
 /* ─── Weiterführend im Codex: „Siehe auch" statt Karten-Grid ───── */
-.codex-seealso { max-width:680px; margin:18px 0 0; color:var(--muted); font-size:var(--type-meta); line-height:1.8; }
+.codex-seealso { max-width:680px; margin:18px 0 0; color:var(--muted); font-size:var(--type-body); line-height:var(--type-leading); }
 .codex-seealso:first-child { margin-top:0; }
 .codex-seealso strong { color:var(--bone); font-weight:600; }
 .codex-seealso a { color:#c2b6a6; text-decoration:none; border-bottom:1px solid rgba(196,154,80,.3); }
@@ -283,9 +283,9 @@ footer { margin-top:0; border-top:1px solid var(--line); background:#080706; }
 .backtop { text-transform:uppercase; letter-spacing:.08em; text-decoration:none; }
 
 /* Handschriftliche Randvermerke: Ergänzung, nicht Teil der Hauptchronik. */
-.lore-note { position:relative; margin:24px 0 6px; padding:8px 0 4px 22px; max-width:570px; color:#d6c2a5; font:400 18px/1.35 'Jim Nightshade','Spectral',Georgia,serif; transform:rotate(-.55deg); transform-origin:left center; }
+.lore-note { position:relative; margin:24px 0 6px; padding:8px 0 4px 22px; max-width:570px; color:#d6c2a5; font:400 var(--type-note)/1.35 'Jim Nightshade','Spectral',Georgia,serif; transform:rotate(-.55deg); transform-origin:left center; }
 .lore-note::before { content:'✦'; position:absolute; left:0; top:8px; color:var(--gold); font:400 calc(.78rem + 1px)/1 Georgia,serif; }
-.lore-note span { display:block; margin-bottom:2px; color:#b89161; font:400 18px/1 'Jim Nightshade','Spectral',Georgia,serif; transform:rotate(.55deg); }
+.lore-note span { display:block; margin-bottom:2px; color:#b89161; font:400 var(--type-note)/1 'Jim Nightshade','Spectral',Georgia,serif; transform:rotate(.55deg); }
 .lore-note--uncertain { color:#cfb99a; }
 
 @media (max-width:680px) {
@@ -302,5 +302,5 @@ footer { margin-top:0; border-top:1px solid var(--line); background:#080706; }
   .journey-all { justify-self:start; }
   .footer-inner { flex-direction:column; align-items:flex-start; }
   .footer-meta { align-items:flex-start; }
-  .lore-note { padding-left:18px; font-size:18px; }
+  .lore-note { padding-left:18px; }
 }

@@ -8,7 +8,7 @@
 :root {
   --ink:#090807; --bone:#eee6d8; --muted:#a99b89; --blood:#a5261c;
   --gold:#c49a50; --line:#463328; --shadow:rgba(0,0,0,.58);
-  --type-body:17px; --type-lead:19px; --type-meta:16px; --type-small:14px; --type-label:12px;
+  --type-body:17px; --type-note:18px; --type-small:14px; --type-label:12px; --type-leading:1.7;
 }
 * { box-sizing:border-box; }
 html { scroll-behavior:smooth; }
@@ -16,7 +16,7 @@ html { scroll-behavior:smooth; }
    auf kurzen Seiten (z.B. nach dem Kürzen von Inhalten), statt direkt unter
    dem letzten Abschnitt zu schweben. main:flex:1 nimmt den restlichen
    Platz ein. */
-body { margin:0; min-height:100vh; padding-bottom:47px; display:flex; flex-direction:column; color:var(--bone); font:400 var(--type-body)/1.65 'Spectral',Georgia,'Times New Roman',serif;
+body { margin:0; min-height:100vh; padding-bottom:47px; display:flex; flex-direction:column; color:var(--bone); font:400 var(--type-body)/var(--type-leading) 'Spectral',Georgia,'Times New Roman',serif;
   background:#050403 url('../img/texturen/section-lava-seamless.webp') top center/1400px repeat; }
 body::before { content:""; position:fixed; inset:0; z-index:-1; background:rgba(5,4,3,.6); }
 main { flex:1 0 auto; }
@@ -70,12 +70,12 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
   -webkit-mask-image:linear-gradient(to bottom,#000 62%,transparent 100%); mask-image:linear-gradient(to bottom,#000 62%,transparent 100%); }
 .region-hero-content { position:relative; z-index:1; max-width:1200px; margin:0 auto; padding:64px 24px 56px; width:100%; }
 .region-hero h1 { max-width:920px; margin:16px 0 20px; font-size:clamp(2.6rem,6vw,4.4rem); text-shadow:0 3px 25px #000; }
-.region-hero .lead { max-width:640px; margin:0; color:#d4c8bb; font-size:var(--type-lead); line-height:1.7; text-shadow:0 2px 12px #000; }
+.region-hero .lead { max-width:640px; margin:0; color:#d4c8bb; font-size:var(--type-body); line-height:var(--type-leading); text-shadow:0 2px 12px #000; }
 
 .region-facts { display:flex; flex-wrap:wrap; gap:22px 34px; margin:26px 0 0; }
 .region-facts div { display:grid; gap:6px; }
 .region-facts dt { color:#c3a47f; font:700 12px/1 system-ui,sans-serif; letter-spacing:.13em; text-transform:uppercase; }
-.region-facts dd { margin:0; color:#eee4d8; font-size:var(--type-meta); }
+.region-facts dd { margin:0; color:#eee4d8; font-size:var(--type-body); }
 
 .block { max-width:1200px; margin:auto; padding:92px 24px; }
 .block-head { margin-bottom:30px; }
@@ -83,7 +83,7 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
 .block-head p { max-width:700px; margin:14px 0 0; color:var(--muted); }
 /* Drei Großen Übel: Intro-Absatz nutzt die volle Content-Breite statt der
    700px-Vorgabe von .block-head p. */
-#grosse-uebel .block-head p { max-width:none; line-height:1.8; }
+#grosse-uebel .block-head p { max-width:none; line-height:var(--type-leading); }
 .uebel-overview-facts { padding-top:24px; margin-top:32px !important; border-top:1px solid var(--line); }
 
 /* Zweiter Hintergrund für "Die Drei Großen Übel" + Slider: eigenes,
@@ -95,7 +95,7 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
 
 /* ─── Wesen der Brennenden Höllen: Fließtext + Merkmalsliste ──────── */
 .overview-grid { display:grid; grid-template-columns:1.4fr 1fr; gap:56px; align-items:start; }
-.overview-intro > p { margin:0 0 22px; color:#c2b6a6; font-size:var(--type-body); line-height:1.75; }
+.overview-intro > p { margin:0 0 22px; color:#c2b6a6; font-size:var(--type-body); line-height:var(--type-leading); }
 .overview-intro > p:last-child { margin-bottom:0; }
 .meta-blocks { display:grid; gap:2px; }
 .meta-block { padding:14px 0 14px 18px; border-left:2px solid var(--line); }
@@ -146,11 +146,11 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
 .uebel-info { position:absolute; z-index:3; right:max(32px,calc((100vw - 1200px)/2)); bottom:clamp(150px,20vh,220px); width:min(560px,calc(100vw - 64px)); }
 .uebel-info .type { color:var(--gold); font:700 calc(.72rem + 1px)/1 system-ui,sans-serif; letter-spacing:.16em; text-transform:uppercase; }
 .uebel-info h3 { margin:13px 0 0; font-size:clamp(2.2rem,4.6vw,3.2rem); line-height:.95; text-shadow:0 3px 25px #000; }
-.uebel-info p { max-width:540px; margin:18px 0 0; color:#d4c8bb; font-size:var(--type-body); line-height:1.68; text-shadow:0 2px 12px #000; }
+.uebel-info p { max-width:540px; margin:18px 0 0; color:#d4c8bb; font-size:var(--type-body); line-height:var(--type-leading); text-shadow:0 2px 12px #000; }
 .uebel-facts { display:flex; flex-wrap:wrap; gap:18px 30px; margin:22px 0 0; }
 .uebel-facts div { display:grid; gap:6px; }
 .uebel-facts dt { color:#987d68; font:700 12px/1 system-ui,sans-serif; letter-spacing:.13em; text-transform:uppercase; }
-.uebel-facts dd { margin:0; color:#eee4d8; font-size:var(--type-meta); }
+.uebel-facts dd { margin:0; color:#eee4d8; font-size:var(--type-body); }
 /* bottom:96px statt der 64px des Angiris-Rat-Sliders: der Slider hier ist
    etwas niedriger (siehe .uebel-slider), wodurch das nach oben ausblutende
    Divider-Ornament direkt darunter sonst mit den Tabs kollidiert. */
@@ -239,12 +239,12 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
 .uebel-entry--right .uebel-entry-text { margin-left:auto; }
 .uebel-entry-text .type { color:var(--gold); font:700 calc(.7rem + 1px)/1 system-ui,sans-serif; letter-spacing:.15em; text-transform:uppercase; }
 .uebel-entry-text h3 { margin:12px 0 0; font-size:clamp(1.9rem,3.4vw,2.6rem); }
-.uebel-entry-text p { margin:18px 0 0; color:#c2b6a6; font-size:var(--type-body); line-height:1.82; }
+.uebel-entry-text p { margin:18px 0 0; color:#c2b6a6; font-size:var(--type-body); line-height:var(--type-leading); }
 .uebel-entry-text p:first-of-type::first-letter { float:left; margin:4px 8px 0 0; color:var(--gold); font:400 calc(2.7rem + 1px)/.78 'Marcellus',Georgia,serif; }
 .uebel-row-facts { display:flex; flex-wrap:wrap; gap:16px 28px; margin:22px 0 0; }
 .uebel-row-facts div { display:grid; gap:5px; }
 .uebel-row-facts dt { color:#987d68; font:700 calc(.6rem + 1px)/1 system-ui,sans-serif; letter-spacing:.12em; text-transform:uppercase; }
-.uebel-row-facts dd { margin:0; color:#eee4d8; font-size:var(--type-meta); }
+.uebel-row-facts dd { margin:0; color:#eee4d8; font-size:var(--type-body); }
 @media (max-width:1000px) {
   .uebel-entry-art { display:none; }
   .uebel-entry-text,.uebel-entry--right .uebel-entry-text { margin-left:0; max-width:none; }
@@ -257,7 +257,7 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
    Buchsatz statt Website-Bausteinen, identisches Muster wie die
    entsprechenden Abschnitte auf himmel-v2.css. */
 .codex-text { max-width:680px; }
-.codex-text p { margin:20px 0 0; color:#c2b6a6; font-size:var(--type-body); line-height:1.85; }
+.codex-text p { margin:20px 0 0; color:#c2b6a6; font-size:var(--type-body); line-height:var(--type-leading); }
 .codex-text p:first-child { margin-top:0; }
 .codex-text p.drop-cap::first-letter { float:left; margin:4px 10px 0 0; color:var(--gold); font:400 calc(3.1rem + 1px)/.78 'Marcellus',Georgia,serif; }
 .codex-marginalia { position:relative; padding-left:190px; }
@@ -274,7 +274,7 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
 @media (max-width:1000px) { .codex-deco-img { display:none; } }
 /* Hervorgehobener Zitat-Hinweis, analog .heaven-note auf himmel.html, aber
    in Blutrot statt Gold — passend zum infernalischen statt himmlischen Ton. */
-.hell-note { position:relative; margin-top:32px; padding:22px 26px 22px 66px; max-width:680px; border-left:3px solid var(--blood); background:rgba(165,38,28,.08); color:var(--bone); font:italic 400 var(--type-lead)/1.6 'Spectral',Georgia,serif; }
+.hell-note { position:relative; margin-top:32px; padding:22px 26px 22px 66px; max-width:680px; border-left:3px solid var(--blood); background:rgba(165,38,28,.08); color:var(--bone); font:italic 400 var(--type-body)/var(--type-leading) 'Spectral',Georgia,serif; }
 .hell-note::before { content:""; position:absolute; left:22px; top:22px; width:24px; height:41px; background:url('../img/decoration/quote-mark.webp') center/contain no-repeat; opacity:.8; filter:sepia(1) saturate(4) hue-rotate(-40deg) brightness(.8); }
 .codex-register { max-width:680px; margin:0; padding:0; }
 .codex-register div { padding:14px 0; border-top:1px solid var(--line); }
@@ -282,8 +282,8 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
 .codex-register dt { display:inline-flex; align-items:center; gap:8px; color:var(--gold); font:italic 600 calc(1.05rem + 1px)/1 'Spectral',Georgia,serif; }
 .codex-register dt::before { content:""; width:12px; height:12px; flex:none; background:url('../img/decoration/star-bullet.webp') center/contain no-repeat; opacity:.85; }
 .codex-register dt::after { content:" — "; color:var(--line); }
-.codex-register dd { display:inline; margin:0; color:var(--muted); font-size:var(--type-meta); line-height:1.7; }
-.codex-seealso { max-width:680px; margin:18px 0 0; color:var(--muted); font-size:var(--type-meta); line-height:1.8; }
+.codex-register dd { display:inline; margin:0; color:var(--muted); font-size:var(--type-body); line-height:var(--type-leading); }
+.codex-seealso { max-width:680px; margin:18px 0 0; color:var(--muted); font-size:var(--type-body); line-height:var(--type-leading); }
 .codex-seealso:first-child { margin-top:0; }
 .codex-seealso strong { color:var(--bone); font-weight:600; }
 .codex-seealso a { color:#c2b6a6; text-decoration:none; border-bottom:1px solid rgba(196,154,80,.3); }
@@ -300,9 +300,9 @@ footer { margin-top:60px; border-top:1px solid var(--line); background:#080706; 
 .backtop { text-transform:uppercase; letter-spacing:.08em; text-decoration:none; }
 
 /* Handschriftliche Randvermerke: Ergänzung, nicht Teil der Hauptchronik. */
-.lore-note { position:relative; margin:24px 0 6px; padding:8px 0 4px 22px; max-width:570px; color:#d6c2a5; font:400 18px/1.35 'Jim Nightshade','Spectral',Georgia,serif; transform:rotate(-.55deg); transform-origin:left center; }
+.lore-note { position:relative; margin:24px 0 6px; padding:8px 0 4px 22px; max-width:570px; color:#d6c2a5; font:400 var(--type-note)/1.35 'Jim Nightshade','Spectral',Georgia,serif; transform:rotate(-.55deg); transform-origin:left center; }
 .lore-note::before { content:'✦'; position:absolute; left:0; top:8px; color:var(--blood); font:400 calc(.78rem + 1px)/1 Georgia,serif; }
-.lore-note span { display:block; margin-bottom:2px; color:#bb786d; font:400 18px/1 'Jim Nightshade','Spectral',Georgia,serif; transform:rotate(.55deg); }
+.lore-note span { display:block; margin-bottom:2px; color:#bb786d; font:400 var(--type-note)/1 'Jim Nightshade','Spectral',Georgia,serif; transform:rotate(.55deg); }
 .lore-note--uncertain { color:#cfb99a; }
 
 @media (max-width:760px) {
@@ -316,5 +316,5 @@ footer { margin-top:60px; border-top:1px solid var(--line); background:#080706; 
   .region-hero-content,.block { padding-left:18px; padding-right:18px; }
   .footer-inner { flex-direction:column; align-items:flex-start; }
   .footer-meta { align-items:flex-start; }
-  .lore-note { padding-left:18px; font-size:18px; }
+  .lore-note { padding-left:18px; }
 }

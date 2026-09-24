@@ -8,11 +8,11 @@
 :root {
   --ink:#090807; --bone:#eee6d8; --muted:#a99b89; --blood:#a5261c;
   --gold:#c49a50; --line:#463328; --shadow:rgba(0,0,0,.58);
-  --type-body:17px; --type-lead:19px; --type-meta:16px; --type-small:14px; --type-label:12px;
+  --type-body:17px; --type-note:18px; --type-small:14px; --type-label:12px; --type-leading:1.7;
 }
 * { box-sizing:border-box; }
 html { scroll-behavior:smooth; }
-body { margin:0; color:var(--bone); font:400 var(--type-body)/1.65 'Spectral',Georgia,'Times New Roman',serif;
+body { margin:0; color:var(--bone); font:400 var(--type-body)/var(--type-leading) 'Spectral',Georgia,'Times New Roman',serif;
   background:#090807 url('../img/texturen/section-rock-seamless.webp') top center/1400px repeat; }
 body::before { content:""; position:fixed; inset:0; z-index:-1; background:rgba(4,4,4,.78); }
 a { color:inherit; }

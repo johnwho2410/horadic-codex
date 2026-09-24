@@ -8,11 +8,11 @@
 :root {
   --ink:#090807; --bone:#eee6d8; --muted:#a99b89; --blood:#a5261c;
   --gold:#c49a50; --line:#463328; --shadow:rgba(0,0,0,.58);
-  --type-body:17px; --type-lead:19px; --type-meta:16px; --type-small:14px; --type-label:12px;
+  --type-body:17px; --type-note:18px; --type-small:14px; --type-label:12px; --type-leading:1.7;
 }
 * { box-sizing:border-box; }
 html { scroll-behavior:smooth; }
-body { margin:0; padding-bottom:47px; color:var(--bone); font:400 var(--type-body)/1.65 'Spectral',Georgia,'Times New Roman',serif;
+body { margin:0; padding-bottom:47px; color:var(--bone); font:400 var(--type-body)/var(--type-leading) 'Spectral',Georgia,'Times New Roman',serif;
   background:#090807 url('../img/texturen/section-rock-seamless.webp') top center/1400px repeat; }
 body::before { content:""; position:fixed; inset:0; z-index:-1; background:rgba(4,4,4,.78); }
 /* Zweiter Hintergrund ab dem Chronik-Divider: eigenes, deckendes background
@@ -67,12 +67,12 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
   -webkit-mask-image:linear-gradient(to bottom,#000 62%,transparent 100%); mask-image:linear-gradient(to bottom,#000 62%,transparent 100%); }
 .region-hero-content { position:relative; z-index:1; max-width:1200px; margin:0 auto; padding:64px 24px 56px; width:100%; }
 .region-hero h1 { max-width:1000px; margin:16px 0 20px; font-size:clamp(2.6rem,6vw,4.6rem); text-shadow:0 3px 25px #000; }
-.region-hero .lead { max-width:700px; margin:0; color:#d4c2b6; font-size:var(--type-lead); line-height:1.7; text-shadow:0 2px 12px #000; }
+.region-hero .lead { max-width:700px; margin:0; color:#d4c2b6; font-size:var(--type-body); line-height:var(--type-leading); text-shadow:0 2px 12px #000; }
 
 .region-facts { display:flex; flex-wrap:wrap; gap:22px 34px; margin:26px 0 0; }
 .region-facts div { display:grid; gap:6px; }
 .region-facts dt { color:#c3a47f; font:700 12px/1 system-ui,sans-serif; letter-spacing:.13em; text-transform:uppercase; }
-.region-facts dd { margin:0; color:#eee4d8; font-size:var(--type-meta); }
+.region-facts dd { margin:0; color:#eee4d8; font-size:var(--type-body); }
 
 .block { max-width:1200px; margin:auto; padding:80px 24px; }
 .block + .block { border-top:1px solid var(--line); }
@@ -88,7 +88,7 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
 .sanctuary-teaser .eyebrow { justify-content:center; }
 .sanctuary-teaser h2 { margin-top:14px; }
 .sanctuary-teaser h2::after { content:"◆"; display:block; width:max-content; margin:16px auto 0; color:#7f2b20; font:400 .72rem/1 'Spectral',Georgia,serif; text-shadow:16px 0 #4d2d24,-16px 0 #4d2d24; }
-.sanctuary-lead { max-width:600px; margin:22px auto 0; color:var(--muted); font-size:var(--type-lead); line-height:1.75; }
+.sanctuary-lead { max-width:600px; margin:22px auto 0; color:var(--muted); font-size:var(--type-body); line-height:var(--type-leading); }
 .sanctuary-teaser .download-file { margin-top:34px; }
 .download-file {
   display:inline-flex; align-items:center; gap:9px; margin-top:26px; padding:11px 14px; color:#ddcdb9; background:#1c110d; text-decoration:none;
@@ -102,7 +102,7 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
    statt Website-Absatz-Grid, mit Initiale auf dem ersten Buchstaben für den
    Manuskript-Charakter. */
 .lore-lead { margin:0 auto 8px; max-width:760px; }
-.lore-lead p { margin:0 0 20px; color:#c2b6a6; font-size:var(--type-body); line-height:1.8; }
+.lore-lead p { margin:0 0 20px; color:#c2b6a6; font-size:var(--type-body); line-height:var(--type-leading); }
 .lore-lead p:last-child { margin-bottom:0; }
 .lore-lead p:first-of-type::first-letter {
   float:left; margin:.03em .1em 0 0; color:var(--gold);
@@ -231,7 +231,7 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
 .region-strip { margin-top:26px; display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
 .region { padding:16px 18px; border:1px solid var(--line); background:#100e0c; }
 .region strong { display:block; font:500 var(--type-body)/1.2 'Spectral',Georgia,serif; }
-.region span { display:block; margin-top:6px; color:var(--muted); font-size:var(--type-meta); }
+.region span { display:block; margin-top:6px; color:var(--muted); font-size:var(--type-body); }
 
 .people-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:42px; }
 .people { position:relative; min-height:190px; padding:22px; border:1px solid var(--line); background:#13110f; }
@@ -245,7 +245,7 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
 .people.hostile { background:linear-gradient(150deg,#1c1310,#11100e); }
 .people .type { color:var(--gold); font:700 12px/1 system-ui,sans-serif; letter-spacing:.11em; text-transform:uppercase; }
 .people h3 { margin-top:32px; font-size:1.4rem; }
-.people p { color:var(--muted); margin:11px 0 0; font-size:var(--type-meta); }
+.people p { color:var(--muted); margin:11px 0 0; font-size:var(--type-body); }
 
 .archive-tabs { display:flex; gap:8px; margin:0 0 22px; }
 .archive-tab { cursor:pointer; padding:9px 14px; color:var(--muted); border:1px solid var(--line); background:#110f0d; border-radius:99px; font:650 calc(.78rem + 1px)/1 system-ui,sans-serif; }
@@ -262,10 +262,10 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
 }
 .archive-card .meta { color:var(--gold); font:700 12px/1 system-ui,sans-serif; letter-spacing:.1em; text-transform:uppercase; }
 .archive-card h3 { margin-top:12px; font-size:1.3rem; }
-.archive-card p { margin:12px 0 0; color:var(--muted); font-size:var(--type-meta); }
+.archive-card p { margin:12px 0 0; color:var(--muted); font-size:var(--type-body); }
 .archive-card dl { margin:14px 0 0; padding-top:12px; border-top:1px solid var(--line); }
 .archive-card dt { color:#8d7d6b; font:650 12px/1.4 system-ui,sans-serif; letter-spacing:.08em; text-transform:uppercase; }
-.archive-card dd { margin:3px 0 10px; color:#c8b8a5; font-size:var(--type-meta); }
+.archive-card dd { margin:3px 0 10px; color:#c8b8a5; font-size:var(--type-body); }
 .archive-card dd:last-child { margin-bottom:0; }
 
 .relationship-map { padding:26px; border:1px solid var(--line); background:radial-gradient(circle at 50% 50%,rgba(130,35,25,.13),transparent 40%),#0e0c0a; }
@@ -282,9 +282,9 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
 }
 .relation-node.origin { grid-column:2; text-align:center; border-color:#75503e; }
 .relation-node h3 { font-size:1.15rem; }
-.relation-node span { display:block; margin-top:7px; color:var(--muted); font-size:var(--type-meta); }
+.relation-node span { display:block; margin-top:7px; color:var(--muted); font-size:var(--type-body); }
 .relation-node em { display:block; margin-top:10px; color:#9b765e; font:650 12px/1.35 system-ui,sans-serif; letter-spacing:.07em; text-transform:uppercase; }
-.relationship-note { margin:18px 0 0; color:#8f806f; font-size:var(--type-meta); }
+.relationship-note { margin:18px 0 0; color:#8f806f; font-size:var(--type-body); }
 
 @media (max-width:900px) {
   .region-strip,.people-grid,.archive-grid,.relation-tier { grid-template-columns:repeat(2,1fr); }
@@ -320,9 +320,9 @@ footer { margin-top:60px; border-top:1px solid var(--line); background:#080706; 
 .backtop { text-transform:uppercase; letter-spacing:.08em; text-decoration:none; }
 
 /* Handschriftliche Einträge aus dem Rand des horadrischen Archivs. */
-.lore-note { position:relative; margin:24px 0 6px; padding:8px 0 4px 22px; max-width:570px; color:#d6c2a5; font:400 18px/1.35 'Jim Nightshade','Spectral',Georgia,serif; transform:rotate(-.55deg); transform-origin:left center; }
+.lore-note { position:relative; margin:24px 0 6px; padding:8px 0 4px 22px; max-width:570px; color:#d6c2a5; font:400 var(--type-note)/1.35 'Jim Nightshade','Spectral',Georgia,serif; transform:rotate(-.55deg); transform-origin:left center; }
 .lore-note::before { content:'✦'; position:absolute; left:0; top:8px; color:var(--gold); font:400 calc(.78rem + 1px)/1 Georgia,serif; }
-.lore-note span { display:block; margin-bottom:2px; color:#b89161; font:400 18px/1 'Jim Nightshade','Spectral',Georgia,serif; transform:rotate(.55deg); }
+.lore-note span { display:block; margin-bottom:2px; color:#b89161; font:400 var(--type-note)/1 'Jim Nightshade','Spectral',Georgia,serif; transform:rotate(.55deg); }
 .lore-note--uncertain { color:#cfb99a; }
 
 @media (max-width:680px) {
@@ -337,5 +337,5 @@ footer { margin-top:60px; border-top:1px solid var(--line); background:#080706; 
   .lore-lead,.region-strip,.people-grid,.archive-grid,.relation-tier { grid-template-columns:1fr; }
   .footer-inner { flex-direction:column; align-items:flex-start; }
   .footer-meta { align-items:flex-start; }
-  .lore-note { padding-left:18px; font-size:18px; }
+  .lore-note { padding-left:18px; }
 }
