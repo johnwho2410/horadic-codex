@@ -9,10 +9,14 @@
   --ink:#090807; --bone:#eee6d8; --muted:#a99b89; --blood:#a5261c;
   --gold:#c49a50; --line:#463328; --shadow:rgba(0,0,0,.58);
   --type-body:17px; --type-note:20px; --type-small:14px; --type-label:12px; --type-leading:1.7;
+  --space-xs:8px; --space-sm:12px; --space-md:16px; --space-lg:24px; --space-xl:32px; --space-2xl:48px;
+  --space-section:96px; --space-section-mobile:64px; --space-feature:128px; --space-feature-mobile:88px;
+  --space-divider-clearance:256px; --space-divider-clearance-mobile:112px;
+  --page-gutter:24px; --page-gutter-mobile:18px;
 }
 * { box-sizing:border-box; }
 html { scroll-behavior:smooth; }
-body { margin:0; min-height:100vh; display:flex; flex-direction:column; color:var(--bone);
+body { margin:0; min-height:100vh; overflow-x:hidden; display:flex; flex-direction:column; color:var(--bone);
   font:400 var(--type-body)/var(--type-leading) 'Spectral',Georgia,'Times New Roman',serif;
   background:#090807 url('../img/texturen/section-rock-seamless.webp') top center/1400px repeat; }
 body::before { content:""; position:fixed; inset:0; z-index:-1; background:rgba(5,4,3,.6); }
@@ -56,8 +60,8 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
 .region-facts dt { color:#c3a47f; font:700 12px/1 system-ui,sans-serif; letter-spacing:.13em; text-transform:uppercase; }
 .region-facts dd { margin:0; color:#eee4d8; font-size:var(--type-body); }
 
-.block { max-width:800px; margin:auto; padding:80px 24px; }
-.block-head { margin-bottom:22px; }
+.block { max-width:800px; margin:auto; padding:var(--space-section) var(--page-gutter); }
+.block-head { margin-bottom:var(--space-xl); }
 .block-head h2 { font-size:clamp(1.7rem,3.2vw,2.3rem); color:var(--gold); }
 .kuh-level p { margin:0 0 18px; color:#c2b6a6; font-size:var(--type-body); line-height:var(--type-leading); }
 
@@ -65,6 +69,8 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
    img/muh/divider.png (bereits fertig komponiert, kein separates
    Ornament+Glutlinien-Layering wie bei hoelle.css/styles.css nötig). */
 .section-divider { display:block; position:relative; z-index:4; width:min(1200px,calc(100vw - 40px)); max-width:none; height:0; margin:0 auto; pointer-events:none; overflow:visible; }
+.block:has(+ .section-divider) { padding-bottom:var(--space-divider-clearance); }
+.section-divider + .kuh-bg-alt > .block:first-child { padding-top:var(--space-divider-clearance); }
 .section-divider img {
   position:absolute; top:0; left:50%; width:100%; height:auto; display:block;
   transform:translate(-50%,-50%);
@@ -105,7 +111,9 @@ footer { margin-top:0; border-top:1px solid var(--line); background:#080706; }
 @media (max-width:760px) {
   .region-hero { min-height:560px; }
   .region-hero::after { background:linear-gradient(0deg,rgba(5,4,3,.88) 0%,rgba(5,4,3,.4) 52%,rgba(5,4,3,.32) 100%); }
-  .block { padding:52px 20px; }
+  .block { padding:var(--space-section-mobile) var(--page-gutter-mobile); }
+  .block:has(+ .section-divider) { padding-bottom:var(--space-divider-clearance-mobile); }
+  .section-divider + .kuh-bg-alt > .block:first-child { padding-top:var(--space-divider-clearance-mobile); }
   .footer-inner { flex-direction:column; align-items:flex-start; }
   .footer-meta { align-items:flex-start; }
 }

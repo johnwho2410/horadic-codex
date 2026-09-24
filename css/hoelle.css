@@ -9,6 +9,10 @@
   --ink:#090807; --bone:#eee6d8; --muted:#a99b89; --blood:#a5261c;
   --gold:#c49a50; --line:#463328; --shadow:rgba(0,0,0,.58);
   --type-body:17px; --type-note:20px; --type-small:14px; --type-label:12px; --type-leading:1.7;
+  --space-xs:8px; --space-sm:12px; --space-md:16px; --space-lg:24px; --space-xl:32px; --space-2xl:48px;
+  --space-section:96px; --space-section-mobile:64px; --space-feature:128px; --space-feature-mobile:88px;
+  --space-divider-clearance:256px; --space-divider-clearance-mobile:112px;
+  --page-gutter:24px; --page-gutter-mobile:18px;
 }
 * { box-sizing:border-box; }
 html { scroll-behavior:smooth; }
@@ -16,7 +20,7 @@ html { scroll-behavior:smooth; }
    auf kurzen Seiten (z.B. nach dem Kürzen von Inhalten), statt direkt unter
    dem letzten Abschnitt zu schweben. main:flex:1 nimmt den restlichen
    Platz ein. */
-body { margin:0; min-height:100vh; padding-bottom:47px; display:flex; flex-direction:column; color:var(--bone); font:400 var(--type-body)/var(--type-leading) 'Spectral',Georgia,'Times New Roman',serif;
+body { margin:0; min-height:100vh; padding-bottom:47px; overflow-x:hidden; display:flex; flex-direction:column; color:var(--bone); font:400 var(--type-body)/var(--type-leading) 'Spectral',Georgia,'Times New Roman',serif;
   background:#050403 url('../img/texturen/section-lava-seamless.webp') top center/1400px repeat; }
 body::before { content:""; position:fixed; inset:0; z-index:-1; background:rgba(5,4,3,.6); }
 main { flex:1 0 auto; }
@@ -77,8 +81,8 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
 .region-facts dt { color:#c3a47f; font:700 12px/1 system-ui,sans-serif; letter-spacing:.13em; text-transform:uppercase; }
 .region-facts dd { margin:0; color:#eee4d8; font-size:var(--type-body); }
 
-.block { max-width:1200px; margin:auto; padding:92px 24px; }
-.block-head { margin-bottom:30px; }
+.block { max-width:1200px; margin:auto; padding:var(--space-section) var(--page-gutter); }
+.block-head { margin-bottom:var(--space-xl); }
 .block-head h2 { font-size:clamp(1.9rem,3.6vw,2.7rem); }
 .block-head p { max-width:700px; margin:14px 0 0; color:var(--muted); }
 /* Drei Großen Übel: Intro-Absatz nutzt die volle Content-Breite statt der
@@ -107,6 +111,9 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
 
 /* ─── Site-weiter Zier-Divider (Hölle-Thema) ───────────────────── */
 .section-divider { display:block; position:relative; z-index:4; width:min(1680px,calc(100vw - 40px)); max-width:none; height:0; margin:0 auto; pointer-events:none; overflow:visible; }
+.block:has(+ .section-divider) { padding-bottom:var(--space-divider-clearance); }
+.section-divider + .block,
+.section-divider + .hell-bg-alt > .block:first-child { padding-top:var(--space-divider-clearance); }
 .section-divider img {
   content:url('../img/evil/divider-hell-ornament.png');
   position:absolute; top:0; left:50%;
@@ -313,7 +320,11 @@ footer { margin-top:60px; border-top:1px solid var(--line); background:#080706; 
   .nav-links.open { display:flex; }
 
   .brand-logo { height:40px; }
-  .region-hero-content,.block { padding-left:18px; padding-right:18px; }
+  .region-hero-content,.block { padding-left:var(--page-gutter-mobile); padding-right:var(--page-gutter-mobile); }
+  .block { padding-top:var(--space-section-mobile); padding-bottom:var(--space-section-mobile); }
+  .block:has(+ .section-divider) { padding-bottom:var(--space-divider-clearance-mobile); }
+  .section-divider + .block,
+  .section-divider + .hell-bg-alt > .block:first-child { padding-top:var(--space-divider-clearance-mobile); }
   .footer-inner { flex-direction:column; align-items:flex-start; }
   .footer-meta { align-items:flex-start; }
   .lore-note { padding-left:18px; }

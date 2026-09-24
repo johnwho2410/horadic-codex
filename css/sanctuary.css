@@ -9,10 +9,14 @@
   --ink:#090807; --bone:#eee6d8; --muted:#a99b89; --blood:#a5261c;
   --gold:#c49a50; --line:#463328; --shadow:rgba(0,0,0,.58);
   --type-body:17px; --type-note:20px; --type-small:14px; --type-label:12px; --type-leading:1.7;
+  --space-xs:8px; --space-sm:12px; --space-md:16px; --space-lg:24px; --space-xl:32px; --space-2xl:48px;
+  --space-section:96px; --space-section-mobile:64px; --space-feature:128px; --space-feature-mobile:88px;
+  --space-divider-clearance:256px; --space-divider-clearance-mobile:112px;
+  --page-gutter:24px; --page-gutter-mobile:18px;
 }
 * { box-sizing:border-box; }
 html { scroll-behavior:smooth; }
-body { margin:0; padding-bottom:47px; color:var(--bone); font:400 var(--type-body)/var(--type-leading) 'Spectral',Georgia,'Times New Roman',serif;
+body { margin:0; padding-bottom:47px; overflow-x:hidden; color:var(--bone); font:400 var(--type-body)/var(--type-leading) 'Spectral',Georgia,'Times New Roman',serif;
   background:#090807 url('../img/texturen/section-rock-seamless.webp') top center/1400px repeat; }
 body::before { content:""; position:fixed; inset:0; z-index:-1; background:rgba(4,4,4,.78); }
 /* Zweiter Hintergrund ab dem Chronik-Divider: eigenes, deckendes background
@@ -74,9 +78,9 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
 .region-facts dt { color:#c3a47f; font:700 12px/1 system-ui,sans-serif; letter-spacing:.13em; text-transform:uppercase; }
 .region-facts dd { margin:0; color:#eee4d8; font-size:var(--type-body); }
 
-.block { max-width:1200px; margin:auto; padding:80px 24px; }
+.block { max-width:1200px; margin:auto; padding:var(--space-section) var(--page-gutter); }
 .block + .block { border-top:1px solid var(--line); }
-.block-head { margin-bottom:30px; }
+.block-head { margin-bottom:var(--space-xl); }
 .block-head h2 { font-size:clamp(1.9rem,3.6vw,2.7rem); }
 .block-head p { max-width:700px; margin:14px 0 0; color:var(--muted); }
 
@@ -84,7 +88,7 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
    reiner Text-Teaser mit CTA statt Card-Grid, für Bereiche, deren
    vollständiger Inhalt auf eine eigene Unterseite ausgelagert wurde
    (siehe #voelker → voelker.html). */
-.sanctuary-teaser { max-width:720px; padding-top:88px; padding-bottom:88px; margin:0 auto; text-align:center; }
+.sanctuary-teaser { max-width:720px; margin:0 auto; text-align:center; }
 .sanctuary-teaser .eyebrow { justify-content:center; }
 .sanctuary-teaser h2 { margin-top:14px; }
 .sanctuary-teaser h2::after { content:"◆"; display:block; width:max-content; margin:16px auto 0; color:#7f2b20; font:400 .72rem/1 'Spectral',Georgia,serif; text-shadow:16px 0 #4d2d24,-16px 0 #4d2d24; }
@@ -115,7 +119,10 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
    auf reinem Schwarz gerendert, keine echte Alpha-Transparenz — daher
    per Skript in RGBA (Alpha = Helligkeit, unpremultiplied) umgewandelt,
    damit sie sich wie die übrigen Divider freistehend über die Textur legen. */
-.section-divider { display:block; position:relative; z-index:4; width:min(1680px,calc(100vw - 40px)); max-width:none; height:0; margin:110px auto 150px; pointer-events:none; overflow:visible; }
+.section-divider { display:block; position:relative; z-index:4; width:min(1680px,calc(100vw - 40px)); max-width:none; height:0; margin:0 auto; pointer-events:none; overflow:visible; }
+#chronik { padding-bottom:192px; }
+.block:has(+ .section-divider) { padding-bottom:192px; }
+.section-divider + .block { --divider-content-offset:128px; padding-top:var(--divider-content-offset); }
 .section-divider img {
   content:url('../img/sanctuary/divider-sanctuary-ornament.png');
   position:absolute; top:0; left:50%;
@@ -151,8 +158,8 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
    unten) als "gealtertes Archivmaterial"-Andeutung. */
 .chronicle-timeline { position:relative; max-width:1160px; margin:0 auto; }
 .chronicle-timeline::before {
-  content:""; position:absolute; left:50%; top:0; bottom:0; width:2px; transform:translateX(-50%);
-  background:linear-gradient(to bottom,transparent,var(--line) 6%,var(--line) 94%,transparent);
+  content:""; position:absolute; left:50%; top:calc(0px - var(--divider-content-offset, 0px)); bottom:0; width:2px; transform:translateX(-50%);
+  background:linear-gradient(to bottom,var(--line) 0%,var(--line) 94%,transparent);
   box-shadow:1px 0 0 rgba(196,154,80,.16);
   pointer-events:none;
 }
@@ -333,7 +340,10 @@ footer { margin-top:60px; border-top:1px solid var(--line); background:#080706; 
   .menu-btn { display:block; }
   .nav-links { display:none; position:absolute; top:75px; left:0; right:0; padding:18px 24px 24px; flex-direction:column; gap:14px; background:#0d0b0a; border-bottom:1px solid var(--line); }
   .nav-links.open { display:flex; }
-  .region-hero-content,.block { padding-left:18px; padding-right:18px; }
+  .region-hero-content,.block { padding-left:var(--page-gutter-mobile); padding-right:var(--page-gutter-mobile); }
+  .block { padding-top:var(--space-section-mobile); padding-bottom:var(--space-section-mobile); }
+  #chronik,.block:has(+ .section-divider) { padding-bottom:var(--space-divider-clearance-mobile); }
+  .section-divider + .block { --divider-content-offset:96px; padding-top:var(--divider-content-offset); }
   .lore-lead,.region-strip,.people-grid,.archive-grid,.relation-tier { grid-template-columns:1fr; }
   .footer-inner { flex-direction:column; align-items:flex-start; }
   .footer-meta { align-items:flex-start; }

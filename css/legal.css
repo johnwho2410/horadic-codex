@@ -9,10 +9,14 @@
   --ink:#090807; --bone:#eee6d8; --muted:#a99b89; --blood:#a5261c;
   --gold:#c49a50; --line:#463328; --shadow:rgba(0,0,0,.58);
   --type-body:17px; --type-note:20px; --type-small:14px; --type-label:12px; --type-leading:1.7;
+  --space-xs:8px; --space-sm:12px; --space-md:16px; --space-lg:24px; --space-xl:32px; --space-2xl:48px;
+  --space-section:96px; --space-section-mobile:64px; --space-feature:128px; --space-feature-mobile:88px;
+  --space-divider-clearance:256px; --space-divider-clearance-mobile:112px;
+  --page-gutter:24px; --page-gutter-mobile:18px;
 }
 * { box-sizing:border-box; }
 html { scroll-behavior:smooth; }
-body { margin:0; color:var(--bone); font:400 var(--type-body)/var(--type-leading) 'Spectral',Georgia,'Times New Roman',serif;
+body { margin:0; overflow-x:hidden; color:var(--bone); font:400 var(--type-body)/var(--type-leading) 'Spectral',Georgia,'Times New Roman',serif;
   background:#090807 url('../img/texturen/section-rock-seamless.webp') top center/1400px repeat; }
 body::before { content:""; position:fixed; inset:0; z-index:-1; background:rgba(4,4,4,.78); }
 a { color:inherit; }
@@ -27,12 +31,12 @@ button { font:inherit; }
 .nav-links { display:flex; gap:20px; }
 .menu-btn { display:none; color:var(--bone); background:none; border:1px solid var(--line); padding:7px 10px; }
 
-.intro { max-width:900px; margin:auto; padding:70px 24px 20px; }
+.intro { max-width:900px; margin:auto; padding:var(--space-section-mobile) var(--page-gutter) var(--space-lg); }
 .eyebrow { display:flex; align-items:center; gap:8px; color:var(--gold); font:700 calc(.72rem + 1px)/1 system-ui,sans-serif; text-transform:uppercase; letter-spacing:.16em; }
 h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; line-height:1.05; text-transform:uppercase; letter-spacing:.02em; filter:url(#grunge); }
 h1 { max-width:820px; margin:16px 0 0; font-size:clamp(2.2rem,5vw,3.4rem); }
 
-.legal { max-width:900px; margin:auto; padding:30px 24px 100px; }
+.legal { max-width:900px; margin:auto; padding:var(--space-xl) var(--page-gutter) var(--space-section); }
 .legal h2 { font-size:1.5rem; margin:48px 0 16px; }
 .legal h2:first-child { margin-top:0; }
 .legal p { margin:0 0 14px; color:#c2b6a6; font-size:var(--type-body); }
@@ -60,7 +64,7 @@ footer { margin-top:0; border-top:1px solid var(--line); background:#080706; }
   .nav-links { display:none; position:absolute; top:75px; left:0; right:0; padding:18px 24px 24px; flex-direction:column; gap:14px; background:#0d0b0a; border-bottom:1px solid var(--line); }
   .nav-links.open { display:flex; }
   .brand-logo { height:38px; }
-  .intro,.legal { padding-left:18px; padding-right:18px; }
+  .intro,.legal { padding-left:var(--page-gutter-mobile); padding-right:var(--page-gutter-mobile); }
   .footer-inner { flex-direction:column; align-items:flex-start; }
   .footer-meta { align-items:flex-start; }
 }
