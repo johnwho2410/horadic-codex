@@ -461,8 +461,21 @@
   const index = document.querySelector('#monster-index');
   if (!index) return;
 
+  const monsterGroups = [
+    { id: 'humans', label: 'Menschen', category: 'Menschliche Gegnerfamilie' },
+    { id: 'demons', label: 'Dämonen', category: 'Dämonische Gegnerfamilie' },
+    { id: 'undead', label: 'Untote', category: 'Untote Gegnerfamilie' },
+    { id: 'beasts', label: 'Bestien', category: 'Bestialische Gegnerfamilie' }
+  ];
+  const fabricTabAssets = [
+    'img/navi-elemente/navi-fahne.png',
+    'img/navi-elemente/navi-fahne-2.png',
+    'img/navi-elemente/navi-fahne-3.png'
+  ];
+
   const search = document.querySelector('#monster-search');
   const noResults = document.querySelector('#monster-no-results');
+  const familyPicker = document.querySelector('#creature-family-picker');
   const category = document.querySelector('#creature-category');
   const count = document.querySelector('#creature-count');
   const name = document.querySelector('#creature-name');
@@ -482,23 +495,66 @@
   const normalize = (value) => value.toLocaleLowerCase('de-DE')
     .replace(/ß/g, 'ss').normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 
-  function renderIndex(filter = '') {
+  const groupForMonster = (monster) => monsterGroups.find((group) => group.category === monster.category);
+  const matchingMonsters = (filter = '') => {
     const query = normalize(filter.trim());
-    const visible = monsters.filter((monster) => normalize(`${monster.name} ${monster.category}`).includes(query));
+    return monsters.filter((monster) => !query || normalize(`${monster.name} ${monster.category}`).includes(query));
+  };
+
+  function renderIndex(filter = '') {
+    const visible = matchingMonsters(filter);
+    const activeGroup = groupForMonster(monsters[activeIndex]);
+    const visibleGroups = monsterGroups.filter((group) => visible.some((monster) => monster.category === group.category));
+    const wantedGroups = visibleGroups.map((group) => group.id).join('|');
+    const renderedGroups = [...index.querySelectorAll('.monster-index-entry')].map((button) => button.dataset.monsterGroup).join('|');
+
+    // Solange die gleichen Obergruppen sichtbar sind, bleiben die Elemente im
+    // DOM. Dadurch kann der zuvor aktive Stoffreiter zurück in den Schlitz
+    // animieren, statt beim Neurendern abrupt zu verschwinden.
+    if (renderedGroups === wantedGroups) {
+      index.querySelectorAll('.monster-index-entry').forEach((button) => {
+        const isActive = button.dataset.monsterGroup === activeGroup.id;
+        button.setAttribute('aria-pressed', String(isActive));
+        button.toggleAttribute('aria-current', isActive);
+      });
+      noResults.hidden = visible.length !== 0;
+      return;
+    }
+
     index.replaceChildren();
+
+    visibleGroups.forEach((group) => {
+      const groupIndex = monsterGroups.indexOf(group);
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'monster-index-entry bestiary-tab';
+      button.dataset.monsterGroup = group.id;
+      button.setAttribute('aria-pressed', String(group.id === activeGroup.id));
+      if (group.id === activeGroup.id) button.setAttribute('aria-current', 'true');
+      button.setAttribute('aria-label', `${group.label} auswählen`);
+      button.innerHTML = `<img class="bestiary-tab__slit" src="img/navi-elemente/schlitz-leder.png" alt="" aria-hidden="true"><span class="bestiary-tab__fabric"><img class="bestiary-tab__fabric-image" src="${fabricTabAssets[groupIndex % fabricTabAssets.length]}" alt="" aria-hidden="true"><span class="bestiary-tab__label">${group.label}</span></span>`;
+      index.append(button);
+    });
+    noResults.hidden = visible.length !== 0;
+  }
+
+  function renderFamilyPicker(filter = '') {
+    const activeGroup = groupForMonster(monsters[activeIndex]);
+    const visible = matchingMonsters(filter).filter((monster) => monster.category === activeGroup.category);
+    familyPicker.replaceChildren();
 
     visible.forEach((monster) => {
       const monsterIndex = monsters.indexOf(monster);
       const button = document.createElement('button');
       button.type = 'button';
-      button.className = 'monster-index-entry';
+      button.className = 'creature-family-button';
       button.dataset.monsterIndex = monsterIndex;
+      button.textContent = monster.name;
       button.setAttribute('aria-pressed', String(monsterIndex === activeIndex));
       if (monsterIndex === activeIndex) button.setAttribute('aria-current', 'true');
-      button.innerHTML = `<span class="monster-index-mark" aria-hidden="true">${String(monsterIndex + 1).padStart(2, '0')}</span><span><strong>${monster.name}</strong><small>${monster.category}</small></span>`;
-      index.append(button);
+      familyPicker.append(button);
     });
-    noResults.hidden = visible.length !== 0;
+    familyPicker.hidden = visible.length === 0;
   }
 
   function renderStudies(monster) {
@@ -562,14 +618,26 @@
     caption.textContent = monster.image ? 'Archivierte Hauptstudie' : 'Bildmaterial folgt';
     renderStudies(monster);
     renderIndex(search.value);
+    renderFamilyPicker(search.value);
     if (shouldFocus) name.focus({ preventScroll: true });
   }
 
   index.addEventListener('click', (event) => {
     const button = event.target.closest('.monster-index-entry');
+    if (!button) return;
+    const group = monsterGroups.find((item) => item.id === button.dataset.monsterGroup);
+    const currentGroup = groupForMonster(monsters[activeIndex]);
+    const firstMonster = monsters.findIndex((monster) => monster.category === group.category);
+    selectMonster(group.id === currentGroup.id ? activeIndex : firstMonster, true);
+  });
+  familyPicker.addEventListener('click', (event) => {
+    const button = event.target.closest('.creature-family-button');
     if (button) selectMonster(Number(button.dataset.monsterIndex), true);
   });
-  search.addEventListener('input', () => renderIndex(search.value));
+  search.addEventListener('input', () => {
+    renderIndex(search.value);
+    renderFamilyPicker(search.value);
+  });
   [previous, next].forEach((button, direction) => button.addEventListener('click', () => {
     // Beim Blättern wird ein eventueller Filter gelöst, damit der neue aktive
     // Registereintrag wieder sichtbar und eindeutig markiert ist.
