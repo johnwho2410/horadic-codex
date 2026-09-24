@@ -312,6 +312,9 @@ main { overflow:hidden; }
   repeating-linear-gradient(45deg,rgba(196,154,80,.04) 0 2px,transparent 2px 22px),
   linear-gradient(160deg,#181410,#100e0c); border:1px solid var(--line); }
 .image-placeholder::after { content:"Bild folgt"; position:absolute; left:50%; bottom:12px; transform:translateX(-50%); color:#5c5142; font:650 12px/1 system-ui,sans-serif; letter-spacing:.1em; text-transform:uppercase; }
+.showcase-image { margin:0; overflow:hidden; }
+.showcase-image::after { content:none; }
+.showcase-image img { display:block; width:100%; height:100%; object-fit:cover; }
 
 /* Unser etablierter dezenter Zierrahmen (gleiches Motiv wie bei Link-/Hub-/Ort-Karten
    site-weit) — hier auf die Bildfläche statt die ganze Card, wie ein gerahmtes Bild. */
