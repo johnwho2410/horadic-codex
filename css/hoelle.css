@@ -15,7 +15,7 @@ html { scroll-behavior:smooth; }
    auf kurzen Seiten (z.B. nach dem Kürzen von Inhalten), statt direkt unter
    dem letzten Abschnitt zu schweben. main:flex:1 nimmt den restlichen
    Platz ein. */
-body { margin:0; min-height:100vh; padding-bottom:47px; display:flex; flex-direction:column; color:var(--bone); font:400 1rem/1.65 'Spectral',Georgia,'Times New Roman',serif;
+body { margin:0; min-height:100vh; padding-bottom:47px; display:flex; flex-direction:column; color:var(--bone); font:400 calc(1rem + 1px)/1.65 'Spectral',Georgia,'Times New Roman',serif;
   background:#050403 url('../img/texturen/section-lava-seamless.webp') top center/1400px repeat; }
 body::before { content:""; position:fixed; inset:0; z-index:-1; background:rgba(5,4,3,.6); }
 main { flex:1 0 auto; }
@@ -26,7 +26,7 @@ button { font:inherit; }
 .nav { max-width:1200px; margin:auto; min-height:85px; padding:0 24px; display:flex; align-items:center; gap:24px; }
 .brand { display:flex; align-items:center; margin-right:auto; text-decoration:none; }
 .brand-logo { display:block; height:50px; width:auto; }
-.nav a:not(.brand) { color:var(--muted); text-decoration:none; font:650 .78rem/1 system-ui,sans-serif; letter-spacing:.08em; text-transform:uppercase; }
+.nav a:not(.brand) { color:var(--muted); text-decoration:none; font:650 calc(.78rem + 1px)/1 system-ui,sans-serif; letter-spacing:.08em; text-transform:uppercase; }
 .nav a:not(.brand):hover { color:var(--bone); }
 .nav-links { display:flex; gap:20px; }
 .menu-btn { display:none; color:var(--bone); background:none; border:1px solid var(--line); padding:7px 10px; }
@@ -41,13 +41,13 @@ button { font:inherit; }
 .subnav-inner { max-width:1200px; margin:auto; padding:0 24px; display:flex; justify-content:flex-end; gap:30px; overflow-x:auto; scrollbar-width:none; }
 .subnav-inner::-webkit-scrollbar { display:none; }
 .subnav a { flex:none; display:flex; align-items:center; height:46px; color:var(--muted); text-decoration:none;
-  font:650 .72rem/1 system-ui,sans-serif; letter-spacing:.08em; text-transform:uppercase; white-space:nowrap;
+  font:650 calc(.72rem + 1px)/1 system-ui,sans-serif; letter-spacing:.08em; text-transform:uppercase; white-space:nowrap;
   border-bottom:2px solid transparent; transition:color .2s,border-color .2s; }
 .subnav a:hover { color:var(--bone); }
 .subnav a.active { color:var(--gold); border-bottom-color:var(--gold); }
 section[id] { scroll-margin-top:100px; }
 
-.eyebrow { display:flex; align-items:center; gap:8px; color:var(--gold); font:700 .72rem/1 system-ui,sans-serif; text-transform:uppercase; letter-spacing:.16em; }
+.eyebrow { display:flex; align-items:center; gap:8px; color:var(--gold); font:700 calc(.72rem + 1px)/1 system-ui,sans-serif; text-transform:uppercase; letter-spacing:.16em; }
 h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; line-height:1.05; text-transform:uppercase; letter-spacing:.02em; filter:url('../img/gemeinsam/grunge-filter.svg#grunge'); }
 
 /* ─── Hero (identischer Aufbau wie die Regionsseiten/welt.css) ──── */
@@ -69,12 +69,12 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
   -webkit-mask-image:linear-gradient(to bottom,#000 62%,transparent 100%); mask-image:linear-gradient(to bottom,#000 62%,transparent 100%); }
 .region-hero-content { position:relative; z-index:1; max-width:1200px; margin:0 auto; padding:64px 24px 56px; width:100%; }
 .region-hero h1 { max-width:920px; margin:16px 0 20px; font-size:clamp(2.6rem,6vw,4.4rem); text-shadow:0 3px 25px #000; }
-.region-hero .lead { max-width:640px; margin:0; color:#d4c8bb; font-size:1.1rem; line-height:1.7; text-shadow:0 2px 12px #000; }
+.region-hero .lead { max-width:640px; margin:0; color:#d4c8bb; font-size:calc(1.1rem + 1px); line-height:1.7; text-shadow:0 2px 12px #000; }
 
 .region-facts { display:flex; flex-wrap:wrap; gap:22px 34px; margin:26px 0 0; }
 .region-facts div { display:grid; gap:6px; }
-.region-facts dt { color:#c3a47f; font:700 .62rem/1 system-ui,sans-serif; letter-spacing:.13em; text-transform:uppercase; }
-.region-facts dd { margin:0; color:#eee4d8; font-size:.96rem; }
+.region-facts dt { color:#c3a47f; font:700 calc(.62rem + 1px)/1 system-ui,sans-serif; letter-spacing:.13em; text-transform:uppercase; }
+.region-facts dd { margin:0; color:#eee4d8; font-size:calc(.96rem + 1px); }
 
 .block { max-width:1200px; margin:auto; padding:92px 24px; }
 .block-head { margin-bottom:30px; }
@@ -94,12 +94,12 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
 
 /* ─── Wesen der Brennenden Höllen: Fließtext + Merkmalsliste ──────── */
 .overview-grid { display:grid; grid-template-columns:1.4fr 1fr; gap:56px; align-items:start; }
-.overview-intro > p { margin:0 0 22px; color:#c2b6a6; font-size:1.05rem; line-height:1.75; }
+.overview-intro > p { margin:0 0 22px; color:#c2b6a6; font-size:calc(1.05rem + 1px); line-height:1.75; }
 .overview-intro > p:last-child { margin-bottom:0; }
 .meta-blocks { display:grid; gap:2px; }
 .meta-block { padding:14px 0 14px 18px; border-left:2px solid var(--line); }
-.meta-block .meta-label { display:block; color:var(--gold); font:700 .64rem/1 system-ui,sans-serif; letter-spacing:.13em; text-transform:uppercase; }
-.meta-block strong { display:block; margin-top:6px; color:var(--bone); font-size:1.02rem; font-weight:500; }
+.meta-block .meta-label { display:block; color:var(--gold); font:700 calc(.64rem + 1px)/1 system-ui,sans-serif; letter-spacing:.13em; text-transform:uppercase; }
+.meta-block strong { display:block; margin-top:6px; color:var(--bone); font-size:calc(1.02rem + 1px); font-weight:500; }
 @media (max-width:900px) {
   .overview-grid { grid-template-columns:1fr; gap:36px; }
 }
@@ -143,22 +143,22 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
 .uebel-slide.active .uebel-portrait { transform:scale(1); }
 .uebel-slide::after { content:""; position:absolute; inset:0; background:linear-gradient(90deg,rgba(9,8,7,.42) 0%,rgba(9,8,7,.24) 42%,rgba(9,8,7,.67) 72%,rgba(9,8,7,.82) 100%),linear-gradient(0deg,rgba(9,8,7,.83) 0%,rgba(9,8,7,.15) 42%,rgba(9,8,7,.44) 100%); }
 .uebel-info { position:absolute; z-index:3; right:max(32px,calc((100vw - 1200px)/2)); bottom:clamp(150px,20vh,220px); width:min(560px,calc(100vw - 64px)); }
-.uebel-info .type { color:var(--gold); font:700 .72rem/1 system-ui,sans-serif; letter-spacing:.16em; text-transform:uppercase; }
+.uebel-info .type { color:var(--gold); font:700 calc(.72rem + 1px)/1 system-ui,sans-serif; letter-spacing:.16em; text-transform:uppercase; }
 .uebel-info h3 { margin:13px 0 0; font-size:clamp(2.2rem,4.6vw,3.2rem); line-height:.95; text-shadow:0 3px 25px #000; }
-.uebel-info p { max-width:540px; margin:18px 0 0; color:#d4c8bb; font-size:clamp(.96rem,1.3vw,1.04rem); line-height:1.68; text-shadow:0 2px 12px #000; }
+.uebel-info p { max-width:540px; margin:18px 0 0; color:#d4c8bb; font-size:calc(clamp(.96rem,1.3vw,1.04rem) + 1px); line-height:1.68; text-shadow:0 2px 12px #000; }
 .uebel-facts { display:flex; flex-wrap:wrap; gap:18px 30px; margin:22px 0 0; }
 .uebel-facts div { display:grid; gap:6px; }
-.uebel-facts dt { color:#987d68; font:700 .62rem/1 system-ui,sans-serif; letter-spacing:.13em; text-transform:uppercase; }
-.uebel-facts dd { margin:0; color:#eee4d8; font-size:.9rem; }
+.uebel-facts dt { color:#987d68; font:700 calc(.62rem + 1px)/1 system-ui,sans-serif; letter-spacing:.13em; text-transform:uppercase; }
+.uebel-facts dd { margin:0; color:#eee4d8; font-size:calc(.9rem + 1px); }
 /* bottom:96px statt der 64px des Angiris-Rat-Sliders: der Slider hier ist
    etwas niedriger (siehe .uebel-slider), wodurch das nach oben ausblutende
    Divider-Ornament direkt darunter sonst mit den Tabs kollidiert. */
 .uebel-controls { position:absolute; z-index:5; left:50%; bottom:96px; width:min(1200px,calc(100vw - 64px)); transform:translateX(-50%); display:grid; grid-template-columns:48px minmax(0,1fr) 48px; align-items:center; gap:16px; }
-.uebel-arrow { width:48px; height:48px; display:grid; place-items:center; border:1px solid rgba(207,183,158,.32); color:#dfd2c2; background:rgba(8,7,6,.66); cursor:pointer; font-size:1.3rem; transition:border-color .2s ease,background .2s ease; }
+.uebel-arrow { width:48px; height:48px; display:grid; place-items:center; border:1px solid rgba(207,183,158,.32); color:#dfd2c2; background:rgba(8,7,6,.66); cursor:pointer; font-size:calc(1.3rem + 1px); transition:border-color .2s ease,background .2s ease; }
 .uebel-arrow:hover,.uebel-arrow:focus-visible { border-color:#c4573a; background:#2a120c; }
 .uebel-tabs { display:flex; overflow-x:auto; scrollbar-width:none; border-top:1px solid rgba(207,183,158,.23); }
 .uebel-tabs::-webkit-scrollbar { display:none; }
-.uebel-tab { position:relative; flex:1 0 auto; min-width:120px; padding:16px 12px 0; border:0; color:#8f8276; background:transparent; font:700 .74rem/1.2 system-ui,sans-serif; letter-spacing:.05em; text-transform:uppercase; cursor:pointer; text-align:center; }
+.uebel-tab { position:relative; flex:1 0 auto; min-width:120px; padding:16px 12px 0; border:0; color:#8f8276; background:transparent; font:700 calc(.74rem + 1px)/1.2 system-ui,sans-serif; letter-spacing:.05em; text-transform:uppercase; cursor:pointer; text-align:center; }
 .uebel-tab::after { content:""; position:absolute; top:-1px; left:0; right:0; height:2px; background:transparent; transition:background .2s ease; }
 .uebel-tab:hover { color:#c9bba8; }
 .uebel-tab.active { color:var(--gold); }
@@ -169,8 +169,8 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
   .uebel-info { right:22px; bottom:130px; width:calc(100vw - 44px); }
   .uebel-facts { gap:14px 22px; }
   .uebel-controls { bottom:88px; width:calc(100vw - 30px); grid-template-columns:40px minmax(0,1fr) 40px; gap:7px; }
-  .uebel-arrow { width:40px; height:40px; font-size:1.1rem; }
-  .uebel-tab { min-width:96px; font-size:.68rem; padding:14px 8px 0; }
+  .uebel-arrow { width:40px; height:40px; font-size:calc(1.1rem + 1px); }
+  .uebel-tab { min-width:96px; font-size:calc(.68rem + 1px); padding:14px 8px 0; }
 }
 @media (prefers-reduced-motion:reduce) { .uebel-slide,.uebel-portrait { transition:none; } }
 
@@ -183,7 +183,7 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
   display: flex; align-items: center; gap: 20px;
   margin: 0 0 56px; }
 .bsl-line { flex: 1; height: 1px; background: linear-gradient(90deg, transparent, #5e3d22 40%, #5e3d22 60%, transparent); }
-.bsl-text { color: #7a5c3e; font: 400 .76rem/1 'Spectral',Georgia,serif;
+.bsl-text { color: #7a5c3e; font: 400 calc(.76rem + 1px)/1 'Spectral',Georgia,serif;
   letter-spacing: .28em; text-transform: uppercase; white-space: nowrap; }
 
 /* Geringe Übel: fließender Lesetext statt Bild+Text-Zeile — das Portrait
@@ -236,14 +236,14 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
 .uebel-entry-img.anim.playing { opacity:1; }
 .uebel-entry-text { position:relative; z-index:1; max-width:620px; }
 .uebel-entry--right .uebel-entry-text { margin-left:auto; }
-.uebel-entry-text .type { color:var(--gold); font:700 .7rem/1 system-ui,sans-serif; letter-spacing:.15em; text-transform:uppercase; }
+.uebel-entry-text .type { color:var(--gold); font:700 calc(.7rem + 1px)/1 system-ui,sans-serif; letter-spacing:.15em; text-transform:uppercase; }
 .uebel-entry-text h3 { margin:12px 0 0; font-size:clamp(1.9rem,3.4vw,2.6rem); }
-.uebel-entry-text p { margin:18px 0 0; color:#c2b6a6; font-size:1.02rem; line-height:1.82; }
-.uebel-entry-text p:first-of-type::first-letter { float:left; margin:4px 8px 0 0; color:var(--gold); font:400 2.7rem/.78 'Marcellus',Georgia,serif; }
+.uebel-entry-text p { margin:18px 0 0; color:#c2b6a6; font-size:calc(1.02rem + 1px); line-height:1.82; }
+.uebel-entry-text p:first-of-type::first-letter { float:left; margin:4px 8px 0 0; color:var(--gold); font:400 calc(2.7rem + 1px)/.78 'Marcellus',Georgia,serif; }
 .uebel-row-facts { display:flex; flex-wrap:wrap; gap:16px 28px; margin:22px 0 0; }
 .uebel-row-facts div { display:grid; gap:5px; }
-.uebel-row-facts dt { color:#987d68; font:700 .6rem/1 system-ui,sans-serif; letter-spacing:.12em; text-transform:uppercase; }
-.uebel-row-facts dd { margin:0; color:#eee4d8; font-size:.88rem; }
+.uebel-row-facts dt { color:#987d68; font:700 calc(.6rem + 1px)/1 system-ui,sans-serif; letter-spacing:.12em; text-transform:uppercase; }
+.uebel-row-facts dd { margin:0; color:#eee4d8; font-size:calc(.88rem + 1px); }
 @media (max-width:1000px) {
   .uebel-entry-art { display:none; }
   .uebel-entry-text,.uebel-entry--right .uebel-entry-text { margin-left:0; max-width:none; }
@@ -256,11 +256,11 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
    Buchsatz statt Website-Bausteinen, identisches Muster wie die
    entsprechenden Abschnitte auf himmel-v2.css. */
 .codex-text { max-width:680px; }
-.codex-text p { margin:20px 0 0; color:#c2b6a6; font-size:1.03rem; line-height:1.85; }
+.codex-text p { margin:20px 0 0; color:#c2b6a6; font-size:calc(1.03rem + 1px); line-height:1.85; }
 .codex-text p:first-child { margin-top:0; }
-.codex-text p.drop-cap::first-letter { float:left; margin:4px 10px 0 0; color:var(--gold); font:400 3.1rem/.78 'Marcellus',Georgia,serif; }
+.codex-text p.drop-cap::first-letter { float:left; margin:4px 10px 0 0; color:var(--gold); font:400 calc(3.1rem + 1px)/.78 'Marcellus',Georgia,serif; }
 .codex-marginalia { position:relative; padding-left:190px; }
-.codex-marginalia .era { position:absolute; left:0; top:.15em; width:160px; color:var(--gold); font:italic 400 .95rem/1.4 'Spectral',Georgia,serif; }
+.codex-marginalia .era { position:absolute; left:0; top:.15em; width:160px; color:var(--gold); font:italic 400 calc(.95rem + 1px)/1.4 'Spectral',Georgia,serif; }
 @media (max-width:760px) {
   .codex-marginalia { padding-left:0; }
   .codex-marginalia .era { position:static; display:block; margin-bottom:4px; }
@@ -273,16 +273,16 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
 @media (max-width:1000px) { .codex-deco-img { display:none; } }
 /* Hervorgehobener Zitat-Hinweis, analog .heaven-note auf himmel.html, aber
    in Blutrot statt Gold — passend zum infernalischen statt himmlischen Ton. */
-.hell-note { position:relative; margin-top:32px; padding:22px 26px 22px 66px; max-width:680px; border-left:3px solid var(--blood); background:rgba(165,38,28,.08); color:var(--bone); font:italic 400 1.1rem/1.6 'Spectral',Georgia,serif; }
+.hell-note { position:relative; margin-top:32px; padding:22px 26px 22px 66px; max-width:680px; border-left:3px solid var(--blood); background:rgba(165,38,28,.08); color:var(--bone); font:italic 400 calc(1.1rem + 1px)/1.6 'Spectral',Georgia,serif; }
 .hell-note::before { content:""; position:absolute; left:22px; top:22px; width:24px; height:41px; background:url('../img/decoration/quote-mark.webp') center/contain no-repeat; opacity:.8; filter:sepia(1) saturate(4) hue-rotate(-40deg) brightness(.8); }
 .codex-register { max-width:680px; margin:0; padding:0; }
 .codex-register div { padding:14px 0; border-top:1px solid var(--line); }
 .codex-register div:first-child { border-top:0; padding-top:0; }
-.codex-register dt { display:inline-flex; align-items:center; gap:8px; color:var(--gold); font:italic 600 1.05rem/1 'Spectral',Georgia,serif; }
+.codex-register dt { display:inline-flex; align-items:center; gap:8px; color:var(--gold); font:italic 600 calc(1.05rem + 1px)/1 'Spectral',Georgia,serif; }
 .codex-register dt::before { content:""; width:12px; height:12px; flex:none; background:url('../img/decoration/star-bullet.webp') center/contain no-repeat; opacity:.85; }
 .codex-register dt::after { content:" — "; color:var(--line); }
-.codex-register dd { display:inline; margin:0; color:var(--muted); font-size:.98rem; line-height:1.7; }
-.codex-seealso { max-width:680px; margin:18px 0 0; color:var(--muted); font-size:.98rem; line-height:1.8; }
+.codex-register dd { display:inline; margin:0; color:var(--muted); font-size:calc(.98rem + 1px); line-height:1.7; }
+.codex-seealso { max-width:680px; margin:18px 0 0; color:var(--muted); font-size:calc(.98rem + 1px); line-height:1.8; }
 .codex-seealso:first-child { margin-top:0; }
 .codex-seealso strong { color:var(--bone); font-weight:600; }
 .codex-seealso a { color:#c2b6a6; text-decoration:none; border-bottom:1px solid rgba(196,154,80,.3); }
@@ -290,7 +290,7 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
 
 /* ─── Footer (site-weit einheitlich) ───────────────────────────── */
 footer { margin-top:60px; border-top:1px solid var(--line); background:#080706; }
-.footer-inner { max-width:1200px; margin:auto; padding:35px 24px; display:flex; flex-wrap:wrap; justify-content:space-between; align-items:flex-end; gap:24px; color:#776d61; font:500 .74rem/1.5 system-ui,sans-serif; }
+.footer-inner { max-width:1200px; margin:auto; padding:35px 24px; display:flex; flex-wrap:wrap; justify-content:space-between; align-items:flex-end; gap:24px; color:#776d61; font:500 calc(.74rem + 1px)/1.5 system-ui,sans-serif; }
 .footer-notice { display:flex; flex-direction:column; gap:6px; max-width:640px; }
 .footer-inner a { color:#ae9d89; }
 .footer-meta { display:flex; flex-direction:column; align-items:flex-end; gap:10px; }
@@ -299,9 +299,9 @@ footer { margin-top:60px; border-top:1px solid var(--line); background:#080706; 
 .backtop { text-transform:uppercase; letter-spacing:.08em; text-decoration:none; }
 
 /* Handschriftliche Randvermerke: Ergänzung, nicht Teil der Hauptchronik. */
-.lore-note { position:relative; margin:24px 0 6px; padding:8px 0 4px 22px; max-width:570px; color:#d6c2a5; font:400 calc(1.55rem + 2px)/1.3 'Jim Nightshade','Spectral',Georgia,serif; transform:rotate(-.55deg); transform-origin:left center; }
-.lore-note::before { content:'✦'; position:absolute; left:0; top:8px; color:var(--blood); font:400 .78rem/1 Georgia,serif; }
-.lore-note span { display:block; margin-bottom:2px; color:#bb786d; font:400 calc(1.02rem + 2px)/1 'Jim Nightshade','Spectral',Georgia,serif; transform:rotate(.55deg); }
+.lore-note { position:relative; margin:24px 0 6px; padding:8px 0 4px 22px; max-width:570px; color:#d6c2a5; font:400 calc(1.55rem + 3px)/1.3 'Jim Nightshade','Spectral',Georgia,serif; transform:rotate(-.55deg); transform-origin:left center; }
+.lore-note::before { content:'✦'; position:absolute; left:0; top:8px; color:var(--blood); font:400 calc(.78rem + 1px)/1 Georgia,serif; }
+.lore-note span { display:block; margin-bottom:2px; color:#bb786d; font:400 calc(1.02rem + 3px)/1 'Jim Nightshade','Spectral',Georgia,serif; transform:rotate(.55deg); }
 .lore-note--uncertain { color:#cfb99a; }
 
 @media (max-width:760px) {
@@ -315,5 +315,5 @@ footer { margin-top:60px; border-top:1px solid var(--line); background:#080706; 
   .region-hero-content,.block { padding-left:18px; padding-right:18px; }
   .footer-inner { flex-direction:column; align-items:flex-start; }
   .footer-meta { align-items:flex-start; }
-  .lore-note { padding-left:18px; font-size:calc(1.38rem + 2px); }
+  .lore-note { padding-left:18px; font-size:calc(1.38rem + 3px); }
 }

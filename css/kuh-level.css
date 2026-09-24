@@ -12,7 +12,7 @@
 * { box-sizing:border-box; }
 html { scroll-behavior:smooth; }
 body { margin:0; min-height:100vh; display:flex; flex-direction:column; color:var(--bone);
-  font:400 1rem/1.65 'Spectral',Georgia,'Times New Roman',serif;
+  font:400 calc(1rem + 1px)/1.65 'Spectral',Georgia,'Times New Roman',serif;
   background:#090807 url('../img/texturen/section-rock-seamless.webp') top center/1400px repeat; }
 body::before { content:""; position:fixed; inset:0; z-index:-1; background:rgba(5,4,3,.6); }
 main { flex:1 0 auto; }
@@ -23,10 +23,10 @@ button { font:inherit; }
 .nav { max-width:1200px; margin:auto; min-height:85px; padding:0 24px; display:flex; align-items:center; gap:24px; }
 .brand { display:flex; align-items:center; margin-right:auto; text-decoration:none; }
 .brand-logo { display:block; height:50px; width:auto; }
-.nav a:not(.brand) { color:var(--muted); text-decoration:none; font:650 .78rem/1 system-ui,sans-serif; letter-spacing:.08em; text-transform:uppercase; }
+.nav a:not(.brand) { color:var(--muted); text-decoration:none; font:650 calc(.78rem + 1px)/1 system-ui,sans-serif; letter-spacing:.08em; text-transform:uppercase; }
 .nav a:not(.brand):hover { color:var(--bone); }
 
-.eyebrow { display:flex; align-items:center; gap:8px; color:var(--gold); font:700 .72rem/1 system-ui,sans-serif; text-transform:uppercase; letter-spacing:.16em; }
+.eyebrow { display:flex; align-items:center; gap:8px; color:var(--gold); font:700 calc(.72rem + 1px)/1 system-ui,sans-serif; text-transform:uppercase; letter-spacing:.16em; }
 h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; line-height:1.05; text-transform:uppercase; letter-spacing:.02em; filter:url('../img/gemeinsam/grunge-filter.svg#grunge'); }
 
 /* ─── Hero: gleicher Aufbau wie region-hero auf hoelle.html/himmel.html,
@@ -48,17 +48,17 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
   linear-gradient(0deg,rgba(5,4,3,.88) 0%,rgba(5,4,3,.1) 46%,rgba(5,4,3,.32) 100%); }
 .region-hero-content { position:relative; z-index:1; max-width:1200px; margin:0 auto; padding:64px 24px 56px; width:100%; }
 .region-hero h1 { max-width:920px; margin:16px 0 20px; font-size:clamp(2.6rem,6vw,4.4rem); text-shadow:0 3px 25px #000; }
-.region-hero .lead { max-width:640px; margin:0; color:#d4c8bb; font-size:1.1rem; line-height:1.7; text-shadow:0 2px 12px #000; }
+.region-hero .lead { max-width:640px; margin:0; color:#d4c8bb; font-size:calc(1.1rem + 1px); line-height:1.7; text-shadow:0 2px 12px #000; }
 
 .region-facts { display:flex; flex-wrap:wrap; gap:22px 34px; margin:26px 0 0; }
 .region-facts div { display:grid; gap:6px; }
-.region-facts dt { color:#c3a47f; font:700 .62rem/1 system-ui,sans-serif; letter-spacing:.13em; text-transform:uppercase; }
-.region-facts dd { margin:0; color:#eee4d8; font-size:.96rem; }
+.region-facts dt { color:#c3a47f; font:700 calc(.62rem + 1px)/1 system-ui,sans-serif; letter-spacing:.13em; text-transform:uppercase; }
+.region-facts dd { margin:0; color:#eee4d8; font-size:calc(.96rem + 1px); }
 
 .block { max-width:800px; margin:auto; padding:80px 24px; }
 .block-head { margin-bottom:22px; }
 .block-head h2 { font-size:clamp(1.7rem,3.2vw,2.3rem); color:var(--gold); }
-.kuh-level p { margin:0 0 18px; color:#c2b6a6; font-size:1.02rem; line-height:1.78; }
+.kuh-level p { margin:0 0 18px; color:#c2b6a6; font-size:calc(1.02rem + 1px); line-height:1.78; }
 
 /* ─── Site-weiter Zier-Divider, hier mit dem einzelnen Kuh-Level-Bild
    img/muh/divider.png (bereits fertig komponiert, kein separates
@@ -78,27 +78,27 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
 
 .kuh-facts { display:flex; flex-wrap:wrap; gap:18px 34px; margin:26px 0 40px; padding:22px 0; border-block:1px solid var(--line); }
 .kuh-facts div { display:grid; gap:6px; }
-.kuh-facts dt { color:#c3a47f; font:700 .62rem/1 system-ui,sans-serif; letter-spacing:.13em; text-transform:uppercase; }
-.kuh-facts dd { margin:0; color:#eee4d8; font-size:.94rem; }
+.kuh-facts dt { color:#c3a47f; font:700 calc(.62rem + 1px)/1 system-ui,sans-serif; letter-spacing:.13em; text-transform:uppercase; }
+.kuh-facts dd { margin:0; color:#eee4d8; font-size:calc(.94rem + 1px); }
 
 blockquote.kuh-quote { margin:36px 0; padding:20px 26px; border-left:3px solid var(--gold); background:rgba(196,154,80,.06);
-  font-family:'Marcellus',Georgia,serif; font-size:1.2rem; line-height:1.5; color:var(--bone); font-style:italic; }
-blockquote.kuh-quote cite { display:block; margin-top:10px; font:700 .68rem/1 system-ui,sans-serif; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); font-style:normal; }
+  font-family:'Marcellus',Georgia,serif; font-size:calc(1.2rem + 1px); line-height:1.5; color:var(--bone); font-style:italic; }
+blockquote.kuh-quote cite { display:block; margin-top:10px; font:700 calc(.68rem + 1px)/1 system-ui,sans-serif; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); font-style:normal; }
 
 .kuh-badge { display:inline-flex; align-items:center; gap:10px; margin:8px 0 30px; padding:12px 20px; border:1px solid var(--gold); color:var(--gold);
-  font:700 .78rem/1 system-ui,sans-serif; letter-spacing:.08em; text-transform:uppercase; }
+  font:700 calc(.78rem + 1px)/1 system-ui,sans-serif; letter-spacing:.08em; text-transform:uppercase; }
 
-.kuh-note { margin-top:20px; padding-top:22px; border-top:1px solid var(--line); color:#776d61; font:500 .78rem/1.6 system-ui,sans-serif; }
+.kuh-note { margin-top:20px; padding-top:22px; border-top:1px solid var(--line); color:#776d61; font:500 calc(.78rem + 1px)/1.6 system-ui,sans-serif; }
 .kuh-note a { color:#ae9d89; }
 
 footer { margin-top:0; border-top:1px solid var(--line); background:#080706; }
-.footer-inner { max-width:1200px; margin:auto; padding:35px 24px; display:flex; flex-wrap:wrap; justify-content:space-between; align-items:flex-end; gap:24px; color:#776d61; font:500 .74rem/1.5 system-ui,sans-serif; }
+.footer-inner { max-width:1200px; margin:auto; padding:35px 24px; display:flex; flex-wrap:wrap; justify-content:space-between; align-items:flex-end; gap:24px; color:#776d61; font:500 calc(.74rem + 1px)/1.5 system-ui,sans-serif; }
 .footer-notice { display:flex; flex-direction:column; gap:6px; max-width:640px; }
 .footer-inner a { color:#ae9d89; }
 .footer-meta { display:flex; flex-direction:column; align-items:flex-end; gap:10px; }
 .footer-links { display:flex; gap:16px; }
 .footer-links a { text-transform:uppercase; letter-spacing:.08em; font-weight:700; }
-.backtop { color:var(--muted); text-decoration:none; font:650 .72rem/1 system-ui,sans-serif; letter-spacing:.06em; text-transform:uppercase; }
+.backtop { color:var(--muted); text-decoration:none; font:650 calc(.72rem + 1px)/1 system-ui,sans-serif; letter-spacing:.06em; text-transform:uppercase; }
 .backtop:hover { color:var(--bone); }
 
 @media (max-width:760px) {
