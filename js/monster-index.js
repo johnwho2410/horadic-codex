@@ -527,12 +527,12 @@
       const groupIndex = monsterGroups.indexOf(group);
       const button = document.createElement('button');
       button.type = 'button';
-      button.className = 'monster-index-entry bestiary-tab';
+      button.className = 'monster-index-entry bestiary-tab codex-index-entry codex-tab';
       button.dataset.monsterGroup = group.id;
       button.setAttribute('aria-pressed', String(group.id === activeGroup.id));
       if (group.id === activeGroup.id) button.setAttribute('aria-current', 'true');
       button.setAttribute('aria-label', `${group.label} auswählen`);
-      button.innerHTML = `<img class="bestiary-tab__slit" src="img/navi-elemente/schlitz-leder-rough.png" alt="" aria-hidden="true"><span class="bestiary-tab__fabric"><img class="bestiary-tab__fabric-image" src="${fabricTabAssets[groupIndex % fabricTabAssets.length]}" alt="" aria-hidden="true"><span class="bestiary-tab__label">${group.label}</span></span>`;
+      button.innerHTML = `<img class="codex-tab__slit" src="img/navi-elemente/schlitz-leder-rough.png" alt="" aria-hidden="true"><span class="codex-tab__fabric"><img class="codex-tab__fabric-image" src="${fabricTabAssets[groupIndex % fabricTabAssets.length]}" alt="" aria-hidden="true"><span class="codex-tab__label">${group.label}</span></span>`;
       index.append(button);
     });
     noResults.hidden = visible.length !== 0;

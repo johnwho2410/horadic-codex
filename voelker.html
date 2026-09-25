@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marcellus&family=Spectral:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
   <link rel="stylesheet" href="css/voelker.css">
+  <link rel="stylesheet" href="css/codex-module.css">
 </head>
 <body>
   <svg class='svg-filter-defs' aria-hidden='true' focusable='false' width='0' height='0'><filter id='grunge' x='-15%' y='-15%' width='130%' height='130%'><feTurbulence type='fractalNoise' baseFrequency='0.09' numOctaves='3' seed='7' result='noise'></feTurbulence><feDisplacementMap in='SourceGraphic' in2='noise' scale='4.5' xChannelSelector='R' yChannelSelector='G'></feDisplacementMap></filter></svg>
@@ -45,7 +46,7 @@
     <div class="voelker-bg-leather">
     <section class="monster-archive" id="monster-gegner" aria-labelledby="monster-title">
       <div class="block monster-archive-inner">
-        <div class="monster-archive-head">
+        <div class="monster-archive-head codex-module-head">
           <div>
             <span class="eyebrow">Horadrisches Archiv</span>
             <h2 id="monster-title">Monster &amp; Gegner</h2>
@@ -53,14 +54,14 @@
           </div>
         </div>
 
-        <div class="monster-codex-layout">
-          <aside class="monster-register" aria-label="Monsterregister">
-            <span class="monster-register-title">Register der Gruppen</span>
+        <div class="monster-codex-layout codex-layout">
+          <aside class="monster-register codex-register" aria-label="Monsterregister">
+            <span class="monster-register-title codex-register-title">Register der Gruppen</span>
             <div class="monster-search-wrap">
               <input id="monster-search" type="search" placeholder="Monster durchsuchen …" autocomplete="off" aria-label="Monster durchsuchen">
             </div>
             <div class="monster-index-frame">
-              <div class="monster-index" id="monster-index" aria-label="Monsterfamilien"></div>
+              <div class="monster-index codex-index" id="monster-index" aria-label="Monsterfamilien"></div>
               <p class="monster-no-results" id="monster-no-results" hidden>Kein Eintrag gefunden.</p>
             </div>
           </aside>
