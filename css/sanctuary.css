@@ -285,26 +285,25 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
 .people h3 { margin-top:32px; font-size:1.4rem; }
 .people p { color:var(--muted); margin:11px 0 0; font-size:var(--type-body); }
 
-.archive-tabs { display:flex; gap:8px; margin:0 0 22px; }
-.archive-tab { cursor:pointer; padding:9px 14px; color:var(--muted); border:1px solid var(--line); background:#110f0d; border-radius:99px; font:650 calc(.78rem + 1px)/1 system-ui,sans-serif; }
-.archive-tab.active,.archive-tab:hover,.archive-tab:focus-visible { color:var(--bone); border-color:#7f4935; background:#26130f; }
 .archive-panel[hidden] { display:none; }
-.archive-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:42px; }
-.archive-card { position:relative; padding:22px; border:1px solid var(--line); background:#12100e; }
-.archive-card::before {
-  content:""; position:absolute; inset:-16px -11px; pointer-events:none; opacity:.6;
-  border-style:solid; border-width:30px 20px;
-  border-image-source:url('../img/klassen/class-card-frame-subtle.png');
-  border-image-slice:150 140 150 140;
-  border-image-repeat:stretch;
-}
-.archive-card .meta { color:var(--gold); font:700 12px/1 system-ui,sans-serif; letter-spacing:.1em; text-transform:uppercase; }
-.archive-card h3 { margin-top:12px; font-size:1.3rem; }
-.archive-card p { margin:12px 0 0; color:var(--muted); font-size:var(--type-body); }
-.archive-card dl { margin:14px 0 0; padding-top:12px; border-top:1px solid var(--line); }
-.archive-card dt { color:#8d7d6b; font:650 12px/1.4 system-ui,sans-serif; letter-spacing:.08em; text-transform:uppercase; }
-.archive-card dd { margin:3px 0 10px; color:#c8b8a5; font-size:var(--type-body); }
-.archive-card dd:last-child { margin-bottom:0; }
+.archive-panel::before { display:block; margin:4px 0 30px; color:#9c866d; font:700 12px/1 system-ui,sans-serif; letter-spacing:.14em; text-transform:uppercase; }
+#panel-factions::before { content:"Sechs überlieferte Dossiers"; }
+#panel-figures::before { content:"Neun Personenakten"; }
+.archive-list { border-top:1px solid var(--line); }
+.archive-entry { position:relative; display:grid; grid-template-columns:minmax(180px,.55fr) minmax(0,1.45fr); column-gap:clamp(28px,5vw,74px); padding:32px 0 34px; border-bottom:1px solid var(--line); }
+.archive-entry::before { content:""; position:absolute; top:43px; left:-19px; width:7px; height:7px; border:1px solid rgba(196,154,80,.65); transform:rotate(45deg); }
+.archive-entry .meta { grid-column:1; display:block; color:#c3a47f; font:700 12px/1.3 system-ui,sans-serif; letter-spacing:.1em; text-transform:uppercase; }
+.archive-entry h3 { grid-column:1; margin-top:13px; font-size:clamp(1.5rem,2.5vw,2rem); }
+.archive-entry p { grid-column:2; grid-row:1 / span 2; align-self:center; margin:0; color:#b8aa9a; font-size:var(--type-body); }
+.archive-entry dl { grid-column:2; display:flex; flex-wrap:wrap; gap:14px 38px; margin:19px 0 0; padding-top:16px; border-top:1px solid rgba(196,154,80,.2); }
+.archive-entry dl > * { max-width:290px; }
+.archive-entry dt { color:#8d7d6b; font:650 11px/1.35 system-ui,sans-serif; letter-spacing:.08em; text-transform:uppercase; }
+.archive-entry dd { margin:4px 0 0; color:#d1c1ae; font-size:calc(.9rem + 1px); line-height:1.4; }
+.archive-list--figures { columns:2; column-gap:clamp(34px,6vw,86px); }
+.archive-list--figures .archive-entry { display:block; break-inside:avoid; padding:27px 0 29px 20px; }
+.archive-list--figures .archive-entry::before { top:38px; left:1px; }
+.archive-list--figures .archive-entry h3 { margin-top:9px; font-size:1.55rem; }
+.archive-list--figures .archive-entry p { margin:12px 0 0; }
 
 .relationship-map { padding:26px; border:1px solid var(--line); background:radial-gradient(circle at 50% 50%,rgba(130,35,25,.13),transparent 40%),#0e0c0a; }
 .relation-tier { display:grid; grid-template-columns:repeat(3,1fr); gap:32px; }
@@ -325,12 +324,13 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
 .relationship-note { margin:18px 0 0; color:#8f806f; font-size:var(--type-body); }
 
 @media (max-width:900px) {
-  .people-grid,.archive-grid,.relation-tier { grid-template-columns:repeat(2,1fr); }
+  .people-grid,.relation-tier { grid-template-columns:repeat(2,1fr); }
   .world-heading,.world-prose { grid-template-columns:1fr; gap:var(--space-xl); }
   .world-heading > p { max-width:760px; }
   .atlas-register { grid-template-columns:1fr; }
   .atlas-map { max-width:680px; margin:0 auto; }
   .relation-node.origin { grid-column:auto; }
+  .archive-entry::before { left:-12px; }
 
   /* Mobil: Timeline an den linken Rand, keine wechselnde Spaltenanordnung
      mehr, Bild immer oberhalb des Texts, Ziffer kleiner. */
@@ -380,7 +380,13 @@ footer { margin-top:60px; border-top:1px solid var(--line); background:#080706; 
   #chronik,.block:has(+ .section-divider) { padding-bottom:var(--space-divider-clearance-mobile); }
   .section-divider + .block { --divider-content-offset:96px; padding-top:var(--divider-content-offset); }
   .section-divider + .sanctuary-bg-leather > .block:first-child { --divider-content-offset:96px; padding-top:var(--divider-content-offset); }
-  .lore-lead,.people-grid,.archive-grid,.relation-tier { grid-template-columns:1fr; }
+  .lore-lead,.people-grid,.relation-tier { grid-template-columns:1fr; }
+  .archive-entry { display:block; padding:28px 0 30px 18px; }
+  .archive-entry::before { top:37px; left:1px; }
+  .archive-entry h3 { margin-top:10px; }
+  .archive-entry p { margin:13px 0 0; }
+  .archive-entry dl { gap:12px 28px; margin-top:18px; }
+  .archive-list--figures { columns:1; }
   .sanctuary-world { padding-top:var(--space-feature-mobile); padding-bottom:var(--space-feature-mobile); }
   .world-heading > p { padding-left:var(--space-md); }
   .world-facts { padding-left:var(--space-md); }
