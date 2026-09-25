@@ -88,10 +88,13 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
 .sanctuary-bg-leather .block + .block { position:relative; border-top:0; }
 .sanctuary-bg-leather .block + .block::before {
   content:""; position:absolute; z-index:1; top:0; left:50%;
-  width:100vw; height:18px; transform:translate(-50%,-50%);
+  width:100vw; height:112px; transform:translate(-50%,-50%);
   pointer-events:none;
-  background:url('../img/trenner/naht-kachel.png') center/auto 18px repeat-x;
-  opacity:.58; filter:drop-shadow(0 14px 7px rgba(0,0,0,1));
+  /* Die Naht liegt über einer zurückhaltenden Schwarzvignette, die ihren
+     Übergang andeutet, aber nicht so stark wie der große Zier-Divider. */
+  background:url('../img/trenner/naht-kachel.png') center/auto 18px repeat-x,
+    linear-gradient(to bottom,transparent 0%,rgba(0,0,0,.36) 39%,rgba(0,0,0,.5) 50%,rgba(0,0,0,.36) 61%,transparent 100%);
+  opacity:.58; filter:drop-shadow(0 3px 3px rgba(0,0,0,.38));
 }
 .block-head { margin-bottom:var(--space-xl); }
 .block-head h2 { font-size:clamp(1.9rem,3.6vw,2.7rem); }
@@ -169,7 +172,7 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
    Kacheln in einer Liste. Große, fast unsichtbare Kapitelziffer im
    Hintergrund jedes Eintrags sorgt für den Manuskript-/Archiv-Charakter,
    ohne dass es wie ein UI-Zähler wirkt. Kein neuer heller Untergrund —
-   weiterhin dieselbe dunkle Leder-Textur wie der Rest der Seite, nur mit
+   weiterhin dieselbe dunkle Kirchen-Textur wie der Rest der Chronik, nur mit
    einer sehr leichten Aufhellung + Noise pro Eintrag (siehe --chronicle-*
    unten) als "gealtertes Archivmaterial"-Andeutung. */
 .chronicle-timeline { position:relative; max-width:1160px; margin:0 auto; }
@@ -208,23 +211,15 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
   box-shadow:0 0 7px rgba(196,154,80,.3);
 }
 
-/* Kein fest erzwungenes aspect-ratio mehr auf dem Container — die Chronik
-   mischt inzwischen 3:2- und 16:9-Illustrationen (je nachdem wann sie
-   erzeugt wurden). Die Box übernimmt einfach die eigene Bildbreite/-höhe
-   (per width/height-Attribut reserviert), damit nie beschnitten oder
-   mit Leerraum aufgefüllt werden muss und der gemalte Zierrahmen immer
-   vollständig sichtbar bleibt. */
-.chronicle-media { position:relative; z-index:1; overflow:hidden; border-radius:3px; }
+/* Die neuen Kirchenfenster liegen im Hochformat vor. Ihre Breite wird auf
+   Desktop begrenzt und zur Zeitachse ausgerichtet, damit sie vollständig
+   sichtbar bleiben, ohne die Textspalte zu überragen. */
+.chronicle-media { position:relative; z-index:1; inline-size:min(100%,540px); justify-self:end; overflow:hidden; border-radius:3px; }
+.chronicle-entry:nth-child(even) .chronicle-media { justify-self:start; }
 .chronicle-media img {
   display:block; width:100%; height:auto;
   filter:drop-shadow(0 14px 32px rgba(0,0,0,.95));
 }
-/* sehr dezente Vignette statt Rahmen/Card-Border */
-.chronicle-media::after {
-  content:""; position:absolute; inset:0; pointer-events:none;
-  box-shadow:inset 0 0 46px 8px rgba(4,3,2,.5);
-}
-
 .chronicle-content { position:relative; z-index:1; }
 .chronicle-date {
   display:flex; align-items:center; gap:10px; margin:0 0 14px;
@@ -262,7 +257,6 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
 .atlas-heading p { max-width:480px; margin:0; color:var(--muted); text-align:right; }
 .atlas-register { display:grid; grid-template-columns:minmax(0,1.12fr) minmax(380px,.88fr); gap:clamp(36px,6vw,78px); align-items:center; padding:var(--space-lg) 0; }
 .atlas-map { position:relative; margin:0; padding:18px; }
-.atlas-map::before { content:""; position:absolute; inset:7% 5%; border:1px solid rgba(129,93,54,.28); transform:rotate(-1deg); box-shadow:0 0 80px rgba(0,0,0,.35) inset; }
 .atlas-map::after { content:""; position:absolute; z-index:0; inset:8%; background:url('../img/sanctuary/atlas-compass-ornament.png') center/contain no-repeat; opacity:.1; filter:sepia(.35); }
 .atlas-map img { position:relative; z-index:1; display:block; width:100%; height:auto; opacity:.78; filter:sepia(.2) saturate(.72) contrast(1.04) drop-shadow(0 20px 28px rgba(0,0,0,.55)); }
 .atlas-map figcaption { position:relative; margin-top:2px; color:#9e8667; font:400 var(--type-note)/1.1 'Jim Nightshade','Spectral',Georgia,serif; text-align:center; transform:rotate(-.7deg); }
@@ -344,7 +338,7 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
   .chronicle-entry { grid-template-columns:1fr; column-gap:0; padding:3rem 0 4rem 40px; }
   .chronicle-entry:nth-child(even) .chronicle-media,
   .chronicle-entry:nth-child(even) .chronicle-content { order:initial; }
-  .chronicle-media { margin-bottom:22px; }
+  .chronicle-media { inline-size:100%; max-width:none; justify-self:stretch; margin-bottom:22px; }
   .chronicle-marker { left:17px; top:8px; }
   .chronicle-entry--major .chronicle-marker { top:6px; }
   .chronicle-number { left:0; top:0; transform:none; font-size:calc(clamp(3.4rem,20vw,5rem) + 1px); line-height:1; }
