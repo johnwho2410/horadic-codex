@@ -312,21 +312,31 @@ main { overflow:hidden; }
   repeating-linear-gradient(45deg,rgba(196,154,80,.04) 0 2px,transparent 2px 22px),
   linear-gradient(160deg,#181410,#100e0c); border:1px solid var(--line); }
 .image-placeholder::after { content:"Bild folgt"; position:absolute; left:50%; bottom:12px; transform:translateX(-50%); color:#5c5142; font:650 12px/1 system-ui,sans-serif; letter-spacing:.1em; text-transform:uppercase; }
-.showcase-image { margin:0; overflow:hidden; }
+.showcase-image { margin:0; overflow:hidden; background:none; }
 .showcase-image::after { content:none; }
 .showcase-image img { display:block; width:100%; height:100%; object-fit:cover; }
 
-/* Unser etablierter dezenter Zierrahmen (gleiches Motiv wie bei Link-/Hub-/Ort-Karten
-   site-weit) — hier auf die Bildfläche statt die ganze Card, wie ein gerahmtes Bild. */
-.showcase-card .image-placeholder::before {
-  content:""; position:absolute; inset:-16px -11px; pointer-events:none; opacity:.7;
-  border-style:solid; border-width:30px 20px;
-  border-image-source:url('../img/klassen/class-card-frame-subtle.png');
-  border-image-slice:150 140 150 140;
-  border-image-repeat:stretch;
+/* Die regionalen Assets sind echte CSS-border-images: Der Rahmen gehört zum
+   Bildcontainer selbst statt als versetztes Overlay über dem Bild zu liegen. */
+.showcase-card .image-placeholder {
+  /* Die breite Rahmen-Grafik darf keinen Platz vom Foto wegnehmen.
+     Eine echte 1px-Border hält die Boxgeometrie, border-image-width
+     zeichnet den Rahmen lediglich darüber. */
+  border:1px solid transparent;
+  border-image:var(--region-showcase-frame,url('../img/klassen/class-card-frame-subtle.png')) 150 140 / 36px 26px / 0 stretch;
 }
-.showcase-minor .image-placeholder::before {
-  inset:-11px -8px; border-width:22px 15px;
+.region-page--zersplitterte-gipfel { --region-showcase-frame:url('../img/regionen/frame-zersplitterte-gipfel.png'); }
+.region-page--trockensteppe { --region-showcase-frame:url('../img/regionen/frame-trockensteppe.png'); }
+.region-page--scosglen { --region-showcase-frame:url('../img/regionen/frame-scosglen.png'); }
+.region-page--kehjistan { --region-showcase-frame:url('../img/regionen/frame-kehjistan.png'); }
+.region-page--hawezar { --region-showcase-frame:url('../img/regionen/frame-hawezar.png'); }
+.region-page--skovos { --region-showcase-frame:url('../img/regionen/frame-skovos.png'); }
+.region-page--nahantu { --region-showcase-frame:url('../img/regionen/frame-nahantu.png'); }
+.showcase-main .image-placeholder {
+  border-image-width:48px 34px;
+}
+.showcase-minor .image-placeholder {
+  border-image-width:28px 20px;
 }
 
 .showcase-card .type { display:block; margin-top:18px; color:var(--gold); font:700 12px/1 system-ui,sans-serif; letter-spacing:.12em; text-transform:uppercase; }

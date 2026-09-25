@@ -468,9 +468,9 @@
     { id: 'beasts', label: 'Bestien', category: 'Bestialische Gegnerfamilie' }
   ];
   const fabricTabAssets = [
-    'img/navi-elemente/navi-fahne.png',
-    'img/navi-elemente/navi-fahne-2.png',
-    'img/navi-elemente/navi-fahne-3.png'
+    'img/navi-elemente/wimpel_01.webp',
+    'img/navi-elemente/wimpel_02.webp',
+    'img/navi-elemente/wimpel_03.webp'
   ];
 
   const search = document.querySelector('#monster-search');
@@ -532,7 +532,7 @@
       button.setAttribute('aria-pressed', String(group.id === activeGroup.id));
       if (group.id === activeGroup.id) button.setAttribute('aria-current', 'true');
       button.setAttribute('aria-label', `${group.label} auswählen`);
-      button.innerHTML = `<img class="bestiary-tab__slit" src="img/navi-elemente/schlitz-leder.png" alt="" aria-hidden="true"><span class="bestiary-tab__fabric"><img class="bestiary-tab__fabric-image" src="${fabricTabAssets[groupIndex % fabricTabAssets.length]}" alt="" aria-hidden="true"><span class="bestiary-tab__label">${group.label}</span></span>`;
+      button.innerHTML = `<img class="bestiary-tab__slit" src="img/navi-elemente/schlitz-leder-rough.png" alt="" aria-hidden="true"><span class="bestiary-tab__fabric"><img class="bestiary-tab__fabric-image" src="${fabricTabAssets[groupIndex % fabricTabAssets.length]}" alt="" aria-hidden="true"><span class="bestiary-tab__label">${group.label}</span></span>`;
       index.append(button);
     });
     noResults.hidden = visible.length !== 0;
