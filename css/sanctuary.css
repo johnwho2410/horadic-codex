@@ -19,9 +19,11 @@ html { scroll-behavior:smooth; }
 body { margin:0; padding-bottom:47px; overflow-x:hidden; color:var(--bone); font:400 var(--type-body)/var(--type-leading) 'Spectral',Georgia,'Times New Roman',serif;
   background:#090807 url('../img/texturen/section-rock-seamless.webp') top center/1400px repeat; }
 body::before { content:""; position:fixed; inset:0; z-index:-1; background:rgba(4,4,4,.78); }
-/* Zweiter Hintergrund ab dem Chronik-Divider: eigenes, deckendes background
-   auf dem Wrapper statt body-weit, damit der Texturwechsel exakt am Divider
-   beginnt (identisches Muster wie .heaven-bg-alt/.hell-bg-alt). */
+/* Die Chronik erhält ihre eigene, deckende Kirchen-Textur. Der Wrapper
+   begrenzt den Wechsel exakt auf den Archivbereich. */
+.sanctuary-bg-church { background:linear-gradient(rgba(9,8,7,.55),rgba(9,8,7,.55)),
+  url('../img/texturen/church.webp') top center/1400px repeat; }
+/* Ab „Jenseits der Chronik“ kehrt die Seite zur Ledertextur zurück. */
 .sanctuary-bg-leather { background:linear-gradient(rgba(9,8,7,.55),rgba(9,8,7,.55)),
   url('../img/texturen/section-leather-seamless.webp') top center/1400px repeat; }
 a { color:inherit; }
@@ -80,6 +82,17 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
 
 .block { max-width:1200px; margin:auto; padding:var(--space-section) var(--page-gutter); }
 .block + .block { border-top:1px solid var(--line); }
+/* Die Naht bleibt ausschließlich innerhalb der Lederfläche: Sie trennt die
+   dort aufeinanderfolgenden Inhaltsabschnitte, nicht den Texturwechsel an
+   der Chronik. */
+.sanctuary-bg-leather .block + .block { position:relative; border-top:0; }
+.sanctuary-bg-leather .block + .block::before {
+  content:""; position:absolute; z-index:1; top:0; left:50%;
+  width:100vw; height:18px; transform:translate(-50%,-50%);
+  pointer-events:none;
+  background:url('../img/trenner/naht-kachel.png') center/auto 18px repeat-x;
+  opacity:.58; filter:drop-shadow(0 14px 7px rgba(0,0,0,1));
+}
 .block-head { margin-bottom:var(--space-xl); }
 .block-head h2 { font-size:clamp(1.9rem,3.6vw,2.7rem); }
 .block-head p { max-width:700px; margin:14px 0 0; color:var(--muted); }
@@ -123,6 +136,7 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
 #chronik { padding-bottom:192px; }
 .block:has(+ .section-divider) { padding-bottom:192px; }
 .section-divider + .block { --divider-content-offset:128px; padding-top:var(--divider-content-offset); }
+.section-divider + .sanctuary-bg-leather > .block:first-child { --divider-content-offset:128px; padding-top:var(--divider-content-offset); }
 .section-divider img {
   content:url('../img/sanctuary/divider-sanctuary-ornament.png');
   position:absolute; top:0; left:50%;
@@ -141,10 +155,12 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
 @keyframes divider-glow-pulse { 0%,100% { opacity:.42; } 50% { opacity:1; } }
 @media (prefers-reduced-motion:reduce) { .section-divider::after { animation:none; } }
 .section-divider::before {
-  content:""; position:absolute; top:0; left:50%; width:100vw; height:14px;
+  content:""; position:absolute; top:0; left:50%; width:100vw; height:280px;
   transform:translate(-50%,-50%);
-  background:url('../img/sanctuary/divider-sanctuary-line.png') center/109% 70px no-repeat;
-  filter:drop-shadow(0 0 4px rgba(196,154,80,.35));
+  /* Die weiche Abdunklung auf beiden Seiten bindet den freistehenden
+     Trenner in die Textur ein, ohne das goldene Ornament zu überdecken. */
+  background:linear-gradient(to bottom,transparent 0%,#000 46%,#000 54%,transparent 100%),
+    url('../img/sanctuary/divider-sanctuary-line.png') center/109% 70px no-repeat;
 }
 
 /* ─── Chronik als Zeitstrahl ───────────────────────────────────────
@@ -201,24 +217,12 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
 .chronicle-media { position:relative; z-index:1; overflow:hidden; border-radius:3px; }
 .chronicle-media img {
   display:block; width:100%; height:auto;
-  filter:drop-shadow(0 14px 32px rgba(0,0,0,.55));
-  transition:transform .6s ease;
+  filter:drop-shadow(0 14px 32px rgba(0,0,0,.95));
 }
-.chronicle-media:hover img { transform:scale(1.015); }
 /* sehr dezente Vignette statt Rahmen/Card-Border */
 .chronicle-media::after {
   content:""; position:absolute; inset:0; pointer-events:none;
   box-shadow:inset 0 0 46px 8px rgba(4,3,2,.5);
-}
-/* Bildkante zum Text hin weich auslaufen lassen; ohne mask-image-Support
-   bleibt das Bild einfach vollständig sichtbar (normale Fallback-Darstellung). */
-.chronicle-entry:nth-child(odd) .chronicle-media {
-  -webkit-mask-image:linear-gradient(to right,#000 82%,transparent 100%);
-  mask-image:linear-gradient(to right,#000 82%,transparent 100%);
-}
-.chronicle-entry:nth-child(even) .chronicle-media {
-  -webkit-mask-image:linear-gradient(to left,#000 82%,transparent 100%);
-  mask-image:linear-gradient(to left,#000 82%,transparent 100%);
 }
 
 .chronicle-content { position:relative; z-index:1; }
@@ -381,6 +385,7 @@ footer { margin-top:60px; border-top:1px solid var(--line); background:#080706; 
   .block { padding-top:var(--space-section-mobile); padding-bottom:var(--space-section-mobile); }
   #chronik,.block:has(+ .section-divider) { padding-bottom:var(--space-divider-clearance-mobile); }
   .section-divider + .block { --divider-content-offset:96px; padding-top:var(--divider-content-offset); }
+  .section-divider + .sanctuary-bg-leather > .block:first-child { --divider-content-offset:96px; padding-top:var(--divider-content-offset); }
   .lore-lead,.people-grid,.archive-grid,.relation-tier { grid-template-columns:1fr; }
   .sanctuary-world { padding-top:var(--space-feature-mobile); padding-bottom:var(--space-feature-mobile); }
   .world-heading > p { padding-left:var(--space-md); }
