@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090807">
+  <meta name="description" content="Fraktionen und Persönlichkeiten Sanktuarios: Orden, Kulte und Schlüsselfiguren, deren Entscheidungen die Welt von Diablo IV prägen.">
+  <title>Persönlichkeiten – Diablo IV Kompendium</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marcellus&family=Spectral:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
+  <link rel="stylesheet" href="css/persoenlichkeiten.css">
+  <link rel="stylesheet" href="css/codex-module.css">
+</head>
+<body>
+  <svg class='svg-filter-defs' aria-hidden='true' focusable='false' width='0' height='0'><filter id='grunge' x='-15%' y='-15%' width='130%' height='130%'><feTurbulence type='fractalNoise' baseFrequency='0.09' numOctaves='3' seed='7' result='noise'></feTurbulence><feDisplacementMap in='SourceGraphic' in2='noise' scale='4.5' xChannelSelector='R' yChannelSelector='G'></feDisplacementMap></filter></svg>
+  <header class="topbar">
+    <nav class="nav" aria-label="Hauptnavigation"><a class="brand" href="index.html"><img src="img/gemeinsam/logo-crop.webp" alt="The Horadric Codex" class="brand-logo"></a><button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav-links">Menü</button><div class="nav-links" id="nav-links"><a href="sanctuary.html">Sanktuario</a><a href="himmel.html">Die Hohen Himmel</a><a href="hoelle.html">Die Hölle</a><a href="persoenlichkeiten.html" aria-current="page">Persönlichkeiten</a><a href="index.html#wissen">Wissen</a><a href="index.html#links">Links</a></div></nav>
+  </header>
+
+  <header class="intro">
+    <div class="eyebrow">Archiv der Horadrim · Sanktuario</div>
+    <h1>Persönlichkeiten</h1>
+    <p class="lead">Orden, Kulte und Schlüsselfiguren, deren Entscheidungen Sanktuario prägen. Von den Horadrim über die Kathedrale des Lichts bis zu Lilith, Inarius und den Prim-Übeln – ein wachsendes Archiv der Mächte hinter dem Ewigen Konflikt.</p>
+  </header>
+
+  <main>
+    <section class="block" id="archiv">
+      <article class="codex-folio codex-folio--archive" id="archive-study" aria-live="polite" aria-labelledby="archive-name">
+        <aside class="codex-folio__tabs" aria-label="Horadrisches Archivregister">
+          <span class="codex-folio__tabs-label">Register der Gruppen</span>
+          <div class="monster-search-wrap">
+            <input id="archive-search" type="search" placeholder="Archiv durchsuchen …" autocomplete="off" aria-label="Archiv durchsuchen">
+          </div>
+          <div class="codex-folio__tabs-list monster-index" id="archive-index" aria-label="Archivgruppen"></div>
+          <p class="monster-no-results" id="archive-no-results" hidden>Kein Eintrag gefunden.</p>
+        </aside>
+        <div class="codex-folio__book">
+          <div class="codex-folio__spread">
+            <section class="codex-folio__page codex-folio__page--left" aria-label="Archivstudie und Metadaten">
+              <figure class="codex-folio__image" id="archive-illustration">
+                <span class="codex-folio__image-frame" aria-hidden="true"></span>
+                <img id="archive-image" alt="" loading="eager" hidden>
+                <div class="codex-folio__image-placeholder" id="archive-image-placeholder" aria-hidden="true"><span>Illustration folgt</span></div>
+                <figcaption id="archive-caption">Bildmaterial folgt</figcaption>
+              </figure>
+              <dl class="codex-folio__meta" id="archive-facts"></dl>
+            </section>
+            <section class="codex-folio__page codex-folio__page--right">
+              <header class="codex-folio__header">
+                <div><span class="codex-folio__eyebrow" id="archive-category"></span><p class="codex-folio__count" id="archive-count"></p></div>
+                <h3 class="codex-folio__title" id="archive-name" tabindex="-1"></h3>
+                <p class="codex-folio__subtitle" id="archive-subtitle"></p>
+                <span class="codex-folio__divider" aria-hidden="true"></span>
+              </header>
+              <nav class="codex-folio__families" id="archive-entry-picker" aria-label="Einträge der ausgewählten Gruppe"></nav>
+              <div class="codex-folio__content" id="archive-description"></div>
+            </section>
+            <section class="codex-folio__wide-section" id="archive-studies" hidden aria-label="Zusätzliche Studienbilder"></section>
+          </div>
+        </div>
+        <nav class="codex-folio__nav" aria-label="Archiv-Navigation">
+          <button class="codex-folio__nav-prev" id="archive-previous" type="button"><span>Vorheriger Eintrag</span></button>
+          <span class="codex-folio__medallion" aria-hidden="true"></span>
+          <button class="codex-folio__nav-next" id="archive-next" type="button"><span>Nächster Eintrag</span></button>
+        </nav>
+      </article>
+    </section>
+  </main>
+
+  <footer><div class="footer-inner">
+    <div class="footer-notice">
+      <span>Inoffizielles Fan-Kompendium. Diablo und alle zugehörigen Namen sind Marken von Blizzard Entertainment. Spiel-Artworks, Screenshots und Icons © Blizzard Entertainment, genutzt im Rahmen der Fan Content Policy.</span>
+      <span>Icons von <a href="https://www.onlinewebfonts.com/icon" target="_blank" rel="noopener">onlinewebfonts.com</a>, lizenziert unter CC BY 4.0.</span>
+    </div>
+    <div class="footer-meta">
+      <nav class="footer-links" aria-label="Rechtliches"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></nav>
+      <a class="backtop" href="#top">Nach oben ↑</a>
+    </div>
+  </div></footer>
+
+<script src="js/archive-index.js" defer></script>
+<script src="js/nav.js" defer></script>
+</body>
+</html>
