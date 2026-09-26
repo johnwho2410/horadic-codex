@@ -54,48 +54,45 @@
           </div>
         </div>
 
-        <div class="monster-codex-layout codex-layout">
-          <aside class="monster-register codex-register" aria-label="Monsterregister">
-            <span class="monster-register-title codex-register-title">Register der Gruppen</span>
+        <article class="codex-folio codex-folio--bestiary" id="creature-study" aria-live="polite" aria-labelledby="creature-name">
+          <aside class="codex-folio__tabs" aria-label="Monsterregister">
+            <span class="codex-folio__tabs-label">Register der Gruppen</span>
             <div class="monster-search-wrap">
               <input id="monster-search" type="search" placeholder="Monster durchsuchen …" autocomplete="off" aria-label="Monster durchsuchen">
             </div>
-            <div class="monster-index-frame">
-              <div class="monster-index codex-index" id="monster-index" aria-label="Monsterfamilien"></div>
+            <div class="codex-folio__tabs-list monster-index" id="monster-index" aria-label="Monsterfamilien"></div>
               <p class="monster-no-results" id="monster-no-results" hidden>Kein Eintrag gefunden.</p>
-            </div>
           </aside>
-
-          <article class="creature-study" id="creature-study" aria-live="polite" aria-labelledby="creature-name">
-          <div class="creature-study-head">
-            <span class="eyebrow" id="creature-category"></span>
-            <p class="creature-count" id="creature-count"></p>
-            <h3 id="creature-name" tabindex="-1"></h3>
-            <p class="creature-subtitle" id="creature-subtitle"></p>
-          </div>
-          <nav class="creature-family-picker" id="creature-family-picker" aria-label="Familien der ausgewählten Gegnergruppe"></nav>
-          <div class="creature-study-main">
-            <div class="creature-visual-column">
-              <figure class="creature-illustration" id="creature-illustration">
-                <img id="creature-image" alt="" loading="lazy" hidden>
-                <div class="creature-image-placeholder" id="creature-image-placeholder" aria-hidden="true">
-                  <span>Illustration folgt</span>
-                </div>
-                <figcaption id="creature-caption">Archivierte Hauptstudie</figcaption>
-              </figure>
-              <dl class="creature-facts" id="creature-facts"></dl>
+          <div class="codex-folio__book">
+            <div class="codex-folio__spread">
+              <section class="codex-folio__page codex-folio__page--left" aria-label="Kreaturenstudie und Metadaten">
+                <figure class="codex-folio__image" id="creature-illustration">
+                  <span class="codex-folio__image-frame" aria-hidden="true"></span>
+                  <img id="creature-image" alt="" loading="eager" fetchpriority="high" hidden>
+                  <div class="codex-folio__image-placeholder" id="creature-image-placeholder" aria-hidden="true"><span>Illustration folgt</span></div>
+                  <figcaption id="creature-caption">Archivierte Hauptstudie</figcaption>
+                </figure>
+                <dl class="codex-folio__meta" id="creature-facts"></dl>
+              </section>
+              <section class="codex-folio__page codex-folio__page--right">
+                <header class="codex-folio__header">
+                  <div><span class="codex-folio__eyebrow" id="creature-category"></span><p class="codex-folio__count" id="creature-count"></p></div>
+                  <h3 class="codex-folio__title" id="creature-name" tabindex="-1"></h3>
+                  <p class="codex-folio__subtitle" id="creature-subtitle"></p>
+                  <span class="codex-folio__divider" aria-hidden="true"></span>
+                </header>
+                <nav class="codex-folio__families" id="creature-family-picker" aria-label="Familien der ausgewählten Gegnergruppe"></nav>
+                <div class="codex-folio__content" id="creature-description"></div>
+              </section>
+              <section class="codex-folio__wide-section" id="creature-studies" hidden aria-label="Zusätzliche Studienbilder"></section>
+              <nav class="codex-folio__nav" aria-label="Monster-Navigation">
+                <button class="codex-folio__nav-prev" id="monster-previous" type="button"><span>Vorheriges Monster</span></button>
+                <span class="codex-folio__medallion" aria-hidden="true"></span>
+                <button class="codex-folio__nav-next" id="monster-next" type="button"><span>Nächstes Monster</span></button>
+              </nav>
             </div>
-            <div class="creature-copy">
-              <div class="creature-description" id="creature-description"></div>
-            </div>
           </div>
-          <div class="creature-studies" id="creature-studies" hidden aria-label="Zusätzliche Studienbilder"></div>
-          <nav class="creature-navigation" aria-label="Monster-Navigation">
-            <button class="creature-nav-button" id="monster-previous" type="button">← <span>Vorheriges Monster</span></button>
-            <button class="creature-nav-button" id="monster-next" type="button"><span>Nächstes Monster</span> →</button>
-          </nav>
-          </article>
-        </div>
+        </article>
       </div>
     </section>
     </div>

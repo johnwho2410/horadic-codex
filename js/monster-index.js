@@ -45,7 +45,8 @@
       {
         image: 'img/bestiarium/banditen/banditen-ausruestungsstudie.png',
         alt: 'Studie aus Armbrust, Kurzschwert, Seil, Kapuze und Beutel eines Banditen',
-        caption: 'Geborgene Ausrüstung'
+        caption: 'Geborgene Ausrüstung',
+        description: 'Armbrust, Dolch, Kapuze, Seil und ein kleiner Münzbeutel — typische Fundstücke, nachdem sich eine Bandenauseinandersetzung dem Ende zuneigte. Die Uneinheitlichkeit der Ausrüstung bestätigt, was Feldnotizen längst vermuten: zusammengetragen statt einheitlich ausgestattet.'
       }
     ]
   });
@@ -467,11 +468,6 @@
     { id: 'undead', label: 'Untote', category: 'Untote Gegnerfamilie' },
     { id: 'beasts', label: 'Bestien', category: 'Bestialische Gegnerfamilie' }
   ];
-  const fabricTabAssets = [
-    'img/navi-elemente/wimpel_01.webp',
-    'img/navi-elemente/wimpel_02.webp',
-    'img/navi-elemente/wimpel_03.webp'
-  ];
 
   const search = document.querySelector('#monster-search');
   const noResults = document.querySelector('#monster-no-results');
@@ -484,7 +480,6 @@
   const facts = document.querySelector('#creature-facts');
   const image = document.querySelector('#creature-image');
   const illustration = document.querySelector('#creature-illustration');
-  const studyMain = document.querySelector('.creature-study-main');
   const imagePlaceholder = document.querySelector('#creature-image-placeholder');
   const caption = document.querySelector('#creature-caption');
   const studies = document.querySelector('#creature-studies');
@@ -527,12 +522,12 @@
       const groupIndex = monsterGroups.indexOf(group);
       const button = document.createElement('button');
       button.type = 'button';
-      button.className = 'monster-index-entry bestiary-tab codex-index-entry codex-tab';
+      button.className = 'monster-index-entry codex-folio__tab';
       button.dataset.monsterGroup = group.id;
       button.setAttribute('aria-pressed', String(group.id === activeGroup.id));
       if (group.id === activeGroup.id) button.setAttribute('aria-current', 'true');
       button.setAttribute('aria-label', `${group.label} auswählen`);
-      button.innerHTML = `<img class="codex-tab__slit" src="img/navi-elemente/schlitz-leder-rough.png" alt="" aria-hidden="true"><span class="codex-tab__fabric"><img class="codex-tab__fabric-image" src="${fabricTabAssets[groupIndex % fabricTabAssets.length]}" alt="" aria-hidden="true"><span class="codex-tab__label">${group.label}</span></span>`;
+      button.textContent = group.label;
       index.append(button);
     });
     noResults.hidden = visible.length !== 0;
@@ -559,18 +554,27 @@
 
   function renderStudies(monster) {
     studies.replaceChildren();
-    studies.hidden = !monster.studies?.length;
-    monster.studies?.forEach((study) => {
-      const figure = document.createElement('figure');
-      const studyImage = document.createElement('img');
-      studyImage.src = study.image;
-      studyImage.alt = study.alt || '';
-      studyImage.loading = 'lazy';
-      const studyCaption = document.createElement('figcaption');
-      studyCaption.textContent = study.caption || 'Zusätzliche Studie';
-      figure.append(studyImage, studyCaption);
-      studies.append(figure);
-    });
+    const study = monster.studies?.[0];
+    studies.hidden = !study;
+    if (!study) return;
+
+    const heading = document.createElement('h4');
+    heading.textContent = study.caption || 'Geborgene Ausrüstung';
+    studies.append(heading);
+
+    // Bild + allgemeine Beschreibung. Frühere Variante mit nummerierten
+    // Pins direkt auf dem Bild + Legende wurde verworfen: die Positionen
+    // ließen sich nicht auflösungsunabhängig auf das Bild abstimmen.
+    const figure = document.createElement('figure');
+    const studyImage = document.createElement('img');
+    studyImage.src = study.image;
+    studyImage.alt = study.alt || '';
+    studyImage.loading = 'lazy';
+    studyImage.className = 'codex-folio__wide-image';
+    const studyCaption = document.createElement('figcaption');
+    studyCaption.textContent = study.description || study.caption || 'Zusätzliche Studie';
+    figure.append(studyImage, studyCaption);
+    studies.append(figure);
   }
 
   function selectMonster(monsterIndex, shouldFocus = false) {
@@ -597,6 +601,7 @@
       const detail = document.createElement('dd');
       term.textContent = label;
       detail.textContent = value;
+      wrapper.className = 'codex-folio__meta-item';
       wrapper.append(term, detail);
       facts.append(wrapper);
     });
@@ -606,14 +611,12 @@
       image.hidden = false;
       imagePlaceholder.hidden = true;
       illustration.hidden = false;
-      studyMain.classList.remove('no-illustration');
     } else {
       image.removeAttribute('src');
       image.alt = '';
       image.hidden = true;
       imagePlaceholder.hidden = false;
       illustration.hidden = true;
-      studyMain.classList.add('no-illustration');
     }
     caption.textContent = monster.image ? 'Archivierte Hauptstudie' : 'Bildmaterial folgt';
     renderStudies(monster);

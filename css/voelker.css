@@ -26,6 +26,7 @@ html { scroll-behavior:smooth; }
 body { margin:0; padding-bottom:47px; overflow-x:hidden; color:var(--bone); font:400 var(--type-body)/var(--type-leading) 'Spectral',Georgia,'Times New Roman',serif;
   background:#090807 url('../img/texturen/section-rock-seamless.webp') top center/1400px repeat; }
 body::before { content:""; position:fixed; inset:0; z-index:-1; background:rgba(4,4,4,.78); }
+body::after { content:""; position:fixed; inset:0; z-index:18; pointer-events:none; background:linear-gradient(90deg,rgba(0,0,0,.72) 0%,rgba(0,0,0,.18) 13%,transparent 24%,transparent 76%,rgba(0,0,0,.18) 87%,rgba(0,0,0,.72) 100%); }
 /* Zweiter Hintergrund ab dem Divider unter der Einleitung: gealtertes Leder
    statt der neutralen Steintextur, identisches Muster wie .sanctuary-bg-leather
    auf sanctuary.html/.hell-bg-alt auf hoelle.html — der Texturwechsel beginnt
@@ -200,7 +201,7 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
 /* ─── Monsterarchiv: Der Lederschlitz bleibt fest; nur der Stoffreiter samt
    HTML-Beschriftung wird herausgezogen. Beide Bilder sind austauschbare Assets. */
 .monster-archive { position:relative; }
-.monster-archive-inner { max-width:1520px; padding:var(--space-divider-clearance) 40px var(--space-feature); }
+.monster-archive-inner { max-width:1760px; padding:var(--space-divider-clearance) 40px var(--space-feature); }
 .monster-search-wrap { min-width:0; }
 .monster-search-wrap input { width:100%; padding:10px 2px; color:var(--bone); font:400 calc(1rem + 1px)/1.2 'Spectral',Georgia,serif; background:transparent; border:0; border-bottom:1px solid rgba(196,154,80,.34); border-radius:0; outline:none; }
 .monster-search-wrap input::placeholder { color:#817464; }

@@ -1,41 +1,88 @@
-/* Gemeinsames horadrisches Registermodul für Bestiarium und Archivakten. */
-.codex-module-head { max-width:820px; margin:0 auto 76px; text-align:center; }
-.codex-module-head .eyebrow { justify-content:center; }
-.codex-module-head h2 { margin-top:18px; font-size:clamp(1.9rem,3.6vw,2.7rem); }
-.codex-module-head p { max-width:740px; margin:18px auto 0; color:var(--muted); }
-.codex-layout { display:grid; grid-template-columns:minmax(0,291px) minmax(0,1fr); column-gap:clamp(44px,7vw,120px); align-items:start; }
-.codex-register { position:relative; left:clamp(78px,4.5vw,104px); padding:2px clamp(26px,4vw,58px) 10px clamp(0px,3vw,42px); }
-.codex-register-title { position:relative; display:block; min-height:30px; margin:0 0 23px; padding:9px 0 0 42px; color:#c3a47f; font:700 12px/1 system-ui,sans-serif; letter-spacing:.15em; text-transform:uppercase; }
-.codex-register-title::before { content:""; position:absolute; left:0; top:0; width:30px; height:30px; background:url('../unbenutzt/img/diablo-ui-assets/diablo-ui-assets/icons/15-bestiarium.png') center/contain no-repeat; opacity:.72; }
-.codex-index { --tab-height:84px; --tab-rest:-9px; --tab-hover-pull:-17px; --tab-active-pull:-9px; display:grid; grid-template-columns:1fr; gap:0; margin-top:16px; padding:0; }
-.codex-index-entry { position:relative; min-width:0; height:var(--tab-height); padding:0; overflow:visible; color:var(--bone); text-align:left; cursor:pointer; background:none; border:0; }
-.codex-tab__fabric { position:absolute; z-index:1; top:0; left:0; width:100%; height:100%; transform:translateX(var(--tab-rest)); transition:transform 260ms cubic-bezier(.22,.61,.36,1); will-change:transform; }
-.codex-tab__fabric-image { position:absolute; z-index:0; top:-65px; left:49px; display:block; width:auto; height:195px; max-width:none; pointer-events:none; filter:drop-shadow(5px 5px 6px rgba(0,0,0,.8)); transform:rotate(90deg); transform-origin:center; transition:filter 260ms cubic-bezier(.22,.61,.36,1); }
-.codex-tab__label { position:absolute; z-index:1; top:38%; left:9px; width:calc(100% - 55px); padding:4px 3px 5px; overflow:hidden; color:#f0d3ad; font:400 clamp(.8rem,1vw,.98rem)/1.05 'Marcellus',Georgia,serif; letter-spacing:.025em; text-align:center; text-overflow:ellipsis; text-shadow:0 1px 2px rgba(18,6,5,.65); opacity:.92; white-space:nowrap; transform:translateY(-50%); }
-.codex-tab__slit { position:absolute; z-index:2; top:39%; right:8px; display:block; width:70px; height:auto; pointer-events:none; filter:drop-shadow(0 3px 4px rgba(0,0,0,.55)); transform:translateY(-50%) rotate(90deg); transform-origin:center; }
-.codex-index-entry:hover .codex-tab__fabric { transform:translateX(var(--tab-hover-pull)); }
-.codex-index-entry[aria-pressed="true"] .codex-tab__fabric,
-.codex-index-entry[aria-selected="true"] .codex-tab__fabric { transform:translateX(var(--tab-active-pull)); }
-.codex-index-entry[aria-pressed="true"] .codex-tab__fabric-image,
-.codex-index-entry[aria-selected="true"] .codex-tab__fabric-image { filter:drop-shadow(4px 8px 10px rgba(0,0,0,1)); }
-.codex-index-entry:focus-visible { outline:1px solid var(--gold); outline-offset:5px; }
-.codex-index-entry[aria-pressed="true"] .codex-tab__label,
-.codex-index-entry[aria-selected="true"] .codex-tab__label { color:#ffe0af; text-shadow:0 2px 4px #120605,0 0 8px rgba(187,112,51,.25); }
+/* Wiederverwendbarer horadrischer Foliant: Inhalt im stabilen Grid, Assets als UI-Layer. */
+.codex-folio{--folio-ink:#2b1b12;--folio-muted:#6c5038;--folio-rule:rgba(91,57,31,.42);--folio-paper:#cdb18b;position:relative;max-width:1450px;margin:0 auto;padding-left:132px}.codex-folio__tabs{position:absolute;z-index:3;top:104px;left:-59px;width:255px}.codex-folio__tabs-label{display:block;margin:0 0 15px 32px;color:#c3a47f;font:700 11px/1 system-ui,sans-serif;letter-spacing:.15em;text-transform:uppercase}.monster-search-wrap{margin:0 30px 16px 32px}.monster-search-wrap input{width:100%;padding:8px 3px;color:#e5d1b4;font:400 15px/1.2 'Spectral',Georgia,serif;background:transparent;border:0;border-bottom:1px solid rgba(196,154,80,.42);outline:none}.monster-search-wrap input::placeholder{color:#a7937c}.monster-search-wrap input:focus{box-shadow:0 3px 0 -2px rgba(196,154,80,.45)}.codex-folio__tabs-list{display:grid;gap:4px}.monster-no-results{margin:12px 30px;color:var(--muted);font-style:italic}
+.codex-folio__tab{position:relative;width:100%;min-height:72px;padding:0 45px 0 40px;overflow:visible;color:#ead4b0;font:400 clamp(.76rem,1vw,.92rem)/1.1 'Marcellus',Georgia,serif;letter-spacing:.025em;text-align:center;text-shadow:0 1px 3px #160705;cursor:pointer;background:transparent;border:0;transition:filter .24s ease,color .24s ease}
+/* Die Reiterbilder haben ihr breites, gebundenes Ende links und die
+   Spitze rechts (Quelle: Codex-Bild ...48-3.png/...46-2.png) — gespiegelt,
+   damit das breite Ende innen am Buch sitzt und die Spitze nach außen
+   in den Registerbereich zeigt, wie ein echtes angeheftetes Lesezeichen. */
+.codex-folio__tab::before{content:"";position:absolute;inset:0;z-index:-1;background:url('../img/foliant/Codex-Bild 25. Sept. 2026, 22_41_48-3.png') center/100% 100% no-repeat;filter:drop-shadow(-3px 4px 5px rgba(0,0,0,.65));transform:scaleX(-1);transition:filter .24s ease}
+/* Steckt fest zwischen den Seiten: keine Bewegung mehr bei hover/aktiv
+   (das Herausziehen wirkte nicht wie ein eingeklemmtes Lesezeichen). */
+.codex-folio__tab:hover::before{filter:drop-shadow(-3px 4px 5px rgba(0,0,0,.65)) brightness(1.28)}
+.codex-folio__tab[aria-pressed="true"]{color:#fff0cf}
+.codex-folio__tab[aria-pressed="true"]::before{background-image:url('../img/foliant/Codex-Bild 25. Sept. 2026, 22_41_46-2.png');filter:brightness(1.07) drop-shadow(-4px 5px 7px rgba(0,0,0,.82))}
+.codex-folio__tab[aria-pressed="true"]:hover::before{filter:brightness(1.18) drop-shadow(-4px 5px 7px rgba(0,0,0,.82))}.codex-folio__tab:focus-visible,.codex-folio__families button:focus-visible,.codex-folio__nav button:focus-visible{outline:2px solid #f0cf84;outline-offset:3px}
+/* Foliant als 9-Slice-border-image statt als Hintergrundbild: löst das
+   Kernproblem der vorherigen Ansätze (fixes Bildseitenverhältnis vs.
+   variabel hoher Textinhalt) grundsätzlich. Der Lederrahmen mit den
+   goldenen Eckornamenten bleibt über border-image-slice als feste
+   Eckengröße erhalten, während sich die geraden Kantenstücke beliebig
+   strecken — die Box selbst wächst dadurch völlig frei mit dem Inhalt,
+   ohne dass irgendwo beschnitten wird oder Inhalt herausragt.
+   Slice-Werte (60 112 60 112) sind aus dem Quellbild (1152×1056)
+   abgemessen: so viel Rand nehmen Leder + Eckornamente dort ein.
+   fill bewusst weggelassen — die Mitte des Fotos (mit der eigenen,
+   fix positionierten Buchrücken-Falte) wird NICHT gestreckt eingesetzt,
+   stattdessen liefert der eigene --folio-paper-Hintergrund eine
+   gleichmäßige Innenfläche in beliebiger Größe. */
+/* background-clip:padding-box — sonst reicht die Füllfarbe standardmäßig
+   bis unter den Rahmen (border-box) und blitzt durch, sobald border-image
+   die Randfläche nicht zu 100% lückenlos deckt (Rundungsfehler o.ä.). Mit
+   padding-box endet die Füllfarbe sauber an der Innenkante, im Rahmen-
+   bereich selbst ist ausschließlich border-image sichtbar. */
+/* Kachelbare Pergament-Textur statt reiner Flächenfarbe: dedizierte,
+   echte nahtlose Textur (img/foliant/parchment-seamless.webp) ohne die
+   Spiegel-Symmetrie der ersten Testversion. var(--folio-paper) bleibt
+   als Fallback-Grundton dahinter (falls die Textur mal nicht lädt). */
+.codex-folio__book{position:relative;background:url('../img/foliant/parchment-seamless.webp') top left/520px repeat,var(--folio-paper);background-clip:padding-box;border-style:solid;border-width:44px 76px;border-image:url('../img/foliant/folioant.webp') 60 112 60 112 stretch;padding:clamp(20px,3vw,40px) clamp(20px,3.5vw,44px);filter:drop-shadow(0 18px 24px rgba(0,0,0,.53))}
+/* Weicher Übergang zwischen unserer flachen CSS-Innenfläche und dem
+   fotografierten Lederrahmen: ohne das entsteht am Rand der Innenfläche
+   eine sichtbar harte Kante/"Box", weil die gleichmäßig helle Fläche
+   gegen die natürlich abgedunkelten Fotoränder absticht. Die Vignette
+   dunkelt die Innenfläche nur ganz am Rand leicht ab, in der Mitte
+   bleibt sie unangetastet. */
+.codex-folio__book::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 90% 85% at 50% 50%,transparent 52%,rgba(35,20,10,.4) 100%)}
+/* Buchrücken-Falz jetzt auf .codex-folio__book statt .codex-folio__spread:
+   top/bottom:0 verweist damit auf die Padding-Box des Buchs selbst (also
+   bis direkt an den Lederrahmen) statt nur auf die kleinere Spread-Box mit
+   ihrem eigenen Innenabstand — die Falzlinie erreicht dadurch wirklich
+   beide Seitenränder statt vorher auf halber Höhe zu enden. */
+/* Echte Falz-Textur statt CSS-Gradient-Trick. Die Grafik hat den Falz-
+   Schatten bereits eingebacken und läuft oben/unten in Transparenz aus,
+   deshalb 100% 100% (strecken), nicht kacheln - ein repeat-y würde den
+   Fade in der Mitte sichtbar wiederholen. Die Buchhöhe ist variabel
+   (border-image-Ansatz), die Falz wächst so einfach mit. */
+.codex-folio__book::before{content:"";position:absolute;z-index:0;top:0;bottom:0;left:50.5%;width:32px;transform:translateX(-50%);background:url('../img/foliant/falz.webp') center/100% 100% no-repeat;pointer-events:none}
+.codex-folio__spread{position:relative;z-index:1;display:grid;grid-template-columns:.95fr 1.05fr;grid-template-areas:"left right" "wide wide" "nav nav";padding:clamp(12px,2vw,24px) clamp(12px,2.5vw,30px);color:var(--folio-ink)}
+.codex-folio__page,.codex-folio__wide-section,.codex-folio__nav{position:relative;z-index:1}.codex-folio__page--left{grid-area:left;padding-right:clamp(12px,2.5vw,32px)}.codex-folio__page--right{grid-area:right;max-width:480px;padding-left:clamp(32px,7vw,92px)}
+/* Zierrahmen (Codex-Bild ...50-4.png) vorerst entfernt: passte nicht sauber
+   zum Bildinhalt/-format der Kreaturenstudien. Bild bekommt stattdessen nur
+   einen dezenten Schatten, bis ein passender Rahmen nachgereicht wird. */
+.codex-folio__image{position:relative;margin:0;padding:8px;transform:rotate(-.35deg)}.codex-folio__image-frame{display:none}.codex-folio__image img,.codex-folio__image-placeholder{display:block;width:100%;min-height:295px;aspect-ratio:1/1.05;object-fit:contain;filter:drop-shadow(0 10px 20px rgba(0,0,0,.45))}
+/* Weicher Kantenverlauf, damit die rechteckige Bildkante nicht hart auf dem
+   Pergament aufliegt, sondern optisch ins Papier ausläuft. */
+.codex-folio__image img{-webkit-mask-image:linear-gradient(to right,transparent 0,#000 6%,#000 94%,transparent 100%),linear-gradient(to bottom,transparent 0,#000 6%,#000 94%,transparent 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(to right,transparent 0,#000 6%,#000 94%,transparent 100%),linear-gradient(to bottom,transparent 0,#000 6%,#000 94%,transparent 100%);mask-composite:intersect}.codex-folio__image img[hidden],.codex-folio__image-placeholder[hidden]{display:none}.codex-folio__image-placeholder{display:grid;place-items:center;color:var(--folio-muted);background:repeating-linear-gradient(45deg,rgba(89,51,26,.1) 0 2px,rgba(178,145,101,.4) 2px 18px);font:700 11px/1 system-ui,sans-serif;letter-spacing:.13em;text-transform:uppercase}.codex-folio__image figcaption{position:absolute;right:29px;bottom:25px;color:var(--folio-muted);font:700 10px/1 system-ui,sans-serif;letter-spacing:.1em;text-transform:uppercase}.codex-folio__meta{display:grid;grid-template-columns:1fr 1fr;gap:0 20px;margin:clamp(10px,2vw,20px) 5px 0}.codex-folio__meta-item{padding:clamp(5px,1vw,10px) 0;border-top:1px solid var(--folio-rule)}.codex-folio__meta-item:last-child{grid-column:span 2}.codex-folio__meta dt{color:#67452b;font:700 10px/1.2 system-ui,sans-serif;letter-spacing:.12em;text-transform:uppercase}.codex-folio__meta dd{margin:5px 0 0;font-size:clamp(.78rem,1.05vw,.94rem);line-height:1.38}
+.codex-folio__header>div{display:flex;justify-content:space-between;align-items:center;gap:12px}.codex-folio__eyebrow,.codex-folio__count{color:#67452b;font:700 10px/1.2 system-ui,sans-serif;letter-spacing:.13em;text-transform:uppercase}.codex-folio__count{margin:0;white-space:nowrap}.codex-folio__title{margin:13px 0 4px;color:#160e09;font-size:clamp(2.15rem,4.1vw,3.65rem)}.codex-folio__subtitle{margin:0;color:#765238;font-family:'Jim Nightshade','Spectral',Georgia,serif;font-size:clamp(1.1rem,1.8vw,1.45rem)}.codex-folio__divider{display:block;height:20px;margin:12px 0 8px;background:url('../img/foliant/Codex-Bild 25. Sept. 2026, 22_41_59-9.png') center/100% 100% no-repeat}.codex-folio__families{display:flex;flex-wrap:wrap;gap:5px 14px;padding:7px 0 10px;border-top:1px solid var(--folio-rule);border-bottom:1px solid var(--folio-rule)}.codex-folio__families button{padding:2px 0;color:#765238;font:700 10px/1.25 system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;background:none;border:0;border-bottom:1px solid transparent}.codex-folio__families button:hover,.codex-folio__families button[aria-pressed="true"]{color:#26130b;border-bottom-color:#7d542f}.codex-folio__content{margin-top:clamp(8px,1.8vw,18px)}.codex-folio__content p{margin:0 0 12px;font-size:clamp(.85rem,1.15vw,1rem);line-height:1.52}.codex-folio__content .field-note{margin-top:23px;color:#5c3d28;font-family:'Jim Nightshade','Spectral',Georgia,serif;font-size:1.18rem;line-height:1.28;transform:rotate(-.45deg)}
+/* Geborgene Ausrüstung: Bild + allgemeine Beschreibung. Nummerierte Pins
+   direkt auf dem Bild + Legende wurden wieder entfernt — die Positionen
+   ließen sich nicht auflösungsunabhängig auf das Bild abstimmen und
+   "hingen in der Luft". Einfacher, robuster Fließtext stattdessen. */
+.codex-folio__wide-section{grid-area:wide;align-self:end;margin:clamp(6px,1.5vw,16px) 0 0;padding:clamp(10px,2vw,20px) 4px}
+.codex-folio__wide-section figure{position:relative;margin:0;display:grid;grid-template-columns:1.3fr 1fr;gap:22px;align-items:start}
+.codex-folio__wide-section h4{margin:0 0 8px;color:#50331e;font:700 11px/1.2 system-ui,sans-serif;letter-spacing:.13em;text-transform:uppercase}
+.codex-folio__wide-image{display:block;width:100%;max-height:265px;object-fit:contain;object-position:left center}
+.codex-folio__wide-section figcaption{margin:0;color:#5c4530;font-size:.88rem;line-height:1.5}
 
-@media (max-width:900px) {
-  .codex-layout { column-gap:42px; }
-  .codex-register { padding-right:30px; }
-}
-@media (max-width:680px) {
-  .codex-module-head { margin-left:0; margin-bottom:36px; }
-  .codex-layout { grid-template-columns:1fr; row-gap:50px; }
-  .codex-register { position:static; left:auto; padding:0; }
-  .codex-register-title { margin-bottom:18px; }
-  .codex-index { grid-template-columns:repeat(2,minmax(0,1fr)); column-gap:16px; }
-}
-@media (max-width:560px) {
-  .codex-index { --tab-height:72px; --tab-rest:-7px; --tab-active-pull:-7px; --tab-hover-pull:-13px; }
-  .codex-tab__fabric-image { top:-57px; left:2px; width:120px; height:180px; }
-  .codex-tab__label { left:5px; width:calc(100% - 42px); font-size:.8rem; }
-  .codex-tab__slit { top:42%; right:1px; width:86px; }
-}
+/* aspect-ratio statt fixer min-height: die Button-Grafiken sind 2172:724
+   (≈3:1) breite Banner. Bei variabler Button-Breite (1fr im Grid) und
+   fixer Höhe passte das Seitenverhältnis nie zusammen, background-size:
+   100% 100% hat das Bild dadurch bei jeder Breite unterschiedlich stark
+   verzerrt. Mit aspect-ratio bleibt die Box immer proportional zum Bild. */
+.codex-folio__nav{grid-area:nav;display:grid;grid-template-columns:1fr 62px 1fr;align-items:center;gap:18px;margin-top:10px}.codex-folio__nav button{aspect-ratio:2172/724;padding:0 26px;color:#d4b37e;font:700 10px/1.2 system-ui,sans-serif;letter-spacing:.13em;text-transform:uppercase;cursor:pointer;background:transparent center/100% 100% no-repeat;border:0}.codex-folio__nav-prev{background-image:url('../img/foliant/Codex-Bild 25. Sept. 2026, 22_41_54-6.png')!important}.codex-folio__nav-next{background-image:url('../img/foliant/Codex-Bild 25. Sept. 2026, 22_41_56-7.png')!important}.codex-folio__nav button:hover{color:#fff1cb;filter:brightness(1.13)}.codex-folio__medallion{width:62px;aspect-ratio:1;background:url('../img/foliant/Codex-Bild 25. Sept. 2026, 22_41_58-8.png') center/contain no-repeat}
+@media(max-width:980px){.codex-folio{padding-left:94px}.codex-folio__tabs{width:196px}.codex-folio__tab{min-height:60px;padding-left:31px;padding-right:30px;font-size:.72rem}}
+/* Ab hier: Register seitlich raus, Buchseiten untereinander statt
+   nebeneinander — zwei schmale Spalten nebeneinander wären auf Tablet-
+   Breite kaum noch lesbar. border-image ist davon unberührt: der
+   Lederrahmen mit den Ecken funktioniert unabhängig von Boxform/-höhe
+   genauso weiter, das Buch bleibt also auch hier gerahmt. */
+@media(max-width:860px){.codex-folio{padding:0}.codex-folio__tabs{position:static;width:auto;margin:0 0 20px}.codex-folio__tabs-label{margin-left:0}.monster-search-wrap{margin:0 0 12px}.codex-folio__tabs-list{display:flex;gap:7px;overflow-x:auto;padding:4px 12px 10px}.codex-folio__tab{flex:0 0 154px;min-height:50px;padding:0 23px}.codex-folio__spread{grid-template-columns:1fr;grid-template-areas:"right" "left" "wide" "nav"}.codex-folio__book::before{display:none}.codex-folio__page--left,.codex-folio__page--right{padding:0;max-width:none}.codex-folio__page--left{margin-top:20px}.codex-folio__image{max-width:470px;margin:auto}.codex-folio__image img,.codex-folio__image-placeholder{min-height:0}.codex-folio__content p{font-size:.94rem}.codex-folio__wide-image{max-height:220px}.codex-folio__wide-section figure{grid-template-columns:1fr;gap:12px}.codex-folio__nav{grid-template-columns:1fr 48px 1fr;gap:4px}.codex-folio__medallion{width:48px}.codex-folio__nav button{padding:0 9px;font-size:9px}}@media(max-width:420px){.codex-folio__book{border-width:22px 34px}.codex-folio__meta{grid-template-columns:1fr}.codex-folio__meta-item:last-child{grid-column:auto}.codex-folio__nav button span{display:none}.codex-folio__nav-prev::after{content:'←'}.codex-folio__nav-next::after{content:'→'}}
