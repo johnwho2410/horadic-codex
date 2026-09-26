@@ -19,6 +19,7 @@ html { scroll-behavior:smooth; }
 body { margin:0; overflow-x:hidden; color:var(--bone); font:400 var(--type-body)/var(--type-leading) 'Spectral',Georgia,'Times New Roman',serif;
   background:#090807 url('../img/texturen/section-rock-seamless.webp') top center/1400px repeat; }
 body::before { content:""; position:fixed; inset:0; z-index:-1; background:rgba(4,4,4,.78); }
+body::after { content:""; position:fixed; inset:0; z-index:18; pointer-events:none; background:linear-gradient(90deg,rgba(0,0,0,.72) 0%,rgba(0,0,0,.18) 13%,transparent 24%,transparent 76%,rgba(0,0,0,.18) 87%,rgba(0,0,0,.72) 100%); }
 a { color:inherit; }
 button { font:inherit; }
 
