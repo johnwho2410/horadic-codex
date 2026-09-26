@@ -117,7 +117,7 @@ main { overflow:hidden; }
 .location-card::before {
   content:""; position:absolute; inset:-16px -11px; pointer-events:none; opacity:.6;
   border-style:solid; border-width:30px 20px;
-  border-image-source:url('../img/klassen/class-card-frame-subtle.png');
+  border-image-source:url('../img/klassen/class-card-frame-subtle.webp');
   border-image-slice:150 140 150 140;
   border-image-repeat:stretch;
 }
@@ -268,7 +268,7 @@ main { overflow:hidden; }
 .overview-block:has(+ .section-divider) { padding-bottom:var(--space-divider-clearance); }
 .section-divider + .block { padding-top:var(--space-divider-clearance); }
 .section-divider img {
-  content:url('../img/gemeinsam/section-divider-ornament-small.png');
+  content:url('../img/gemeinsam/section-divider-ornament-small.webp');
   position:absolute; top:0; left:50%;
   width:min(1680px,calc(100vw - 40px)); height:auto; display:block; z-index:1;
   transform:translate(-50%,-47.8%);
@@ -288,7 +288,7 @@ main { overflow:hidden; }
 .section-divider::before {
   content:""; position:absolute; top:0; left:50%; width:100vw; height:14px;
   transform:translate(-50%,-50%);
-  background:url('../img/gemeinsam/section-divider-line.png') center/107.6% 70px no-repeat;
+  background:url('../img/gemeinsam/section-divider-line.webp') center/107.6% 70px no-repeat;
   filter:drop-shadow(0 0 4px rgba(157,42,20,.3));
   animation:divider-glow-line 8s ease-in-out infinite; animation-delay:-2s;
 }
@@ -324,15 +324,15 @@ main { overflow:hidden; }
      Eine echte 1px-Border hält die Boxgeometrie, border-image-width
      zeichnet den Rahmen lediglich darüber. */
   border:1px solid transparent;
-  border-image:var(--region-showcase-frame,url('../img/klassen/class-card-frame-subtle.png')) 150 140 / 36px 26px / 0 stretch;
+  border-image:var(--region-showcase-frame,url('../img/klassen/class-card-frame-subtle.webp')) 150 140 / 36px 26px / 0 stretch;
 }
-.region-page--zersplitterte-gipfel { --region-showcase-frame:url('../img/regionen/frame-zersplitterte-gipfel.png'); }
-.region-page--trockensteppe { --region-showcase-frame:url('../img/regionen/frame-trockensteppe.png'); }
-.region-page--scosglen { --region-showcase-frame:url('../img/regionen/frame-scosglen.png'); }
-.region-page--kehjistan { --region-showcase-frame:url('../img/regionen/frame-kehjistan.png'); }
-.region-page--hawezar { --region-showcase-frame:url('../img/regionen/frame-hawezar.png'); }
-.region-page--skovos { --region-showcase-frame:url('../img/regionen/frame-skovos.png'); }
-.region-page--nahantu { --region-showcase-frame:url('../img/regionen/frame-nahantu.png'); }
+.region-page--zersplitterte-gipfel { --region-showcase-frame:url('../img/regionen/frame-zersplitterte-gipfel.webp'); }
+.region-page--trockensteppe { --region-showcase-frame:url('../img/regionen/frame-trockensteppe.webp'); }
+.region-page--scosglen { --region-showcase-frame:url('../img/regionen/frame-scosglen.webp'); }
+.region-page--kehjistan { --region-showcase-frame:url('../img/regionen/frame-kehjistan.webp'); }
+.region-page--hawezar { --region-showcase-frame:url('../img/regionen/frame-hawezar.webp'); }
+.region-page--skovos { --region-showcase-frame:url('../img/regionen/frame-skovos.webp'); }
+.region-page--nahantu { --region-showcase-frame:url('../img/regionen/frame-nahantu.webp'); }
 .showcase-main .image-placeholder {
   border-image-width:48px 34px;
 }

@@ -139,7 +139,7 @@
       position:absolute; top:50%; left:50%;
       width:1600px; height:14px;
       transform:translate(-50%,-50%) rotate(90deg);
-      background:url('../img/gemeinsam/section-divider-line.png') center/107.6% 70px no-repeat;
+      background:url('../img/gemeinsam/section-divider-line.webp') center/107.6% 70px no-repeat;
       filter:drop-shadow(0 0 4px rgba(157,42,20,.3));
     }
     @media (max-width:900px) {
@@ -404,7 +404,7 @@
       content:""; position:absolute; inset:-18px -12px; pointer-events:none; opacity:.6; transition:opacity .2s ease;
       border-style:solid;
       border-width:34px 24px;
-      border-image-source:url('../img/klassen/class-card-frame-subtle.png');
+      border-image-source:url('../img/klassen/class-card-frame-subtle.webp');
       border-image-slice:150 140 150 140;
       border-image-repeat:stretch;
     }
@@ -528,7 +528,7 @@
     .section-divider + .section { padding-top:var(--space-divider-clearance); }
     .section-divider + .world-wrap .world-kicker { top:var(--space-divider-clearance); }
     .section-divider img {
-      content:url('../img/gemeinsam/section-divider-ornament-small.png');
+      content:url('../img/gemeinsam/section-divider-ornament-small.webp');
       position:absolute;
       top:0;
       left:50%;
@@ -581,7 +581,7 @@
       width:100vw;
       height:14px;
       transform:translate(-50%,-50%);
-      background:url('../img/gemeinsam/section-divider-line.png') center/107.6% 70px no-repeat;
+      background:url('../img/gemeinsam/section-divider-line.webp') center/107.6% 70px no-repeat;
       filter:drop-shadow(0 0 4px rgba(157,42,20,.3));
     }
     @media (max-width:680px) {
@@ -609,7 +609,7 @@
       z-index:5;
       border-style:solid;
       border-width:52px 34px;
-      border-image-source:url('../img/klassen/class-card-frame.png');
+      border-image-source:url('../img/klassen/class-card-frame.webp');
       border-image-slice:190 105 190 105;
       border-image-repeat:stretch;
       pointer-events:none;

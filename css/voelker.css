@@ -76,7 +76,7 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
   -webkit-mask-image:linear-gradient(to bottom,#000 64%,transparent 100%);
   mask-image:linear-gradient(to bottom,#000 64%,transparent 100%);
 }
-.region-hero::before { content:""; position:absolute; inset:0; background:url('../img/bestiarium/header.png') center 32%/cover no-repeat; }
+.region-hero::before { content:""; position:absolute; inset:0; background:url('../img/bestiarium/header.webp') center 32%/cover no-repeat; }
 .region-hero::after { content:""; position:absolute; inset:0; background:linear-gradient(90deg,rgba(7,5,4,.58),transparent 55%),
   linear-gradient(0deg,rgba(5,4,3,.86) 0%,rgba(5,4,3,.08) 46%,rgba(5,4,3,.3) 100%); }
 .region-hero-content { position:relative; z-index:1; max-width:1200px; margin:0 auto; padding:64px 24px 56px; width:100%; }
@@ -113,7 +113,7 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
    eigenen vertikalen Versatz zwischen Bildmitte und sichtbarer Linie). */
 .section-divider { display:block; position:relative; z-index:4; width:min(1680px,calc(100vw - 40px)); max-width:none; height:0; margin:0 auto; pointer-events:none; overflow:visible; }
 .section-divider img {
-  content:url('../img/gemeinsam/section-divider-ornament-small.png');
+  content:url('../img/gemeinsam/section-divider-ornament-small.webp');
   position:absolute; top:0; left:50%;
   width:min(1680px,calc(100vw - 40px)); height:auto; display:block; z-index:1;
   transform:translate(-50%,-47.8%);
@@ -132,7 +132,7 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
 .section-divider::before {
   content:""; position:absolute; top:0; left:50%; width:100vw; height:14px;
   transform:translate(-50%,-50%);
-  background:url('../img/gemeinsam/section-divider-line.png') center/107.6% 70px no-repeat;
+  background:url('../img/gemeinsam/section-divider-line.webp') center/107.6% 70px no-repeat;
   filter:drop-shadow(0 0 4px rgba(196,154,80,.35));
 }
 @media (max-width:680px) { .section-divider { width:calc(100vw - 28px); } }

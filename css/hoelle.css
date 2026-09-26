@@ -117,7 +117,7 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
 .section-divider + .block,
 .section-divider + .hell-bg-alt > .block:first-child { padding-top:var(--space-divider-clearance); }
 .section-divider img {
-  content:url('../img/evil/divider-hell-ornament.png');
+  content:url('../img/evil/divider-hell-ornament.webp');
   position:absolute; top:0; left:50%;
   width:min(1680px,calc(100vw - 40px)); height:auto; display:block; z-index:1;
   transform:translate(-50%,-48.8%);
@@ -136,7 +136,7 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
 .section-divider::before {
   content:""; position:absolute; top:0; left:50%; width:100vw; height:14px;
   transform:translate(-50%,-50%);
-  background:url('../img/evil/divider-hell-line.png') center/107.6% 70px no-repeat;
+  background:url('../img/evil/divider-hell-line.webp') center/107.6% 70px no-repeat;
   filter:drop-shadow(0 0 4px rgba(220,90,50,.35));
 }
 @media (max-width:680px) { .section-divider { width:calc(100vw - 28px); } }

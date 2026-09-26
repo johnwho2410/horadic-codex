@@ -50,7 +50,7 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
   -webkit-mask-image:linear-gradient(to bottom,#000 58%,transparent 100%);
   mask-image:linear-gradient(to bottom,#000 58%,transparent 100%);
 }
-.region-hero::before { content:""; position:absolute; inset:0; background:url('../img/muh/header.png') center 38%/cover no-repeat; }
+.region-hero::before { content:""; position:absolute; inset:0; background:url('../img/muh/header.webp') center 38%/cover no-repeat; }
 .region-hero::after { content:""; position:absolute; inset:0; background:linear-gradient(90deg,rgba(7,5,4,.62),transparent 55%),
   linear-gradient(0deg,rgba(5,4,3,.88) 0%,rgba(5,4,3,.1) 46%,rgba(5,4,3,.32) 100%); }
 .region-hero-content { position:relative; z-index:1; max-width:1200px; margin:0 auto; padding:64px 24px 56px; width:100%; }
@@ -68,7 +68,7 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
 .kuh-level p { margin:0 0 18px; color:#c2b6a6; font-size:var(--type-body); line-height:var(--type-leading); }
 
 /* ─── Site-weiter Zier-Divider, hier mit dem einzelnen Kuh-Level-Bild
-   img/muh/divider.png (bereits fertig komponiert, kein separates
+   img/muh/divider.webp (bereits fertig komponiert, kein separates
    Ornament+Glutlinien-Layering wie bei hoelle.css/styles.css nötig). */
 .section-divider { display:block; position:relative; z-index:4; width:min(1200px,calc(100vw - 40px)); max-width:none; height:0; margin:0 auto; pointer-events:none; overflow:visible; }
 .block:has(+ .section-divider) { padding-bottom:var(--space-divider-clearance); }
@@ -83,7 +83,7 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
 /* Zweiter Hintergrund unterhalb des Kuh-Dividers: Kuhfell-Leder statt der
    neutralen Steintextur, identisches Muster wie .hell-bg-alt auf hoelle.css. */
 .kuh-bg-alt { background:linear-gradient(rgba(5,4,3,.5),rgba(5,4,3,.5)),
-  url('../img/muh/leather.png') top center/1254px repeat; }
+  url('../img/muh/leather.webp') top center/1254px repeat; }
 
 .kuh-facts { display:flex; flex-wrap:wrap; gap:18px 34px; margin:26px 0 40px; padding:22px 0; border-block:1px solid var(--line); }
 .kuh-facts div { display:grid; gap:6px; }

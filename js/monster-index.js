@@ -39,11 +39,11 @@
       'Ihre Ausrüstung ist selten einheitlich. Was sie tragen, wurde geflickt, getauscht oder jemand anderem abgenommen – ein Umstand, der sie eher zu einer losen Familie als zu einer Armee macht. Gerade diese Uneinheitlichkeit verrät ihre Rolle: Einige suchen den Nahkampf, andere bleiben mit Armbrust oder Schleuder im Hintergrund.',
       'Feldnotiz: Die Gefahr liegt nicht in einer einzelnen Waffe, sondern im Zusammenspiel der Gruppe. Wer den vorderen Kämpfer bindet, übersieht leicht den Schützen oder den Weg, über den weitere Räuber nachrücken.'
     ],
-    image: 'img/bestiarium/banditen/banditen-hauptstudie-pergament-freigestellt.png',
+    image: 'img/bestiarium/banditen/banditen-hauptstudie-pergament-freigestellt.webp',
     imageAlt: 'Pergamentstudie von drei Banditen an einer verwitterten Straße',
     studies: [
       {
-        image: 'img/bestiarium/banditen/banditen-ausruestungsstudie.png',
+        image: 'img/bestiarium/banditen/banditen-ausruestungsstudie.webp',
         alt: 'Studie aus Armbrust, Kurzschwert, Seil, Kapuze und Beutel eines Banditen',
         caption: 'Geborgene Ausrüstung',
         description: 'Armbrust, Dolch, Kapuze, Seil und ein kleiner Münzbeutel — typische Fundstücke, nachdem sich eine Bandenauseinandersetzung dem Ende zuneigte. Die Uneinheitlichkeit der Ausrüstung bestätigt, was Feldnotizen längst vermuten: zusammengetragen statt einheitlich ausgestattet.'
@@ -64,11 +64,11 @@
       'Kanibalen sind keine verstreute Bande einzelner Plünderer. Ihre Familie drängt geschlossen nach vorn und verzichtet vollständig auf Fernkampf. Während schwere Kämpfer den Weg versperren, springen andere über Hindernisse oder drängen durch die eigene Reihe, um ihre Beute schneller zu erreichen.',
       'Feldnotiz: Abstand ist bei dieser Familie keine Sicherheit. Ihr Angriff lebt von Tempo und Überzahl – wer einen der kleineren Angreifer unterschätzt, schafft dem schweren Prügler den Raum für seinen Schlag.'
     ],
-    image: 'img/bestiarium/kanibalen/kanibalen-hauptstudie-pergament-freigestellt.png',
+    image: 'img/bestiarium/kanibalen/kanibalen-hauptstudie-pergament-freigestellt.webp',
     imageAlt: 'Pergamentstudie von drei Kanibalen in der Trockensteppe',
     studies: [
       {
-        image: 'img/bestiarium/kanibalen/kanibalen-waffenstudie-pergament-freigestellt.png',
+        image: 'img/bestiarium/kanibalen/kanibalen-waffenstudie-pergament-freigestellt.webp',
         alt: 'Pergamentstudie mit Spalter, Hellebarde, Stachelkeulen und Beilen der Kanibalen',
         caption: 'Waffen der Jagdgruppe'
       }
@@ -88,11 +88,11 @@
       'Im Kampf verrät sich ihre Hierarchie schnell. Bewaffnete Wächter halten Eindringlinge auf Abstand, damit Beschwörer ihre Riten beenden können. Andere tragen Schlangensymbole und setzen Gift, Dienerkreaturen oder verwirrende Anrufungen ein; ihre Gefahr entsteht vor allem dann, wenn man ihnen Zeit und Raum überlässt.',
       'Feldnotiz: Zuerst die Stimmen im Hintergrund beachten. Ein Ritualist ohne Deckung ist verwundbar, doch ein ungestörter Beschwörer kann einen scheinbar kleinen Trupp in eine langwierige Auseinandersetzung verwandeln.'
     ],
-    image: 'img/bestiarium/kultisten/kultisten-hauptstudie-pergament-freigestellt.png',
+    image: 'img/bestiarium/kultisten/kultisten-hauptstudie-pergament-freigestellt.webp',
     imageAlt: 'Pergamentstudie dreier Kultisten an einem verfallenen Schrein',
     studies: [
       {
-        image: 'img/bestiarium/kultisten/kultisten-ritualstudie-pergament-freigestellt.png',
+        image: 'img/bestiarium/kultisten/kultisten-ritualstudie-pergament-freigestellt.webp',
         alt: 'Pergamentstudie mit Schlangenstab, Weihrauchgefäß, Ritualdolch und Kultzeichen',
         caption: 'Ritualgerät und Zeichen'
       }
@@ -112,11 +112,11 @@
       'Ihre Gefährlichkeit liegt in der Spannweite der Rollen. Kleine, schnelle Dämonen zwingen zu Bewegung, während größere Krieger den Raum mit breiten Hieben kontrollieren. Dahinter können geflügelte oder magiebegabte Wesen einen Kampf mit Geschossen, Feuer und Anrufungen verlängern. Eine einzelne Sichtung verrät daher selten, welche Bedrohung noch im Schatten wartet.',
       'Feldnotiz: Nicht von der größten Gestalt binden lassen. Wenn die schnelle Brut frei um den Kampf herumläuft, bereitet sie den Boden für den Schlag des schweren Dämonen – oder für das Feuer, das aus der zweiten Reihe kommt.'
     ],
-    image: 'img/bestiarium/daemonen/daemonen-hauptstudie-pergament-freigestellt.png',
+    image: 'img/bestiarium/daemonen/daemonen-hauptstudie-pergament-freigestellt.webp',
     imageAlt: 'Pergamentstudie einer dämonischen Jagdgruppe aus den Brennenden Höllen',
     studies: [
       {
-        image: 'img/bestiarium/daemonen/daemonen-anatomiestudie-pergament-freigestellt.png',
+        image: 'img/bestiarium/daemonen/daemonen-anatomiestudie-pergament-freigestellt.webp',
         alt: 'Pergamentstudie mit Horn, Klauenpanzer, Flügelknochen, Kette und glühender Klingenprobe',
         caption: 'Anatomie und Kriegsgerät'
       }
@@ -136,11 +136,11 @@
       'Eine Begegnung beginnt oft harmlos – mit einer Gestalt am Ufer oder dem Geräusch von Metall im Schaum. Dann schließt sich die Gruppe. Gedrungene Träger versperren den Weg, Haken reißen aus der Distanz nach ihrer Beute, und die Wasserwirker machen aus offenem Gelände ein Hindernis. Ihre einzelnen Rollen greifen ineinander wie die Teile eines alten Schiffs.',
       'Feldnotiz: An der Küste nie nur auf die Vorderen achten. Wer dem Haken ausweicht, kann in die Reichweite des Ankerträgers geraten; wer sich zurückzieht, gibt dem Wasserwirker den Raum, den er sucht.'
     ],
-    image: 'img/bestiarium/ertrunkene/ertrunkene-hauptstudie-pergament-freigestellt.png',
+    image: 'img/bestiarium/ertrunkene/ertrunkene-hauptstudie-pergament-freigestellt.webp',
     imageAlt: 'Pergamentstudie dreier Ertrunkener an einer sturmgepeitschten Küste',
     studies: [
       {
-        image: 'img/bestiarium/ertrunkene/ertrunkene-fundstueckstudie-pergament-freigestellt.png',
+        image: 'img/bestiarium/ertrunkene/ertrunkene-fundstueckstudie-pergament-freigestellt.webp',
         alt: 'Pergamentstudie mit Anker, Haken, Salzlaterne, Tauwerk und geborgenem Kompass',
         caption: 'Bergung vom Geisterufer'
       }
@@ -160,11 +160,11 @@
       'Ihre Lager bestehen aus Resten anderer Leben – gebrochenem Holz, gestohlener Ausrüstung und groben Trophäen. Innerhalb des Rudels übernehmen die Schamanen eine besondere Rolle: Sie halten die Gruppe zusammen, stärken sie und können den Verlauf eines bereits entschiedenen Gefechts wieder kippen.',
       'Feldnotiz: Nicht den Lärm mit der Gefahr verwechseln. Die kleinen Kämpfer lenken ab; wer den Schamanen gewähren lässt, bekommt es bald wieder mit derselben Rotte zu tun.'
     ],
-    image: 'img/bestiarium/gefallene/gefallene-hauptstudie-pergament-freigestellt.png',
+    image: 'img/bestiarium/gefallene/gefallene-hauptstudie-pergament-freigestellt.webp',
     imageAlt: 'Pergamentstudie einer Gruppe Gefallener in einem ausgebrannten Lager',
     studies: [
       {
-        image: 'img/bestiarium/gefallene/gefallene-ausruestungsstudie-pergament-freigestellt.png',
+        image: 'img/bestiarium/gefallene/gefallene-ausruestungsstudie-pergament-freigestellt.webp',
         alt: 'Pergamentstudie mit Schleuder, Knochenstab, Klinge, Kapuze und Trophäen der Gefallenen',
         caption: 'Beute und Lärmzeichen'
       }
@@ -184,11 +184,11 @@
       'Im Kampf machen sie sich ihre Unwirklichkeit zunutze. Manche gleiten durch enge Durchgänge oder tauchen dort auf, wo Deckung erwartet wurde. Andere halten Abstand und arbeiten mit geisterhaften Geschossen. Ihre Wirkung ist weniger brachial als die eines schweren Untoten, aber gerade deshalb schwer vorherzusagen.',
       'Feldnotiz: Den Raum lesen, nicht nur den Gegner. Alte Waffen, zerbrochene Siegel und verlassene Gräber verraten oft, an welcher Erinnerung ein Geist hängt – und aus welcher Richtung er zurückkehrt.'
     ],
-    image: 'img/bestiarium/geister/geister-hauptstudie-pergament-freigestellt.png',
+    image: 'img/bestiarium/geister/geister-hauptstudie-pergament-freigestellt.webp',
     imageAlt: 'Pergamentstudie dreier Geister in einer mondbeschienenen Ruine',
     studies: [
       {
-        image: 'img/bestiarium/geister/geister-echo-studie-pergament-freigestellt.png',
+        image: 'img/bestiarium/geister/geister-echo-studie-pergament-freigestellt.webp',
         alt: 'Pergamentstudie mit zerbrochenem Schwert, Pfeilspitze, Ring, Medaillon und geisterhafter Flamme',
         caption: 'Gebundene Echos'
       }
@@ -208,11 +208,11 @@
       'Ihre Kraft liegt nicht allein im schweren Körperbau. Mauler brechen eine Linie mit ihren Äxten, Speerträger halten den Abstand unangenehm eng, und Totemwirker geben der Gruppe einen Mittelpunkt, an dem sie sich sammelt. Wer sich nur auf den größten Krieger konzentriert, wird oft von der Seite überrannt.',
       'Feldnotiz: Der Pass ist ihre Waffe. Nicht dort kämpfen, wo die Hörner die Front bilden können; ein Umweg über offenen Grund ist meist sicherer als ein direkter Weg in ihr Felsenlager.'
     ],
-    image: 'img/bestiarium/ziegenmenschen/ziegenmenschen-hauptstudie-pergament-freigestellt.png',
+    image: 'img/bestiarium/ziegenmenschen/ziegenmenschen-hauptstudie-pergament-freigestellt.webp',
     imageAlt: 'Pergamentstudie dreier Ziegenmenschen an einem felsigen Höhlenlager',
     studies: [
       {
-        image: 'img/bestiarium/ziegenmenschen/ziegenmenschen-kriegsgeraet-pergament-freigestellt.png',
+        image: 'img/bestiarium/ziegenmenschen/ziegenmenschen-kriegsgeraet-pergament-freigestellt.webp',
         alt: 'Pergamentstudie mit Axt, Speer, Hornschädel-Totem, Stab und Knochenamuletten',
         caption: 'Kriegsgerät und Totems'
       }
@@ -232,11 +232,11 @@
       'Ihre Bewaffnung folgt oft einer alten Ordnung. Schildträger stehen vorne, Schützen suchen erhöhte oder geschützte Positionen und schwere Gestalten halten den Mittelpunkt. Die Körper sind fragil, doch ihre Formation ist es nicht; wer sie ungeordnet angreift, gibt ihren Fernkämpfern den Vorteil.',
       'Feldnotiz: Die Waffe verrät die Rolle. Einen einzelnen Krieger zu brechen ist einfach; eine Linie aus Schild, Klinge und Armbrust fordert zuerst eine Lücke – nicht nur einen kräftigen Schlag.'
     ],
-    image: 'img/bestiarium/skelette/skelette-hauptstudie-pergament-freigestellt.png',
+    image: 'img/bestiarium/skelette/skelette-hauptstudie-pergament-freigestellt.webp',
     imageAlt: 'Pergamentstudie einer Skelettformation in einer zerfallenen Krypta',
     studies: [
       {
-        image: 'img/bestiarium/skelette/skelette-kriegsgeraet-pergament-freigestellt.png',
+        image: 'img/bestiarium/skelette/skelette-kriegsgeraet-pergament-freigestellt.webp',
         alt: 'Pergamentstudie mit Armbrust, Schwert, Schild, Kettenhandschuh und Knochenamulett',
         caption: 'Kriegsgerät der Gruft'
       }
@@ -256,11 +256,11 @@
       'Ihre Angriffe zielen auf Geduld und Stellung. Gift zwingt zur Bewegung, ein Biss bestraft zu große Nähe, und die größeren Schlangenwesen nutzen Speere oder Reichweite, um sichere Wege in tödliche Zonen zu verwandeln. Besonders gefährlich sind sie dort, wo das Gelände keine klare Sicht erlaubt.',
       'Feldnotiz: Nicht den Boden aus den Augen lassen. Häutungsreste, flache Schleifspuren und ein zu stiller Schilfgürtel sind Warnzeichen – der erste Angriff kommt selten aus der Richtung, in die man schaut.'
     ],
-    image: 'img/bestiarium/schlangen/schlangen-hauptstudie-pergament-freigestellt.png',
+    image: 'img/bestiarium/schlangen/schlangen-hauptstudie-pergament-freigestellt.webp',
     imageAlt: 'Pergamentstudie von Schlangenwesen in einem überwucherten Sumpftempel',
     studies: [
       {
-        image: 'img/bestiarium/schlangen/schlangen-anatomiestudie-pergament-freigestellt.png',
+        image: 'img/bestiarium/schlangen/schlangen-anatomiestudie-pergament-freigestellt.webp',
         alt: 'Pergamentstudie mit Häutungsrest, Fangzahn, Giftprobe, Schlangenspeer und Sumpfamulet',
         caption: 'Gift und Häutungszeichen'
       }
@@ -280,11 +280,11 @@
       'Innerhalb eines Nestes erfüllen die verschiedenen Formen eigene Aufgaben. Kleine Parasiten nutzen die Ablenkung der größeren Jäger, während Brutmütter einen Bereich mit Eiern und dichten Fäden abschirmen. Wer mitten im Netz stehen bleibt, kämpft bald gegen mehrere Bedrohungen zugleich.',
       'Feldnotiz: Erst das Netz, dann die Spinne. Freie Wege sind wertvoller als ein schneller Schlag auf die erste Gestalt, die aus der Dunkelheit fällt.'
     ],
-    image: 'img/bestiarium/spinnen/spinnen-hauptstudie-pergament-freigestellt.png',
+    image: 'img/bestiarium/spinnen/spinnen-hauptstudie-pergament-freigestellt.webp',
     imageAlt: 'Pergamentstudie eines Spinnennests mit Brutmutter und Jägern',
     studies: [
       {
-        image: 'img/bestiarium/spinnen/spinnen-anatomiestudie-pergament-freigestellt.png',
+        image: 'img/bestiarium/spinnen/spinnen-anatomiestudie-pergament-freigestellt.webp',
         alt: 'Pergamentstudie mit Chitinbein, Fängen, Netz, Eiersack, Giftprobe und Kokon',
         caption: 'Spuren des Nests'
       }
@@ -304,11 +304,11 @@
       'Im Kampf vereinen sie Tempo mit Kontrolle. Duellanten suchen den einzelnen, unachtsamen Gegner, während Blutwirker aus der zweiten Reihe Druck aufbauen. Andere wechseln zwischen menschlicher und bestialischer Gestalt, um über Hindernisse oder an einer Front vorbei zu gelangen. Ihre Gruppe jagt nicht laut, sondern zielgerichtet.',
       'Feldnotiz: Den Blick nie nur auf den Gegner vor dir richten. Ein Vampir, der sich zurückzieht, muss nicht fliehen – er kann den Weg für den Angriff aus der Dunkelheit öffnen.'
     ],
-    image: 'img/bestiarium/vampire/vampire-hauptstudie-pergament-freigestellt.png',
+    image: 'img/bestiarium/vampire/vampire-hauptstudie-pergament-freigestellt.webp',
     imageAlt: 'Pergamentstudie einer vampirischen Jagdgruppe vor einem verfallenen Anwesen',
     studies: [
       {
-        image: 'img/bestiarium/vampire/vampire-regalia-pergament-freigestellt.png',
+        image: 'img/bestiarium/vampire/vampire-regalia-pergament-freigestellt.webp',
         alt: 'Pergamentstudie mit Rapier, Kelch, Siegelring, Mantelschließe, Fledermausflügel und Glasfläschchen',
         caption: 'Regalia der Nacht'
       }
@@ -328,11 +328,11 @@
       'Ihre Stärke ist Bewegung. Ein großer Alpha bindet die Aufmerksamkeit, während schlankere Jäger seitlich ansetzen oder aus erhöhter Position springen. Das Gelände ist ihr Verbündeter: Wurzeln, Felsen und enge Pfade machen aus jedem Ausweichmanöver eine neue Gelegenheit für das Rudel.',
       'Feldnotiz: Nicht in die Mitte des Rudels geraten. Eine offene Flanke und ein freier Rückzugsweg sind wichtiger als der erste Treffer – wer stehen bleibt, gibt dem nächsten Sprung die Distanz, die er braucht.'
     ],
-    image: 'img/bestiarium/werwoelfe/werwoelfe-hauptstudie-pergament-freigestellt.png',
+    image: 'img/bestiarium/werwoelfe/werwoelfe-hauptstudie-pergament-freigestellt.webp',
     imageAlt: 'Pergamentstudie eines Werwolfrudels in einem düsteren Wald',
     studies: [
       {
-        image: 'img/bestiarium/werwoelfe/werwoelfe-spurenstudie-pergament-freigestellt.png',
+        image: 'img/bestiarium/werwoelfe/werwoelfe-spurenstudie-pergament-freigestellt.webp',
         alt: 'Pergamentstudie mit großer Pfote, Fell, Kralle, Jagdpfeil und mondförmigem Talisman',
         caption: 'Spuren der Jagd'
       }
@@ -352,11 +352,11 @@
       'Ihre Gefahr entsteht durch Masse und Widerstand. Leichte Schlurfer greifen nach jedem freien Arm, während größere Körper den Weg versperren und Treffer einstecken, die andere Gegner längst gefällt hätten. In engen Räumen können selbst wenige Zombies eine Flucht in ein Gedränge verwandeln.',
       'Feldnotiz: Abstand allein genügt nicht. Den Rückweg freihalten und schwere Körper früh erkennen – sonst wird aus einer langsamen Gruppe eine Wand, die sich nicht mehr umgehen lässt.'
     ],
-    image: 'img/bestiarium/zombies/zombies-hauptstudie-pergament-freigestellt.png',
+    image: 'img/bestiarium/zombies/zombies-hauptstudie-pergament-freigestellt.webp',
     imageAlt: 'Pergamentstudie dreier Zombies auf einem überfluteten Friedhofsweg',
     studies: [
       {
-        image: 'img/bestiarium/zombies/zombies-fundstueckstudie-pergament-freigestellt.png',
+        image: 'img/bestiarium/zombies/zombies-fundstueckstudie-pergament-freigestellt.webp',
         alt: 'Pergamentstudie mit Grabschaufel, zerbrochener Laterne, Grabtuch, Schlüssel und Kette',
         caption: 'Zurückgelassene Grabbeigaben'
       }
@@ -376,11 +376,11 @@
       'Im Gefecht bewegen sie sich nicht wie eine zufällige Wache. Schildträger halten einen Durchgang, Hellebardiere erreichen über die erste Reihe hinweg ihr Ziel, und Armbrustschützen bestrafen jeden, der sich zu weit aus der Deckung löst. Ihre Disziplin bleibt erhalten, auch wenn ihre Sache längst verloren scheint.',
       'Feldnotiz: Nicht den Schild als einzelne Mauer behandeln. Der Ritter davor hält nur die Linie, damit die Waffe dahinter ihren Winkel findet. Seitlich ausweichen, die Formation öffnen und erst dann den schweren Träger stellen.'
     ],
-    image: 'img/bestiarium/ritter/ritter-hauptstudie-pergament-freigestellt.png',
+    image: 'img/bestiarium/ritter/ritter-hauptstudie-pergament-freigestellt.webp',
     imageAlt: 'Pergamentstudie dreier Ritter der Buße auf einem verwitterten Pilgerweg',
     studies: [
       {
-        image: 'img/bestiarium/ritter/ritter-kriegsgeraet-pergament-freigestellt.png',
+        image: 'img/bestiarium/ritter/ritter-kriegsgeraet-pergament-freigestellt.webp',
         alt: 'Pergamentstudie mit Schild, Streitkolben, Hellebarde, Armbrustbolzen und Bußkette',
         caption: 'Kriegsgerät der Buße'
       }
@@ -400,11 +400,11 @@
       'Die kleineren Larven sind vor allem dort gefährlich, wo sie in Masse ausbrechen. Größere Formen öffnen dagegen Wege, versperren Fluchten oder spritzen ätzende Sekrete in enge Räume. Eine Brutmutter muss nicht schnell sein: Sie macht aus dem eigenen Nest eine Waffe und zwingt jeden Eindringling, auf unsicherem Boden zu bleiben.',
       'Feldnotiz: Nicht dem ersten Aufbrechen folgen. Der sichtbare Wurm ist oft nur der Köder für die Stelle, an der der Boden gleich nachgibt. Freien Stein suchen, Säureflächen meiden und die Brutkammer niemals ohne Rückweg betreten.'
     ],
-    image: 'img/bestiarium/maden/maden-hauptstudie-pergament-freigestellt.png',
+    image: 'img/bestiarium/maden/maden-hauptstudie-pergament-freigestellt.webp',
     imageAlt: 'Pergamentstudie einer Madenbrut mit Brutmutter in einer Erdspalte',
     studies: [
       {
-        image: 'img/bestiarium/maden/maden-brutstudie-pergament-freigestellt.png',
+        image: 'img/bestiarium/maden/maden-brutstudie-pergament-freigestellt.webp',
         alt: 'Pergamentstudie mit Larvenpanzer, Zange, Eigelege, Säureprobe und Bruchstück eines Baus',
         caption: 'Zeichen der Brutkammer'
       }
@@ -424,11 +424,11 @@
       'Ihre Stärke liegt nicht im einzelnen Stich, sondern in der Unruhe, die sie erzeugen. Kleine Körper brechen Sichtlinien auf und treiben ihre Beute aus der Deckung. Dann stoßen größere, gifttragende Formen vor oder eine Brutmutter nutzt den Schwarm als lebendigen Schleier. Wer blind schlägt, schafft dem nächsten Angriff nur mehr Raum.',
       'Feldnotiz: Gegen einen Schwarm nicht stehen bleiben und nicht in enge Ecken fliehen. Bewegung, freie Luft und ein klarer Blick auf die größere Brut sind mehr wert als jeder Treffer in das Summen.'
     ],
-    image: 'img/bestiarium/fliegen/fliegen-hauptstudie-pergament-freigestellt.png',
+    image: 'img/bestiarium/fliegen/fliegen-hauptstudie-pergament-freigestellt.webp',
     imageAlt: 'Pergamentstudie eines bösartigen Fliegenschwarms über einem Sumpf',
     studies: [
       {
-        image: 'img/bestiarium/fliegen/fliegen-spurenstudie-pergament-freigestellt.png',
+        image: 'img/bestiarium/fliegen/fliegen-spurenstudie-pergament-freigestellt.webp',
         alt: 'Pergamentstudie mit Flügel, Stachel, Eigelege, Saugrüssel und Giftprobe',
         caption: 'Anatomie des Schwarms'
       }
@@ -448,11 +448,11 @@
       'Gefährlich werden sie, wenn das Gelände ihre Art des Angriffs begünstigt. Unter Bäumen und zwischen Felsen kann ein Rudel den Blick teilen; in engeren Passagen gibt es kaum Platz, einem Stoß auszuweichen. Die Tiere kämpfen nicht nach einer gemeinsamen Ordnung, aber jede Art macht aus ihrem Lebensraum einen Vorteil.',
       'Feldnotiz: Revierspuren ernst nehmen. Frische Krallen am Stamm, aufgewühlte Erde oder ein gebrochener Pfeil bedeuten, dass etwas Großes in der Nähe war – und vielleicht noch immer den kürzesten Weg zum Eindringling kennt.'
     ],
-    image: 'img/bestiarium/wildtiere/wildtiere-hauptstudie-pergament-freigestellt.png',
+    image: 'img/bestiarium/wildtiere/wildtiere-hauptstudie-pergament-freigestellt.webp',
     imageAlt: 'Pergamentstudie von Warg, Schwarzbär und Wildschwein in einer kalten Waldlichtung',
     studies: [
       {
-        image: 'img/bestiarium/wildtiere/wildtiere-spurenstudie-pergament-freigestellt.png',
+        image: 'img/bestiarium/wildtiere/wildtiere-spurenstudie-pergament-freigestellt.webp',
         alt: 'Pergamentstudie mit Wargspur, Bärenkralle, Hauer, Fell, Jagdpfeil und Wegstein',
         caption: 'Spuren der Wildnis'
       }

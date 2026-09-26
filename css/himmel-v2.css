@@ -127,7 +127,7 @@ main { overflow:hidden; }
 .section-divider + .block,
 .section-divider + .heaven-bg-alt > .block:first-child { padding-top:var(--space-divider-clearance); }
 .section-divider img {
-  content:url('../img/heaven/divider-heaven-ornament.png');
+  content:url('../img/heaven/divider-heaven-ornament.webp');
   position:absolute; top:0; left:50%;
   width:min(1680px,calc(100vw - 40px)); height:auto; display:block; z-index:1;
   transform:translate(-50%,-49.7%);
@@ -146,7 +146,7 @@ main { overflow:hidden; }
 .section-divider::before {
   content:""; position:absolute; top:0; left:50%; width:100vw; height:14px;
   transform:translate(-50%,-50%);
-  background:url('../img/heaven/divider-heaven-line.png') center/107.6% 70px no-repeat;
+  background:url('../img/heaven/divider-heaven-line.webp') center/107.6% 70px no-repeat;
   filter:drop-shadow(0 0 4px rgba(140,175,220,.3));
 }
 @media (max-width:680px) { .section-divider { width:calc(100vw - 28px); } }
