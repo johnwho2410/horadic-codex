@@ -120,6 +120,37 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
 }
 .download-file:hover,.download-file:focus-visible { filter:brightness(1.2); background:#2a1711; }
 
+/* ─── Wesen/Monster & Völker/Fraktionen: dasselbe bildstarke Zwei-Spalten-
+   Modul wie .heaven-hell-block auf index.html (styles.css), hier mit
+   echten Illustrationen statt Kachel-Textur als Spaltenhintergrund. */
+/* Divider liegt bewusst ohne Abstand direkt auf der Bildkante (anders als
+   bei den Text-Blocks, die 128/192px Luft zum Ornament brauchen) - das
+   Ornament markiert hier den Übergang zwischen Textur und Illustration. */
+.sanctuary-duo { position:relative; left:50%; width:100vw; transform:translateX(-50%); display:grid; grid-template-columns:1fr 1fr; align-items:stretch; min-height:860px; }
+.duo-col { position:relative; display:flex; flex-direction:column; justify-content:center; padding:var(--space-feature) 64px; text-align:center; isolation:isolate; }
+.duo-col::before { content:""; position:absolute; inset:0; z-index:-1; background-size:cover; background-position:center; }
+.duo-monster::before { background-image:linear-gradient(rgba(5,4,3,.6),rgba(5,4,3,.6)),url('../img/sanctuary/monster-teaser.webp'); }
+/* Spiegelverkehrt, damit die Blickrichtung der Szene zur Bildmitte
+   (und damit zum Zier-Divider zwischen den Spalten) zeigt. */
+.duo-fraktionen::before { background-image:linear-gradient(rgba(9,8,7,.55),rgba(9,8,7,.55)),url('../img/sanctuary/fraktionen-teaser.webp'); transform:scaleX(-1); }
+.duo-col .eyebrow { justify-content:center; }
+.duo-col h2 { margin-top:14px; }
+.duo-col h2::after { content:"◆"; display:block; width:max-content; margin:16px auto 0; color:#7f2b20; font:400 .72rem/1 'Spectral',Georgia,serif; text-shadow:16px 0 #4d2d24,-16px 0 #4d2d24; }
+.duo-lead { max-width:460px; margin:var(--space-lg) auto 0; color:var(--muted); font-size:var(--type-body); line-height:var(--type-leading); }
+.duo-col .download-file { margin:var(--space-xl) auto 0; }
+.duo-line { position:absolute; top:0; bottom:0; left:50%; width:14px; transform:translateX(-50%); overflow:hidden; pointer-events:none; z-index:0; }
+.duo-line::before { content:""; position:absolute; top:50%; left:50%; width:1600px; height:14px; transform:translate(-50%,-50%) rotate(90deg);
+  background:url('../img/gemeinsam/section-divider-line.png') center/107.6% 70px no-repeat; filter:drop-shadow(0 0 4px rgba(157,42,20,.3)); }
+.duo-divider { position:absolute; top:0; bottom:0; left:50%; transform:translateX(-50%); width:clamp(140px,14vw,220px); display:flex; align-items:center; justify-content:center; pointer-events:none; z-index:2; }
+.duo-divider img { width:100%; height:auto; max-height:640px; object-fit:contain; filter:drop-shadow(0 0 20px rgba(0,0,0,.6)); position:relative; z-index:1; }
+@media (max-width:900px) {
+  .sanctuary-duo { grid-template-columns:1fr; }
+  .duo-divider { position:static; transform:none; width:auto; height:2px; background:linear-gradient(90deg,transparent,#7f2b20 30%,#7f2b20 70%,transparent); }
+  .duo-divider img { display:none; }
+  .duo-line { display:none; }
+  .duo-col { padding:var(--space-feature-mobile) var(--page-gutter-mobile); }
+}
+
 /* Einleitung als echter Chronik-Prolog: fließender Lesetext in einer Spalte
    statt Website-Absatz-Grid, mit Initiale auf dem ersten Buchstaben für den
    Manuskript-Charakter. */
@@ -306,6 +337,18 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
 .archive-list--figures .archive-entry::before { top:38px; left:1px; }
 .archive-list--figures .archive-entry h3 { margin-top:9px; font-size:1.55rem; }
 .archive-list--figures .archive-entry p { margin:12px 0 0; }
+
+/* ─── Stammbaum: eine einzelne, bereits vollständig beschriftete
+   Illustration statt der früheren Karten-Grid-Darstellung. */
+.family-tree-head { text-align:center; }
+.family-tree-head p { margin-left:auto; margin-right:auto; }
+.family-tree { position:relative; max-width:1200px; margin:0 auto; padding:0; text-align:center; }
+/* border-radius kappt die winzigen hellen Ecken des Scans (das Pergament
+   ist eine unregelmäßige Rissform auf leicht zu großer Leinwand - dort,
+   wo die Risskante nicht bis in die Bildecke reicht, blitzt sonst ein
+   helles Dreieck durch). */
+.family-tree img { display:block; width:100%; height:auto; border:1px solid var(--line); border-radius:22px; filter:drop-shadow(0 20px 40px rgba(0,0,0,.55)); }
+.family-tree figcaption { margin-top:14px; color:#9e8667; font:400 var(--type-note)/1.1 'Jim Nightshade','Spectral',Georgia,serif; }
 
 .relationship-map { padding:26px; border:1px solid var(--line); background:radial-gradient(circle at 50% 50%,rgba(130,35,25,.13),transparent 40%),#0e0c0a; }
 .relation-tier { display:grid; grid-template-columns:repeat(3,1fr); gap:32px; }
