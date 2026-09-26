@@ -23,16 +23,16 @@
 }
 * { box-sizing:border-box; }
 html { scroll-behavior:smooth; }
+.svg-filter-defs { position:absolute; width:0; height:0; overflow:hidden; }
 body { margin:0; padding-bottom:47px; overflow-x:hidden; color:var(--bone); font:400 var(--type-body)/var(--type-leading) 'Spectral',Georgia,'Times New Roman',serif;
   background:#090807 url('../img/texturen/section-rock-seamless.webp') top center/1400px repeat; }
 body::before { content:""; position:fixed; inset:0; z-index:-1; background:rgba(4,4,4,.78); }
 body::after { content:""; position:fixed; inset:0; z-index:18; pointer-events:none; background:linear-gradient(90deg,rgba(0,0,0,.72) 0%,rgba(0,0,0,.18) 13%,transparent 24%,transparent 76%,rgba(0,0,0,.18) 87%,rgba(0,0,0,.72) 100%); }
-/* Zweiter Hintergrund ab dem Divider unter der Einleitung: gealtertes Leder
-   statt der neutralen Steintextur, identisches Muster wie .sanctuary-bg-leather
-   auf sanctuary.html/.hell-bg-alt auf hoelle.html — der Texturwechsel beginnt
-   exakt am Divider statt body-weit zu gelten. */
-.voelker-bg-leather { background:linear-gradient(rgba(9,8,7,.4),rgba(9,8,7,.4)),
-  url('../img/texturen/section-leather-seamless.webp') top center/1400px repeat; }
+/* Zweiter Hintergrund ab dem Divider unter der Einleitung, exakt um den
+   Foliant-Bereich: Holztextur statt der neutralen Steintextur - der
+   Texturwechsel beginnt exakt am Divider statt body-weit zu gelten. */
+.voelker-bg-wood { background:linear-gradient(rgba(9,8,7,.4),rgba(9,8,7,.4)),
+  url('../img/texturen/section-wood-seamless.webp') top center/1400px repeat; }
 /* Zusätzliche Abdunklung nur für "Kulte & Verdorbene", oben auf dem Leder
    der .voelker-bg-leather, damit dieser Abschnitt wie gefordert "stilistisch
    etwas dunkler" wirkt als der Rest der Seite. */
