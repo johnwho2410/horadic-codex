@@ -20,7 +20,8 @@ html { scroll-behavior:smooth; }
    auf kurzen Seiten (z.B. nach dem Kürzen von Inhalten), statt direkt unter
    dem letzten Abschnitt zu schweben. main:flex:1 nimmt den restlichen
    Platz ein. */
-body { margin:0; min-height:100vh; padding-bottom:47px; overflow-x:hidden; display:flex; flex-direction:column; color:var(--bone); font:400 var(--type-body)/var(--type-leading) 'Spectral',Georgia,'Times New Roman',serif;
+.svg-filter-defs { position:absolute; width:0; height:0; overflow:hidden; }
+body { margin:0; min-height:100vh; padding-bottom:56px; overflow-x:hidden; display:flex; flex-direction:column; color:var(--bone); font:400 var(--type-body)/var(--type-leading) 'Spectral',Georgia,'Times New Roman',serif;
   background:#050403 url('../img/texturen/section-lava-seamless.webp') top center/1400px repeat; }
 body::before { content:""; position:fixed; inset:0; z-index:-1; background:rgba(5,4,3,.6); }
 body::after { content:""; position:fixed; inset:0; z-index:18; pointer-events:none; background:linear-gradient(90deg,rgba(0,0,0,.72) 0%,rgba(0,0,0,.18) 13%,transparent 24%,transparent 76%,rgba(0,0,0,.18) 87%,rgba(0,0,0,.72) 100%); }
