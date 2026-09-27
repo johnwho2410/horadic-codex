@@ -1,0 +1,170 @@
+/* ─── Codex Article / Codex Prose ─────────────────────────────────────
+   Globales, seitenübergreifendes Editorial-Modul für lange Lore-Texte.
+   Nicht auf "Wissen" beschränkt - gedacht zur Wiederverwendung auf
+   Sanktuario, Regionen, Persönlichkeiten, Himmel/Hölle, Klassen etc.
+
+   Bewusste Designrichtung: liest sich wie eine aufgeschlagene Buchseite,
+   nicht wie eine Website-Artikelvorlage. Eine Spalte, zentriert, viel
+   Weißraum, Initiale, Kapitel als Buchüberschriften statt UI-Karten.
+   Keine Foliant-Grafiken/Zierrahmen (bleiben codex-module.css
+   vorbehalten) - Ruhe entsteht hier rein aus Typografie und Linien.
+   Nutzt das site-weite --gold/--bone/--muted/--line/--ink-Farbschema. */
+
+/* ─── Laufkopf: Brotkrümel als stille Kopfzeile, keine App-Bar ────── */
+/* max-width:1200px/padding:24px = --width-shell - identisch zu .nav,
+   damit die linke Kante hier exakt unter dem Logo landet, egal bei
+   welcher Viewport-Breite (gleiche Formel wie beim Logo selbst). */
+.codex-runhead { max-width:1200px; margin:0 auto; padding:36px 24px 0; text-align:left; color:#8e7c69; font:700 11px/1 system-ui,sans-serif; letter-spacing:.16em; text-transform:uppercase; }
+.codex-runhead a { color:#8e7c69; text-decoration:none; transition:color .2s ease; }
+.codex-runhead a:hover,.codex-runhead a:focus-visible { color:var(--gold); }
+.codex-runhead span[aria-current] { color:var(--muted); }
+.codex-runhead .codex-runhead__sep { margin:0 10px; color:#4a3c2e; }
+
+/* ─── Titelseite ("Frontispiz") ─────────────────────────────────────
+   .codex-article ist jetzt genauso breit/zentriert wie .nav (1200px =
+   --width-shell) - Titelseite, TOC und Fließtext hängen sich links daran
+   auf, statt als schmale Insel in der Bildschirmmitte zu schweben.
+   Innerhalb bleibt alles wie gehabt auf Lesebreite begrenzt und für sich
+   zentriert. */
+.codex-article { max-width:1200px; margin:0 auto; padding:28px 24px 100px; }
+.codex-titlepage { max-width:640px; text-align:center; padding-bottom:40px; }
+.codex-article-visual { max-width:300px; margin:0 auto 32px; }
+.codex-article-visual img { display:block; width:100%; height:auto; border:1px solid var(--line); filter:saturate(.8) contrast(1.05) brightness(.85); }
+.codex-eyebrow-line { display:block; color:var(--gold); font:700 .72rem/1 system-ui,sans-serif; letter-spacing:.18em; text-transform:uppercase; }
+.codex-article-body h1 { margin:14px 0 0; font-size:clamp(2.3rem,6vw,3.4rem); }
+.codex-titlepage h1::after { content:"◆"; display:block; width:max-content; margin:18px auto 0; color:#7f2b20; font:400 .68rem/1 'Spectral',Georgia,serif; text-shadow:15px 0 #4d2d24,-15px 0 #4d2d24; }
+.codex-lead { max-width:520px; margin:22px auto 0; color:#cbbdad; font-size:var(--type-note,20px); line-height:var(--type-leading,1.7); font-style:italic; font-family:'Spectral',Georgia,serif; }
+
+/* Colophon-Zeile statt Meta-Kartenraster: eine ruhige, zentrierte
+   Zeile wie im Impressum eines gedruckten Buchs. */
+.codex-meta { display:flex; flex-wrap:wrap; justify-content:center; gap:0; margin:28px 0 0; padding:0; list-style:none; color:#8f7f6c; font:600 .78rem/1.6 system-ui,sans-serif; letter-spacing:.03em; }
+.codex-meta div { display:contents; }
+.codex-meta dt { color:#6e5f4f; }
+.codex-meta dt::after { content:": "; }
+.codex-meta dd { margin:0 14px 0 4px; color:#b8a98f; }
+.codex-meta div:last-child dd { margin-right:0; }
+
+/* ─── Inhalt als Buchregister, keine sticky Sidebar-Karte ─────────── */
+.codex-toc-details { max-width:640px; margin:0 0 48px; }
+.codex-toc-details summary { display:block; margin:0 auto 18px; width:max-content; cursor:pointer; list-style:none; color:var(--gold); font:700 .72rem/1 system-ui,sans-serif; letter-spacing:.18em; text-transform:uppercase; }
+.codex-toc-details summary::-webkit-details-marker { display:none; }
+.codex-toc-details summary::before { content:"— "; color:#6b5233; }
+.codex-toc-details summary::after { content:" —"; color:#6b5233; }
+.codex-toc { text-align:center; padding:20px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+.codex-toc-label { display:none; }
+.codex-toc ol { margin:0; padding:0; list-style:none; display:flex; flex-wrap:wrap; justify-content:center; gap:9px 26px; counter-reset:toc; }
+.codex-toc li { counter-increment:toc; }
+.codex-toc li::before { content:counter(toc,upper-roman) ". "; color:#6e5f4f; }
+.codex-toc a { color:var(--muted); text-decoration:none; font:400 1rem/1 'Marcellus',Georgia,serif; letter-spacing:.01em; text-transform:uppercase; transition:color .2s ease; }
+.codex-toc a:hover,.codex-toc a:focus-visible { color:var(--gold); }
+
+/* ─── Fließtext + Randspalte (Marginalie) ──────────────────────────
+   .codex-layout trägt zwei Spuren: Fließtext (fix, lesbare Breite) und
+   eine schmale Randspalte für "Verwandte Einträge" - läuft die ganze
+   Kapitellänge mit, wie eine Marginalie im alten Manuskript, statt nur
+   einmal am Artikelende aufzutauchen. Kollabiert unter 980px zu einer
+   normalen End-of-Article-Liste. */
+.codex-layout { max-width:1200px; margin:0 auto; padding:0 24px; display:grid; grid-template-columns:minmax(0,1fr) 300px; justify-content:start; gap:64px; align-items:start; }
+.codex-prose { max-width:720px; margin:0; }
+.codex-prose > * + * { margin-top:22px; }
+.codex-prose h2 { margin-top:64px; text-align:center; font-size:clamp(1.5rem,3vw,1.9rem); }
+.codex-prose h2 + * { margin-top:22px; }
+.codex-chapter-num { display:block; margin-bottom:8px; color:#6e5f4f; font:700 .72rem/1 system-ui,sans-serif; letter-spacing:.2em; }
+.codex-prose h2::after { content:"◆"; display:block; width:max-content; margin:14px auto 0; color:#7f2b20; font:400 .6rem/1 'Spectral',Georgia,serif; text-shadow:11px 0 #4d2d24,-11px 0 #4d2d24; }
+.codex-prose h3 { margin-top:34px; text-align:center; font-size:1.2rem; }
+.codex-prose p { color:#cabfae; line-height:var(--type-leading,1.7); text-align:justify; hyphens:auto; }
+.codex-prose ul,.codex-prose ol { margin:0; padding-left:1.3em; color:#cabfae; line-height:var(--type-leading,1.7); }
+.codex-prose li + li { margin-top:8px; }
+
+/* Initiale auf dem ersten Absatz nach der Titelseite - Manuskript-Charakter,
+   identisches Prinzip wie .lore-lead auf sanctuary.html. */
+.codex-prose > p:first-of-type::first-letter {
+  float:left; margin:.02em .09em 0 0; color:var(--gold);
+  font-family:'Marcellus',Georgia,serif; font-size:calc(3.2em + 1px); line-height:.82;
+}
+
+.codex-link { color:var(--gold); text-decoration:underline; text-decoration-color:rgba(196,154,80,.4); text-underline-offset:3px; transition:text-decoration-color .2s ease; }
+.codex-link:hover,.codex-link:focus-visible { text-decoration-color:var(--gold); }
+
+.codex-figure { margin:0; text-align:center; }
+.codex-figure img { display:block; max-width:420px; width:100%; height:auto; margin:0 auto; border:1px solid var(--line); filter:saturate(.8) contrast(1.05) brightness(.85); }
+.codex-figure figcaption { margin-top:10px; color:#8f7f6c; font:400 italic .96rem/1.4 'Jim Nightshade','Spectral',Georgia,serif; }
+
+.codex-quote { margin:32px 0; padding:2px 0 2px 26px; border-left:2px solid #4d392f; }
+.codex-quote p { margin:0; color:#d9cbb8; font:400 italic 1.1rem/1.5 'Spectral',Georgia,serif; text-align:left; }
+.codex-quote cite { display:block; margin-top:10px; color:#6e5f4f; font:700 11px/1 system-ui,sans-serif; letter-spacing:.1em; text-transform:uppercase; font-style:normal; }
+
+.codex-note { margin:32px 0; padding:2px 0 2px 26px; border-left:2px solid var(--blood,#a5261c); }
+.codex-note p,.codex-note { color:#c7b8a7; text-align:left; }
+.codex-note strong { display:block; margin-bottom:4px; color:#a06356; font:700 11px/1 system-ui,sans-serif; letter-spacing:.11em; text-transform:uppercase; }
+
+.codex-sources { margin-top:56px; padding-top:16px; border-top:1px solid var(--line); color:#6e5f4f; font-size:13px; text-align:center; }
+.codex-sources strong { color:#8e7c69; }
+
+.codex-placeholder { margin:32px 0; padding:16px 20px; border:1px dashed var(--line); color:#8a7c6a; font:600 .84rem/1.5 system-ui,sans-serif; letter-spacing:.02em; text-align:left; }
+.codex-placeholder::before { content:"Platzhalter — "; color:var(--gold); font-weight:700; }
+
+/* Lore-Status: stille Randnotiz statt Badge-Chip. */
+.lore-status { display:block; margin:0 0 28px; text-align:center; color:#8e7c69; font:italic 500 .86rem/1.4 'Spectral',Georgia,serif; }
+.lore-status::before { content:"« "; }
+.lore-status::after { content:" »"; }
+.lore-status--confirmed { color:#c2a877; }
+.lore-status--unclear { color:#7d7060; }
+
+/* ─── Related Entries / Querverweise ──────────────────────────────── */
+.codex-crossrefs { max-width:640px; margin:64px auto 0; padding-top:28px; border-top:1px solid var(--line); text-align:center; }
+.codex-crossrefs-label { display:block; margin-bottom:16px; color:var(--gold); font:700 .72rem/1 system-ui,sans-serif; letter-spacing:.15em; text-transform:uppercase; }
+.codex-crossrefs-list { display:flex; flex-wrap:wrap; justify-content:center; gap:10px 24px; padding:0; margin:0; list-style:none; }
+.codex-crossrefs-list a { color:var(--bone); text-decoration:none; font:400 1.02rem/1 'Marcellus',Georgia,serif; letter-spacing:.01em; text-transform:uppercase; border-bottom:1px solid transparent; padding-bottom:3px; transition:color .2s ease,border-color .2s ease; }
+.codex-crossrefs-list a:hover,.codex-crossrefs-list a:focus-visible { color:var(--gold); border-color:var(--gold); }
+
+/* Randspalten-Variante: vertikal, klebt neben dem Fließtext statt einmalig
+   am Ende zu erscheinen. */
+.codex-margin { position:sticky; top:120px; }
+.codex-crossrefs--margin { max-width:none; margin:0; padding:0; border:0; text-align:left; }
+.codex-crossrefs--margin .codex-crossrefs-label { text-align:left; }
+.codex-crossrefs--margin .codex-crossrefs-list { flex-direction:column; align-items:flex-start; gap:13px; }
+.codex-crossrefs--margin .codex-crossrefs-list a { font-size:.94rem; border-bottom:0; padding-bottom:0; }
+.codex-crossrefs--margin .codex-crossrefs-list a:hover,.codex-crossrefs--margin .codex-crossrefs-list a:focus-visible { text-decoration:underline; text-decoration-color:rgba(196,154,80,.4); }
+
+@media (max-width:980px) {
+  .codex-layout { grid-template-columns:minmax(0,640px); }
+  .codex-margin { position:static; margin-top:56px; }
+  .codex-crossrefs--margin { max-width:640px; margin:0 auto; padding-top:28px; border-top:1px solid var(--line); text-align:center; }
+  .codex-crossrefs--margin .codex-crossrefs-label { text-align:center; }
+  .codex-crossrefs--margin .codex-crossrefs-list { flex-direction:row; flex-wrap:wrap; justify-content:center; }
+}
+
+@media (max-width:680px) {
+  .codex-runhead { padding-top:36px; }
+  .codex-article { padding:20px 20px 72px; }
+  .codex-layout { padding:0 20px; }
+  .codex-prose p { text-align:left; hyphens:none; }
+}
+
+/* ─── Kosmologie-/Beziehungs-Diagramm (unverändert gegenüber v1) ──── */
+.codex-diagram { max-width:820px; margin:0 auto; padding:32px 24px; border:1px solid var(--line); background:radial-gradient(circle at 50% 15%,rgba(130,35,25,.12),transparent 45%),#0e0c0a; }
+.codex-diagram-tier { display:grid; grid-template-columns:1fr; justify-items:center; gap:16px; }
+.codex-diagram-tier--split { grid-template-columns:1fr 1fr; gap:24px; }
+.codex-diagram-tier + .codex-diagram-tier { position:relative; margin-top:38px; }
+.codex-diagram-tier + .codex-diagram-tier::before { content:"↓"; position:absolute; left:50%; top:-32px; transform:translateX(-50%); color:#8e4937; font:700 calc(1.2rem + 1px)/1 system-ui,sans-serif; }
+.codex-diagram-node { position:relative; width:100%; max-width:340px; min-height:88px; padding:16px 20px; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; color:var(--bone); text-decoration:none; border:1px solid #4d392f; background:#15110f; }
+.codex-diagram-node::before {
+  content:""; position:absolute; inset:-11px -8px; pointer-events:none; opacity:.6;
+  border-style:solid; border-width:22px 15px;
+  border-image-source:url('../img/klassen/class-card-frame-subtle.webp');
+  border-image-slice:150 140 150 140; border-image-repeat:stretch;
+}
+.codex-diagram-node.origin { border-color:#75503e; }
+.codex-diagram-node h3 { margin:0; font-size:1.05rem; }
+.codex-diagram-node span { display:block; margin-top:6px; color:var(--muted); font-size:13px; }
+.codex-diagram-node.is-disabled { cursor:default; }
+a.codex-diagram-node:hover,a.codex-diagram-node:focus-visible { border-color:var(--gold); }
+a.codex-diagram-node:hover h3,a.codex-diagram-node:focus-visible h3 { color:var(--gold); }
+.codex-diagram-note { margin:20px 0 0; text-align:center; color:#8f806f; font-size:14px; }
+
+@media (max-width:680px) {
+  .codex-diagram { padding:24px 16px; }
+  .codex-diagram-tier--split { grid-template-columns:1fr; gap:16px; }
+  .codex-diagram-tier + .codex-diagram-tier { margin-top:30px; }
+}

@@ -1,0 +1,105 @@
+@font-face { font-family:'Diablo'; src:url('../img/gemeinsam/diablo-heavy.ttf') format('truetype'); font-display:swap; }
+:root {
+  --ink:#090807; --bone:#eee6d8; --muted:#a99b89; --blood:#a5261c;
+  --gold:#c49a50; --line:#463328; --shadow:rgba(0,0,0,.58);
+  --type-body:17px; --type-note:20px; --type-small:14px; --type-label:12px; --type-leading:1.7;
+  --space-xs:8px; --space-sm:12px; --space-md:16px; --space-lg:24px; --space-xl:32px; --space-2xl:48px;
+  --space-section:96px; --space-section-mobile:64px;
+  --space-feature:128px; --space-feature-mobile:88px;
+  --space-divider-clearance:256px; --space-divider-clearance-mobile:112px;
+  --page-gutter:24px; --page-gutter-mobile:18px;
+  /* Sitebreites Breiten-System (siehe css/site-nav.css .nav / css/codex-article.css) */
+  --width-shell:1200px; --width-prose:720px; --width-narrow:640px;
+}
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { margin:0; color:var(--bone); font:400 var(--type-body)/var(--type-leading) 'Spectral',Georgia,'Times New Roman',serif;
+  background:#090807 url('../img/texturen/section-rock-seamless.webp') top center/1400px repeat; }
+body::before { content:""; position:fixed; inset:0; z-index:-1; background:rgba(4,4,4,.8); }
+a { color:inherit; }
+.eyebrow { display:flex; align-items:center; gap:8px; color:var(--gold); font:700 calc(.72rem + 1px)/1 system-ui,sans-serif; text-transform:uppercase; letter-spacing:.16em; }
+h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; line-height:1.05; text-transform:uppercase; letter-spacing:.02em; }
+
+/* ─── Intro-Header (Archiv-Hub-Muster, identisch zu archiv.css) ─────
+   Weiterhin die Basis für Kategorieseiten wie wissen/kosmologie.html. */
+.intro { max-width:var(--width-shell); margin:0 auto; padding:82px 24px 30px; }
+.intro h1 { max-width:900px; margin:16px 0; font-size:clamp(2.7rem,6vw,4.6rem); line-height:.98; }
+.intro p { max-width:var(--width-prose); margin:0; color:#c5b8a8; font-size:calc(1.05rem + 1px); line-height:var(--type-leading); }
+
+.section-divider { max-width:var(--width-shell); margin:44px auto; text-align:center; }
+.section-divider img { width:min(100%,760px); height:auto; opacity:.7; }
+
+/* ─── Landing-Header: großes Headerbild, ausblendend in die Textur ──
+   Identischer Aufbau wie .region-hero auf sanctuary.html/voelker.html
+   (css/sanctuary.css), nur mit dem Seitenverhältnis von
+   img/wissen/wissen-header-final.webp (2046:768 ≈ 2.664:1, daher
+   37.55vw statt der dortigen 42.85vw). */
+.region-hero { position:relative; min-height:min(max(620px,37.55vw),82vh); display:flex; align-items:flex-end; overflow:hidden;
+  background:url('../img/wissen/wissen-header-final.webp') center bottom/cover no-repeat; }
+.region-hero::after { content:""; position:absolute; inset:0; background:linear-gradient(90deg,rgba(7,5,4,.6),transparent 55%);
+  -webkit-mask-image:linear-gradient(to bottom,#000 62%,transparent 100%); mask-image:linear-gradient(to bottom,#000 62%,transparent 100%); }
+.region-hero-content { position:relative; z-index:1; max-width:var(--width-shell); margin:0 auto; padding:64px 24px 56px; width:100%; }
+.region-hero h1 { max-width:1000px; margin:16px 0 20px; font-size:clamp(2.6rem,6vw,4.6rem); text-shadow:0 3px 25px #000; }
+.region-hero .lead { max-width:var(--width-prose); margin:0; color:#d4c2b6; font-size:var(--type-body); line-height:var(--type-leading); text-shadow:0 2px 12px #000; }
+
+.region-facts { display:flex; flex-wrap:wrap; gap:22px 34px; margin:26px 0 0; }
+.region-facts div { display:grid; gap:6px; }
+.region-facts dt { color:#c3a47f; font:700 12px/1 system-ui,sans-serif; letter-spacing:.13em; text-transform:uppercase; }
+.region-facts dd { margin:0; color:#eee4d8; font-size:var(--type-body); }
+
+/* Themen-Kirchenfenster: dasselbe Headerbild bei jeder Wissen-Unterseite,
+   nur auf Themenseiten (Kosmologie, Weltenstein, ...) zusätzlich mit
+   einem passenden Fenster in der dunklen Mittelfläche des Headers. */
+.region-hero-emblem { position:absolute; z-index:1; top:6%; left:50%; transform:translateX(-50%); width:min(300px,24vw); pointer-events:none; }
+.region-hero-emblem img { display:block; width:100%; height:auto; filter:drop-shadow(0 18px 36px rgba(0,0,0,.65)); }
+
+@media (max-width:860px) {
+  .region-hero-emblem { display:none; }
+}
+
+/* Einleitungstext direkt unter dem Header, auf der Textur - identisches
+   Drop-Cap-Prinzip wie .lore-lead auf sanctuary.html. */
+.lore-lead { max-width:var(--width-prose); margin:0 auto; padding:64px 24px 0; }
+.lore-lead p { margin:0 0 20px; color:#c2b6a6; font-size:var(--type-body); line-height:var(--type-leading); }
+.lore-lead p:last-child { margin-bottom:0; }
+.lore-lead p:first-of-type::first-letter {
+  float:left; margin:.03em .1em 0 0; color:var(--gold);
+  font-family:'Marcellus',Georgia,serif; font-size:calc(3.4em + 1px); line-height:.82;
+}
+
+@media (max-width:680px) {
+  .region-hero-content { padding:44px 18px 36px; }
+  .lore-lead { padding:44px 18px 0; }
+}
+
+/* ─── Landing: Wissensbereiche als große Archiv-Register ──────────── */
+.wissen-registers { max-width:var(--width-shell); margin:0 auto; padding:0 24px 40px; }
+.wissen-register { position:relative; padding:34px 0; border-bottom:1px solid var(--line); }
+.wissen-register:first-child { border-top:1px solid var(--line); }
+.wissen-register-head { display:flex; flex-wrap:wrap; align-items:baseline; justify-content:space-between; gap:14px; }
+.wissen-register h2 { font-size:clamp(1.55rem,2.6vw,2rem); transition:color .2s ease; }
+.wissen-register-topics { margin:12px 0 0; color:#8f7f6c; font:400 italic .96rem/1.5 'Spectral',Georgia,serif; }
+.wissen-register p.wissen-register-desc { max-width:600px; margin:10px 0 0; color:var(--muted); }
+.wissen-register a.wissen-register-link { display:inline-flex; align-items:center; gap:8px; flex:none; color:var(--muted); text-decoration:none; font:700 .74rem/1 system-ui,sans-serif; letter-spacing:.1em; text-transform:uppercase; transition:color .2s ease; }
+.wissen-register:has(a.wissen-register-link:hover) h2,
+.wissen-register a.wissen-register-link:hover,.wissen-register a.wissen-register-link:focus-visible { color:var(--gold); }
+.wissen-register-badge { display:inline-block; padding:2px 8px; color:var(--muted); font:700 10px/1.6 system-ui,sans-serif; letter-spacing:.08em; text-transform:uppercase; border:1px solid var(--line); }
+
+/* ─── Kategorieseite: Intro + Diagramm + Themen-Register ───────────── */
+.wissen-topics { max-width:var(--width-shell); margin:56px auto 0; padding:0 24px 90px; }
+.wissen-topics-label { display:block; margin-bottom:6px; color:var(--gold); font:700 .7rem/1 system-ui,sans-serif; letter-spacing:.15em; text-transform:uppercase; }
+.wissen-topics-list { border-top:1px solid rgba(99,72,48,.72); }
+.wissen-topic,.wissen-topic-row { display:grid; grid-template-columns:42px minmax(0,1fr) auto; gap:14px; align-items:center; padding:17px 4px; color:var(--bone); text-decoration:none; border-bottom:1px solid rgba(99,72,48,.72); transition:padding .25s ease,background .25s ease; }
+.wissen-topic-num { color:#74513a; font:400 1rem/1 Georgia,serif; }
+.wissen-topic strong,.wissen-topic-row strong { font:400 1.2rem/1.1 'Marcellus',Georgia,serif; text-transform:uppercase; letter-spacing:.02em; }
+.wissen-topic b { color:#74513a; font:400 1rem/1 Georgia,serif; transition:transform .25s ease,color .25s ease; }
+a.wissen-topic:hover,a.wissen-topic:focus-visible { padding-left:10px; background:linear-gradient(90deg,rgba(103,62,30,.14),transparent 75%); outline:none; }
+a.wissen-topic:hover strong,a.wissen-topic:focus-visible strong,a.wissen-topic:hover b,a.wissen-topic:focus-visible b { color:var(--gold); }
+.wissen-topic-row.is-disabled { opacity:.55; }
+.wissen-topic-row .wissen-register-badge { justify-self:end; }
+
+@media (max-width:680px) {
+  .intro { padding:56px 18px 24px; }
+  .wissen-registers,.wissen-topics { padding-left:18px; padding-right:18px; }
+  .wissen-register-head { flex-direction:column; align-items:flex-start; }
+}

@@ -39,15 +39,15 @@ window.SITE_NAV = {
     {
       id: 'wissen',
       label: 'Wissen',
-      href: 'index.html#wissen',
+      href: 'wissen.html',
       panel: {
         title: 'Wissen',
         entries: [
-          { label: 'Kosmologie', desc: 'Anu, Tathamet, Schöpfung, Ewiger Konflikt', href: 'index.html#wissen' },
-          { label: 'Artefakte', desc: 'Weltenstein, Seelensteine und bedeutende Relikte', href: 'index.html#wissen' },
-          { label: 'Magie & Konzepte', desc: 'Metaphysische und magische Grundlagen', href: 'index.html#wissen' },
-          { label: 'Religion & Lehren', desc: 'Glaubenssysteme und Lehren Sanktuarios', href: 'index.html#wissen' },
-          { label: 'Glossar', desc: 'Begriffe und kurze Erklärungen', href: 'index.html#wissen' }
+          { label: 'Kosmologie', desc: 'Anu, Tathamet, Schöpfung, Ewiger Konflikt', href: 'wissen/kosmologie.html' },
+          { label: 'Artefakte', desc: 'Weltenstein, Seelensteine und bedeutende Relikte', href: 'wissen.html' },
+          { label: 'Magie & Konzepte', desc: 'Metaphysische und magische Grundlagen', href: 'wissen.html' },
+          { label: 'Religion & Lehren', desc: 'Glaubenssysteme und Lehren Sanktuarios', href: 'wissen.html' },
+          { label: 'Glossar', desc: 'Begriffe und kurze Erklärungen', href: 'wissen.html' }
         ]
       }
     }

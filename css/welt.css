@@ -16,7 +16,7 @@
 }
 * { box-sizing:border-box; }
 html { scroll-behavior:smooth; }
-body { margin:0; padding-bottom:47px; overflow-x:hidden; color:var(--bone); font:400 var(--type-body)/var(--type-leading) 'Spectral',Georgia,'Times New Roman',serif;
+body { margin:0; overflow-x:hidden; color:var(--bone); font:400 var(--type-body)/var(--type-leading) 'Spectral',Georgia,'Times New Roman',serif;
   background:#090807 url('../img/texturen/section-rock-seamless.webp') top center/1400px repeat; }
 body::before { content:""; position:fixed; inset:0; z-index:-1; background:rgba(4,4,4,.78); }
 body::after { content:""; position:fixed; inset:0; z-index:18; pointer-events:none; background:linear-gradient(90deg,rgba(0,0,0,.72) 0%,rgba(0,0,0,.18) 13%,transparent 24%,transparent 76%,rgba(0,0,0,.18) 87%,rgba(0,0,0,.72) 100%); }
@@ -38,7 +38,8 @@ button { font:inherit; }
    sanctuary.css/himmel-v2.css/hoelle.css). body padding-bottom hält die
    Leiste vom Footer fern; scroll-margin-top berücksichtigt nur noch die
    Topbar, da die Subnav nicht mehr oben mitklebt. */
-.subnav { position:fixed; left:0; right:0; bottom:0; z-index:19; background:rgba(9,8,7,.96); border-top:1px solid var(--line); }
+.subnav { position:relative; background:rgba(9,8,7,.96); border-top:1px solid var(--line); }
+.subnav + footer { margin-top:0; border-top:0; }
 .subnav-inner { max-width:1200px; margin:auto; padding:0 24px; display:flex; justify-content:flex-end; gap:30px; overflow-x:auto; scrollbar-width:none; }
 .subnav-inner::-webkit-scrollbar { display:none; }
 .subnav a { flex:none; display:flex; align-items:center; height:46px; color:var(--muted); text-decoration:none;

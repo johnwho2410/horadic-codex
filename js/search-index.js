@@ -18,6 +18,9 @@ window.SITE_SEARCH_INDEX = [
   { type: 'Seite', label: 'Bestiarium', href: 'voelker.html' },
   { type: 'Seite', label: 'Personen & Fraktionen', href: 'persoenlichkeiten.html' },
   { type: 'Seite', label: 'Klassenübersicht', href: 'klassen.html' },
+  { type: 'Seite', label: 'Wissen', href: 'wissen.html' },
+  { type: 'Seite', label: 'Kosmologie', href: 'wissen/kosmologie.html' },
+  { type: 'Seite', label: 'Weltenstein', href: 'wissen/weltenstein.html' },
 
   // Regionen
   { type: 'Region', label: 'Zersplitterte Gipfel', href: 'welt/zersplitterte-gipfel.html' },

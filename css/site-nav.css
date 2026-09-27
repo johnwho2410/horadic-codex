@@ -27,7 +27,12 @@
    diese Regeln greifen nur als Fallback für Seiten ohne eigene Definition
    (z.B. archiv.html). */
 :where(.topbar) { border-bottom:1px solid var(--nav-line); background:var(--nav-bg); position:sticky; top:0; z-index:100; }
-:where(.nav) { max-width:1280px; margin:auto; min-height:85px; padding:0 24px; display:flex; align-items:center; gap:8px; }
+/* 1200px statt 1280px: praktisch jede Seite mit eigenem Topbar/.nav
+   (sanctuary/hoelle/himmel-v2/welt/voelker/archiv/klassen/... ) definiert
+   .nav lokal mit 1200px - dieser Fallback zieht mit dem Bestand gleich,
+   statt umgekehrt auf allen anderen Seiten eine zweite Nav-Breite zu
+   erzeugen (siehe Breiten-System-Audit). */
+:where(.nav) { max-width:1200px; margin:auto; min-height:85px; padding:0 24px; display:flex; align-items:center; gap:8px; }
 .nav { position:relative; } /* wird von keiner Seite selbst gesetzt, daher gefahrlos additiv */
 :where(.brand) { display:flex; align-items:center; margin-right:20px; text-decoration:none; flex:none; }
 :where(.brand-logo) { display:block; height:50px; width:auto; }
@@ -196,4 +201,26 @@ a.nav-panel-entry:focus-visible .nav-panel-entry-title { color:var(--nav-gold); 
 
 @media (max-width:680px) {
   .codex-related { padding:40px 18px 48px; }
+}
+
+/* ─── Footer-Abbinder ──────────────────────────────────────────────────
+   Zierband direkt über dem echten Footer, von js/site-footer.js auf
+   jeder Seite (außer klassen/* - data-abbinder="false") automatisch
+   davorgesetzt. footer-abbinder.webp (2046x768) ist ein durchgehendes
+   Band: oben vollständig transparent, wird nach unten hin zunehmend
+   solide. "center bottom" + cover verankert das Bild an seiner
+   Unterkante (wie bei .region-hero) - ein eventueller Zuschnitt frisst
+   sich also immer nur von oben in die ohnehin transparente Zone, nie in
+   den unteren, sichtbaren Bildteil.
+   Der negative Top-Rand (bewusst über den vorherigen Content gezogen,
+   damit garantiert keine Lücke entsteht) ist als fester Faktor der Höhe
+   berechnet (~-0.716 * Höhe, per Hand an einer großen Auflösung
+   austariert) statt als fixer Pixelwert - so bleibt das Verhältnis von
+   Überlappung zu Bildhöhe bei jeder Viewport-Breite gleich, statt bei
+   kleinen Breiten unverhältnismäßig groß zu werden. */
+.site-abbinder {
+  --ab-h: clamp(190px,51vw,560px);
+  position:relative; left:50%; width:100vw; transform:translateX(-50%);
+  height:var(--ab-h); margin-top:calc(var(--ab-h) * -.716); pointer-events:none; z-index:1;
+  background:center bottom/cover no-repeat;
 }
