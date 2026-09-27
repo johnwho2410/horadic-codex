@@ -32,7 +32,7 @@ window.SITE_NAV = {
           { label: 'Personen', desc: 'Helden, Horadrim, Engel, Dämonen und weitere Schlüsselfiguren', href: 'persoenlichkeiten.html#personen' },
           { label: 'Fraktionen', desc: 'Orden, Religionen, Kulte und Organisationen', href: 'persoenlichkeiten.html#fraktionen' },
           { label: 'Bestiarium', desc: 'Monster, Gegnerfamilien und gefährliche Kreaturen', href: 'voelker.html' },
-          { label: 'Artefakte', desc: 'Weltenstein, Seelensteine und bedeutende Relikte', href: null, badge: 'bald verfügbar' }
+          { label: 'Artefakte', desc: 'Weltenstein, Seelensteine und bedeutende Relikte', href: 'wissen/artefakte.html' }
         ]
       }
     },
@@ -44,10 +44,10 @@ window.SITE_NAV = {
         title: 'Wissen',
         entries: [
           { label: 'Kosmologie', desc: 'Anu, Tathamet, Schöpfung, Ewiger Konflikt', href: 'wissen/kosmologie.html' },
-          { label: 'Artefakte', desc: 'Weltenstein, Seelensteine und bedeutende Relikte', href: 'wissen.html' },
-          { label: 'Magie & Konzepte', desc: 'Metaphysische und magische Grundlagen', href: 'wissen.html' },
-          { label: 'Religion & Lehren', desc: 'Glaubenssysteme und Lehren Sanktuarios', href: 'wissen.html' },
-          { label: 'Glossar', desc: 'Begriffe und kurze Erklärungen', href: 'wissen.html' }
+          { label: 'Artefakte', desc: 'Weltenstein, Seelensteine und bedeutende Relikte', href: 'wissen/artefakte.html' },
+          { label: 'Magie & Konzepte', desc: 'Metaphysische und magische Grundlagen', href: 'wissen/magie-konzepte.html' },
+          { label: 'Religion & Lehren', desc: 'Glaubenssysteme und Lehren Sanktuarios', href: 'wissen/religion-lehren.html' },
+          { label: 'Glossar', desc: 'Begriffe und kurze Erklärungen', href: 'wissen/glossar.html' }
         ]
       }
     }

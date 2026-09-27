@@ -4,8 +4,8 @@
 // Bewusst NICHT aus js/monster-index.js / js/archive-index.js generiert -
 // beide Module bleiben unangetastet. Diese Liste dupliziert daher eine
 // Teilmenge ihrer Einträge von Hand; bei inhaltlichen Änderungen dort bitte
-// hier kurz nachziehen. Noch nicht abgedeckt: Artefakte, Lorebegriffe/
-// Glossar, Chronik-Einzelkapitel (siehe offene Punkte im Nav-Plan).
+// hier kurz nachziehen. Noch nicht abgedeckt: einzelne Glossar-Begriffe
+// (nur die Seite selbst ist indiziert), Chronik-Einzelkapitel.
 window.SITE_SEARCH_INDEX = [
   // Seiten
   { type: 'Seite', label: 'Sanktuario', href: 'sanctuary.html' },
@@ -21,6 +21,17 @@ window.SITE_SEARCH_INDEX = [
   { type: 'Seite', label: 'Wissen', href: 'wissen.html' },
   { type: 'Seite', label: 'Kosmologie', href: 'wissen/kosmologie.html' },
   { type: 'Seite', label: 'Weltenstein', href: 'wissen/weltenstein.html' },
+  { type: 'Seite', label: 'Der Ewige Konflikt', href: 'wissen/der-ewige-konflikt.html' },
+  { type: 'Seite', label: 'Artefakte', href: 'wissen/artefakte.html' },
+  { type: 'Seite', label: 'Seelensteine', href: 'wissen/seelensteine.html' },
+  { type: 'Seite', label: 'Schwarzer Seelenstein', href: 'wissen/schwarzer-seelenstein.html' },
+  { type: 'Seite', label: 'Magie & Konzepte', href: 'wissen/magie-konzepte.html' },
+  { type: 'Seite', label: 'Vizjerei', href: 'wissen/vizjerei.html' },
+  { type: 'Seite', label: 'Religion & Lehren', href: 'wissen/religion-lehren.html' },
+  { type: 'Seite', label: 'Kathedrale des Lichts', href: 'wissen/kathedrale-des-lichts.html' },
+  { type: 'Seite', label: 'Triune', href: 'wissen/triune.html' },
+  { type: 'Seite', label: 'Zakarum', href: 'wissen/zakarum.html' },
+  { type: 'Seite', label: 'Glossar', href: 'wissen/glossar.html' },
 
   // Regionen
   { type: 'Region', label: 'Zersplitterte Gipfel', href: 'welt/zersplitterte-gipfel.html' },

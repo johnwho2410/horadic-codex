@@ -10,24 +10,57 @@
    vorbehalten) - Ruhe entsteht hier rein aus Typografie und Linien.
    Nutzt das site-weite --gold/--bone/--muted/--line/--ink-Farbschema. */
 
+/* Übergang von der Titelseite in den Lesetext: derselbe große, auf der
+   Texturkante sitzende Zier-Divider wie an den Chronik-Übergängen
+   (identische Mechanik wie .section-divider in css/voelker.css/
+   styles.css - hier als eigener Klassenname, da wissen.css bereits
+   eine kleinere .section-divider-Variante für einfache Hub-Seiten
+   definiert). Danach wechselt der Hintergrund von der Stein- auf die
+   Ledertextur, identisches Prinzip wie .sanctuary-bg-leather. */
+.codex-divider { display:block; position:relative; z-index:4; width:min(1680px,calc(100vw - 40px)); max-width:none; height:0; margin:0 auto; pointer-events:none; overflow:visible; }
+.codex-divider img {
+  content:url('../img/gemeinsam/section-divider-ornament-small.webp');
+  position:absolute; top:0; left:50%;
+  width:min(1680px,calc(100vw - 40px)); height:auto; display:block; z-index:1;
+  transform:translate(-50%,-47.8%);
+  filter:drop-shadow(0 4px 12px rgba(0,0,0,.7)) drop-shadow(0 0 6px rgba(196,154,80,.4));
+  opacity:.96;
+}
+.codex-divider::after {
+  content:""; position:absolute; z-index:2; top:0; left:50%; width:64px; height:64px;
+  transform:translate(-50%,-50%);
+  background:radial-gradient(circle,rgba(228,196,140,.75) 0%,rgba(196,154,80,.4) 40%,transparent 72%);
+  mix-blend-mode:screen; pointer-events:none;
+  animation:codex-divider-glow-pulse 8s ease-in-out infinite;
+}
+@keyframes codex-divider-glow-pulse { 0%,100% { opacity:.42; } 50% { opacity:1; } }
+@media (prefers-reduced-motion:reduce) { .codex-divider::after { animation:none; } }
+.codex-divider::before {
+  content:""; position:absolute; top:0; left:50%; width:100vw; height:14px;
+  transform:translate(-50%,-50%);
+  background:url('../img/gemeinsam/section-divider-line.webp') center/107.6% 70px no-repeat;
+  filter:drop-shadow(0 0 4px rgba(196,154,80,.35));
+}
+@media (max-width:680px) { .codex-divider { width:calc(100vw - 28px); } }
+.codex-bg-leather { padding-top:128px; background:linear-gradient(rgba(9,8,7,.55),rgba(9,8,7,.55)), url('../img/texturen/section-leather-seamless.webp') top center/1400px repeat; }
+@media (max-width:680px) { .codex-bg-leather { padding-top:96px; } }
+
 /* ─── Laufkopf: Brotkrümel als stille Kopfzeile, keine App-Bar ────── */
-/* max-width:1200px/padding:24px = --width-shell - identisch zu .nav,
-   damit die linke Kante hier exakt unter dem Logo landet, egal bei
-   welcher Viewport-Breite (gleiche Formel wie beim Logo selbst). */
-.codex-runhead { max-width:1200px; margin:0 auto; padding:36px 24px 0; text-align:left; color:#8e7c69; font:700 11px/1 system-ui,sans-serif; letter-spacing:.16em; text-transform:uppercase; }
+.codex-runhead { max-width:1200px; margin:0 auto; padding:36px 24px 0; text-align:center; color:#8e7c69; font:700 11px/1 system-ui,sans-serif; letter-spacing:.16em; text-transform:uppercase; }
 .codex-runhead a { color:#8e7c69; text-decoration:none; transition:color .2s ease; }
 .codex-runhead a:hover,.codex-runhead a:focus-visible { color:var(--gold); }
 .codex-runhead span[aria-current] { color:var(--muted); }
 .codex-runhead .codex-runhead__sep { margin:0 10px; color:#4a3c2e; }
 
 /* ─── Titelseite ("Frontispiz") ─────────────────────────────────────
-   .codex-article ist jetzt genauso breit/zentriert wie .nav (1200px =
-   --width-shell) - Titelseite, TOC und Fließtext hängen sich links daran
-   auf, statt als schmale Insel in der Bildschirmmitte zu schweben.
-   Innerhalb bleibt alles wie gehabt auf Lesebreite begrenzt und für sich
-   zentriert. */
+   .codex-article teilt seine Breite mit .nav (1200px = --width-shell),
+   Titelseite und Inhaltsverzeichnis bleiben aber - anders als der
+   Fließtext darunter - als eigene, in sich zentrierte Insel in der
+   Bildschirmmitte (nicht links an der Logo-Kante ausgerichtet). */
 .codex-article { max-width:1200px; margin:0 auto; padding:28px 24px 100px; }
-.codex-titlepage { max-width:640px; text-align:center; padding-bottom:40px; }
+.codex-article:has(+ .codex-divider) { padding-bottom:192px; }
+@media (max-width:680px) { .codex-article:has(+ .codex-divider) { padding-bottom:112px; } }
+.codex-titlepage { max-width:640px; margin:0 auto; text-align:center; padding-bottom:40px; }
 .codex-article-visual { max-width:300px; margin:0 auto 32px; }
 .codex-article-visual img { display:block; width:100%; height:auto; border:1px solid var(--line); filter:saturate(.8) contrast(1.05) brightness(.85); }
 .codex-eyebrow-line { display:block; color:var(--gold); font:700 .72rem/1 system-ui,sans-serif; letter-spacing:.18em; text-transform:uppercase; }
@@ -45,7 +78,7 @@
 .codex-meta div:last-child dd { margin-right:0; }
 
 /* ─── Inhalt als Buchregister, keine sticky Sidebar-Karte ─────────── */
-.codex-toc-details { max-width:640px; margin:0 0 48px; }
+.codex-toc-details { max-width:640px; margin:0 auto 48px; }
 .codex-toc-details summary { display:block; margin:0 auto 18px; width:max-content; cursor:pointer; list-style:none; color:var(--gold); font:700 .72rem/1 system-ui,sans-serif; letter-spacing:.18em; text-transform:uppercase; }
 .codex-toc-details summary::-webkit-details-marker { display:none; }
 .codex-toc-details summary::before { content:"— "; color:#6b5233; }
@@ -65,22 +98,32 @@
    einmal am Artikelende aufzutauchen. Kollabiert unter 980px zu einer
    normalen End-of-Article-Liste. */
 .codex-layout { max-width:1200px; margin:0 auto; padding:0 24px; display:grid; grid-template-columns:minmax(0,1fr) 300px; justify-content:start; gap:64px; align-items:start; }
-.codex-prose { max-width:720px; margin:0; }
-.codex-prose > * + * { margin-top:22px; }
-.codex-prose h2 { margin-top:64px; text-align:center; font-size:clamp(1.5rem,3vw,1.9rem); }
-.codex-prose h2 + * { margin-top:22px; }
-.codex-chapter-num { display:block; margin-bottom:8px; color:#6e5f4f; font:700 .72rem/1 system-ui,sans-serif; letter-spacing:.2em; }
-.codex-prose h2::after { content:"◆"; display:block; width:max-content; margin:14px auto 0; color:#7f2b20; font:400 .6rem/1 'Spectral',Georgia,serif; text-shadow:11px 0 #4d2d24,-11px 0 #4d2d24; }
-.codex-prose h3 { margin-top:34px; text-align:center; font-size:1.2rem; }
-.codex-prose p { color:#cabfae; line-height:var(--type-leading,1.7); text-align:justify; hyphens:auto; }
-.codex-prose ul,.codex-prose ol { margin:0; padding-left:1.3em; color:#cabfae; line-height:var(--type-leading,1.7); }
-.codex-prose li + li { margin-top:8px; }
 
-/* Initiale auf dem ersten Absatz nach der Titelseite - Manuskript-Charakter,
-   identisches Prinzip wie .lore-lead auf sanctuary.html. */
-.codex-prose > p:first-of-type::first-letter {
-  float:left; margin:.02em .09em 0 0; color:var(--gold);
-  font-family:'Marcellus',Georgia,serif; font-size:calc(3.2em + 1px); line-height:.82;
+/* ─── Typografischer Rhythmus ───────────────────────────────────────
+   Eine Basiseinheit (--rhythm, an Schriftgröße/Zeilenhöhe gekoppelt)
+   statt beliebiger Pixelwerte - Standard-Vertikalrhythmus: Absätze
+   erhalten 1x, Kapitelüberschriften ein Vielfaches davon, Zwischen-
+   überschriften etwas weniger. Schriftgröße/Zeilenhöhe selbst leicht
+   großzügiger als der Standard-Fließtext der Seite (bessere Leselänge
+   bei den bewusst längeren Wissen-/Archiv-Artikeln). */
+.codex-prose { max-width:720px; margin:0; font-size:calc(1.08rem + 1px); line-height:1.8; --rhythm:1.85rem; }
+.codex-prose > * + * { margin-top:var(--rhythm); }
+.codex-prose h2 { margin-top:calc(var(--rhythm) * 3.4); text-align:center; font-size:clamp(1.5rem,3vw,1.9rem); }
+.codex-prose h2 + * { margin-top:calc(var(--rhythm) * .85); }
+.codex-chapter-num { display:block; margin-bottom:10px; color:#6e5f4f; font:700 .72rem/1 system-ui,sans-serif; letter-spacing:.2em; }
+.codex-prose h2::after { content:""; display:block; width:64px; height:1px; margin:18px auto 0; background:linear-gradient(90deg,transparent,var(--gold),transparent); }
+.codex-prose h3 { margin-top:calc(var(--rhythm) * 1.7); text-align:center; font-size:1.2rem; }
+.codex-prose h3 + * { margin-top:calc(var(--rhythm) * .7); }
+.codex-prose p { color:#cabfae; line-height:inherit; text-align:justify; hyphens:auto; }
+.codex-prose ul,.codex-prose ol { margin:0; padding-left:1.3em; color:#cabfae; line-height:inherit; }
+.codex-prose li + li { margin-top:.5em; }
+
+/* Initiale zu Beginn JEDES Kapitels (nicht nur des Artikelanfangs) -
+   Manuskript-Charakter, identisches Prinzip wie .lore-lead auf
+   sanctuary.html. Greift am ersten Absatz nach jeder Kapitelüberschrift. */
+.codex-prose h2 + p::first-letter {
+  float:left; margin:.02em .1em 0 0; color:var(--gold);
+  font-family:'Marcellus',Georgia,serif; font-size:calc(3.4em + 1px); line-height:.78;
 }
 
 .codex-link { color:var(--gold); text-decoration:underline; text-decoration-color:rgba(196,154,80,.4); text-underline-offset:3px; transition:text-decoration-color .2s ease; }
@@ -90,16 +133,31 @@
 .codex-figure img { display:block; max-width:420px; width:100%; height:auto; margin:0 auto; border:1px solid var(--line); filter:saturate(.8) contrast(1.05) brightness(.85); }
 .codex-figure figcaption { margin-top:10px; color:#8f7f6c; font:400 italic .96rem/1.4 'Jim Nightshade','Spectral',Georgia,serif; }
 
-.codex-quote { margin:32px 0; padding:2px 0 2px 26px; border-left:2px solid #4d392f; }
-.codex-quote p { margin:0; color:#d9cbb8; font:400 italic 1.1rem/1.5 'Spectral',Georgia,serif; text-align:left; }
-.codex-quote cite { display:block; margin-top:10px; color:#6e5f4f; font:700 11px/1 system-ui,sans-serif; letter-spacing:.1em; text-transform:uppercase; font-style:normal; }
+/* Zitat als ruhige visuelle Pause zwischen Kapiteln - zentriert, kein
+   Kasten, kein Panel, nur eine kleine Linie darüber. */
+.codex-quote { margin:48px 0; padding:0; border:0; text-align:center; }
+.codex-quote::before { content:""; display:block; width:40px; height:1px; margin:0 auto 22px; background:var(--line); }
+.codex-quote p { margin:0; color:#d9cbb8; font:400 italic 1.35rem/1.55 'Spectral',Georgia,serif; }
+.codex-quote cite { display:block; margin-top:14px; color:#6e5f4f; font:700 11px/1 system-ui,sans-serif; letter-spacing:.14em; text-transform:uppercase; font-style:normal; }
 
 .codex-note { margin:32px 0; padding:2px 0 2px 26px; border-left:2px solid var(--blood,#a5261c); }
 .codex-note p,.codex-note { color:#c7b8a7; text-align:left; }
 .codex-note strong { display:block; margin-bottom:4px; color:#a06356; font:700 11px/1 system-ui,sans-serif; letter-spacing:.11em; text-transform:uppercase; }
 
-.codex-sources { margin-top:56px; padding-top:16px; border-top:1px solid var(--line); color:#6e5f4f; font-size:13px; text-align:center; }
-.codex-sources strong { color:#8e7c69; }
+/* Quellenapparat: kompakte zweispaltige Liste (Quelle + Kategorie),
+   keine Card, kein Panel - kleiner und ruhiger als der Artikel selbst. */
+.codex-sources { max-width:640px; margin:56px auto 0; padding-top:20px; border-top:1px solid var(--line); display:grid; grid-template-columns:1fr auto; gap:9px 24px; }
+.codex-sources-label { grid-column:1/-1; display:block; margin-bottom:5px; color:var(--gold); font:700 .68rem/1 system-ui,sans-serif; letter-spacing:.15em; text-transform:uppercase; text-align:center; }
+.codex-sources dt { color:#c2b6a6; font:400 .92rem/1.4 'Spectral',Georgia,serif; }
+.codex-sources dt::before { content:"— "; color:#4a3c2e; }
+.codex-sources dd { margin:0; color:#6e5f4f; font:400 italic .82rem/1.4 'Spectral',Georgia,serif; text-align:right; white-space:nowrap; }
+.codex-sources div { display:contents; }
+
+@media (max-width:520px) {
+  .codex-sources { grid-template-columns:1fr; }
+  .codex-sources dd { text-align:left; }
+  .codex-sources dd::before { content:"· "; }
+}
 
 .codex-placeholder { margin:32px 0; padding:16px 20px; border:1px dashed var(--line); color:#8a7c6a; font:600 .84rem/1.5 system-ui,sans-serif; letter-spacing:.02em; text-align:left; }
 .codex-placeholder::before { content:"Platzhalter — "; color:var(--gold); font-weight:700; }
@@ -119,20 +177,32 @@
 .codex-crossrefs-list a:hover,.codex-crossrefs-list a:focus-visible { color:var(--gold); border-color:var(--gold); }
 
 /* Randspalten-Variante: vertikal, klebt neben dem Fließtext statt einmalig
-   am Ende zu erscheinen. */
-.codex-margin { position:sticky; top:120px; }
+   am Ende zu erscheinen. Chevron (›) statt Card-Look - reine Textliste
+   mit dünner Trennlinie darüber, keine geschlossene Box. */
+.codex-margin { position:sticky; top:120px; display:grid; gap:44px; }
 .codex-crossrefs--margin { max-width:none; margin:0; padding:0; border:0; text-align:left; }
 .codex-crossrefs--margin .codex-crossrefs-label { text-align:left; }
 .codex-crossrefs--margin .codex-crossrefs-list { flex-direction:column; align-items:flex-start; gap:13px; }
-.codex-crossrefs--margin .codex-crossrefs-list a { font-size:.94rem; border-bottom:0; padding-bottom:0; }
-.codex-crossrefs--margin .codex-crossrefs-list a:hover,.codex-crossrefs--margin .codex-crossrefs-list a:focus-visible { text-decoration:underline; text-decoration-color:rgba(196,154,80,.4); }
+.codex-crossrefs--margin .codex-crossrefs-list a { display:flex; align-items:center; gap:6px; font:400 .95rem/1.3 'Marcellus',Georgia,serif; text-transform:none; letter-spacing:.01em; border-bottom:0; padding-bottom:0; }
+.codex-crossrefs--margin .codex-crossrefs-list a::after { content:"›"; color:#6e5f4f; transition:color .2s ease,transform .2s ease; }
+.codex-crossrefs--margin .codex-crossrefs-list a:hover,.codex-crossrefs--margin .codex-crossrefs-list a:focus-visible { text-decoration:none; }
+.codex-crossrefs--margin .codex-crossrefs-list a:hover::after,.codex-crossrefs--margin .codex-crossrefs-list a:focus-visible::after { color:var(--gold); transform:translateX(3px); }
+
+/* "Am Rand": kurze erklärende Randnotiz, kein Card-Panel - nur eine
+   dünne obere Linie, kleine Überschrift, ruhiger Fließtext. */
+.codex-margin-note { padding-top:20px; border-top:1px solid var(--line); }
+.codex-margin-note-label { display:block; margin-bottom:14px; color:var(--gold); font:700 .68rem/1 system-ui,sans-serif; letter-spacing:.15em; text-transform:uppercase; }
+.codex-margin-note h3 { margin:0 0 10px; font-size:1.05rem; letter-spacing:.01em; }
+.codex-margin-note p { margin:0; color:#a99b89; font-size:.86rem; line-height:1.6; }
 
 @media (max-width:980px) {
   .codex-layout { grid-template-columns:minmax(0,640px); }
-  .codex-margin { position:static; margin-top:56px; }
+  .codex-margin { position:static; margin-top:56px; gap:40px; }
+  .codex-margin-note { max-width:640px; margin:0 auto; }
   .codex-crossrefs--margin { max-width:640px; margin:0 auto; padding-top:28px; border-top:1px solid var(--line); text-align:center; }
   .codex-crossrefs--margin .codex-crossrefs-label { text-align:center; }
   .codex-crossrefs--margin .codex-crossrefs-list { flex-direction:row; flex-wrap:wrap; justify-content:center; }
+  .codex-crossrefs--margin .codex-crossrefs-list a { justify-content:center; }
 }
 
 @media (max-width:680px) {

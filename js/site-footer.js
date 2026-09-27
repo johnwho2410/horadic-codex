@@ -52,6 +52,7 @@
           <a href="${resolveHref(extra.href, base)}">${extra.label}</a>
           <a href="${resolveHref('impressum.html', base)}">Impressum</a>
           <a href="${resolveHref('datenschutz.html', base)}">Datenschutz</a>
+          <a href="${resolveHref('ueber-ki.html', base)}">Über KI</a>
         </nav>
         <a class="backtop" href="#top">Nach oben ↑</a>
       </div>

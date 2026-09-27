@@ -51,6 +51,19 @@ h1 { max-width:820px; margin:16px 0 0; font-size:clamp(2.2rem,5vw,3.4rem); }
 .legal a:hover { color:#e0b563; }
 .legal .legal-updated { margin-top:60px; padding-top:16px; border-top:1px solid var(--line); color:#8e7c69; font-size:var(--type-small); }
 
+/* ─── "Ein Wort zu KI": persönliche Notiz statt Rechtstext ─────────
+   Schmalere Lesebreite (--width-prose) als die übrigen Rechtsseiten,
+   Portrait rechtsbündig im Textfluss, kein neues Kartenmodul. */
+.ueber-ki { max-width:var(--width-prose); }
+.ueber-ki-portrait { float:right; margin:0 0 20px 28px; width:clamp(160px,26vw,220px); }
+.ueber-ki-portrait img { display:block; width:100%; height:auto; border:1px solid var(--line); filter:saturate(.85) contrast(1.03) brightness(.92); }
+.ueber-ki-portrait figcaption { margin-top:8px; color:#8e7c69; font:400 italic .82rem/1.4 'Spectral',Georgia,serif; text-align:center; }
+.ueber-ki-signature { margin-top:40px; color:var(--bone); font-style:italic; }
+
+@media (max-width:560px) {
+  .ueber-ki-portrait { float:none; width:min(220px,60vw); margin:0 auto 24px; }
+}
+
 footer { margin-top:0; border-top:1px solid var(--line); background:#080706; }
 .footer-inner { max-width:var(--width-shell); margin:auto; padding:35px 24px; display:flex; flex-wrap:wrap; justify-content:space-between; align-items:flex-end; gap:24px; color:#776d61; font:500 calc(.74rem + 1px)/1.5 system-ui,sans-serif; }
 .footer-notice { display:flex; flex-direction:column; gap:6px; max-width:var(--width-narrow); }

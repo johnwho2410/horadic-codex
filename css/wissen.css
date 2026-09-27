@@ -103,3 +103,21 @@ a.wissen-topic:hover strong,a.wissen-topic:focus-visible strong,a.wissen-topic:h
   .wissen-registers,.wissen-topics { padding-left:18px; padding-right:18px; }
   .wissen-register-head { flex-direction:column; align-items:flex-start; }
 }
+
+/* ─── Glossar: alphabetisch gruppierte Begriffsliste ──────────────── */
+.wissen-glossary { max-width:var(--width-shell); margin:56px auto 0; padding:0 24px 90px; }
+.wissen-glossary-group { padding-top:28px; border-top:1px solid var(--line); }
+.wissen-glossary-group + .wissen-glossary-group { margin-top:36px; }
+.wissen-glossary-letter { display:block; margin-bottom:16px; color:var(--gold); font:400 1.6rem/1 'Marcellus',Georgia,serif; }
+.wissen-glossary-entry { padding:16px 0; border-bottom:1px solid rgba(99,72,48,.5); }
+.wissen-glossary-entry:last-child { border-bottom:0; }
+.wissen-glossary-entry dt { display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; }
+.wissen-glossary-entry dt strong { font:400 1.15rem/1.1 'Marcellus',Georgia,serif; text-transform:uppercase; letter-spacing:.02em; }
+.wissen-glossary-entry dt span { color:#6e5f4f; font:700 10px/1.6 system-ui,sans-serif; letter-spacing:.1em; text-transform:uppercase; }
+.wissen-glossary-entry dd { margin:8px 0 0; color:var(--muted); line-height:var(--type-leading); }
+.wissen-glossary-entry dd a { color:var(--gold); text-decoration:none; border-bottom:1px solid rgba(196,154,80,.4); }
+.wissen-glossary-entry dd a:hover { border-color:var(--gold); }
+
+@media (max-width:680px) {
+  .wissen-glossary { padding-left:18px; padding-right:18px; }
+}
