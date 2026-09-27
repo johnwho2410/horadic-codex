@@ -1,0 +1,31 @@
+@font-face{font-family:Diablo;src:url('../img/gemeinsam/diablo-heavy.ttf') format('truetype');font-display:swap}
+:root{--bone:#eee6d8;--muted:#aa9c8b;--gold:#c49a50;--line:#463328;--ink:#090807}
+*{box-sizing:border-box}
+body{margin:0;color:var(--bone);font:400 calc(1rem + 1px)/1.6 'Spectral',Georgia,serif;background:#080503 url('../img/texturen/section-leather-seamless.webp') center/1400px repeat}
+body:before{content:"";position:fixed;inset:0;z-index:-1;background:rgba(8,5,3,.7)}
+a{color:inherit}
+.intro{max-width:1200px;margin:auto;padding:82px 24px 38px}
+.eyebrow{display:flex;align-items:center;gap:8px;color:var(--gold);font:700 calc(.7rem + 1px)/1 system-ui,sans-serif;text-transform:uppercase;letter-spacing:.15em}
+h1,h2{font-family:'Marcellus',Diablo,Georgia,serif;font-weight:400;text-transform:uppercase;hyphens:none}
+h1{max-width:900px;margin:18px 0;font-size:clamp(3rem,7vw,5.4rem);line-height:.95}
+.intro p{max-width:670px;color:#c5b8a8;font-size:calc(1.05rem + 1px)}
+
+.grid{max-width:1200px;margin:auto;padding:24px 24px 90px;display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.card{position:relative;min-height:340px;display:flex;flex-direction:column;justify-content:flex-end;padding:24px;overflow:hidden;border:1px solid var(--line);text-decoration:none;background:#120e0b;transition:.25s}
+.card:before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(0deg,#0b0908 5%,rgba(11,9,8,.84) 37%,transparent 75%)}
+.card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(.75) brightness(.72);transition:.35s}
+.card>*:not(img){position:relative;z-index:2}
+.card span,.card b{font:700 12px/1.3 system-ui,sans-serif;text-transform:uppercase;letter-spacing:.1em}
+.card span{color:var(--gold)}
+.card h2{margin:11px 0 18px;font-size:clamp(1.4rem,2vw,1.9rem);line-height:1}
+.card b{color:#bc8c69}
+.card:hover{transform:translateY(-4px);border-color:#9a5942}
+.card:hover img{transform:scale(1.035);filter:saturate(.9) brightness(.8)}
+
+.card.is-disabled{cursor:default;opacity:.6}
+.card.is-disabled:hover{transform:none;border-color:var(--line)}
+.card.is-disabled:hover img{transform:none;filter:saturate(.75) brightness(.72)}
+.card-badge{display:inline-block;margin-left:10px;padding:2px 8px;color:var(--muted);font:700 10px/1.6 system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--line);vertical-align:middle}
+
+@media(max-width:980px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.intro{padding-top:55px}.grid{grid-template-columns:1fr}.card{min-height:360px}}

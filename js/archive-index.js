@@ -130,7 +130,7 @@
 
   const groups = [
     { id: 'factions', label: 'Fraktionen', category: 'Fraktion' },
-    { id: 'figures', label: 'Persönlichkeiten', category: 'Persönlichkeit' }
+    { id: 'figures', label: 'Personen', category: 'Person' }
   ];
 
   const index = document.querySelector('#archive-index');
@@ -260,5 +260,9 @@
     selectEntry(activeIndex + (direction ? 1 : -1), true);
   }));
 
-  selectEntry(0);
+  // Deep-Link-Unterstützung: #personen / #fraktionen wählt beim Laden die
+  // passende Gruppe vor (genutzt vom Archiv-Hub und den Mega-Menü-Links).
+  const hashGroup = { personen: 'figures', fraktionen: 'factions' }[location.hash.slice(1)];
+  const initialIndex = hashGroup ? entries.findIndex((entry) => entry.group === hashGroup) : 0;
+  selectEntry(initialIndex === -1 ? 0 : initialIndex);
 })();

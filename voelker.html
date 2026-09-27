@@ -11,12 +11,10 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marcellus&family=Spectral:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
   <link rel="stylesheet" href="css/voelker.css">
   <link rel="stylesheet" href="css/codex-module.css">
-</head>
+<link rel="stylesheet" href="css/site-nav.css"></head>
 <body>
   <svg class='svg-filter-defs' aria-hidden='true' focusable='false' width='0' height='0'><filter id='grunge' x='-15%' y='-15%' width='130%' height='130%'><feTurbulence type='fractalNoise' baseFrequency='0.09' numOctaves='3' seed='7' result='noise'></feTurbulence><feDisplacementMap in='SourceGraphic' in2='noise' scale='4.5' xChannelSelector='R' yChannelSelector='G'></feDisplacementMap></filter></svg>
-  <header class="topbar">
-    <nav class="nav" aria-label="Hauptnavigation"><a class="brand" href="index.html"><img src="img/gemeinsam/logo-crop.webp" alt="The Horadric Codex" class="brand-logo"></a><button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav-links">Menü</button><div class="nav-links" id="nav-links"><a href="sanctuary.html">Sanktuario</a><a href="himmel.html">Die Hohen Himmel</a><a href="hoelle.html">Die Hölle</a><a href="persoenlichkeiten.html">Persönlichkeiten</a><a href="index.html#wissen">Wissen</a><a href="index.html#links">Links</a></div></nav>
-  </header>
+  <div id="site-header" data-base="" data-active="archiv"></div>
 
   <header class="region-hero" role="img" aria-label="Ein aufgeschlagener horadrischer Bestiarium-Folio mit Studien von Menschen, Umbaru, Lacuni, einem Geist und einer verfluchten Kreatur">
     <div class="region-hero-content">
@@ -98,18 +96,19 @@
     </div>
   </main>
 
-  <footer><div class="footer-inner">
-    <div class="footer-notice">
-      <span>Inoffizielles Fan-Kompendium. Diablo und alle zugehörigen Namen sind Marken von Blizzard Entertainment. Spiel-Artworks, Screenshots und Icons © Blizzard Entertainment, genutzt im Rahmen der Fan Content Policy.</span>
-      <span>Icons von <a href="https://www.onlinewebfonts.com/icon" target="_blank" rel="noopener">onlinewebfonts.com</a>, lizenziert unter CC BY 4.0.</span>
+  <section class="codex-related" aria-label="Weiterführend im Codex">
+    <span class="codex-related__title">Weiterführend im Codex</span>
+    <div class="codex-related__grid">
+      <a class="codex-related__card" href="archiv.html"><small>Archiv</small><strong>Das Archiv im Überblick</strong></a>
+      <a class="codex-related__card" href="persoenlichkeiten.html#personen"><small>Personen</small><strong>Schlüsselfiguren Sanktuarios</strong></a>
+      <a class="codex-related__card" href="persoenlichkeiten.html#fraktionen"><small>Fraktionen</small><strong>Orden, Kulte und Organisationen</strong></a>
+      <a class="codex-related__card" href="sanctuary.html"><small>Sanktuario</small><strong>Chronik, Welt und Kulturen</strong></a>
     </div>
-    <div class="footer-meta">
-      <nav class="footer-links" aria-label="Rechtliches"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></nav>
-      <a class="backtop" href="#top">Nach oben ↑</a>
-    </div>
-  </div></footer>
+  </section>
 
-<script src="js/nav.js" defer></script>
+  <div id="site-footer" data-base=""></div>
+
+<script src="js/site-nav-data.js" defer></script><script src="js/site-header.js" defer></script><script src="js/site-footer.js" defer></script><script src="js/search-index.js" defer></script><script src="js/site-search.js" defer></script>
 <script src="js/subnav.js" defer></script>
 <script src="js/monster-index.js" defer></script>
 </body>
