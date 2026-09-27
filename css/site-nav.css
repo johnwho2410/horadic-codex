@@ -1,3 +1,15 @@
+/* Lokal gehostet statt über Google Fonts nachgeladen (vorher uneinheitlich:
+   nur voelker.css hatte diese Deklaration lokal) - läuft so auch bei
+   geblocktem fonts.googleapis.com zuverlässig, auf jeder Seite gleich,
+   da site-nav.css überall eingebunden ist. */
+@font-face {
+  font-family:'Jim Nightshade';
+  src:url('../fonts/JimNightshade-Regular.ttf') format('truetype');
+  font-style:normal;
+  font-weight:400;
+  font-display:swap;
+}
+
 /* ─── Zentrale Header-/Mega-Menü-/Such-/Cross-Link-Komponente ────────────
    Eigener, vollständiger Token-Satz (--nav-*), damit diese Komponente
    unabhängig davon funktioniert, welche Variablen die jeweilige Seite
