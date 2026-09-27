@@ -6,7 +6,7 @@
   const monsters = [
     'Banditen', 'Kannibalen', 'Kultisten', 'Dämonen', 'Ertrunkene', 'Gefallene',
     'Geister', 'Ziegenmenschen', 'Skelette', 'Schlangen', 'Spinnen', 'Vampire',
-    'Werwölfe', 'Zombies', 'Ritter der Buße', 'Maden & Brut', 'Fliegen & Schwärme',
+    'Werwölfe', 'Zombies', 'Ritter der Reue', 'Maden & Brut', 'Fliegen & Schwärme',
     'Wildnisbestien'
   ].map((name) => ({
     id: name.toLocaleLowerCase('de-DE').replace(/ä/g, 'ae').replace(/ö/g, 'oe').replace(/ü/g, 'ue').replace(/ß/g, 'ss').replace(/[^a-z0-9]+/g, '-'),
@@ -372,12 +372,12 @@
     traits: 'Beschädigte Plattenrüstungen, Kiteschilde, Streitkolben, Hellebarden, Armbrüste und Bußketten',
     variants: 'Schildträger, Hellebardier, Armbrustschütze, Büßer und schwerer Wächter',
     description: [
-      'Die Ritter der Buße tragen noch immer die Formen alter Ordnung: Wappen, Rüstungen und die Sprache des Schutzes. Doch an vielen verlassenen Wegen Sanktuarios sind diese Zeichen nur noch Hüllen. Ihre Helme sind stumpf, ihre Schilde geflickt, und die Gelübde, die sie einst banden, haben sich in eine stumme Härte verwandelt.',
+      'Die Ritter der Reue tragen noch immer die Formen alter Ordnung: Wappen, Rüstungen und die Sprache des Schutzes. Doch an vielen verlassenen Wegen Sanktuarios sind diese Zeichen nur noch Hüllen. Ihre Helme sind stumpf, ihre Schilde geflickt, und die Gelübde, die sie einst banden, haben sich in eine stumme Härte verwandelt.',
       'Im Gefecht bewegen sie sich nicht wie eine zufällige Wache. Schildträger halten einen Durchgang, Hellebardiere erreichen über die erste Reihe hinweg ihr Ziel, und Armbrustschützen bestrafen jeden, der sich zu weit aus der Deckung löst. Ihre Disziplin bleibt erhalten, auch wenn ihre Sache längst verloren scheint.',
       'Feldnotiz: Nicht den Schild als einzelne Mauer behandeln. Der Ritter davor hält nur die Linie, damit die Waffe dahinter ihren Winkel findet. Seitlich ausweichen, die Formation öffnen und erst dann den schweren Träger stellen.'
     ],
     image: 'img/bestiarium/ritter/ritter-hauptstudie-pergament-freigestellt.webp',
-    imageAlt: 'Pergamentstudie dreier Ritter der Buße auf einem verwitterten Pilgerweg',
+    imageAlt: 'Pergamentstudie dreier Ritter der Reue auf einem verwitterten Pilgerweg',
     studies: [
       {
         image: 'img/bestiarium/ritter/ritter-kriegsgeraet-pergament-freigestellt.webp',
