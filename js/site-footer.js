@@ -44,14 +44,15 @@
 
     root.outerHTML = `<footer><div class="footer-inner">
       <div class="footer-notice">
-        <span>Inoffizielles Fan-Kompendium. Diablo und alle zugehörigen Namen sind Marken von Blizzard Entertainment. Spiel-Artworks, Screenshots und Icons © Blizzard Entertainment, genutzt im Rahmen der Fan Content Policy.</span>
-        <span>Icons von <a href="https://www.onlinewebfonts.com/icon" target="_blank" rel="noopener">onlinewebfonts.com</a>, lizenziert unter CC BY 4.0.</span>
+        <p>Inoffizielles Fan-Kompendium. Diablo und alle zugehörigen Namen sind Marken von Blizzard Entertainment. Spiel-Artworks, Screenshots und Icons © Blizzard Entertainment, genutzt im Rahmen der Fan Content Policy.</p>
+        <p>Icons von <a href="https://www.onlinewebfonts.com/icon" target="_blank" rel="noopener">onlinewebfonts.com</a>, lizenziert unter CC BY 4.0.</p>
       </div>
       <div class="footer-meta">
         <nav class="footer-links" aria-label="Rechtliches und weiteres">
           <a href="${resolveHref(extra.href, base)}">${extra.label}</a>
           <a href="${resolveHref('impressum.html', base)}">Impressum</a>
           <a href="${resolveHref('datenschutz.html', base)}">Datenschutz</a>
+          <a href="${resolveHref('quellen.html', base)}">Quellen</a>
           <a href="${resolveHref('ueber-ki.html', base)}">Über KI</a>
         </nav>
         <a class="backtop" href="#top">Nach oben ↑</a>

@@ -409,9 +409,10 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
   }
 }
 /* ─── Footer (site-weit einheitlich) ───────────────────────────── */
-footer { margin-top:60px; border-top:1px solid var(--line); background:#080706; }
+footer { margin-top:60px; border-top:1px solid var(--line); background:linear-gradient(rgba(8,7,6,.85),rgba(8,7,6,.85)), url('../img/texturen/section-wood-seamless.webp') top center/900px repeat; }
 .footer-inner { max-width:1200px; margin:auto; padding:35px 24px; display:flex; flex-wrap:wrap; justify-content:space-between; align-items:flex-end; gap:24px; color:#776d61; font:500 calc(.74rem + 1px)/1.5 system-ui,sans-serif; }
 .footer-notice { display:flex; flex-direction:column; gap:6px; max-width:640px; }
+.footer-notice p { margin:0; }
 .footer-inner a { color:#ae9d89; }
 .footer-meta { display:flex; flex-direction:column; align-items:flex-end; gap:10px; }
 .footer-links { display:flex; gap:16px; }

@@ -45,7 +45,7 @@ window.SITE_NAV = {
         entries: [
           { label: 'Kosmologie', desc: 'Anu, Tathamet, Schöpfung, Ewiger Konflikt', href: 'wissen/kosmologie.html' },
           { label: 'Artefakte', desc: 'Weltenstein, Seelensteine und bedeutende Relikte', href: 'wissen/artefakte.html' },
-          { label: 'Magie & Konzepte', desc: 'Metaphysische und magische Grundlagen', href: 'wissen/magie-konzepte.html' },
+          { label: 'Magie & Mystik', desc: 'Metaphysische und magische Grundlagen', href: 'wissen/magie-konzepte.html' },
           { label: 'Religion & Lehren', desc: 'Glaubenssysteme und Lehren Sanktuarios', href: 'wissen/religion-lehren.html' },
           { label: 'Glossar', desc: 'Begriffe und kurze Erklärungen', href: 'wissen/glossar.html' }
         ]

@@ -344,7 +344,7 @@
     .link-card small { color:#987c62; font:700 12px/1 system-ui,sans-serif; letter-spacing:.12em; text-transform:uppercase; }
     .link-card h3 { margin-top:28px; font-size:1.35rem; }
     .link-card p { color:var(--muted); margin:9px 0 0; }
-    footer { position:relative; margin-top:60px; border-top:1px solid var(--line); background:#080706; }
+    footer { position:relative; margin-top:60px; border-top:1px solid var(--line); background:linear-gradient(rgba(8,7,6,.85),rgba(8,7,6,.85)), url('../img/texturen/section-wood-seamless.webp') top center/900px repeat; }
     /* Winziges, kaum sichtbares Easter Egg: fast unsichtbar in der Footer-Ecke,
        Farbe nahe am Footer-Hintergrund, hellt erst bei Hover/Fokus sichtbar
        auf. Führt zur versteckten Kuh-Ebene-Seite. */
@@ -353,6 +353,7 @@
     .footer-rune:hover,.footer-rune:focus-visible { opacity:1; filter:none; }
     .footer-inner { max-width:var(--width-shell); margin:auto; padding:35px 24px; display:flex; flex-wrap:wrap; justify-content:space-between; align-items:flex-end; gap:24px; color:#776d61; font:500 calc(.74rem + 1px)/1.5 system-ui,sans-serif; }
     .footer-notice { display:flex; flex-direction:column; gap:6px; max-width:var(--width-narrow); }
+    .footer-notice p { margin:0; }
     .footer-inner a { color:#ae9d89; }
     .footer-meta { display:flex; flex-direction:column; align-items:flex-end; gap:10px; }
     .footer-links { display:flex; gap:16px; }

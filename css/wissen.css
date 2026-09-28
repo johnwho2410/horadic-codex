@@ -121,3 +121,19 @@ a.wissen-topic:hover strong,a.wissen-topic:focus-visible strong,a.wissen-topic:h
 @media (max-width:680px) {
   .wissen-glossary { padding-left:18px; padding-right:18px; }
 }
+
+/* ─── Footer (identisch zu legal.css/persoenlichkeiten.css) ────────── */
+footer { margin-top:0; border-top:1px solid var(--line); background:linear-gradient(rgba(8,7,6,.85),rgba(8,7,6,.85)), url('../img/texturen/section-wood-seamless.webp') top center/900px repeat; }
+.footer-inner { max-width:var(--width-shell); margin:auto; padding:35px 24px; display:flex; flex-wrap:wrap; justify-content:space-between; align-items:flex-end; gap:24px; color:#776d61; font:500 calc(.74rem + 1px)/1.5 system-ui,sans-serif; }
+.footer-notice { display:flex; flex-direction:column; gap:6px; max-width:var(--width-narrow); }
+.footer-notice p { margin:0; }
+.footer-inner a { color:#ae9d89; }
+.footer-meta { display:flex; flex-direction:column; align-items:flex-end; gap:10px; }
+.footer-links { display:flex; gap:16px; }
+.footer-links a { text-transform:uppercase; letter-spacing:.08em; font-weight:700; }
+.backtop { text-transform:uppercase; letter-spacing:.08em; text-decoration:none; }
+
+@media (max-width:680px) {
+  .footer-inner { flex-direction:column; align-items:flex-start; }
+  .footer-meta { align-items:flex-start; }
+}
