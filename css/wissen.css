@@ -50,7 +50,7 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
 /* Themen-Kirchenfenster: dasselbe Headerbild bei jeder Wissen-Unterseite,
    nur auf Themenseiten (Kosmologie, Weltenstein, ...) zusätzlich mit
    einem passenden Fenster in der dunklen Mittelfläche des Headers. */
-.region-hero-emblem { position:absolute; z-index:1; top:6%; left:50%; transform:translateX(-50%); width:min(300px,24vw); pointer-events:none; }
+.region-hero-emblem { position:absolute; z-index:1; top:4%; left:50%; transform:translateX(-50%); width:min(420px,34vw); pointer-events:none; }
 .region-hero-emblem img { display:block; width:100%; height:auto; filter:drop-shadow(0 18px 36px rgba(0,0,0,.65)); }
 
 @media (max-width:860px) {
