@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marcellus&family=Spectral:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
   <link rel="stylesheet" href="css/hoelle.css">
+  <link rel="stylesheet" href="css/codex-module.css">
 <link rel="stylesheet" href="css/site-nav.css"></head>
 <body>
   <svg class='svg-filter-defs' aria-hidden='true' focusable='false' width='0' height='0'><filter id='grunge' x='-15%' y='-15%' width='130%' height='130%'><feTurbulence type='fractalNoise' baseFrequency='0.09' numOctaves='3' seed='7' result='noise'></feTurbulence><feDisplacementMap in='SourceGraphic' in2='noise' scale='4.5' xChannelSelector='R' yChannelSelector='G'></feDisplacementMap></filter></svg>
@@ -140,94 +141,54 @@
       </div>
     </div>
 
-    <section class="block" id="geringe-uebel">
-      <div class="book-section-label">
-        <span class="bsl-line"></span>
-        <span class="bsl-text">Die Vier Geringen Übel</span>
-        <span class="bsl-line"></span>
+    <div class="hell-bg-wood">
+    <section class="uebel-archive" id="geringe-uebel">
+      <div class="block uebel-archive-inner">
+        <div class="block-head">
+          <span class="eyebrow">Horadrisches Archiv</span>
+          <h2>Die Vier Geringen Übel</h2>
+          <p>Wählt ein Übel im Register, um den zugehörigen Archivbogen aufzuschlagen.</p>
+        </div>
+
+        <article class="codex-folio codex-folio--uebel" id="uebel-study" aria-live="polite" aria-labelledby="uebel-name">
+          <aside class="codex-folio__tabs" aria-label="Register der Geringen Übel">
+            <span class="codex-folio__tabs-label">Register der Übel</span>
+            <div class="codex-folio__tabs-list" id="uebel-index" aria-label="Geringe Übel"></div>
+          </aside>
+          <div class="codex-folio__book">
+            <div class="codex-folio__spread">
+              <section class="codex-folio__page codex-folio__page--left" aria-label="Dämonenstudie und Merkmale">
+                <figure class="codex-folio__image" id="uebel-illustration">
+                  <span class="codex-folio__image-frame" aria-hidden="true"></span>
+                  <img class="sketch" id="uebel-image-sketch" alt="" loading="eager">
+                  <img class="color" id="uebel-image-color" alt="" loading="lazy">
+                  <video class="anim" id="uebel-image-anim" muted playsinline preload="none" aria-hidden="true"><source id="uebel-image-anim-src" src="" type="video/mp4"></video>
+                  <figcaption id="uebel-caption">Archivierte Dämonenstudie</figcaption>
+                </figure>
+                <dl class="codex-folio__meta" id="uebel-facts"></dl>
+              </section>
+              <section class="codex-folio__page codex-folio__page--right">
+                <header class="codex-folio__header">
+                  <div><span class="codex-folio__eyebrow" id="uebel-category"></span><p class="codex-folio__count" id="uebel-count"></p></div>
+                  <h3 class="codex-folio__title" id="uebel-name" tabindex="-1"></h3>
+                  <p class="codex-folio__subtitle" id="uebel-subtitle"></p>
+                  <span class="codex-folio__divider" aria-hidden="true"></span>
+                </header>
+                <div class="codex-folio__content" id="uebel-description"></div>
+              </section>
+            </div>
+          </div>
+          <nav class="codex-folio__nav" aria-label="Übel-Navigation">
+            <button class="codex-folio__nav-prev" id="uebel-previous" type="button"><span>Voriges Übel</span></button>
+            <span class="codex-folio__medallion" aria-hidden="true"></span>
+            <button class="codex-folio__nav-next" id="uebel-next" type="button"><span>Nächstes Übel</span></button>
+          </nav>
+        </article>
+
+        <div class="lilith-note"><strong>Lilith gehört nicht zu den sieben Übeln.</strong> Die Tochter Mephistos ist eine außergewöhnlich mächtige Dämonin und Mitschöpferin Sanktuarios — aber weder Großes noch Geringes Übel.</div>
       </div>
-
-      <div class="uebel-lesser-wrap">
-        <article class="uebel-entry uebel-entry--left">
-          <div class="uebel-entry-art">
-            <img class="uebel-entry-img sketch" src="img/evil/andariel-sketch.webp" alt="Andariel, Zeichnung" loading="lazy">
-            <img class="uebel-entry-img color" src="img/evil/andariel.webp" alt="" loading="lazy">
-            <video class="uebel-entry-img anim" muted playsinline preload="none" aria-hidden="true"><source src="img/evil/andarial-animation.mp4" type="video/mp4"></video>
-          </div>
-          <div class="uebel-entry-text">
-            <span class="type">Geringes Übel · Zwillingschwester Duriels</span>
-            <h3>Andariel</h3>
-            <p>Andariel herrscht über seelische Pein, Verzweiflung und die Erwartung kommenden Leidens. Sie beteiligte sich am Aufstand, der die drei Brüder aus der Hölle verbannte, diente Diablo später jedoch erneut. In Diablo IV taucht sie als beschwörbarer Endgame-Boss auf.</p>
-            <p>Ihr seelisches Gift ist subtiler als das körperliche ihres Bruders Duriel. Sie erschafft keine Wunden — sie erschafft Erwartung. Das Wissen, dass Schlimmeres kommt, bricht Geist und Willen, bevor die erste Klinge fällt.</p>
-            <dl class="uebel-row-facts">
-              <div><dt>Ursprung</dt><dd>Aus einem Kopf Tathamets</dd></div>
-              <div><dt>Domänen</dt><dd>Seelische Pein, Verzweiflung, Qual, Verderb</dd></div>
-              <div><dt>Status</dt><dd>Besiegt in Diablo II — wiedergeboren als Endgame-Boss</dd></div>
-            </dl>
-          </div>
-        </article>
-
-        <article class="uebel-entry uebel-entry--right">
-          <div class="uebel-entry-art">
-            <img class="uebel-entry-img sketch" src="img/evil/duriel-sketch.webp" alt="Duriel, Zeichnung" loading="lazy">
-            <img class="uebel-entry-img color" src="img/evil/duriel2.webp" alt="" loading="lazy">
-            <video class="uebel-entry-img anim" muted playsinline preload="none" aria-hidden="true"><source src="img/evil/duriel-animation.mp4" type="video/mp4"></video>
-          </div>
-          <div class="uebel-entry-text">
-            <span class="type">Geringes Übel · Zwillingsbruder Andariels</span>
-            <h3>Duriel</h3>
-            <p>Andariels Zwillingsbruder steht für körperlichen Schmerz. Während andere Übel planen und verführen, wirkt Duriel fast erschreckend direkt: Er will Fleisch brechen und Hoffnung durch körperliche Qual auslöschen. Sein Käfig aus Gedärm unter dem Grab des Horadrim Tal Rasha machte ihn zum brutalsten Hüter.</p>
-            <p>In Diablo IV erscheint er als beschwörbarer Endgame-Boss. Als Zwilling Andariels bilden beide eine Einheit aus körperlichem und seelischem Leiden — Qual von innen und außen, untrennbar verbunden.</p>
-            <dl class="uebel-row-facts">
-              <div><dt>Ursprung</dt><dd>Aus einem Kopf Tathamets</dd></div>
-              <div><dt>Domänen</dt><dd>Körperlicher Schmerz, Qual, Direktgewalt</dd></div>
-              <div><dt>Status</dt><dd>Besiegt in Diablo II — wiedergeboren als Endgame-Boss</dd></div>
-            </dl>
-          </div>
-        </article>
-
-        <article class="uebel-entry uebel-entry--left">
-          <div class="uebel-entry-art">
-            <img class="uebel-entry-img sketch" src="img/evil/belial-sketch.webp" alt="Belial, Zeichnung" loading="lazy">
-            <img class="uebel-entry-img color" src="img/evil/belial.webp" alt="" loading="lazy">
-            <video class="uebel-entry-img anim" muted playsinline preload="none" aria-hidden="true"><source src="img/evil/belial-animation.mp4" type="video/mp4"></video>
-          </div>
-          <div class="uebel-entry-text">
-            <span class="type">Geringes Übel · Meister der Täuschung</span>
-            <h3>Belial</h3>
-            <p>Belial macht Wahrheit unbrauchbar. Er erschafft falsche Gewissheiten, Masken und politische Intrigen, bis niemand mehr erkennt, wem zu trauen ist. Nach der Verbannung der drei Brüder gewann er im Höllenbürgerkrieg zunächst die Oberhand — bis Azmodan ihn überlistete.</p>
-            <p>In Diablo III verbarg er sich als Kaiser Hakan II. und herrschte über Caldeum. Seine Fähigkeit, Identitäten zu übernehmen und ganze Reiche von innen zu lenken, macht ihn zu einem Feind, den man nie dort vermutet, wo er tatsächlich wirkt.</p>
-            <p class="lore-note lore-note--uncertain"><span>Notiz von Archivar Valen · Status unklar</span>Kein bestätigter Bericht nennt Belials Rückkehr. Bei einem Meister der Täuschung ist auch Schweigen kein Beweis.</p>
-            <dl class="uebel-row-facts">
-              <div><dt>Ursprung</dt><dd>Aus einem Kopf Tathamets</dd></div>
-              <div><dt>Domänen</dt><dd>Täuschung, Manipulation, Intrige, Falsche Gewissheit</dd></div>
-              <div><dt>Status</dt><dd>Besiegt in Diablo III — Status unbekannt</dd></div>
-            </dl>
-          </div>
-        </article>
-
-        <article class="uebel-entry uebel-entry--right">
-          <div class="uebel-entry-art">
-            <img class="uebel-entry-img sketch" src="img/evil/azmodan-sketch.webp" alt="Azmodan, Zeichnung" loading="lazy">
-            <img class="uebel-entry-img color" src="img/evil/azmodan.webp" alt="" loading="lazy">
-            <video class="uebel-entry-img anim" muted playsinline preload="none" aria-hidden="true"><source src="img/evil/azmodan-animation.mp4" type="video/mp4"></video>
-          </div>
-          <div class="uebel-entry-text">
-            <span class="type">Geringes Übel · Oberster Feldherr der Hölle</span>
-            <h3>Azmodan</h3>
-            <p>Azmodan ist Feldherr, Verführer und Personifikation zügelloser Begierde. Nach dem Machtkampf mit Belial führte er die Heere der Hölle an. Sein Hochmut ist zugleich seine Stärke und seine größte Schwäche.</p>
-            <p>In Diablo III öffnete er im Krater des zerstörten Berges Arreat ein Portal und ließ seine Heere nach Sanktuario vordringen. Seine Stärke liegt in der Kriegsführung und der schieren Macht seiner Armeen.</p>
-            <dl class="uebel-row-facts">
-              <div><dt>Ursprung</dt><dd>Aus einem Kopf Tathamets</dd></div>
-              <div><dt>Domänen</dt><dd>Sünde, Hochmut, Heerführung, Verführung</dd></div>
-              <div><dt>Status</dt><dd>Besiegt in Diablo III — mehrfach gebunden</dd></div>
-            </dl>
-          </div>
-        </article>
-      </div>
-
-      <div class="lilith-note"><strong>Lilith gehört nicht zu den sieben Übeln.</strong> Die Tochter Mephistos ist eine außergewöhnlich mächtige Dämonin und Mitschöpferin Sanktuarios — aber weder Großes noch Geringes Übel.</div>
     </section>
+    </div>
 
     <div class="section-divider" aria-hidden="true">
       <img src="img/evil/divider-hell-ornament.webp" alt="" width="2172" height="342">
@@ -311,22 +272,8 @@
     uebelTabs.forEach(tab => tab.addEventListener('click', () => showUebel(Number(tab.dataset.uebelTab))));
     document.querySelector('.uebel-prev').addEventListener('click', () => showUebel(activeUebel - 1));
     document.querySelector('.uebel-next').addEventListener('click', () => showUebel(activeUebel + 1));
-
-    // Geringe Übel: Video spielt einmal beim Hover/Fokus ab und blendet sich
-    // danach wieder aus — das bereits sichtbare Farbbild bleibt stehen, statt
-    // dass das Video loopt oder ein zweites Mal von selbst startet.
-    document.querySelectorAll('.uebel-entry').forEach(entry => {
-      const video = entry.querySelector('.uebel-entry-img.anim');
-      if (!video) return;
-      const play = () => { video.currentTime = 0; video.classList.add('playing'); video.play().catch(() => {}); };
-      const stop = () => { video.pause(); video.classList.remove('playing'); };
-      entry.addEventListener('mouseenter', play);
-      entry.addEventListener('focusin', play);
-      entry.addEventListener('mouseleave', stop);
-      entry.addEventListener('focusout', stop);
-      video.addEventListener('ended', () => video.classList.remove('playing'));
-    });
   </script>
 <script src="js/site-nav-data.js" defer></script><script src="js/site-header.js" defer></script><script src="js/site-footer.js" defer></script><script src="js/search-index.js" defer></script><script src="js/site-search.js" defer></script>
-<script src="js/subnav.js" defer></script></body>
+<script src="js/subnav.js" defer></script>
+<script src="js/uebel-index.js" defer></script></body>
 </html>
