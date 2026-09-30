@@ -227,6 +227,19 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
 }
 .codex-folio--uebel .codex-folio__image img.sketch { transition:opacity .5s ease; }
 .codex-folio--uebel .codex-folio__image video.anim { z-index:2; object-fit:contain; pointer-events:none; }
+/* Weicher, runder Ausblendrand statt der harten Rechteckkante: das
+   generische Foliant-Modul faded nur die äußersten 6% gerade Kanten
+   (für rechteckige Bestiarium-Fotos gedacht) und lässt <video> dabei
+   sogar ganz außen vor (kein mask-image auf Replaced-Video). Für die
+   freigestellten Dämonen-Portraits hier stattdessen ein weicher,
+   ovaler Verlauf auf allen drei Ebenen (Sketch/Color/Video) — dieselbe
+   Maske, die diese Assets schon im vorherigen freien Layout genutzt
+   haben. */
+.codex-folio--uebel .codex-folio__image img,
+.codex-folio--uebel .codex-folio__image video.anim {
+  -webkit-mask-image: radial-gradient(ellipse 60% 60% at 50% 50%, #000 40%, transparent 100%);
+  mask-image: radial-gradient(ellipse 60% 60% at 50% 50%, #000 40%, transparent 100%);
+}
 .codex-folio--uebel .codex-folio__image:hover img.sketch,
 .codex-folio--uebel .codex-folio__image:focus-within img.sketch { opacity:0; }
 .codex-folio--uebel .codex-folio__image:hover img.color,
