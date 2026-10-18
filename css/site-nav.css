@@ -203,24 +203,63 @@ a.nav-panel-entry:focus-visible .nav-panel-entry-title { color:var(--nav-gold); 
   .codex-related { padding:40px 18px 48px; }
 }
 
-/* ─── Footer-Abbinder ──────────────────────────────────────────────────
-   Zierband direkt über dem echten Footer, von js/site-footer.js auf
-   jeder Seite (außer klassen/* - data-abbinder="false") automatisch
-   davorgesetzt. footer-abbinder.webp (2046x768) ist ein durchgehendes
-   Band: oben vollständig transparent, wird nach unten hin zunehmend
-   solide. "center bottom" + cover verankert das Bild an seiner
-   Unterkante (wie bei .region-hero) - ein eventueller Zuschnitt frisst
-   sich also immer nur von oben in die ohnehin transparente Zone, nie in
-   den unteren, sichtbaren Bildteil.
-   Der negative Top-Rand (bewusst über den vorherigen Content gezogen,
-   damit garantiert keine Lücke entsteht) ist als fester Faktor der Höhe
-   berechnet (~-0.716 * Höhe, per Hand an einer großen Auflösung
-   austariert) statt als fixer Pixelwert - so bleibt das Verhältnis von
-   Überlappung zu Bildhöhe bei jeder Viewport-Breite gleich, statt bei
-   kleinen Breiten unverhältnismäßig groß zu werden. */
-.site-abbinder {
-  --ab-h: clamp(190px,51vw,560px);
-  position:relative; left:50%; width:100vw; transform:translateX(-50%);
-  height:var(--ab-h); margin-top:calc(var(--ab-h) * -.716); pointer-events:none; z-index:1;
-  background:center bottom/cover no-repeat;
+/* ─── Footer mit Kerzen-Szene ──────────────────────────────────────────
+   footer-abbinder.webp (2046x768) ist der Footer selbst, auf jeder Seite
+   (von js/site-footer.js erzeugt): oben vollständig transparent, unten
+   ein Holztisch mit Kerzen/Schriftrollen links und Kompass/Laterne rechts.
+   "center bottom" + cover verankert das Bild an seiner Unterkante - ein
+   Zuschnitt frisst sich also immer nur von oben in die ohnehin
+   transparente Zone, nie in den Tisch.
+   Footer-Höhe (--ft-h) schneidet knapp oberhalb des Kerzenscheins ab
+   (~63% der Bildhöhe bei Breiten-Skalierung); --ft-wood ist die dabei
+   sichtbare Tischhöhe (~16.8% der Bildhöhe, bei Breiten-Skalierung 6.3vw).
+   Der Inhalt steht im freien Mittelstück des Tischs (zwischen den Requisiten:
+   ca. 18.5%-72.5% der Bildbreite), nicht über Kerzen oder Kompass. */
+/* Der transparente obere Bildteil lappt per negativem Top-Rand über den
+   vorherigen Content (Kerzen/Requisiten stehen davor): die Tisch-Hinterkante
+   schließt so bündig mit dem Ende des Contents ab, statt dass darüber ein
+   leerer Streifen entsteht. pointer-events:none, damit der überlappte
+   Content klickbar bleibt - nur der Footer-Text selbst fängt Klicks. */
+footer.site-footer {
+  --ft-h: clamp(250px,23.6vw,540px);
+  --ft-wood: max(6.3vw, calc(var(--ft-h) * .168));
+  position:relative; z-index:1; display:flex; flex-direction:column; justify-content:flex-end;
+  min-height:var(--ft-h); margin:calc(var(--ft-wood) - var(--ft-h)) 0 0; padding:0; border:0;
+  background:url('../img/footer/footer-abbinder.webp') center bottom/cover no-repeat;
+  pointer-events:none;
+}
+footer.site-footer .footer-inner, footer.site-footer .footer-rune { pointer-events:auto; }
+/* Die Sprungmarken-Leiste (falls vorhanden) steht direkt über der
+   Tisch-Hinterkante, vor dem Bild: transparent und auf das freie
+   Mittelstück begrenzt, damit sie nicht über Kerzen/Kompass läuft. */
+@media (min-width:861px) {
+  /* margin-bottom: bei schmaleren Breiten ist der Tisch niedriger als der
+     Footer-Text und dieser ragt nach oben über die Tischkante - der Rand
+     (addiert sich mit dem negativen Footer-Rand) schafft genau diese Höhe
+     frei, damit Leiste und Text nicht ineinanderlaufen. */
+  .subnav { position:relative; z-index:2; background:transparent; border-top:0; margin-bottom:max(0px, calc(80px - 6.3vw)); }
+  .subnav-inner { box-sizing:border-box; width:54%; max-width:none; margin:0 0 0 19%; padding:0; justify-content:safe center; gap:clamp(14px,1.8vw,30px); }
+}
+@media (max-width:860px) { .subnav { position:relative; z-index:2; } }
+footer.site-footer .footer-inner {
+  box-sizing:border-box; width:54%; max-width:none; margin:0 0 0 19%;
+  min-height:var(--ft-wood); padding:0 0 .9vw;
+  flex-direction:column; flex-wrap:nowrap; justify-content:center; align-items:center; gap:5px;
+  color:#c9b89d; font:500 clamp(10px,.82vw,11.5px)/1.38 system-ui,sans-serif; text-align:center;
+  text-shadow:0 1px 2px #000, 0 0 6px rgba(0,0,0,.85);
+}
+footer.site-footer .footer-notice { max-width:none; gap:2px; align-items:center; }
+footer.site-footer .footer-inner a { color:#e3cfa8; }
+footer.site-footer .footer-meta { flex-direction:row; flex-wrap:wrap; justify-content:center; align-items:center; gap:6px 18px; }
+footer.site-footer .footer-links { flex-wrap:wrap; justify-content:center; gap:4px 16px; }
+footer.site-footer .footer-links a, footer.site-footer .backtop { font-size:clamp(9.5px,.8vw,11px); }
+
+/* Schmale Viewports: der Tisch ist zu niedrig für den gestapelten Text -
+   Inhalt bekommt die volle Breite und einen weichen dunklen Verlauf als
+   Lesehintergrund, statt Kerzen/Schrift ineinanderlaufen zu lassen. */
+@media (max-width:860px) {
+  footer.site-footer .footer-inner {
+    width:100%; margin:0; padding:36px 18px 22px;
+    background:linear-gradient(to bottom, rgba(10,7,5,0), rgba(10,7,5,.78) 38%, rgba(10,7,5,.88));
+  }
 }

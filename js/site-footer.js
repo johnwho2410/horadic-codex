@@ -20,29 +20,21 @@
       ? `<a class="footer-rune" href="${resolveHref('kuh-level.html', base)}" aria-label="Eine kaum sichtbare Kuh am Rand der Seite"><img src="${resolveHref('img/muh/icon_footer.webp', base)}" alt="" aria-hidden="true"></a>`
       : '';
 
-    const showAbbinder = root.dataset.abbinder !== 'false';
-
     // Die Subnavi (Sprungmarken-Leiste) stand bisher fest am Bildschirmrand
     // (position:fixed) und lag damit unabhängig vom Footer irgendwo über dem
-    // Content. Sie soll jetzt lückenlos zwischen Abbinder und Footer stehen -
-    // dafür wird sie hierher verschoben (ihr eigentlicher Inhalt bleibt an
-    // ihrer bisherigen Stelle im HTML unverändert, nur die Position im DOM
-    // ändert sich), bevor Abbinder und Footer direkt davor/danach eingefügt
-    // werden.
+    // Content. Sie steht jetzt lückenlos direkt über dem Footer - dafür wird
+    // sie hierher verschoben (ihr eigentlicher Inhalt bleibt an ihrer
+    // bisherigen Stelle im HTML unverändert, nur die Position im DOM ändert
+    // sich).
     const subnav = document.querySelector('.subnav');
     if (subnav) {
       root.parentNode.insertBefore(subnav, root);
     }
 
-    if (showAbbinder) {
-      const abbinder = document.createElement('div');
-      abbinder.className = 'site-abbinder';
-      abbinder.setAttribute('aria-hidden', 'true');
-      abbinder.style.backgroundImage = `url('${resolveHref('img/footer/footer-abbinder.webp', base)}')`;
-      root.parentNode.insertBefore(abbinder, subnav || root);
-    }
-
-    root.outerHTML = `<footer><div class="footer-inner">
+    // Das Kerzen-Bild (footer-abbinder.webp) ist der Footer selbst: es liegt
+    // als Hintergrund in css/site-nav.css, der Inhalt steht auf dem Holztisch
+    // des Bildes.
+    root.outerHTML = `<footer class="site-footer"><div class="footer-inner">
       <div class="footer-notice">
         <p>Inoffizielles Fan-Kompendium. Diablo und alle zugehörigen Namen sind Marken von Blizzard Entertainment. Spiel-Artworks, Screenshots und Icons © Blizzard Entertainment, genutzt im Rahmen der Fan Content Policy.</p>
         <p>Icons von <a href="https://www.onlinewebfonts.com/icon" target="_blank" rel="noopener">onlinewebfonts.com</a>, lizenziert unter CC BY 4.0.</p>

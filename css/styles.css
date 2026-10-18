@@ -344,7 +344,7 @@
     .link-card small { color:#987c62; font:700 12px/1 system-ui,sans-serif; letter-spacing:.12em; text-transform:uppercase; }
     .link-card h3 { margin-top:28px; font-size:1.35rem; }
     .link-card p { color:var(--muted); margin:9px 0 0; }
-    footer { position:relative; margin-top:60px; border-top:1px solid var(--line); background:linear-gradient(rgba(8,7,6,.85),rgba(8,7,6,.85)), url('../img/texturen/section-wood-seamless.webp') top center/900px repeat; }
+    footer { position:relative; margin-top:60px; border-top:1px solid var(--line);  }
     /* Winziges, kaum sichtbares Easter Egg: fast unsichtbar in der Footer-Ecke,
        Farbe nahe am Footer-Hintergrund, hellt erst bei Hover/Fokus sichtbar
        auf. Führt zur versteckten Kuh-Ebene-Seite. */
