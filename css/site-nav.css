@@ -267,25 +267,16 @@ footer.site-footer .footer-meta { flex-direction:row; flex-wrap:wrap; justify-co
 footer.site-footer .footer-links { flex-wrap:wrap; justify-content:center; gap:4px 16px; }
 footer.site-footer .footer-links a, footer.site-footer .backtop { font-size:clamp(9.5px,.8vw,11px); }
 
-/* Schmale Viewports: der Tisch (nur ~6vw hoch) ist zu niedrig für den
-   gestapelten Text. Deshalb steht die Szene hier als schmaler Streifen
-   (Breiten-Skalierung, 37.5vw hoch) oben, der Text darunter auf dem
-   dunklen Ton der Bild-Unterkante (rgb 16,10,5 - Mittelwert der untersten
-   Pixelzeilen, daher nahtlos). Der Streifen überlappt den Content nur mit
-   seiner leeren oberen Hälfte (-.56 der Höhe); Kerzen und Tisch stehen
-   komplett unterhalb des letzten Blocks. Footer-Links bekommen Tippflächen
-   von ~40px Höhe. */
+/* Schmale Viewports: die Kerzen-Szene entfällt komplett - auf Handybreite
+   ist sie nur ein kleiner, kaum erkennbarer Streifen. Der Footer ist hier
+   ein schlichter dunkler Block unter dem Content; Footer-Links bekommen
+   Tippflächen von ~40px Höhe. */
 @media (max-width:860px) {
-  footer.site-footer {
-    --ft-scene:37.5vw;
-    display:block; min-height:0;
-    margin-top:calc(var(--ft-scene) * -.56);
-    padding-top:var(--ft-scene);
-  }
-  footer.site-footer::before { inset:0 0 auto 0; height:var(--ft-scene); background-image:url('../img/footer/footer-abbinder-mobile.webp'); background-size:100% auto; background-position:center top; }
+  footer.site-footer { display:block; min-height:0; margin-top:0; padding-top:0; border-top:1px solid #2a1c12; background:#0c0805; }
+  footer.site-footer::before { display:none; }
   footer.site-footer .footer-inner {
-    position:relative; width:100%; margin:0; min-height:0; padding:12px 18px 28px; gap:12px;
-    background:#100a05; font-size:12.5px; line-height:1.5; text-shadow:none;
+    position:relative; width:100%; margin:0; min-height:0; padding:22px 18px 28px; gap:12px;
+    background:none; font-size:12.5px; line-height:1.5; text-shadow:none;
   }
   footer.site-footer .footer-links { gap:0 10px; }
   footer.site-footer .footer-links a, footer.site-footer .backtop { display:inline-block; padding:12px 4px; font-size:12.5px; }
@@ -307,3 +298,6 @@ footer.site-footer .footer-links a, footer.site-footer .backtop { font-size:clam
 html { overflow-x:hidden; }
 
 @media (max-width:760px) { .codex-related__title { font-size:12px; } }
+
+/* Mobil: die seitliche Randabdunklung (body::after, fixed, bis 24% Breite je Seite) liegt über dem Text und macht ihn dort dunkler. Auf schmalen Viewports entfällt sie. */
+@media (max-width:860px) { body::after { display:none; } }
