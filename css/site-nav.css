@@ -225,8 +225,16 @@ footer.site-footer {
   --ft-wood: max(6.3vw, calc(var(--ft-h) * .168));
   position:relative; z-index:1; display:flex; flex-direction:column; justify-content:flex-end;
   min-height:var(--ft-h); margin:calc(var(--ft-wood) - var(--ft-h)) 0 0; padding:0; border:0;
-  background:url('../img/footer/footer-abbinder.webp') center bottom/cover no-repeat;
   pointer-events:none;
+}
+/* Bild als eigene Ebene hinter dem Text: so wirkt der Drop-Shadow nur auf
+   die Szene (Tisch, Kerzen, Requisiten) und nicht zusätzlich auf den Text.
+   Der Schatten fällt nach oben/außen auf den Seiteninhalt - die Szene
+   hebt sich dadurch plastisch vom Content ab. */
+footer.site-footer::before {
+  content:""; position:absolute; inset:0; z-index:-1; pointer-events:none;
+  background:url('../img/footer/footer-abbinder.webp') center bottom/cover no-repeat;
+  filter:drop-shadow(0 -24px 21px rgba(0,0,0,.8)) drop-shadow(0 -10px 18px rgba(0,0,0,.65));
 }
 footer.site-footer .footer-inner, footer.site-footer .footer-rune { pointer-events:auto; }
 /* Die Sprungmarken-Leiste (falls vorhanden) steht direkt über der
