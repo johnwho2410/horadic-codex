@@ -73,6 +73,11 @@
 .nav-item:hover .nav-panel,
 .nav-item:focus-within .nav-panel,
 .nav-item.is-open .nav-panel { opacity:1; visibility:visible; pointer-events:auto; }
+/* Die Menüpunkte 4 und 5 (Archiv, Wissen) sitzen rechts: ihr 560px-
+   Panel ragte bei Breiten unter ~1250px rechts über den Viewport hinaus und
+   erzeugte (auch im geschlossenen Zustand) seitliches Scrollen. Rechtsbündig
+   öffnet es stattdessen nach links. */
+.nav-item:nth-child(n+4) .nav-panel { left:auto; right:0; }
 
 .nav-panel-title {
   display:block; margin-bottom:16px; color:var(--nav-gold);
@@ -262,12 +267,41 @@ footer.site-footer .footer-meta { flex-direction:row; flex-wrap:wrap; justify-co
 footer.site-footer .footer-links { flex-wrap:wrap; justify-content:center; gap:4px 16px; }
 footer.site-footer .footer-links a, footer.site-footer .backtop { font-size:clamp(9.5px,.8vw,11px); }
 
-/* Schmale Viewports: der Tisch ist zu niedrig für den gestapelten Text -
-   Inhalt bekommt die volle Breite und einen weichen dunklen Verlauf als
-   Lesehintergrund, statt Kerzen/Schrift ineinanderlaufen zu lassen. */
+/* Schmale Viewports: der Tisch (nur ~6vw hoch) ist zu niedrig für den
+   gestapelten Text. Deshalb steht die Szene hier als schmaler Streifen
+   (Breiten-Skalierung, 37.5vw hoch) oben, der Text darunter auf dem
+   dunklen Ton der Bild-Unterkante (rgb 16,10,5 - Mittelwert der untersten
+   Pixelzeilen, daher nahtlos). Der Streifen überlappt den Content nur mit
+   seiner leeren oberen Hälfte (-.56 der Höhe); Kerzen und Tisch stehen
+   komplett unterhalb des letzten Blocks. Footer-Links bekommen Tippflächen
+   von ~40px Höhe. */
 @media (max-width:860px) {
-  footer.site-footer .footer-inner {
-    width:100%; margin:0; padding:36px 18px 22px;
-    background:linear-gradient(to bottom, rgba(10,7,5,0), rgba(10,7,5,.78) 38%, rgba(10,7,5,.88));
+  footer.site-footer {
+    --ft-scene:37.5vw;
+    display:block; min-height:0;
+    margin-top:calc(var(--ft-scene) * -.56);
+    padding-top:var(--ft-scene);
   }
+  footer.site-footer::before { inset:0 0 auto 0; height:var(--ft-scene); background-image:url('../img/footer/footer-abbinder-mobile.webp'); background-size:100% auto; background-position:center top; }
+  footer.site-footer .footer-inner {
+    position:relative; width:100%; margin:0; min-height:0; padding:12px 18px 28px; gap:12px;
+    background:#100a05; font-size:12.5px; line-height:1.5; text-shadow:none;
+  }
+  footer.site-footer .footer-links { gap:0 10px; }
+  footer.site-footer .footer-links a, footer.site-footer .backtop { display:inline-block; padding:12px 4px; font-size:12.5px; }
+  footer.site-footer .footer-notice a { padding:4px 0; }
 }
+
+/* Sicherheitsnetz für schmale Viewports: ein überlanges einzelnes Wort in
+   einer Überschrift bricht um, statt die Seite seitlich aufzuweiten oder vom
+   overflow:hidden des Heros abgeschnitten zu werden (:where = Specificity 0,
+   seitenspezifische Regeln behalten Vorrang). */
+:where(h1,h2,h3,h4) { overflow-wrap:break-word; }
+
+/* 100vw schließt die Breite der vertikalen Scrollleiste mit ein (Windows):
+   zentrierte Ornament-Linien mit width:100vw (z.B. .codex-divider::before)
+   und weitere breite, absolut positionierte Zierelemente ragten dadurch über
+   den Viewport und erzeugten seitliches Scrollen. Auf html statt body gesetzt,
+   damit die Regel für den Viewport selbst gilt (kein eigener Scroll-Container,
+   sticky bleibt intakt). */
+html { overflow-x:hidden; }

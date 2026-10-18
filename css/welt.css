@@ -422,3 +422,8 @@ footer { margin-top:60px; border-top:1px solid var(--line);  }
   .footer-meta { align-items:flex-start; }
   .lore-note { padding-left:18px; }
 }
+
+/* Mobil: Text steht über der vollen Bildbreite, die seitliche Verdunklung (nur linke Hälfte) reicht dafür nicht - eigener Lesehintergrund hinter dem Textblock, läuft nach oben weich aus. */
+@media (max-width:760px) {
+  .region-hero-content { padding-top:92px; background:linear-gradient(to top,rgba(7,5,4,.84) 0%,rgba(7,5,4,.68) 60%,rgba(7,5,4,0) 100%); }
+}

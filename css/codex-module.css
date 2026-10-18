@@ -89,3 +89,17 @@
    Lederrahmen mit den Ecken funktioniert unabhängig von Boxform/-höhe
    genauso weiter, das Buch bleibt also auch hier gerahmt. */
 @media(max-width:860px){.codex-folio{padding:0}.codex-folio__tabs{position:static;width:auto;margin:0 0 20px}.codex-folio__tabs-label{margin-left:0}.monster-search-wrap{margin:0 0 12px}.codex-folio__tabs-list{display:flex;gap:7px;overflow-x:auto;padding:4px 12px 10px}.codex-folio__tab{flex:0 0 154px;min-height:50px;padding:0 23px}.codex-folio__spread{grid-template-columns:1fr;grid-template-areas:"right" "left" "wide"}.codex-folio__book::before{display:none}.codex-folio__page--left,.codex-folio__page--right{padding:0;max-width:none}.codex-folio__page--left{margin-top:20px}.codex-folio__image{max-width:470px;margin:auto}.codex-folio__image img,.codex-folio__image-placeholder{min-height:0}.codex-folio__content p{font-size:.94rem}.codex-folio__wide-image{max-height:220px}.codex-folio__wide-section figure{grid-template-columns:1fr;gap:12px}.codex-folio__nav{grid-template-columns:1fr 48px 1fr;gap:4px}.codex-folio__medallion{width:48px}.codex-folio__nav button{padding:0 9px;font-size:9px}}@media(max-width:420px){.codex-folio__book{border-width:22px 34px}.codex-folio__meta{grid-template-columns:1fr}.codex-folio__meta-item:last-child{grid-column:auto}.codex-folio__nav button span{display:none}.codex-folio__nav-prev::after{content:'←'}.codex-folio__nav-next::after{content:'→'}}
+/* Mobil/Tablet: Reihenfolge Titel -> Bild -> Text -> Merkmale. Vorher stand
+   die Textseite komplett vor der Bildseite, das Studienbild erschien erst
+   nach einem Bildschirm Fließtext. Beide Buchseiten lösen sich dafür in ihre
+   Kinder auf (display:contents), die per order neu gereiht werden. */
+@media(max-width:860px){
+.codex-folio__spread{display:flex;flex-direction:column}
+.codex-folio__page--left,.codex-folio__page--right{display:contents}
+.codex-folio__header{order:1}
+.codex-folio__families{order:2}
+.codex-folio__image{order:3;width:100%;max-width:340px;margin:14px auto 6px}
+.codex-folio__content{order:4}
+.codex-folio__meta{order:5;margin-top:18px}
+.codex-folio__wide-section{order:6}
+}

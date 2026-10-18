@@ -274,7 +274,7 @@
       .world-slide::after { background:linear-gradient(0deg,rgba(5,4,3,.98) 0%,rgba(5,4,3,.74) 52%,rgba(5,4,3,.36) 100%); }
       .world-kicker { top:28px; left:22px; }
       .world-content { left:22px; bottom:155px; width:calc(100vw - 44px); }
-      .world-content h2 { font-size:clamp(2.55rem,14vw,4.3rem); }
+      .world-content h2 { font-size:clamp(2.1rem,11.4vw,4.3rem); hyphens:auto; overflow-wrap:break-word; }
       .world-content > p { line-height:var(--type-leading); }
       .world-facts { gap:16px 24px; }
       .world-controls { bottom:60px; width:calc(100vw - 30px); grid-template-columns:44px minmax(0,1fr) 44px; gap:7px; }

@@ -203,6 +203,18 @@ main { overflow:hidden; }
   .council-arrow { width:40px; height:40px; font-size:calc(1.1rem + 1px); }
   .council-tab { min-width:96px; font-size:12px; padding:14px 8px 0; }
 }
+/* Mobil: Porträt oben, Text darunter im normalen Fluss (siehe hoelle.css) -
+   verhindert, dass lange Einträge oben aus dem Slider ragen und der Name
+   abgeschnitten wird. */
+@media (max-width:760px) {
+  .council-slider { min-height:0; }
+  .council-track { display:grid; }
+  .council-slide { position:relative; inset:auto; grid-area:1/1; display:flex; flex-direction:column; }
+  .council-slide::after { display:none; }
+  .council-portrait,.council-slide.active .council-portrait { position:relative; inset:auto; width:100%; height:min(100vw,440px); transform:none; transition:none; object-position:22% 10%; -webkit-mask-image:linear-gradient(#000 58%,transparent); mask-image:linear-gradient(#000 58%,transparent); }
+  .council-info { position:relative; right:auto; bottom:auto; width:auto; margin:-64px 22px 28px; }
+  .council-controls { position:relative; left:auto; bottom:auto; transform:none; width:auto; margin:18px 15px 64px; }
+}
 @media (prefers-reduced-motion:reduce) { .council-slide,.council-portrait { transition:none; } }
 
 /* ─── Codex-Kapitel: fließender Buchsatz statt Website-Bausteinen ───
@@ -321,4 +333,9 @@ footer { margin-top:0; border-top:1px solid var(--line);  }
   .footer-inner { flex-direction:column; align-items:flex-start; }
   .footer-meta { align-items:flex-start; }
   .lore-note { padding-left:18px; }
+}
+
+/* Mobil: Text steht über der vollen Bildbreite, die seitliche Verdunklung (nur linke Hälfte) reicht dafür nicht - eigener Lesehintergrund hinter dem Textblock, läuft nach oben weich aus. */
+@media (max-width:760px) {
+  .region-hero-content { padding-top:92px; background:linear-gradient(to top,rgba(7,5,4,.84) 0%,rgba(7,5,4,.68) 60%,rgba(7,5,4,0) 100%); }
 }

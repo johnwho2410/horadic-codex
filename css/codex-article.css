@@ -64,7 +64,7 @@
 .codex-article-visual { max-width:300px; margin:0 auto 32px; }
 .codex-article-visual img { display:block; width:100%; height:auto; border:1px solid var(--line); filter:saturate(.8) contrast(1.05) brightness(.85); }
 .codex-eyebrow-line { display:block; color:var(--gold); font:700 .72rem/1 system-ui,sans-serif; letter-spacing:.18em; text-transform:uppercase; }
-.codex-article-body h1 { margin:14px 0 0; font-size:clamp(2.3rem,6vw,3.4rem); }
+.codex-article-body h1 { margin:14px 0 0; font-size:clamp(1.65rem,7vw,3.4rem); hyphens:auto; overflow-wrap:break-word; }
 .codex-titlepage h1::after { content:"◆"; display:block; width:max-content; margin:18px auto 0; color:#7f2b20; font:400 .68rem/1 'Spectral',Georgia,serif; text-shadow:15px 0 #4d2d24,-15px 0 #4d2d24; }
 .codex-lead { max-width:520px; margin:22px auto 0; color:#cbbdad; font-size:var(--type-note,20px); line-height:var(--type-leading,1.7); font-style:italic; font-family:'Spectral',Georgia,serif; }
 
@@ -146,7 +146,7 @@
 
 /* Quellenapparat: kompakte zweispaltige Liste (Quelle + Kategorie),
    keine Card, kein Panel - kleiner und ruhiger als der Artikel selbst. */
-.codex-sources { max-width:640px; margin:56px auto 0; padding-top:20px; border-top:1px solid var(--line); display:grid; grid-template-columns:1fr auto; gap:9px 24px; }
+.codex-sources { max-width:640px; margin:56px auto 0; padding-top:20px; border-top:1px solid var(--line); display:grid; grid-template-columns:minmax(0,1fr) auto; gap:9px 24px; }
 .codex-sources-label { grid-column:1/-1; display:block; margin-bottom:5px; color:var(--gold); font:700 .68rem/1 system-ui,sans-serif; letter-spacing:.15em; text-transform:uppercase; text-align:center; }
 .codex-sources dt { color:#c2b6a6; font:400 .92rem/1.4 'Spectral',Georgia,serif; }
 .codex-sources dt::before { content:"— "; color:#4a3c2e; }
@@ -154,8 +154,9 @@
 .codex-sources div { display:contents; }
 
 @media (max-width:520px) {
-  .codex-sources { grid-template-columns:1fr; }
-  .codex-sources dd { text-align:left; }
+  .codex-sources { grid-template-columns:minmax(0,1fr); }
+  .codex-sources dt { overflow-wrap:anywhere; }
+  .codex-sources dd { text-align:left; white-space:normal; }
   .codex-sources dd::before { content:"· "; }
 }
 
