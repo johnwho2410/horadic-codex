@@ -462,3 +462,14 @@ footer { margin-top:60px; border-top:1px solid var(--line);  }
 @media (max-width:760px) {
   .region-hero-content { padding-top:92px; background:linear-gradient(to top,rgba(7,5,4,.84) 0%,rgba(7,5,4,.68) 60%,rgba(7,5,4,0) 100%); }
 }
+
+/* Chronik mobil: nur der erste Absatz je Eintrag, Rest per Button (siehe
+   js/chronicle-collapse.js); Fensterbilder schmaler, damit ein Eintrag nicht
+   fast zwei Bildschirme einnimmt. */
+.chronicle-more { margin-top:14px; padding:10px 0; color:var(--gold); background:none; border:0; border-bottom:1px solid rgba(196,154,80,.45); font:700 12px/1 system-ui,sans-serif; letter-spacing:.14em; text-transform:uppercase; cursor:pointer; }
+.chronicle-more:hover,.chronicle-more:focus-visible { color:#e3cfa8; border-bottom-color:#e3cfa8; }
+.chronicle-more[hidden] { display:none; }
+@media (max-width:760px) {
+  .chronicle-copy.is-collapsed > p:nth-of-type(n+2) { display:none; }
+  .chronicle-media { inline-size:min(100%,280px); justify-self:center; margin-inline:auto; }
+}

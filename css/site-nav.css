@@ -305,3 +305,5 @@ footer.site-footer .footer-links a, footer.site-footer .backtop { font-size:clam
    damit die Regel für den Viewport selbst gilt (kein eigener Scroll-Container,
    sticky bleibt intakt). */
 html { overflow-x:hidden; }
+
+@media (max-width:760px) { .codex-related__title { font-size:12px; } }

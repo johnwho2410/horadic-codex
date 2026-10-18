@@ -540,3 +540,27 @@
     }
     #sanctuary::after { content:""; position:absolute; z-index:-1; top:0; left:50%; width:100vw; height:190px; transform:translateX(-50%); pointer-events:none; background:linear-gradient(to bottom,#090807 0%,rgba(9,8,7,.82) 30%,transparent 100%); }
     footer { margin-top:0; }
+
+/* Mobil: die Regionsbilder (16:9) werden im Hochformat auf ~26% ihrer Breite
+   beschnitten - pro Region der Ausschnitt, der das Hauptmotiv trifft
+   (Kathedrale, Anlegesteg, Nomadenzelt, Palastturm, Kapelle, Steingesicht,
+   Klippentempel), statt immer die Bildmitte. Das Overlay ist oben leichter,
+   damit das Motiv im oberen Bilddrittel sichtbar bleibt; unter dem Text
+   bleibt es dicht. */
+@media (max-width:720px) {
+  .world-bg[src*="zersplitterte-gipfel"] { object-position:74% 40%; }
+  .world-bg[src*="scosglen"] { object-position:44% 40%; }
+  .world-bg[src*="trockensteppe"] { object-position:54% 40%; }
+  .world-bg[src*="kehjistan"] { object-position:38% 40%; }
+  .world-bg[src*="hawezar"] { object-position:38% 40%; }
+  .world-bg[src*="nahantu"] { object-position:16% 40%; }
+  .world-bg[src*="skovos"] { object-position:18% 40%; }
+  .world-slide::after { background:linear-gradient(0deg,rgba(5,4,3,.98) 0%,rgba(5,4,3,.86) 38%,rgba(5,4,3,.4) 60%,rgba(5,4,3,.08) 100%); }
+}
+
+/* Mobil: lange zentrierte Fließtexte (Himmel-/Hölle-Teaser, Sanktuario-Teaser)
+   sind linksbündig deutlich besser lesbar; Überschriften und Buttons bleiben
+   zentriert. */
+@media (max-width:720px) {
+  .hh-col p, .sanctuary-teaser p { text-align:left; hyphens:auto; }
+}

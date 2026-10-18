@@ -110,7 +110,7 @@
 .codex-prose > * + * { margin-top:var(--rhythm); }
 .codex-prose h2 { margin-top:calc(var(--rhythm) * 3.4); text-align:center; font-size:clamp(1.5rem,3vw,1.9rem); }
 .codex-prose h2 + * { margin-top:calc(var(--rhythm) * .85); }
-.codex-chapter-num { display:block; margin-bottom:10px; color:#6e5f4f; font:700 .72rem/1 system-ui,sans-serif; letter-spacing:.2em; }
+.codex-chapter-num { display:block; margin-bottom:10px; color:#8c7c69; font:700 .72rem/1 system-ui,sans-serif; letter-spacing:.2em; }
 .codex-prose h2::after { content:""; display:block; width:64px; height:1px; margin:18px auto 0; background:linear-gradient(90deg,transparent,var(--gold),transparent); }
 .codex-prose h3 { margin-top:calc(var(--rhythm) * 1.7); text-align:center; font-size:1.2rem; }
 .codex-prose h3 + * { margin-top:calc(var(--rhythm) * .7); }
@@ -239,3 +239,6 @@ a.codex-diagram-node:hover h3,a.codex-diagram-node:focus-visible h3 { color:var(
   .codex-diagram-tier--split { grid-template-columns:1fr; gap:16px; }
   .codex-diagram-tier + .codex-diagram-tier { margin-top:30px; }
 }
+
+/* Mobil: Kleinstlabels nicht unter 12px. */
+@media (max-width:760px) { .codex-chapter-num { font-size:12px; } }
