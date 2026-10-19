@@ -352,3 +352,11 @@ footer { margin-top:60px; border-top:1px solid var(--line);  }
   .uebel-controls + .section-divider { margin-top:72px; }
   .uebel-controls { position:sticky; bottom:0; z-index:20; margin:0; width:auto; padding:10px 15px calc(10px + env(safe-area-inset-bottom)); background:rgba(9,8,7,.96); border-top:1px solid rgba(207,183,158,.16); }
 }
+
+/* Mobil/Tablet: die 420px Mindesthöhe der Desktop-Zeichnung ließ um das
+   Bild im einspaltigen Folianten große leere Flächen - hier wieder frei. */
+@media (max-width:860px) {
+  .codex-folio--uebel .codex-folio__image,
+  .codex-folio--uebel .codex-folio__image img,
+  .codex-folio--uebel .codex-folio__image-placeholder { min-height:0; }
+}

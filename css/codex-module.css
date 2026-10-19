@@ -103,3 +103,17 @@
 .codex-folio__meta{order:5;margin-top:18px}
 .codex-folio__wide-section{order:6}
 }
+
+/* Smartphones (<= 600px): kein Lederrahmen (border-image) mehr, nur noch der
+   Pergament-Hintergrund; Desktop und Tablet behalten den Folianten. Der
+   Aufbau bleibt gleich. Die Blätter-Buttons werden größer: zwei gleich
+   breite Flächen ohne Medaillon, Beschriftung wieder sichtbar (zwei Zeilen
+   erlaubt) statt nur Pfeil, mind. 64px hoch. */
+@media(max-width:600px){
+.codex-folio__book{border:0;border-image:none;border-radius:4px;background-clip:border-box;padding:24px 18px}
+.codex-folio__nav{grid-template-columns:1fr 1fr;gap:10px;margin:18px 0 0}
+.codex-folio__medallion{display:none}
+.codex-folio__nav button{aspect-ratio:auto;min-height:64px;padding:8px 30px;font-size:12px;line-height:1.25}
+.codex-folio__nav button span{display:inline}
+.codex-folio__nav-prev::after,.codex-folio__nav-next::after{content:none}
+}
