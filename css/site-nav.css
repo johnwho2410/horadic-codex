@@ -291,11 +291,12 @@ footer.site-footer .footer-links a, footer.site-footer .backtop { font-size:clam
 
 /* 100vw schließt die Breite der vertikalen Scrollleiste mit ein (Windows):
    zentrierte Ornament-Linien mit width:100vw (z.B. .codex-divider::before)
-   und weitere breite, absolut positionierte Zierelemente ragten dadurch über
-   den Viewport und erzeugten seitliches Scrollen. Auf html statt body gesetzt,
-   damit die Regel für den Viewport selbst gilt (kein eigener Scroll-Container,
-   sticky bleibt intakt). */
-html { overflow-x:hidden; }
+   ragten dadurch über den Viewport und erzeugten seitliches Scrollen.
+   Bewusst body mit overflow-x:clip und NICHT html mit hidden: ein gesetztes
+   overflow auf html verhindert, dass das overflow-x:hidden des body (z.B.
+   Startseite) an den Viewport durchgereicht wird - der body wird dann selbst
+   zum Scroll-Container und position:sticky (Header) greift nicht mehr. */
+body { overflow-x:clip; }
 
 @media (max-width:760px) { .codex-related__title { font-size:12px; } }
 
