@@ -101,7 +101,7 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
 .region-facts dd { margin:0; color:#eee4d8; font-size:var(--type-body); }
 
 /* ─── Content Blocks ───────────────────────────────────────── */
-main { overflow:hidden; }
+main { overflow:clip; display:flow-root; }
 .block { max-width:1200px; margin:auto; padding:var(--space-section) var(--page-gutter); }
 .block + .block { border-top:1px solid var(--line); }
 .block-head { margin-bottom:var(--space-xl); }
@@ -338,4 +338,11 @@ footer { margin-top:0; border-top:1px solid var(--line);  }
 /* Mobil: Text steht über der vollen Bildbreite, die seitliche Verdunklung (nur linke Hälfte) reicht dafür nicht - eigener Lesehintergrund hinter dem Textblock, läuft nach oben weich aus. */
 @media (max-width:760px) {
   .region-hero-content { padding-top:92px; background:linear-gradient(to top,rgba(7,5,4,.84) 0%,rgba(7,5,4,.68) 60%,rgba(7,5,4,0) 100%); }
+}
+
+/* Mobil: Slider-Navigation dockt am unteren Viewport-Rand an, solange der
+   Slider im Bild ist (siehe hoelle.css). */
+@media (max-width:760px) {
+  .council-wrap { padding-bottom:64px; }
+  .council-controls { position:sticky; bottom:0; z-index:20; margin:0; width:auto; padding:10px 15px calc(10px + env(safe-area-inset-bottom)); background:rgba(9,8,7,.96); border-top:1px solid rgba(207,183,158,.16); }
 }

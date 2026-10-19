@@ -35,7 +35,7 @@
     .nav-links a { color:var(--muted); text-decoration:none; font:600 calc(.78rem + 1px)/1.2 system-ui,sans-serif; letter-spacing:.09em; text-transform:uppercase; }
     .nav-links a:hover,.nav-links a:focus-visible { color:var(--bone); }
     .menu-btn { display:none; color:var(--bone); background:none; border:1px solid var(--line); padding:7px 10px; }
-    main { overflow:hidden; }
+    main { overflow:clip; display:flow-root; }
     .hero { position:relative; width:100%; min-height:780px; margin:0; padding:255px max(24px,calc((100vw - var(--width-shell))/2)) 52px; display:grid; grid-template-columns:minmax(0,870px) 220px; justify-content:center; align-items:end; gap:64px; overflow:visible; border-bottom:0; background:#130806; box-shadow:0 30px 80px rgba(0,0,0,.55); }
     .hero::before { content:""; position:absolute; inset:0; z-index:1; pointer-events:none; background:linear-gradient(180deg,rgba(7,4,3,.02) 0%,rgba(8,5,4,.10) 35%,rgba(8,5,4,.70) 72%,rgba(9,8,7,.96) 88%,#0a0908 100%),linear-gradient(90deg,rgba(8,5,4,.65),transparent 44%,rgba(8,5,4,.2)); }
     .hero::after { content:""; position:absolute; bottom:0; left:0; right:0; height:220px; z-index:2; pointer-events:none; background:linear-gradient(to bottom, transparent 0%, rgba(8,7,6,.38) 38%, #090807 100%); }
@@ -563,4 +563,15 @@
    zentriert. */
 @media (max-width:720px) {
   .hh-col p, .sanctuary-teaser p { text-align:left; hyphens:auto; }
+}
+
+/* Mobil: Regions-Navigation dockt wie auf den Unterseiten am unteren
+   Viewport-Rand an, solange der Slider im Bild ist. Die Leiste liegt dafür
+   im Fluss unter dem Slider statt als Overlay darauf, der Textblock rückt
+   entsprechend tiefer. */
+@media (max-width:720px) {
+  .world-wrap { padding-bottom:64px; }
+  .world { min-height:760px; }
+  .world-content { bottom:56px; }
+  .world-controls { position:sticky; left:auto; bottom:0; z-index:20; width:auto; transform:none; margin:0; padding:10px 15px calc(10px + env(safe-area-inset-bottom)); background:rgba(9,8,7,.96); border-top:1px solid rgba(207,183,158,.16); }
 }

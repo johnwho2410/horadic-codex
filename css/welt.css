@@ -92,7 +92,7 @@ h1,h2,h3 { margin:0; font-family:'Marcellus',Georgia,serif; font-weight:400; lin
 .region-facts dd { margin:0; color:#eee4d8; font-size:var(--type-body); }
 
 /* ─── Content Blocks ───────────────────────────────────────── */
-main { overflow:hidden; }
+main { overflow:clip; display:flow-root; }
 .block { max-width:1200px; margin:auto; padding:var(--space-section) var(--page-gutter); }
 .block + .block { border-top:1px solid var(--line); }
 

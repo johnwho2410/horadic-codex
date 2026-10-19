@@ -342,3 +342,13 @@ footer { margin-top:60px; border-top:1px solid var(--line);  }
   .codex-folio--uebel .codex-folio__image img.sketch { opacity:0; }
   .codex-folio--uebel .codex-folio__image img.color { opacity:1; }
 }
+
+/* Mobil: Slider-Navigation dockt am unteren Viewport-Rand an, solange der
+   Slider im Bild ist (position:sticky im selben Wrapper), und löst sich am
+   Slider-Ende wieder. So sieht man Tabs/Pfeile sofort und muss nicht erst
+   ans untere Ende des (hohen) Sliders scrollen. wrap-padding hält die
+   Leiste am Ende vom herausragenden Divider-Ornament fern. */
+@media (max-width:760px) {
+  .uebel-wrap { padding-bottom:64px; }
+  .uebel-controls { position:sticky; bottom:0; z-index:20; margin:0; width:auto; padding:10px 15px calc(10px + env(safe-area-inset-bottom)); background:rgba(9,8,7,.96); border-top:1px solid rgba(207,183,158,.16); }
+}
