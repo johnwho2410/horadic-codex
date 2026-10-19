@@ -570,7 +570,7 @@
    im Fluss unter dem Slider statt als Overlay darauf, der Textblock rückt
    entsprechend tiefer. */
 @media (max-width:720px) {
-  .world-wrap { padding-bottom:64px; }
+  .world-controls + .section-divider { margin-top:72px; }
   .world { min-height:760px; }
   .world-content { bottom:56px; }
   .world-controls { position:sticky; left:auto; bottom:0; z-index:20; width:auto; transform:none; margin:0; padding:10px 15px calc(10px + env(safe-area-inset-bottom)); background:rgba(9,8,7,.96); border-top:1px solid rgba(207,183,158,.16); }

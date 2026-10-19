@@ -343,6 +343,6 @@ footer { margin-top:0; border-top:1px solid var(--line);  }
 /* Mobil: Slider-Navigation dockt am unteren Viewport-Rand an, solange der
    Slider im Bild ist (siehe hoelle.css). */
 @media (max-width:760px) {
-  .council-wrap { padding-bottom:64px; }
+  .council-controls + .section-divider { margin-top:72px; }
   .council-controls { position:sticky; bottom:0; z-index:20; margin:0; width:auto; padding:10px 15px calc(10px + env(safe-area-inset-bottom)); background:rgba(9,8,7,.96); border-top:1px solid rgba(207,183,158,.16); }
 }
